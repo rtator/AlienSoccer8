@@ -28,6 +28,7 @@ var sprite_scale = Vector2(1,1)
 var initialized = false
 
 var ball
+var opponent
 
 var is_bot = false
 

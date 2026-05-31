@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://csk0qwfhyh2bg"]
+[gd_scene load_steps=12 format=3 uid="uid://csk0qwfhyh2bg"]
 
 [ext_resource type="Script" uid="uid://5qmjw0wrextr" path="res://level_test.gd" id="1_u52ul"]
+[ext_resource type="Texture2D" uid="uid://cntljjvkv1ig7" path="res://Imported piskel (7).png" id="2_f2txt"]
 [ext_resource type="PackedScene" uid="uid://bk0b0q7uuxcjq" path="res://ball.tscn" id="2_vonw3"]
 [ext_resource type="Script" uid="uid://6ddf1jx7j5bu" path="res://p_1_wall.gd" id="3_0b4ue"]
 [ext_resource type="Script" uid="uid://bbduc43ljf86y" path="res://p_2_wall.gd" id="4_f2txt"]
@@ -24,6 +25,27 @@ font_size = 100
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_u52ul")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_f2txt")
 
 [node name="ball" parent="." instance=ExtResource("2_vonw3")]
 unique_name_in_owner = true
@@ -69,14 +91,10 @@ collision_mask = 128
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D4"]
 shape = SubResource("WorldBoundaryShape2D_n6hdu")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="Control"]
-layout_mode = 1
+[node name="Control2" type="Control" parent="CanvasLayer"]
+layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -85,7 +103,7 @@ offset_right = 200.0
 offset_bottom = 100.0
 grow_horizontal = 2
 
-[node name="p1Score" type="Label" parent="Control/Control"]
+[node name="p1Score" type="Label" parent="CanvasLayer/Control2"]
 unique_name_in_owner = true
 layout_mode = 1
 offset_right = 57.0
@@ -93,7 +111,7 @@ offset_bottom = 137.0
 text = "0"
 label_settings = SubResource("LabelSettings_km5ld")
 
-[node name="p2Score" type="Label" parent="Control/Control"]
+[node name="p2Score" type="Label" parent="CanvasLayer/Control2"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 1
@@ -105,15 +123,14 @@ grow_horizontal = 0
 text = "0"
 label_settings = SubResource("LabelSettings_km5ld")
 
-[node name="GridContainer" type="GridContainer" parent="Control"]
-layout_mode = 1
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -515.0
-offset_top = -40.0
+offset_top = -100.0
 offset_right = 515.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -121,45 +138,47 @@ theme_override_constants/h_separation = 30
 theme_override_constants/v_separation = 0
 columns = 2
 
-[node name="Label" type="Label" parent="Control/GridContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
 text = "Cooldown:"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Control/GridContainer"]
+[node name="Label2" type="Label" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
 text = "Cooldown:"
 horizontal_alignment = 1
 
-[node name="p1Cooldown" type="ProgressBar" parent="Control/GridContainer"]
+[node name="p1Cooldown" type="ProgressBar" parent="CanvasLayer/GridContainer"]
 unique_name_in_owner = true
 clip_contents = true
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
+max_value = 1.0
 
-[node name="p2Cooldown" type="ProgressBar" parent="Control/GridContainer"]
+[node name="p2Cooldown" type="ProgressBar" parent="CanvasLayer/GridContainer"]
 unique_name_in_owner = true
 clip_contents = true
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
+max_value = 1.0
 
-[node name="Label3" type="Label" parent="Control/GridContainer"]
+[node name="Label3" type="Label" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
 text = "Ultimate Charge:"
 horizontal_alignment = 1
 
-[node name="Label4" type="Label" parent="Control/GridContainer"]
+[node name="Label4" type="Label" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
 text = "Ultimate Charge:"
 horizontal_alignment = 1
 
-[node name="p1Charge" type="ProgressBar" parent="Control/GridContainer"]
+[node name="p1Charge" type="ProgressBar" parent="CanvasLayer/GridContainer"]
 unique_name_in_owner = true
 clip_contents = true
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 
-[node name="p2Charge" type="ProgressBar" parent="Control/GridContainer"]
+[node name="p2Charge" type="ProgressBar" parent="CanvasLayer/GridContainer"]
 unique_name_in_owner = true
 clip_contents = true
 custom_minimum_size = Vector2(500, 0)

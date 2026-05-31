@@ -32,6 +32,9 @@ func _on_speedy_1_pressed():
 func _on_scaler_1_pressed():
 	GlobalSave.p1Char = "scaler"
 	update_texture()
+func _on_jumper_1_pressed():
+	GlobalSave.p1Char = "jumper"
+	update_texture()
 func _on_basic_2_pressed():
 	GlobalSave.p2Char = "basic"
 	update_texture()
@@ -40,6 +43,9 @@ func _on_speedy_2_pressed():
 	update_texture()
 func _on_scaler_2_pressed():
 	GlobalSave.p2Char = "scaler"
+	update_texture()
+func _on_jumper_2_pressed():
+	GlobalSave.p2Char = "jumper"
 	update_texture()
 
 func _on_button_pressed():

@@ -4,6 +4,7 @@ const player_objects = {
 	"basic": preload("res://basicAlien.tscn"),
 	"speedy": preload("res://speedyAlien.tscn"),
 	"scaler": preload("res://scalerAlien.tscn"),
+	"jumper": preload("res://jumperAlien.tscn"),
 }
 
 var p1
@@ -27,6 +28,9 @@ func _ready():
 	p2.set_player(2)
 	p2.charge_bar = %p2Charge
 	p2.cooldown_bar = %p2Cooldown
+	
+	p1.opponent = p2
+	p2.opponent = p1
 	
 	add_child(p1)
 	add_child(p2)

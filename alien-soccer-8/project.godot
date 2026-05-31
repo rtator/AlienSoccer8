@@ -21,7 +21,7 @@ GlobalSave="*res://Global_Save.tscn"
 
 [display]
 
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 
 [editor]
 
