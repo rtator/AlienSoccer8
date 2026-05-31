@@ -29,6 +29,7 @@ var initialized = false
 
 var ball
 var opponent
+var character
 
 var is_bot = false
 

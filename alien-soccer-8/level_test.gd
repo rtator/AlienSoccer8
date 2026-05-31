@@ -30,7 +30,9 @@ func _ready():
 	p2.cooldown_bar = %p2Cooldown
 	
 	p1.opponent = p2
+	p1.character = GlobalSave.p1Char
 	p2.opponent = p1
+	p2.character = GlobalSave.p2Char
 	
 	add_child(p1)
 	add_child(p2)

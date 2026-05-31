@@ -6,14 +6,18 @@ var ult_length = 300
 var ball_grown = false
 
 func _ability():
-	if cooldown <= 0 and ult_dur <= 0 and duration <= 0:
+	if cooldown <= 0:
 		linear_velocity.y = -1500
 		cooldown = 7
 
 func _ultimate():
 	if cooldown <= 0 and ult_dur <= 0 and charge >= charge_max and not bluing:
 		charge = 0
-		opponent.gravity_scale = opponent.move_speed/10
+		if opponent.character != "jumper":
+			opponent.gravity_scale = opponent.move_speed/30
+		else:
+			print("grav")
+			opponent.gravity_scale *= 2
 		bluing = true
 		ult_dur = ult_length
 
@@ -24,7 +28,10 @@ func _ability_cooldown(delta):
 	if ult_dur > 0:
 		ult_dur -= 1 * delta
 	elif bluing:
-		opponent.gravity_scale = 0
+		if opponent.character != "jumper":
+			opponent.gravity_scale = 0
+		else:
+			opponent.gravity_scale /= 2
 		bluing = false
 		cooldown == 100
 	
