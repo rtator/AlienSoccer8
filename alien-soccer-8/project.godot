@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Alien Soccer 8"
-run/main_scene="uid://dmrldpoa13d7o"
+run/main_scene="uid://dfgj7m8i6rype"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

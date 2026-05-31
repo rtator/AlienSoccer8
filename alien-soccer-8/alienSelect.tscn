@@ -1,0 +1,192 @@
+[gd_scene load_steps=4 format=3 uid="uid://bt4gwjcsc8ybg"]
+
+[ext_resource type="Script" uid="uid://bnx85imt8okrv" path="res://character_select.gd" id="1_ybyuf"]
+[ext_resource type="StyleBox" uid="uid://bhwb56kpdliu" path="res://buttonText.tres" id="2_trven"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_semk5"]
+font_size = 80
+font_color = Color(0.414146, 0.711646, 1, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ybyuf")
+
+[node name="button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -58.5
+offset_top = -69.0
+offset_right = 58.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = ExtResource("2_trven")
+theme_override_styles/hover = ExtResource("2_trven")
+theme_override_styles/pressed = ExtResource("2_trven")
+theme_override_styles/normal = ExtResource("2_trven")
+text = "Start"
+
+[node name="p1Bot" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -69.0
+offset_right = 117.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = ExtResource("2_trven")
+theme_override_styles/hover = ExtResource("2_trven")
+theme_override_styles/pressed = ExtResource("2_trven")
+theme_override_styles/normal = ExtResource("2_trven")
+text = "Player 1"
+
+[node name="p2Bot" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -117.0
+offset_top = -69.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = ExtResource("2_trven")
+theme_override_styles/hover = ExtResource("2_trven")
+theme_override_styles/pressed = ExtResource("2_trven")
+theme_override_styles/normal = ExtResource("2_trven")
+text = "Player 2"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -222.0
+offset_right = 222.0
+offset_bottom = 110.0
+grow_horizontal = 2
+text = "Alien Select"
+label_settings = SubResource("LabelSettings_semk5")
+horizontal_alignment = 3
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="p1Rect" type="TextureRect" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 50.0
+expand_mode = 4
+stretch_mode = 4
+
+[node name="p2Rect" type="TextureRect" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_bottom = 50.0
+grow_horizontal = 0
+expand_mode = 4
+stretch_mode = 4
+
+[node name="GridContainer" type="GridContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -55.0
+offset_right = 269.0
+grow_vertical = 0
+theme_override_constants/h_separation = 30
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="basic1" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = ExtResource("2_trven")
+theme_override_styles/hover = ExtResource("2_trven")
+theme_override_styles/pressed = ExtResource("2_trven")
+theme_override_styles/normal = ExtResource("2_trven")
+text = "Basic"
+
+[node name="speedy1" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = ExtResource("2_trven")
+theme_override_styles/hover = ExtResource("2_trven")
+theme_override_styles/pressed = ExtResource("2_trven")
+theme_override_styles/normal = ExtResource("2_trven")
+text = "Speedy
+"
+
+[node name="GridContainer2" type="GridContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -269.0
+offset_top = -55.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/h_separation = 30
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="basic2" type="Button" parent="Control/GridContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = ExtResource("2_trven")
+theme_override_styles/hover = ExtResource("2_trven")
+theme_override_styles/pressed = ExtResource("2_trven")
+theme_override_styles/normal = ExtResource("2_trven")
+text = "Basic
+"
+
+[node name="speedy2" type="Button" parent="Control/GridContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = ExtResource("2_trven")
+theme_override_styles/hover = ExtResource("2_trven")
+theme_override_styles/pressed = ExtResource("2_trven")
+theme_override_styles/normal = ExtResource("2_trven")
+text = "Speedy
+"
+
+[connection signal="pressed" from="button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="p1Bot" to="." method="_on_p_1_bot_pressed"]
+[connection signal="pressed" from="p2Bot" to="." method="_on_p_2_bot_pressed"]
+[connection signal="pressed" from="Control/GridContainer/basic1" to="." method="_on_basic_1_pressed"]
+[connection signal="pressed" from="Control/GridContainer/speedy1" to="." method="_on_speedy_1_pressed"]
+[connection signal="pressed" from="Control/GridContainer2/basic2" to="." method="_on_basic_2_pressed"]
+[connection signal="pressed" from="Control/GridContainer2/speedy2" to="." method="_on_speedy_2_pressed"]

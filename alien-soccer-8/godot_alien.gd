@@ -6,14 +6,14 @@ var speed_mult = 3
 var damp_mult = 1.5
 
 var dash_vec = Vector2(0,0)
-var dash_speed = 1000
+var dash_speed = 1500
 
 func _ability():
 	if cooldown <= 0 and ult_dur <= 0 and duration <= 0:
 		#update_move_speed(move_speed * speed_mult, speed_damp * damp_mult)
 		dash_vec = last_input
 		dashing = true
-		duration = 100
+		duration = 10
 
 func _ultimate():
 	if cooldown <= 0 and ult_dur <= 0 and charge >= charge_max and not sped_up:

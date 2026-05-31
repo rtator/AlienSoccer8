@@ -37,7 +37,7 @@ func _on_speedy_2_pressed():
 	update_texture()
 
 func _on_button_pressed():
-	get_tree().change_scene_to_file("res://level_test.tscn")
+	get_tree().change_scene_to_file("res://level.tscn")
 	
 func _on_p_1_bot_pressed():
 	if GlobalSave.p1IsBot:

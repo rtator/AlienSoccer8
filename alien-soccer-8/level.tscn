@@ -26,6 +26,7 @@ font_size = 100
 script = ExtResource("1_u52ul")
 
 [node name="ball" parent="." instance=ExtResource("2_vonw3")]
+unique_name_in_owner = true
 position = Vector2(575, 324)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

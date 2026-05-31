@@ -5,6 +5,7 @@ class_name alien
 @export var move_speed = 70
 @export var speed_damp = 10
 @export var squish = 30
+@export var stretch = 40
 
 var player = 1
 
@@ -79,7 +80,7 @@ func _physics_process(delta_milliseconds):
 	
 	_ability_cooldown(delta)
 	if (initialized):
-		sprite.skew = linear_velocity.x/(move_speed*squish)
+		sprite.skew = linear_velocity.x/(move_speed*stretch)
 		#print(sprite.scale)
 		sprite.scale.x = sprite_scale.x + (linear_velocity.y/(move_speed*squish)) * sprite_scale.y
 		sprite.scale.y = sprite_scale.y - (linear_velocity.y/(move_speed*squish)) * sprite_scale.y
