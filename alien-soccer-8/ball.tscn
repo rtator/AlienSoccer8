@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://bk0b0q7uuxcjq"]
+
+[ext_resource type="Texture2D" uid="uid://oyhaeitiy08j" path="res://Imported piskel/sprite_0.png" id="1_41u45"]
+[ext_resource type="Script" uid="uid://16fxsmq003is" path="res://ball.gd" id="1_ktgx5"]
+[ext_resource type="Texture2D" uid="uid://cccbkoxw13ya3" path="res://Imported piskel/sprite_1.png" id="2_ktgx5"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hgol0"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n5601"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_41u45")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ktgx5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.5
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gchj4"]
+radius = 20.0
+
+[node name="ball" type="RigidBody2D"]
+mass = 0.1
+physics_material_override = SubResource("PhysicsMaterial_hgol0")
+gravity_scale = 0.0
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 10
+script = ExtResource("1_ktgx5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(0.11, 0.11)
+sprite_frames = SubResource("SpriteFrames_n5601")
+frame_progress = 0.738969
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gchj4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://eapk1grcoo8c"]
+
+[ext_resource type="Script" uid="uid://e41xdpe4oqa2" path="res://player_test.gd" id="1_kmmeo"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kmmeo"]
+friction = 0.0
+rough = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_evu18"]
+radius = 32.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_kmmeo"]
+radius = 32.0
+height = 64.0
+
+[node name="test_player" type="RigidBody2D"]
+collision_mask = 9
+physics_material_override = SubResource("PhysicsMaterial_kmmeo")
+gravity_scale = 0.0
+script = ExtResource("1_kmmeo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_evu18")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+mesh = SubResource("SphereMesh_kmmeo")

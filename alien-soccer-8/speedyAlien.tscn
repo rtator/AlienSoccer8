@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmt5inmp04xyr"]
+
+[ext_resource type="Script" uid="uid://bpytwx3kfrifx" path="res://godot_alien.gd" id="1_oxet1"]
+[ext_resource type="Texture2D" uid="uid://7owgs5hcn0tf" path="res://as8_sprites_png/speedy.png" id="2_oxet1"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yv1w5"]
+friction = 0.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p6lch"]
+radius = 32.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qv5dp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_oxet1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="speedy" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_yv1w5")
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_oxet1")
+metadata/_custom_type_script = "uid://e41xdpe4oqa2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_p6lch")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(0.16, 0.16)
+sprite_frames = SubResource("SpriteFrames_qv5dp")
+autoplay = "default"
