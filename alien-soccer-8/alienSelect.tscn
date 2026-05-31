@@ -148,6 +148,16 @@ theme_override_styles/normal = ExtResource("2_trven")
 text = "Speedy
 "
 
+[node name="scaler1" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = ExtResource("2_trven")
+theme_override_styles/hover = ExtResource("2_trven")
+theme_override_styles/pressed = ExtResource("2_trven")
+theme_override_styles/normal = ExtResource("2_trven")
+text = "Speedy
+"
+
 [node name="GridContainer2" type="GridContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 3
@@ -183,10 +193,22 @@ theme_override_styles/normal = ExtResource("2_trven")
 text = "Speedy
 "
 
+[node name="scaler2" type="Button" parent="Control/GridContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = ExtResource("2_trven")
+theme_override_styles/hover = ExtResource("2_trven")
+theme_override_styles/pressed = ExtResource("2_trven")
+theme_override_styles/normal = ExtResource("2_trven")
+text = "Speedy
+"
+
 [connection signal="pressed" from="button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="p1Bot" to="." method="_on_p_1_bot_pressed"]
 [connection signal="pressed" from="p2Bot" to="." method="_on_p_2_bot_pressed"]
 [connection signal="pressed" from="Control/GridContainer/basic1" to="." method="_on_basic_1_pressed"]
 [connection signal="pressed" from="Control/GridContainer/speedy1" to="." method="_on_speedy_1_pressed"]
+[connection signal="pressed" from="Control/GridContainer/scaler1" to="." method="_on_scaler_1_pressed"]
 [connection signal="pressed" from="Control/GridContainer2/basic2" to="." method="_on_basic_2_pressed"]
 [connection signal="pressed" from="Control/GridContainer2/speedy2" to="." method="_on_speedy_2_pressed"]
+[connection signal="pressed" from="Control/GridContainer2/scaler2" to="." method="_on_scaler_2_pressed"]

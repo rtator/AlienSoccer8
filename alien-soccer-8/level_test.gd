@@ -3,6 +3,7 @@ extends Node2D
 const player_objects = {
 	"basic": preload("res://basicAlien.tscn"),
 	"speedy": preload("res://speedyAlien.tscn"),
+	"scaler": preload("res://scalerAlien.tscn"),
 }
 
 var p1

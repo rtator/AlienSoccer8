@@ -14,6 +14,10 @@ func _physics_process(delta):
 		global_position = new_pos
 		reseting = false
 
+func set_ball_scale(new_scale):
+	%CollisionShape2D.scale = Vector2(1,1) * new_scale
+	%AnimatedSprite2D.scale = Vector2(0.11,0.11) * new_scale
+
 func _on_body_entered(body):
 	ball_speed += 10
 	#print(ball_speed)
