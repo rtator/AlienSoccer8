@@ -20,7 +20,7 @@ func _ultimate():
 		charge = 0
 		update_move_speed(move_speed * speed_mult, speed_damp * damp_mult)
 		sped_up = true
-		ult_dur = 50
+		ult_dur = 200
 
 func _ability_cooldown(delta):
 	if charge < charge_max and not sped_up:
@@ -49,4 +49,4 @@ func on_ready():
 	
 	charge_max = 500
 	
-	update_move_speed(move_speed, speed_damp / 1.8)
+	update_move_speed(move_speed, speed_damp / 1.5)

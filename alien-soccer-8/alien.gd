@@ -12,7 +12,7 @@ func _ultimate():
 			update_move_speed(move_speed * speed_mult, speed_damp * damp_mult)
 			update_scale(base_scale * size_mult)
 			ult_mode = true
-			ult_dur = 100
+			ult_dur = 200
 			
 			charge = 0
 
