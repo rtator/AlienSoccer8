@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dcfoex7p4jxxj" path="res://Imported piskel (9).png" id="2_4h2f1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tje6p"]
-size = Vector2(30, 20)
+size = Vector2(60, 39)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4h2f1"]
 animations = [{
@@ -29,7 +29,7 @@ shape = SubResource("RectangleShape2D_tje6p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(1.55, 1.55)
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_4h2f1")
 
 [node name="Timer" type="Timer" parent="."]

@@ -5,7 +5,7 @@ var delete = false
 var shooter
 
 func _on_body_entered(body):
-	if not body == shooter:
+	if body != shooter:
 		delete = true
 		if body.has_method("update_move_speed"):
 			print("hit")
