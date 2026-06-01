@@ -61,6 +61,8 @@ func _ability_cooldown(delta):
 			bullet.queue_free()
 			if opp_slowed:
 				duration = 75
+			else:
+				cooldown = 100
 			shooting = false
 	elif duration > 0:
 		duration -= 1
