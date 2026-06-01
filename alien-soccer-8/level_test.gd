@@ -5,6 +5,7 @@ const player_objects = {
 	"speedy": preload("res://speedyAlien.tscn"),
 	"scaler": preload("res://scalerAlien.tscn"),
 	"jumper": preload("res://jumperAlien.tscn"),
+	"launcher": preload("res://launcherAlien.tscn"),
 }
 
 var p1

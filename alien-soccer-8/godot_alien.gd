@@ -49,4 +49,4 @@ func on_ready():
 	
 	charge_max = 500
 	
-	update_move_speed(move_speed, speed_damp / 1.75)
+	update_move_speed(move_speed, speed_damp / 1.8)

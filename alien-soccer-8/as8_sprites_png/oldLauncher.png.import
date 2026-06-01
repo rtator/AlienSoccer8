@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://boyid07gy8tc7"
-path="res://.godot/imported/launcher.png-40e73a66a25232c610a654ec7a10bc3f.ctex"
+uid="uid://cdgim1vudj46x"
+path="res://.godot/imported/oldLauncher.png-76e0d1503d72ff9980ab90ac551d974d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://as8_sprites_png/launcher.png"
-dest_files=["res://.godot/imported/launcher.png-40e73a66a25232c610a654ec7a10bc3f.ctex"]
+source_file="res://as8_sprites_png/oldLauncher.png"
+dest_files=["res://.godot/imported/oldLauncher.png-76e0d1503d72ff9980ab90ac551d974d.ctex"]
 
 [params]
 

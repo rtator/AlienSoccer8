@@ -5,6 +5,7 @@ var speed_mult = 2
 var damp_mult = 1.5
 var size_mult = 1.3 
 
+
 func _ultimate():
 	if cooldown <= 0 and ult_dur <= 0 and charge >= charge_max:
 		if not ult_mode:

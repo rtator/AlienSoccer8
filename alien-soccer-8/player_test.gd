@@ -4,8 +4,8 @@ class_name alien
 @export_category("physics")
 @export var move_speed = 70
 @export var speed_damp = 10
-@export var squish = 30
-@export var stretch = 40
+@export var squish = 80
+@export var stretch = 60
 
 var player = 1
 
@@ -142,6 +142,8 @@ func _ready():
 	
 	hitbox = %CollisionShape2D
 	sprite = %AnimatedSprite2D
+	if player == 2:
+		sprite.flip_h = true
 	sprite_scale = sprite.scale
 	initialized = true
 	update_scale(base_scale)

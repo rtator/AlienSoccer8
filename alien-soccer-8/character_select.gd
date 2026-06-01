@@ -7,6 +7,7 @@ const alienTextures = {
 	"speedy": preload("res://as8_sprites_png/speedy.png"),
 	"scaler": preload("res://as8_sprites_png/scaler.png"),
 	"jumper": preload("res://as8_sprites_png/jumper.png"),
+	"launcher": preload("res://as8_sprites_png/launcher.png"),
 }
 
 var p1Rect
@@ -35,6 +36,9 @@ func _on_scaler_1_pressed():
 func _on_jumper_1_pressed():
 	GlobalSave.p1Char = "jumper"
 	update_texture()
+func _on_launcher_1_pressed():
+	GlobalSave.p1Char = "launcher"
+	update_texture()
 func _on_basic_2_pressed():
 	GlobalSave.p2Char = "basic"
 	update_texture()
@@ -46,6 +50,9 @@ func _on_scaler_2_pressed():
 	update_texture()
 func _on_jumper_2_pressed():
 	GlobalSave.p2Char = "jumper"
+	update_texture()
+func _on_launcher_2_pressed():
+	GlobalSave.p2Char = "launcher"
 	update_texture()
 
 func _on_button_pressed():
