@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bk0b0q7uuxcjq"]
+[gd_scene load_steps=7 format=3 uid="uid://c1gl0hvam08pm"]
 
 [ext_resource type="Texture2D" uid="uid://oyhaeitiy08j" path="res://Imported piskel/sprite_0.png" id="1_41u45"]
-[ext_resource type="Script" uid="uid://16fxsmq003is" path="res://ball.gd" id="1_ktgx5"]
+[ext_resource type="Script" path="res://ball.gd" id="1_ktgx5"]
 [ext_resource type="Texture2D" uid="uid://cccbkoxw13ya3" path="res://Imported piskel/sprite_1.png" id="2_ktgx5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hgol0"]

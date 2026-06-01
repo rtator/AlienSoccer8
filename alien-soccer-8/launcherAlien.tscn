@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcci5m82f2ca0"]
+[gd_scene load_steps=6 format=3 uid="uid://cbseeu0y7ifxj"]
 
 [ext_resource type="Script" uid="uid://bvqhj2e0yse74" path="res://launcher_alien.gd" id="1_p70r7"]
 [ext_resource type="Texture2D" uid="uid://boyid07gy8tc7" path="res://as8_sprites_png/launcher.png" id="2_r31jk"]
