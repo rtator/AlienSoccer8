@@ -6,6 +6,10 @@ var ball_speed = ball_base_speed
 var new_pos = Vector2(200,200)
 var reseting = false
 
+var hit_fx_load = preload("res://hitfx.tscn")
+
+@onready var camera = %Camera2D
+
 func _physics_process(delta):
 	linear_velocity = linear_velocity.normalized() * ball_speed
 	ball_speed += delta
@@ -21,8 +25,17 @@ func set_ball_scale(new_scale):
 func stop_ball():
 	linear_velocity = Vector2(0,0)
 
+func effect_spawn():
+	var hit_fx = hit_fx_load.instantiate()
+	hit_fx.position = position
+	hit_fx.emitting = true
+	add_sibling(hit_fx)
+	
+	camera.shake(GlobalSave.screenShake)
+
 func _on_body_entered(body):
 	ball_speed += 10
+	effect_spawn()
 	#print(ball_speed)
 	if body.has_method("add_score"):
 		reseting = true

@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfoeijcqpbl4o"]
+
+[ext_resource type="Script" uid="uid://d0bhh2l7aluvu" path="res://hitfx.gd" id="1_u63tn"]
+
+[sub_resource type="Curve" id="Curve_y6q6w"]
+_data = [Vector2(0.0474684, 1), 0.0, 0.0, 0, 0, Vector2(0.990506, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_u63tn"]
+curve = SubResource("Curve_y6q6w")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_67god"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 500.0
+initial_velocity_max = 500.0
+gravity = Vector3(0, 1000, 0)
+scale_min = 2.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_u63tn")
+
+[node name="hitfx" type="GPUParticles2D"]
+emitting = false
+amount = 10
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.95
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_67god")
+script = ExtResource("1_u63tn")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
