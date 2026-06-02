@@ -6,6 +6,7 @@ const player_objects = {
 	"scaler": preload("res://scalerAlien.tscn"),
 	"jumper": preload("res://jumperAlien.tscn"),
 	"launcher": preload("res://launcherAlien.tscn"),
+	"target": preload("res://targetAlien.tscn"),
 }
 
 var p1
@@ -21,6 +22,11 @@ func _ready():
 	p1.charge_bar = %p1Charge
 	p1.cooldown_bar = %p1Cooldown
 	
+	if GlobalSave.p1Char == "target":
+		%p2Wall.collision_layer = 0
+		%p2Wall.collision_mask = 0
+		p1.score_board = %p1Score
+	
 	p2 = player_objects[GlobalSave.p2Char].instantiate()
 	p2.ball = %ball
 	if GlobalSave.p2IsBot:
@@ -34,6 +40,10 @@ func _ready():
 	p1.character = GlobalSave.p1Char
 	p2.opponent = p1
 	p2.character = GlobalSave.p2Char
+	if GlobalSave.p2Char == "target":
+		%p1Wall.collision_layer = 0
+		%p1Wall.collision_mask = 0
+		p2.score_board = %p2Score
 	
 	add_child(p1)
 	add_child(p2)

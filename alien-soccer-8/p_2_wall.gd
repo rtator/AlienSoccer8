@@ -7,6 +7,7 @@ func _ready():
 	score_board = %p1Score
 
 func add_score():
+	print(score)
 	score += 1 
 	score_board.text = str(score)
 	

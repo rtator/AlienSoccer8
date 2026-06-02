@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://buvq4qqgy71mq"]
+
+[ext_resource type="Script" uid="uid://dunisyx4hyblg" path="res://arrow.gd" id="1_2ndhl"]
+[ext_resource type="Texture2D" uid="uid://cxosxvgi1ey7o" path="res://Imported piskel (10).png" id="1_l5ahi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2ndhl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_l5ahi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_acd0x"]
+size = Vector2(45, 15)
+
+[node name="arrow" type="RigidBody2D"]
+mass = 0.001
+gravity_scale = 0.0
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_2ndhl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_2ndhl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_acd0x")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

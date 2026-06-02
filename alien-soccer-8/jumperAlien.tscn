@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://begu4lr1r7ykh"]
 
-[ext_resource type="Script" path="res://jumper.gd" id="1_bntr0"]
+[ext_resource type="Script" uid="uid://c3kccocb1gegh" path="res://jumper.gd" id="1_bntr0"]
 [ext_resource type="Texture2D" uid="uid://br613v3qc7n6j" path="res://as8_sprites_png/jumper.png" id="2_20fdj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_c60no"]
