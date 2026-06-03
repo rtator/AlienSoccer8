@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://dwpdq7tklab33"]
+
+[ext_resource type="Texture2D" uid="uid://bujtnhb8nufi3" path="res://circle_03_a.png" id="1_3lblr"]
+[ext_resource type="Script" uid="uid://d0bhh2l7aluvu" path="res://hitfx.gd" id="2_mcup4"]
+
+[sub_resource type="Gradient" id="Gradient_no1ol"]
+colors = PackedColorArray(1, 0.14902, 0, 1, 1, 0.505882, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fdbji"]
+gradient = SubResource("Gradient_no1ol")
+
+[sub_resource type="Curve" id="Curve_v48ge"]
+_data = [Vector2(0, 0), 0.0, 3.20653, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jvxir"]
+curve = SubResource("Curve_v48ge")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_csm53"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_min = 3.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_jvxir")
+color_ramp = SubResource("GradientTexture1D_fdbji")
+
+[node name="scorefx" type="GPUParticles2D"]
+emitting = false
+amount = 1
+texture = ExtResource("1_3lblr")
+lifetime = 0.7
+one_shot = true
+fixed_fps = 0
+process_material = SubResource("ParticleProcessMaterial_csm53")
+script = ExtResource("2_mcup4")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

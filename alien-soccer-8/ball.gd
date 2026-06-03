@@ -7,6 +7,7 @@ var new_pos = Vector2(200,200)
 var reseting = false
 
 var hit_fx_load = preload("res://hitfx.tscn")
+var score_fx_load = preload("res://scorefx.tscn")
 
 @onready var camera = %Camera2D
 
@@ -25,20 +26,29 @@ func set_ball_scale(new_scale):
 func stop_ball():
 	linear_velocity = Vector2(0,0)
 
-func effect_spawn():
-	var hit_fx = hit_fx_load.instantiate()
-	hit_fx.position = position
-	hit_fx.emitting = true
-	add_sibling(hit_fx)
-	
-	camera.shake(GlobalSave.screenShake)
+func effect_spawn(score = false):
+	if GlobalSave.vfxEnabled:
+		if score:
+			var score_fx = score_fx_load.instantiate()
+			score_fx.position = position
+			score_fx.emitting = true
+			add_sibling(score_fx)
+		else:
+			var hit_fx = hit_fx_load.instantiate()
+			hit_fx.position = position
+			hit_fx.emitting = true
+			add_sibling(hit_fx)
+		
+		camera.shake(GlobalSave.screenShake)
 
 func _on_body_entered(body):
 	ball_speed += 10
-	effect_spawn()
 	#print(ball_speed)
 	if body.has_method("add_score"):
+		effect_spawn(true)
 		reseting = true
 		new_pos = body.add_score()
 		linear_velocity = Vector2(0,0)
 		ball_speed = ball_base_speed
+	else:
+		effect_spawn()

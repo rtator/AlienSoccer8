@@ -15,7 +15,7 @@ func _ultimate():
 			ult_dur = 200
 			
 			charge = 0
-
+	
 func _ability_cooldown(delta):
 	#print(%AnimatedSprite2D.global_scale)
 	#print(base_scale)

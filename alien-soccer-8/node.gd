@@ -7,3 +7,5 @@ var p1IsBot = false
 var p2IsBot = false
 
 var screenShake = 3
+
+var vfxEnabled = true
