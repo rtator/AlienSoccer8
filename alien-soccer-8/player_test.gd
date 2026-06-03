@@ -30,6 +30,7 @@ var initialized = false
 var ball
 var opponent
 var character
+var camera
 
 var is_bot = false
 

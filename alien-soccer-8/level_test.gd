@@ -7,6 +7,7 @@ const player_objects = {
 	"jumper": preload("res://jumperAlien.tscn"),
 	"launcher": preload("res://launcherAlien.tscn"),
 	"target": preload("res://targetAlien.tscn"),
+	"warper": preload("res://warperAlien.tscn"),
 }
 
 var p1
@@ -15,6 +16,7 @@ var p2
 func _ready():
 	p1 = player_objects[GlobalSave.p1Char].instantiate()
 	p1.ball = %ball
+	p1.camera = %Camera2D
 	if GlobalSave.p1IsBot:
 		p1.is_bot = true
 	p1.position = Vector2(288, 342)
@@ -29,6 +31,7 @@ func _ready():
 	
 	p2 = player_objects[GlobalSave.p2Char].instantiate()
 	p2.ball = %ball
+	p2.camera = %Camera2D
 	if GlobalSave.p2IsBot:
 		p2.is_bot = true
 	p2.position = Vector2(864, 342)

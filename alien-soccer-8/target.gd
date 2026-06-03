@@ -28,6 +28,7 @@ func _ultimate():
 		ulting = true
 		charge = 0
 		goal.ult()
+		camera.shake(7.5)
 
 func _ability_cooldown(delta):
 	if charge < charge_max and not ulting:

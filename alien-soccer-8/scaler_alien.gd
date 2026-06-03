@@ -21,6 +21,7 @@ func _ultimate():
 		update_scale(original_size * growth_mult)
 		grown = true
 		ult_dur = ult_length
+		camera.shake(15)
 
 func _ability_cooldown(delta):
 	if charge < charge_max and not grown:

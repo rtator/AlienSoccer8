@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://jngiuawc8adg"]
 
-[ext_resource type="Script" path="res://scaler_alien.gd" id="1_0278l"]
+[ext_resource type="Script" uid="uid://52yewfw28rxw" path="res://scaler_alien.gd" id="1_0278l"]
 [ext_resource type="Texture2D" uid="uid://dp1dek2hejsv7" path="res://as8_sprites_png/scaler.png" id="2_3jwqp"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0278l"]

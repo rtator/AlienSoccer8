@@ -36,6 +36,7 @@ func _ultimate():
 		big_shotting = true
 		big_shot.shooter = self
 		get_parent().add_child(big_shot)
+		camera.shake(20)
 
 func _ability_cooldown(delta):
 	if charge < charge_max and not big_shotting:

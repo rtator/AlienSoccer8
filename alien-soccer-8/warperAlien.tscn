@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwngwmwjs6phb"]
+
+[ext_resource type="Script" uid="uid://d3mhoibjorpex" path="res://warper.gd" id="1_csyb2"]
+[ext_resource type="Texture2D" uid="uid://b8qoaet02ymn6" path="res://as8_sprites_png/warper.png" id="2_cxcqu"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_csyb2"]
+friction = 0.5
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qvhm6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cxcqu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a1new"]
+radius = 32.0
+
+[node name="warper" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_csyb2")
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_csyb2")
+metadata/_custom_type_script = "uid://e41xdpe4oqa2"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(0.17, 0.17)
+sprite_frames = SubResource("SpriteFrames_qvhm6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_a1new")

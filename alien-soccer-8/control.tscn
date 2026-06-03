@@ -1,14 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://c256duq267kt8"]
+[gd_scene load_steps=12 format=3 uid="uid://chmfbbs5yrg1"]
 
-[ext_resource type="Script" uid="uid://bnx85imt8okrv" path="res://character_select.gd" id="1_ybyuf"]
-[ext_resource type="StyleBox" uid="uid://bhwb56kpdliu" path="res://buttonText.tres" id="2_trven"]
-[ext_resource type="Texture2D" uid="uid://327vha6fycg0" path="res://as8_sprites_png/basic.png" id="3_trven"]
-[ext_resource type="Texture2D" uid="uid://7owgs5hcn0tf" path="res://as8_sprites_png/speedy.png" id="4_kjjwk"]
-[ext_resource type="Texture2D" uid="uid://dp1dek2hejsv7" path="res://as8_sprites_png/scaler.png" id="5_ix0ar"]
-[ext_resource type="Texture2D" uid="uid://br613v3qc7n6j" path="res://as8_sprites_png/jumper.png" id="6_uwg4n"]
-[ext_resource type="Texture2D" uid="uid://boyid07gy8tc7" path="res://as8_sprites_png/launcher.png" id="7_r8mfn"]
-[ext_resource type="Texture2D" uid="uid://dvu1ven3xo3p0" path="res://as8_sprites_png/target.png" id="8_u11kp"]
-[ext_resource type="Texture2D" uid="uid://b8qoaet02ymn6" path="res://as8_sprites_png/warper.png" id="9_tepe3"]
+[ext_resource type="Script" uid="uid://bnx85imt8okrv" path="res://character_select.gd" id="1_sky72"]
+[ext_resource type="StyleBox" uid="uid://bhwb56kpdliu" path="res://buttonText.tres" id="2_0ytqx"]
+[ext_resource type="Texture2D" uid="uid://327vha6fycg0" path="res://as8_sprites_png/basic.png" id="3_pxugv"]
+[ext_resource type="Texture2D" uid="uid://7owgs5hcn0tf" path="res://as8_sprites_png/speedy.png" id="4_eh0v1"]
+[ext_resource type="Texture2D" uid="uid://dp1dek2hejsv7" path="res://as8_sprites_png/scaler.png" id="5_am1vj"]
+[ext_resource type="Texture2D" uid="uid://br613v3qc7n6j" path="res://as8_sprites_png/jumper.png" id="6_g31lc"]
+[ext_resource type="Texture2D" uid="uid://boyid07gy8tc7" path="res://as8_sprites_png/launcher.png" id="7_knq72"]
+[ext_resource type="Texture2D" uid="uid://dvu1ven3xo3p0" path="res://as8_sprites_png/target.png" id="8_xvdhi"]
+[ext_resource type="Texture2D" uid="uid://b8qoaet02ymn6" path="res://as8_sprites_png/warper.png" id="9_oq4si"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_semk5"]
 font_size = 80
@@ -25,7 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ybyuf")
+script = ExtResource("1_sky72")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -94,10 +94,10 @@ offset_top = -69.0
 offset_right = 234.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 40
-theme_override_styles/focus = ExtResource("2_trven")
-theme_override_styles/hover = ExtResource("2_trven")
-theme_override_styles/pressed = ExtResource("2_trven")
-theme_override_styles/normal = ExtResource("2_trven")
+theme_override_styles/focus = ExtResource("2_0ytqx")
+theme_override_styles/hover = ExtResource("2_0ytqx")
+theme_override_styles/pressed = ExtResource("2_0ytqx")
+theme_override_styles/normal = ExtResource("2_0ytqx")
 text = "Player"
 
 [node name="p2Bot" type="Button" parent="Control2"]
@@ -114,10 +114,10 @@ offset_right = -80.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 40
-theme_override_styles/focus = ExtResource("2_trven")
-theme_override_styles/hover = ExtResource("2_trven")
-theme_override_styles/pressed = ExtResource("2_trven")
-theme_override_styles/normal = ExtResource("2_trven")
+theme_override_styles/focus = ExtResource("2_0ytqx")
+theme_override_styles/hover = ExtResource("2_0ytqx")
+theme_override_styles/pressed = ExtResource("2_0ytqx")
+theme_override_styles/normal = ExtResource("2_0ytqx")
 text = "Player"
 
 [node name="Control" type="Control" parent="."]
@@ -178,12 +178,12 @@ unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = ExtResource("2_trven")
-theme_override_styles/hover = ExtResource("2_trven")
-theme_override_styles/pressed = ExtResource("2_trven")
-theme_override_styles/normal = ExtResource("2_trven")
+theme_override_styles/focus = ExtResource("2_0ytqx")
+theme_override_styles/hover = ExtResource("2_0ytqx")
+theme_override_styles/pressed = ExtResource("2_0ytqx")
+theme_override_styles/normal = ExtResource("2_0ytqx")
 text = "Basic"
-icon = ExtResource("3_trven")
+icon = ExtResource("3_pxugv")
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
@@ -193,13 +193,13 @@ unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = ExtResource("2_trven")
-theme_override_styles/hover = ExtResource("2_trven")
-theme_override_styles/pressed = ExtResource("2_trven")
-theme_override_styles/normal = ExtResource("2_trven")
+theme_override_styles/focus = ExtResource("2_0ytqx")
+theme_override_styles/hover = ExtResource("2_0ytqx")
+theme_override_styles/pressed = ExtResource("2_0ytqx")
+theme_override_styles/normal = ExtResource("2_0ytqx")
 text = "Speedy
 "
-icon = ExtResource("4_kjjwk")
+icon = ExtResource("4_eh0v1")
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
@@ -209,12 +209,12 @@ unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = ExtResource("2_trven")
-theme_override_styles/hover = ExtResource("2_trven")
-theme_override_styles/pressed = ExtResource("2_trven")
-theme_override_styles/normal = ExtResource("2_trven")
+theme_override_styles/focus = ExtResource("2_0ytqx")
+theme_override_styles/hover = ExtResource("2_0ytqx")
+theme_override_styles/pressed = ExtResource("2_0ytqx")
+theme_override_styles/normal = ExtResource("2_0ytqx")
 text = "Scaler"
-icon = ExtResource("5_ix0ar")
+icon = ExtResource("5_am1vj")
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
@@ -224,12 +224,12 @@ unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = ExtResource("2_trven")
-theme_override_styles/hover = ExtResource("2_trven")
-theme_override_styles/pressed = ExtResource("2_trven")
-theme_override_styles/normal = ExtResource("2_trven")
+theme_override_styles/focus = ExtResource("2_0ytqx")
+theme_override_styles/hover = ExtResource("2_0ytqx")
+theme_override_styles/pressed = ExtResource("2_0ytqx")
+theme_override_styles/normal = ExtResource("2_0ytqx")
 text = "Jumper"
-icon = ExtResource("6_uwg4n")
+icon = ExtResource("6_g31lc")
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
@@ -239,12 +239,12 @@ unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = ExtResource("2_trven")
-theme_override_styles/hover = ExtResource("2_trven")
-theme_override_styles/pressed = ExtResource("2_trven")
-theme_override_styles/normal = ExtResource("2_trven")
+theme_override_styles/focus = ExtResource("2_0ytqx")
+theme_override_styles/hover = ExtResource("2_0ytqx")
+theme_override_styles/pressed = ExtResource("2_0ytqx")
+theme_override_styles/normal = ExtResource("2_0ytqx")
 text = "Launcher"
-icon = ExtResource("7_r8mfn")
+icon = ExtResource("7_knq72")
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
@@ -254,12 +254,12 @@ unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = ExtResource("2_trven")
-theme_override_styles/hover = ExtResource("2_trven")
-theme_override_styles/pressed = ExtResource("2_trven")
-theme_override_styles/normal = ExtResource("2_trven")
+theme_override_styles/focus = ExtResource("2_0ytqx")
+theme_override_styles/hover = ExtResource("2_0ytqx")
+theme_override_styles/pressed = ExtResource("2_0ytqx")
+theme_override_styles/normal = ExtResource("2_0ytqx")
 text = "Target"
-icon = ExtResource("8_u11kp")
+icon = ExtResource("8_xvdhi")
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
@@ -269,12 +269,12 @@ unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = ExtResource("2_trven")
-theme_override_styles/hover = ExtResource("2_trven")
-theme_override_styles/pressed = ExtResource("2_trven")
-theme_override_styles/normal = ExtResource("2_trven")
+theme_override_styles/focus = ExtResource("2_0ytqx")
+theme_override_styles/hover = ExtResource("2_0ytqx")
+theme_override_styles/pressed = ExtResource("2_0ytqx")
+theme_override_styles/normal = ExtResource("2_0ytqx")
 text = "Warper"
-icon = ExtResource("9_tepe3")
+icon = ExtResource("9_oq4si")
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true

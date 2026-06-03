@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://ccpcboxywt1ju"]
+
+[ext_resource type="Script" uid="uid://c2ei0hyxbkob8" path="res://warp_explosion.gd" id="1_8ptsm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i2trq"]
+radius = 50.0
+
+[sub_resource type="Gradient" id="Gradient_bja24"]
+offsets = PackedFloat32Array(0, 0.716312, 1)
+colors = PackedColorArray(0, 0.954853, 0, 1, 0, 0.483192, 2.75813e-07, 1, 0, 0.296396, 3.85046e-07, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_clulo"]
+gradient = SubResource("Gradient_bja24")
+
+[sub_resource type="Curve" id="Curve_i1w7t"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 8.17121), 0.0, 0.0, 0, 0, Vector2(0.110759, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ng7yn"]
+curve = SubResource("Curve_i1w7t")
+
+[sub_resource type="Curve" id="Curve_8ptsm"]
+_limits = [0.0, 1.5, 0.0, 1.0]
+_data = [Vector2(0, 0.449416), 0.0, 1.4, 0, 0, Vector2(1, 1.5), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_i2trq"]
+curve = SubResource("Curve_8ptsm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3dbbb"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 20.0
+spread = 180.0
+initial_velocity_min = 50.0
+initial_velocity_max = 150.0
+gravity = Vector3(0, 0, 0)
+damping_min = 50.0
+damping_max = 60.0
+damping_curve = SubResource("CurveTexture_ng7yn")
+scale_min = 10.0
+scale_max = 10.0
+scale_curve = SubResource("CurveTexture_i2trq")
+color_initial_ramp = SubResource("GradientTexture1D_clulo")
+
+[node name="warpExplosion" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_8ptsm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_i2trq")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+emitting = false
+amount = 100
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_3dbbb")
+
+[connection signal="finished" from="GPUParticles2D" to="." method="_on_gpu_particles_2d_finished"]
