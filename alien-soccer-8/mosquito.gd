@@ -30,9 +30,9 @@ func _ability_cooldown(delta):
 				if swarm_size_ability < max_swarm_ability_size:
 					var swarm = swarm_load.instantiate()
 					var offset = 576 - position.x
-					var offsetVec = Vector2(offset, offset * randf_range(0.5,0.7)).normalized()
+					var offsetVec = Vector2(offset, -abs(offset) * randf_range(0.5,0.7)).normalized()
 					swarm.position = position + (offsetVec * 50)
-					swarm.call_deferred("set_axis_velocity", offsetVec * swarm_speed)
+					swarm.call_deferred("set_linear_velocity", offsetVec * swarm_speed)
 					add_sibling(swarm)
 					swarm_size_ability += 1
 		else:
@@ -46,9 +46,9 @@ func _ability_cooldown(delta):
 				if swarm_size_ult < max_swarm_ult_size:
 					var swarm = swarm_load.instantiate()
 					var offset = 576 - position.x
-					var offsetVec = Vector2(offset, offset * randf_range(0.5,0.7)).normalized()
+					var offsetVec = Vector2(offset, -abs(offset) * randf_range(0.5,0.7)).normalized()
 					swarm.position = position + (offsetVec * 50)
-					swarm.call_deferred("set_axis_velocity", offsetVec * swarm_speed)
+					swarm.call_deferred("set_linear_velocity", offsetVec * swarm_speed)
 					add_sibling(swarm)
 					swarm_size_ult += 1
 		else:
