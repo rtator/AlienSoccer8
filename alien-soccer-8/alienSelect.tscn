@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c256duq267kt8"]
+[gd_scene load_steps=13 format=3 uid="uid://c256duq267kt8"]
 
 [ext_resource type="Script" uid="uid://bnx85imt8okrv" path="res://character_select.gd" id="1_ybyuf"]
 [ext_resource type="StyleBox" uid="uid://bhwb56kpdliu" path="res://buttonText.tres" id="2_trven"]
@@ -17,6 +17,10 @@ font_color = Color(0.414146, 0.711646, 1, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_sky72"]
 font_size = 30
 font_color = Color(0.414146, 0.711646, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kjjwk"]
+font_size = 50
+font_color = Color(1, 0, 0, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -147,6 +151,24 @@ mouse_force_pass_scroll_events = false
 expand_mode = 1
 stretch_mode = 5
 
+[node name="p1Started" type="Label" parent="Control/p1Rect"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Selected"
+label_settings = SubResource("LabelSettings_kjjwk")
+
 [node name="p2Rect" type="TextureRect" parent="Control"]
 unique_name_in_owner = true
 layout_mode = 1
@@ -161,6 +183,24 @@ grow_horizontal = 0
 grow_vertical = 0
 expand_mode = 1
 stretch_mode = 5
+
+[node name="p2Started" type="Label" parent="Control/p2Rect"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -101.5
+offset_top = -34.5
+offset_right = 101.5
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Selected"
+label_settings = SubResource("LabelSettings_kjjwk")
 
 [node name="GridContainer" type="GridContainer" parent="Control"]
 layout_mode = 1

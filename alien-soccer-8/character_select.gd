@@ -32,6 +32,9 @@ var started = false
 var p1Selected = false
 var p2Selected = false
 
+@onready var p1Started = %p1Started
+@onready var p2Started = %p2Started
+
 var p1Rect
 var p2Rect
 
@@ -93,8 +96,10 @@ func _unhandled_input(event):
 				p1_selected_button = clamp(p1_selected_button, 0, len(alien_buttons) - 1)
 			elif event.is_action("p1_ability"):
 				p1Selected = true
+				p1Started.visible = true
 		elif event.is_action("p1_ability"):
 			p1Selected = false
+			p1Started.visible = false
 		
 		if not p2Selected:
 			if event.is_action("p2_right"):
@@ -109,8 +114,10 @@ func _unhandled_input(event):
 				p2_selected_button = clamp(p2_selected_button, 0, len(alien_buttons) - 1)
 			elif event.is_action("p2_ability"):
 				p2Selected = true
+				p2Started.visible = true
 		elif event.is_action("p2_ability"):
 			p2Selected = false
+			p2Started.visible = false
 		
 		if p1_selected_button > len(alien_buttons) - 1:
 			p1_selected_button = 0
