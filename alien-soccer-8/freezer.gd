@@ -50,6 +50,6 @@ func on_ready():
 	squish *= 2
 	stretch *= 2
 	
-	charge_max = 200
+	charge_max = 500
 	
 	update_move_speed(move_speed * 0.3, speed_damp * 0.16)
