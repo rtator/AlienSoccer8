@@ -35,6 +35,7 @@ func _ultimate():
 		
 		waypoint.queue_free()
 		waypoint_out = false
+		charge = 0
 
 func _ability_cooldown(delta):
 	if charge < charge_max:
