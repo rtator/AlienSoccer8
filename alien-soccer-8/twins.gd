@@ -23,6 +23,7 @@ func _ultimate():
 	if not ulting and ult_dur <= 0 and charge >= charge_max:
 		ulting = true
 		ult_dur = 500
+		charge = 0
 		twin_sprite1.animation = "ult"
 		twin_sprite2.animation = "ult"
 
