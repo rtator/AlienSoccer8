@@ -53,10 +53,10 @@ func _ability_cooldown(delta):
 		duration -= 1 * delta
 
 func on_ready():
-	base_scale = 1
+	base_scale = 0.8
 	
 	charge_max = 500
 	#charge_bar = %p1Charge
 	
 	#set_player(1)
-	update_move_speed(move_speed, speed_damp)
+	update_move_speed(move_speed * 0.9, speed_damp)
