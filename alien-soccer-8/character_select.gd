@@ -10,6 +10,7 @@ const alienTextures = {
 	"launcher": preload("res://as8_sprites_png/launcher.png"),
 	"freezer": preload("res://as8_sprites_png/freezer.png"),
 	"target": preload("res://as8_sprites_png/target.png"),
+	"twins": preload("res://as8_sprites_png/twins_blue.png"),
 	"warper": preload("res://as8_sprites_png/warper.png"),
 	"mosquito": preload("res://as8_sprites_png/mosquito.png"),
 }
@@ -27,6 +28,7 @@ var p2_selected_button = 0
 	%launcher1,
 	%freezer1,
 	%target1,
+	%twins1,
 	%warper1,
 	%mosquito1,
 ]

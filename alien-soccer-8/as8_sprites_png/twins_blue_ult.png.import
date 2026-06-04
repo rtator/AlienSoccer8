@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxdm8rel58457"
-path="res://.godot/imported/twins_orange (1).png-56c320fa003c385f59fb82768a205eba.ctex"
+uid="uid://cvqt666oyu14c"
+path="res://.godot/imported/twins_blue_ult.png-c23d998ab21c709a532589f4005d2440.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://as8_sprites_png/twins_orange (1).png"
-dest_files=["res://.godot/imported/twins_orange (1).png-56c320fa003c385f59fb82768a205eba.ctex"]
+source_file="res://as8_sprites_png/twins_blue_ult.png"
+dest_files=["res://.godot/imported/twins_blue_ult.png-c23d998ab21c709a532589f4005d2440.ctex"]
 
 [params]
 

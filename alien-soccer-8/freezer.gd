@@ -18,7 +18,7 @@ func _ability():
 		block_amount += 1
 		get_parent().add_child(block)
 		cooldown = 200
-
+ 
 func _ultimate():
 	if charge >= charge_max and not opp_slipping and ult_dur <= 0:
 		opponent.update_move_speed(opponent.move_speed * move_mult, opponent.speed_damp * slip_mult)

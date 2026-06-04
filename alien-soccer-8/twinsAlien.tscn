@@ -1,0 +1,96 @@
+[gd_scene load_steps=11 format=3 uid="uid://11thqhapsrp7"]
+
+[ext_resource type="Script" uid="uid://dm40gx2uggxf5" path="res://twins.gd" id="1_w6qly"]
+[ext_resource type="Texture2D" uid="uid://b0mbi5v51remh" path="res://as8_sprites_png/twins_orange.png" id="2_epd0s"]
+[ext_resource type="Texture2D" uid="uid://cvqt666oyu14c" path="res://as8_sprites_png/twins_blue_ult.png" id="3_1h2hp"]
+[ext_resource type="Texture2D" uid="uid://c8i56obw3wbum" path="res://as8_sprites_png/twins_blue.png" id="3_tm61d"]
+[ext_resource type="Texture2D" uid="uid://dr7h8e5188co" path="res://as8_sprites_png/twins_orange_blue.png" id="5_iaob6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w6qly"]
+friction = 0.5
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w6qly"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0w7xj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_tm61d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1h2hp")
+}],
+"loop": true,
+"name": &"ult",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1h2hp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_epd0s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_iaob6")
+}],
+"loop": true,
+"name": &"ult",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iaob6"]
+radius = 16.0
+height = 64.0
+
+[node name="twins" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_w6qly")
+gravity_scale = 0.0
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 3
+script = ExtResource("1_w6qly")
+metadata/_custom_type_script = "uid://e41xdpe4oqa2"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_w6qly")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+unique_name_in_owner = true
+position = Vector2(0, 16)
+scale = Vector2(0.26, 0.26)
+sprite_frames = SubResource("SpriteFrames_0w7xj")
+autoplay = "default"
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+unique_name_in_owner = true
+position = Vector2(0, -16)
+rotation = 3.14159
+scale = Vector2(0.26, 0.26)
+sprite_frames = SubResource("SpriteFrames_1h2hp")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 16)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_iaob6")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -16)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_iaob6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

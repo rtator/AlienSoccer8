@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c256duq267kt8"]
+[gd_scene load_steps=16 format=3 uid="uid://c256duq267kt8"]
 
 [ext_resource type="Script" uid="uid://bnx85imt8okrv" path="res://character_select.gd" id="1_ybyuf"]
 [ext_resource type="StyleBox" uid="uid://bhwb56kpdliu" path="res://buttonText.tres" id="2_trven"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cq6fbsfq4fw6k" path="res://as8_sprites_png/freezer.png" id="8_uwg4n"]
 [ext_resource type="Texture2D" uid="uid://b8qoaet02ymn6" path="res://as8_sprites_png/warper.png" id="9_tepe3"]
 [ext_resource type="Texture2D" uid="uid://cd72i3j4o355c" path="res://as8_sprites_png/mosquito.png" id="10_ix0ar"]
+[ext_resource type="Texture2D" uid="uid://c8i56obw3wbum" path="res://as8_sprites_png/twins_blue.png" id="10_r8mfn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_semk5"]
 font_size = 80
@@ -321,6 +322,21 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
+[node name="twins1" type="Button" parent="Control/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = ExtResource("2_trven")
+theme_override_styles/hover = ExtResource("2_trven")
+theme_override_styles/pressed = ExtResource("2_trven")
+theme_override_styles/normal = ExtResource("2_trven")
+text = "twins"
+icon = ExtResource("10_r8mfn")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
 [node name="warper1" type="Button" parent="Control/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -360,5 +376,6 @@ expand_icon = true
 [connection signal="pressed" from="Control/GridContainer/launcher1" to="." method="_on_launcher_1_pressed"]
 [connection signal="pressed" from="Control/GridContainer/freezer1" to="." method="_on_warper_1_pressed"]
 [connection signal="pressed" from="Control/GridContainer/target1" to="." method="_on_target_1_pressed"]
+[connection signal="pressed" from="Control/GridContainer/twins1" to="." method="_on_warper_1_pressed"]
 [connection signal="pressed" from="Control/GridContainer/warper1" to="." method="_on_warper_1_pressed"]
 [connection signal="pressed" from="Control/GridContainer/mosquito1" to="." method="_on_warper_1_pressed"]
