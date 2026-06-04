@@ -8,6 +8,7 @@ const player_objects = {
 	"launcher": preload("res://launcherAlien.tscn"),
 	"target": preload("res://targetAlien.tscn"),
 	"warper": preload("res://warperAlien.tscn"),
+	"mosquito": preload("res://mosquitoAlien.tscn"),
 }
 
 var p1

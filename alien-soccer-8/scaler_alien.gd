@@ -9,14 +9,14 @@ var ball_growth_mult = 2
 var original_size = 1.3
 
 func _ability():
-	if cooldown <= 0 and ult_dur <= 0 and duration <= 0:
+	if cooldown <= 0 and duration <= 0:
 		#update_move_speed(move_speed * speed_mult, speed_damp * damp_mult)
 		ball.set_ball_scale(ball_growth_mult)
 		ball_grown = true
 		duration = 200
 
 func _ultimate():
-	if cooldown <= 0 and ult_dur <= 0 and charge >= charge_max and not grown:
+	if ult_dur <= 0 and charge >= charge_max and not grown:
 		charge = 0
 		update_scale(original_size * growth_mult)
 		grown = true

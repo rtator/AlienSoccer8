@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwbx3ilov3ap1"]
+
+[ext_resource type="Script" uid="uid://b7s0mio1ggxh0" path="res://mosquito.gd" id="1_q0i2c"]
+[ext_resource type="Texture2D" uid="uid://cd72i3j4o355c" path="res://as8_sprites_png/mosquito.png" id="2_pvg3q"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q0i2c"]
+friction = 0.5
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lulee"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pvg3q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fdha5"]
+radius = 32.0
+
+[node name="mosquito" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_q0i2c")
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_q0i2c")
+metadata/_custom_type_script = "uid://e41xdpe4oqa2"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(0.16, 0.16)
+sprite_frames = SubResource("SpriteFrames_lulee")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_fdha5")

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://wmif1jtwvv1u"]
+
+[ext_resource type="Script" uid="uid://cg6xms34538wj" path="res://swarm.gd" id="1_pjjbu"]
+[ext_resource type="Texture2D" uid="uid://cn0qnriyt2y7w" path="res://swarm.png" id="2_q30ce"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bpri5"]
+radius = 5.0
+
+[node name="swarm" type="RigidBody2D"]
+mass = 0.05
+script = ExtResource("1_pjjbu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bpri5")
+
+[node name="Swarm" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("2_q30ce")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
