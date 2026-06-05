@@ -31,7 +31,7 @@ func _ability_cooldown(delta):
 					var swarm = swarm_load.instantiate()
 					var offset = 576 - position.x
 					var offsetVec = Vector2(offset, -abs(offset) * randf_range(0.5,0.7)).normalized()
-					swarm.position = position + (offsetVec * 50)
+					swarm.position = position + (offsetVec * 15)
 					swarm.call_deferred("set_linear_velocity", offsetVec * swarm_speed)
 					add_sibling(swarm)
 					swarm_size_ability += 1

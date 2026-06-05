@@ -10,6 +10,7 @@ const player_objects = {
 	"clock": preload("res://clockAlien.tscn"),
 	"trickster": preload("res://tricksterAlien.tscn"),
 	"gambler": preload("res://gamblerAlien.tscn"),
+	"wrangler": preload("res://wranglerAlien.tscn"),
 	"target": preload("res://targetAlien.tscn"),
 	"twins": preload("res://twinsAlien.tscn"),
 	"warper": preload("res://warperAlien.tscn"),

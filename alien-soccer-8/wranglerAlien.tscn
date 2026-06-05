@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://ukc0uwg8f27a"]
+
+[ext_resource type="Script" uid="uid://bwjx2x374x4um" path="res://wrangler.gd" id="1_d2dxy"]
+[ext_resource type="Texture2D" uid="uid://dwm171owu3a4k" path="res://as8_sprites_png/wrangler.png" id="2_evsrd"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d2dxy"]
+friction = 0.5
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y1mqi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_evsrd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sea2r"]
+radius = 32.0
+
+[node name="wrangler" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_d2dxy")
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_d2dxy")
+metadata/_custom_type_script = "uid://e41xdpe4oqa2"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(0.19, 0.19)
+sprite_frames = SubResource("SpriteFrames_y1mqi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_sea2r")

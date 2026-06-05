@@ -18,7 +18,7 @@ func _physics_process(delta):
 	ball_speed += delta
 	if reseting:
 		print(%AnimatedSprite2D.global_position)
-		global_position = new_pos
+		position = new_pos
 		reseting = false
 
 func set_ball_scale(new_scale):
