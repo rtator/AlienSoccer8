@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cvqt666oyu14c" path="res://as8_sprites_png/twins_blue_ult.png" id="3_1h2hp"]
 [ext_resource type="Texture2D" uid="uid://c8i56obw3wbum" path="res://as8_sprites_png/twins_blue.png" id="3_tm61d"]
 [ext_resource type="Texture2D" uid="uid://dr7h8e5188co" path="res://as8_sprites_png/twins_orange_blue.png" id="5_iaob6"]
+[ext_resource type="Shape2D" uid="uid://fkc16h4w2hcp" path="res://twin_collision.tres" id="6_1h2hp"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w6qly"]
 friction = 0.5
@@ -49,10 +50,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iaob6"]
-radius = 16.0
-height = 64.0
-
 [node name="twins" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_w6qly")
 gravity_scale = 0.0
@@ -84,13 +81,13 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0, 16)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_iaob6")
+rotation = -1.5708
+shape = ExtResource("6_1h2hp")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0, -16)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_iaob6")
+shape = ExtResource("6_1h2hp")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

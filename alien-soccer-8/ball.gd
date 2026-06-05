@@ -11,6 +11,8 @@ var score_fx_load = preload("res://scorefx.tscn")
 
 @onready var camera = %Camera2D
 
+var speed_add = 10
+
 func _physics_process(delta):
 	linear_velocity = linear_velocity.normalized() * ball_speed
 	ball_speed += delta
@@ -42,7 +44,7 @@ func effect_spawn(score = false):
 		camera.shake(GlobalSave.screenShake)
 
 func _on_body_entered(body):
-	ball_speed += 10
+	ball_speed += speed_add
 	#print(ball_speed)
 	if body.has_method("add_score"):
 		effect_spawn(true)

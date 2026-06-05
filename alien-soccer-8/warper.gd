@@ -16,6 +16,7 @@ func _ability():
 		waypoint.position = position
 		add_sibling(waypoint)
 		waypoint_out = true
+		cooldown = 100
 	elif cooldown <= 0 :
 		camera.shake(35)
 		explosion = explosion_load.instantiate()
@@ -55,8 +56,6 @@ func _ability_cooldown(delta):
 func on_ready():
 	base_scale = 0.8
 	
-	charge_max = 500
-	#charge_bar = %p1Charge
+	charge_max = 700
 	
-	#set_player(1)
-	update_move_speed(move_speed * 0.9, speed_damp)
+	update_move_speed(move_speed * 0.8, speed_damp)
