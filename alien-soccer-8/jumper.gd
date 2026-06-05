@@ -49,7 +49,7 @@ func on_ready():
 	physics_material_override.friction = 0.1
 	
 	squish = 500
-	base_scale = 1.3
+	base_scale = 1.3 
 	
 	
 	charge_max = 300
