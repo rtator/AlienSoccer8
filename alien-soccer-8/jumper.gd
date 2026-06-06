@@ -52,6 +52,6 @@ func on_ready():
 	base_scale = 1.3 
 	
 	
-	charge_max = 300
+	charge_max = 350
 	
 	update_move_speed(move_speed * 0.25, speed_damp * 0.5)

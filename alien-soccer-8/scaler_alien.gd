@@ -51,6 +51,6 @@ func _ability_cooldown(delta):
 func on_ready():
 	base_scale = original_size
 	
-	charge_max = 500
+	charge_max = 600
 	
 	update_move_speed(move_speed * 0.7, speed_damp)

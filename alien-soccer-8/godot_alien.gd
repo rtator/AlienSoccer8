@@ -10,13 +10,15 @@ var dash_speed = 1500
 
 func _ability():
 	if cooldown <= 0 and ult_dur <= 0 and duration <= 0:
-		#update_move_speed(move_speed * speed_mult, speed_damp * damp_mult)
+		sprite.animation = "blue"
+		
 		dash_vec = last_input
 		dashing = true
 		duration = 10
 
 func _ultimate():
 	if cooldown <= 0 and ult_dur <= 0 and charge >= charge_max and not sped_up:
+		sprite.animation = "blue"
 		charge = 0
 		update_move_speed(move_speed * speed_mult, speed_damp * damp_mult)
 		sped_up = true
@@ -31,11 +33,13 @@ func _ability_cooldown(delta):
 		linear_velocity = dash_vec * dash_speed
 	elif dashing:
 		dashing = false
+		sprite.animation = "default"
 		cooldown = 200
 	
 	if ult_dur > 0:
 		ult_dur -= 1 * delta
 	elif sped_up:
+		sprite.animation = "default"
 		update_move_speed(move_speed / speed_mult, speed_damp / damp_mult)
 		sped_up = false
 		cooldown == 100

@@ -37,7 +37,7 @@ metadata/_custom_type_script = "uid://e41xdpe4oqa2"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0.152941)
+modulate = Color(1, 1, 1, 0.278431)
 scale = Vector2(0.16, 0.16)
 sprite_frames = SubResource("SpriteFrames_d5tak")
 

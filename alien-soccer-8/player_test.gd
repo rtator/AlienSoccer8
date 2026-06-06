@@ -35,6 +35,7 @@ var camera
 var is_bot = false
 
 func _physics_process(delta_milliseconds):
+	print(delta_milliseconds)
 	var delta = delta_milliseconds*60
 	
 	if not is_bot:

@@ -15,6 +15,7 @@ var all_slow = 6
 
 func _ability():
 	if cooldown <= 0 and not ball_slowed and not all_slowed and duration <= 0:
+		sprite.animation = "slowed"
 		ball_speed = ball.ball_speed
 		ball.ball_speed /= ball_slow
 		ball_slowed = true
@@ -22,6 +23,7 @@ func _ability():
 
 func _ultimate():
 	if ult_dur <= 0 and charge >= charge_max and not all_slowed and not ball_slowed:
+		sprite.animation = "slowed"
 		charge = 0
 		ball_speed = ball.ball_speed
 		ball.ball_speed /= all_slow
@@ -37,6 +39,7 @@ func _ability_cooldown(delta):
 	if duration > 0:
 		duration -= delta
 	elif ball_slowed:
+		sprite.animation = "default"
 		ball_slowed = false
 		ball.ball_speed = ball_speed
 		ball.speed_add = 10
@@ -45,6 +48,7 @@ func _ability_cooldown(delta):
 	if ult_dur > 0:
 		ult_dur -= 1 * delta
 	elif all_slowed:
+		sprite.animation = "default"
 		ball.ball_speed = ball_speed
 		opponent.update_move_speed(opponent.move_speed * all_slow, opponent.speed_damp)
 		all_slowed = false

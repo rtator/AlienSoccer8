@@ -19,6 +19,23 @@ const alienTextures = {
 	"spectre": preload("res://as8_sprites_png/spectre.png"),
 	"mosquito": preload("res://as8_sprites_png/mosquito.png"),
 }
+const alienSkins = {
+	"basic": preload("res://as8_sprites_png/basic.png"),
+	"speedy": preload("res://as8_sprites_png/speedy.png"),
+	"scaler": preload("res://as8_sprites_png/scaler.png"),
+	"jumper": preload("res://as8_sprites_png/jumper.png"),
+	"launcher": preload("res://as8_sprites_png/launcher.png"),
+	"freezer": preload("res://as8_sprites_png/freezer.png"),
+	"clock": preload("res://as8_sprites_png/clock.png"),
+	"trickster": preload("res://as8_sprites_png/trickster.png"),
+	"gambler": preload("res://as8_sprites_png/gambler.png"),
+	"wrangler": preload("res://as8_sprites_png/wrangler.png"),
+	"twins": preload("res://as8_sprites_png/twins_blue.png"),
+	"warper": preload("res://as8_sprites_png/warper.png"),
+	"target": preload("res://as8_sprites_png/target.png"),
+	"spectre": preload("res://as8_sprites_png/spectre.png"),
+	"mosquito": preload("res://as8_sprites_png/mosquito.png"),
+}
 
 var alien_names = alienTextures.keys()
 

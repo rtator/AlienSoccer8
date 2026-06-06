@@ -1,7 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1ut2uvi6f21m"]
+[gd_scene load_steps=10 format=3 uid="uid://c1ut2uvi6f21m"]
 
 [ext_resource type="Script" uid="uid://cviptfdwsd0t8" path="res://clock.gd" id="1_i3kok"]
 [ext_resource type="Texture2D" uid="uid://ui3muvxxr410" path="res://as8_sprites_png/clock.png" id="2_ytai7"]
+[ext_resource type="Texture2D" uid="uid://fdgflbhu8t3g" path="res://as8_sprites_png/clock_slowed_1.png" id="3_nnjeo"]
+[ext_resource type="Texture2D" uid="uid://ccyrcmf38c4xh" path="res://as8_sprites_png/clock_slowed_2.png" id="4_tlhig"]
+[ext_resource type="Texture2D" uid="uid://cilu28xb0ueow" path="res://as8_sprites_png/clock_slowed_3.png" id="5_n7uyj"]
+[ext_resource type="Texture2D" uid="uid://2rf7unhryuf5" path="res://as8_sprites_png/clock_slowed_4.png" id="6_87j3h"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i3kok"]
 friction = 0.5
@@ -14,6 +18,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_nnjeo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tlhig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_n7uyj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_87j3h")
+}],
+"loop": true,
+"name": &"slowed",
 "speed": 5.0
 }]
 
@@ -31,6 +52,8 @@ metadata/_custom_type_script = "uid://e41xdpe4oqa2"
 unique_name_in_owner = true
 scale = Vector2(0.17, 0.17)
 sprite_frames = SubResource("SpriteFrames_v81l8")
+autoplay = "default"
+frame_progress = 0.312493
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
