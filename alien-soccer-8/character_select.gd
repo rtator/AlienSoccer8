@@ -13,9 +13,10 @@ const alienTextures = {
 	"trickster": preload("res://as8_sprites_png/trickster.png"),
 	"gambler": preload("res://as8_sprites_png/gambler.png"),
 	"wrangler": preload("res://as8_sprites_png/wrangler.png"),
-	"target": preload("res://as8_sprites_png/target.png"),
 	"twins": preload("res://as8_sprites_png/twins_blue.png"),
 	"warper": preload("res://as8_sprites_png/warper.png"),
+	"target": preload("res://as8_sprites_png/target.png"),
+	"spectre": preload("res://as8_sprites_png/spectre.png"),
 	"mosquito": preload("res://as8_sprites_png/mosquito.png"),
 }
 
@@ -35,9 +36,10 @@ var p2_selected_button = 0
 	%trickster1,
 	%gambler1,
 	%wrangler1,
-	%target1,
 	%twins1,
 	%warper1,
+	%target1,
+	%spectre1,
 	%mosquito1,
 ]
 
@@ -103,10 +105,16 @@ func _unhandled_input(event):
 			elif event.is_action("p1_left"):
 				p1_selected_button -= 1
 			elif event.is_action("p1_up"):
-				p1_selected_button -= 6
+				if ceil((p1_selected_button + 1) / 6) == 2:
+					p1_selected_button -= 5
+				else:
+					p1_selected_button -= 6
 				p1_selected_button = clamp(p1_selected_button, 0, len(alien_buttons) - 1)
 			elif event.is_action("p1_down"):
-				p1_selected_button += 6
+				if ceil(p1_selected_button / 6) == 1 and p1_selected_button != 6:
+					p1_selected_button += 5
+				else:
+					p1_selected_button += 6
 				p1_selected_button = clamp(p1_selected_button, 0, len(alien_buttons) - 1)
 			elif event.is_action("p1_ability"):
 				p1Selected = true
@@ -121,10 +129,16 @@ func _unhandled_input(event):
 			elif event.is_action("p2_left"):
 				p2_selected_button -= 1
 			elif event.is_action("p2_up"):
-				p2_selected_button -= 6
+				if ceil((p2_selected_button + 1) / 6) == 2:
+					p2_selected_button -= 5
+				else:
+					p2_selected_button -= 6
 				p2_selected_button = clamp(p2_selected_button, 0, len(alien_buttons) - 1)
 			elif event.is_action("p2_down"):
-				p2_selected_button += 6
+				if ceil(p2_selected_button / 6) == 1 and p2_selected_button != 6:
+					p2_selected_button += 5
+				else:
+					p2_selected_button += 6
 				p2_selected_button = clamp(p2_selected_button, 0, len(alien_buttons) - 1)
 			elif event.is_action("p2_ability"):
 				p2Selected = true
