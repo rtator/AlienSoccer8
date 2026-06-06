@@ -72,13 +72,13 @@ position = Vector2(6, -31)
 scale = Vector2(0.12, 0.12)
 sprite_frames = SubResource("SpriteFrames_a1gj4")
 autoplay = "default"
-frame_progress = 0.992341
+frame_progress = 0.236126
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
 scale = Vector2(0.21, 0.21)
 sprite_frames = SubResource("SpriteFrames_oodx0")
 autoplay = "default"
-frame_progress = 0.519298
+frame_progress = 0.494409
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]

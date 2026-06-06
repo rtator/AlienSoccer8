@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b3m6xkrm18rpv"]
+[gd_scene load_steps=15 format=3 uid="uid://b3m6xkrm18rpv"]
 
 [ext_resource type="Script" uid="uid://5qmjw0wrextr" path="res://level_test.gd" id="1_u52ul"]
 [ext_resource type="Texture2D" uid="uid://bibmgndwxclir" path="res://Imported piskel (30).png" id="2_f2txt"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://6ddf1jx7j5bu" path="res://p_1_wall.gd" id="3_0b4ue"]
 [ext_resource type="Script" uid="uid://bbduc43ljf86y" path="res://p_2_wall.gd" id="4_f2txt"]
 [ext_resource type="Script" uid="uid://cv2anvuqggdhc" path="res://camera_2d.gd" id="6_1ainy"]
+[ext_resource type="Script" uid="uid://cjmgxivawdsf4" path="res://cooldown.gd" id="6_n6hdu"]
+[ext_resource type="Script" uid="uid://d1i3xv63534pq" path="res://charge.gd" id="7_km5ld"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_oi3di"]
 normal = Vector2(0, 1)
@@ -157,6 +159,7 @@ clip_contents = true
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 max_value = 1.0
+script = ExtResource("6_n6hdu")
 
 [node name="p2Cooldown" type="ProgressBar" parent="CanvasLayer/GridContainer"]
 unique_name_in_owner = true
@@ -164,6 +167,7 @@ clip_contents = true
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 max_value = 1.0
+script = ExtResource("6_n6hdu")
 
 [node name="Label3" type="Label" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
@@ -180,12 +184,14 @@ unique_name_in_owner = true
 clip_contents = true
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
+script = ExtResource("7_km5ld")
 
 [node name="p2Charge" type="ProgressBar" parent="CanvasLayer/GridContainer"]
 unique_name_in_owner = true
 clip_contents = true
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
+script = ExtResource("7_km5ld")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
