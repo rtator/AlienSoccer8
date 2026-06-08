@@ -61,5 +61,15 @@ theme_override_styles/pressed = ExtResource("2_ev681")
 theme_override_styles/normal = ExtResource("2_ev681")
 text = "Settings"
 
+[node name="Button3" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = ExtResource("2_ev681")
+theme_override_styles/hover = ExtResource("2_ev681")
+theme_override_styles/pressed = ExtResource("2_ev681")
+theme_override_styles/normal = ExtResource("2_ev681")
+text = "Alien Info"
+
 [connection signal="pressed" from="GridContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="GridContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="GridContainer/Button3" to="." method="_on_button_3_pressed"]

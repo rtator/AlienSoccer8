@@ -1,0 +1,144 @@
+[gd_scene load_steps=7 format=3 uid="uid://b82c2em1c0okw"]
+
+[ext_resource type="PackedScene" uid="uid://bmr8vq1g5v5p3" path="res://alien_info_buttons.tscn" id="1_yudrk"]
+[ext_resource type="Texture2D" uid="uid://b8qoaet02ymn6" path="res://as8_sprites_png/warper.png" id="2_i1qmc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k5eo3"]
+line_spacing = 0.0
+font_size = 75
+font_color = Color(0, 0.760784, 0.364706, 1)
+outline_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_bgrex"]
+font_size = 30
+font_color = Color(0.713726, 0.843137, 0.658824, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_d236w"]
+font_size = 15
+font_color = Color(0.713726, 0.843137, 0.658824, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qlemb"]
+font_size = 18
+font_color = Color(0.713726, 0.843137, 0.658824, 1)
+
+[node name="warperAlienInfo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="baseAlienInfo" parent="." instance=ExtResource("1_yudrk")]
+layout_mode = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -538.0
+offset_right = 576.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -200.0
+offset_right = 404.0
+offset_bottom = 200.0
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_vertical = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_i1qmc")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(752, 400)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -94.0
+offset_top = -103.0
+offset_right = 94.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "WARPER"
+label_settings = SubResource("LabelSettings_k5eo3")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "get telefragged kid"
+label_settings = SubResource("LabelSettings_bgrex")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Warper is a defensive and technical alien, with low speed but the ability to teleport across the field. Warper has two variants of it's default and then an ultimate that makes sure it has field-wide coverage and multiple uses for its waypoint.
+
+Default - Place / Teleport
+Cooldown: 100 / 200
+Duration: ∞ / N/A
+Warper places a waypoint where it is standing, with a max of one waypoint at a time.
+Warper teleports to the waypoint, destroying the waypoint in the process and causing an explosion that can hit the ball back.
+
+Ultimate - Transmission Swap
+Charge: 700
+Duration: N/A
+Warper causes the ball to teleport to its waypoint and the ball moves toward the opponent.
+"
+label_settings = SubResource("LabelSettings_d236w")
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="Control/HBoxContainer/VBoxContainer/Label2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -99.0
+offset_top = -154.0
+offset_bottom = -70.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Speed = 0.9
+Friction = 1
+Size = 0.8"
+label_settings = SubResource("LabelSettings_qlemb")

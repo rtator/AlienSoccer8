@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxcrr8grciqbo"]
+
+[ext_resource type="Texture2D" uid="uid://bwfo840r62mt7" path="res://as8_sprites_png/Imported piskel (20).png" id="1_vd2bs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nyiso"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vd2bs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3vlmg"]
+radius = 20.0
+
+[node name="ultSmokeBomb" type="RigidBody2D"]
+gravity_scale = 0.0
+lock_rotation = true
+linear_damp = 2.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_nyiso")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3vlmg")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0

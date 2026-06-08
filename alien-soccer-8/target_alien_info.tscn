@@ -1,0 +1,141 @@
+[gd_scene load_steps=7 format=3 uid="uid://d02xlfh0d8pnw"]
+
+[ext_resource type="PackedScene" uid="uid://bmr8vq1g5v5p3" path="res://alien_info_buttons.tscn" id="1_4m3kp"]
+[ext_resource type="Texture2D" uid="uid://dvu1ven3xo3p0" path="res://as8_sprites_png/target.png" id="2_2fsuw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s68ix"]
+line_spacing = 0.0
+font_size = 75
+outline_size = 12
+outline_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_arn3r"]
+font_size = 30
+font_color = Color(0.694118, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_c1vrf"]
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mwc7y"]
+font_size = 18
+font_color = Color(1, 0, 0, 1)
+
+[node name="targetAlienInfo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="baseAlienInfo" parent="." instance=ExtResource("1_4m3kp")]
+layout_mode = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -538.0
+offset_right = 576.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -200.0
+offset_right = 404.0
+offset_bottom = 200.0
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_vertical = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_2fsuw")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(752, 400)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -94.0
+offset_top = -103.0
+offset_right = 94.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "TARGET"
+label_settings = SubResource("LabelSettings_s68ix")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "double the points, double the fun"
+label_settings = SubResource("LabelSettings_arn3r")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Target is the third attempt on a double-scoring alien, with worse speed and size than average. Although, Target has a passive: hitting the opponent's goal in a specific zone will score two points instead of one, causing the opponent to have to manage protecting the goal while also playing normally.
+
+Default - Bullseye
+Cooldown: 100
+Duration: ∞
+An arrow fires from the opposing side onto Target's center. Hitting the ball will stop it in place.
+
+Ultimate - Focal Points
+Charge: 700
+Duration: 300
+Target makes the opposing side's entire scoring zone worth 2x points temporarily.
+"
+label_settings = SubResource("LabelSettings_c1vrf")
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="Control/HBoxContainer/VBoxContainer/Label2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -84.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Speed = 0.85
+Friction = 1
+Size = 0.85"
+label_settings = SubResource("LabelSettings_mwc7y")

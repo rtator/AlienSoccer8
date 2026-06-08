@@ -1,0 +1,144 @@
+[gd_scene load_steps=7 format=3 uid="uid://dw84607whfmhc"]
+
+[ext_resource type="PackedScene" uid="uid://bmr8vq1g5v5p3" path="res://alien_info_buttons.tscn" id="1_omwe7"]
+[ext_resource type="Texture2D" uid="uid://b7nwl08awofg1" path="res://as8_sprites_png/gambler.png" id="2_xeqbh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_67502"]
+line_spacing = 0.0
+font_size = 75
+font_color = Color(0.6, 0.6, 0.6, 1)
+outline_size = 8
+outline_color = Color(0.1812, 0.1812, 0.1812, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nbtpa"]
+font_size = 30
+font_color = Color(0.376658, 0.376658, 0.376658, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3mb2x"]
+font_size = 17
+font_color = Color(0.6, 0.6, 0.6, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ug04"]
+font_size = 18
+font_color = Color(0.6, 0.6, 0.6, 1)
+
+[node name="gamblerAlienInfo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="baseAlienInfo" parent="." instance=ExtResource("1_omwe7")]
+layout_mode = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -538.0
+offset_right = 576.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -200.0
+offset_right = 404.0
+offset_bottom = 200.0
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_vertical = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_xeqbh")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(752, 400)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -94.0
+offset_top = -103.0
+offset_right = 94.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "GAMBLER"
+label_settings = SubResource("LabelSettings_67502")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "let's go gambling!"
+label_settings = SubResource("LabelSettings_nbtpa")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Gambler is the luck-based alien of the roster, with performance depending on how lucky you get with your rolls. Spam those abilities and pray for the best!
+
+Default - Coin Toss
+Cooldown: 100
+Duration: 100
+Gambler rolls for a stat change, with the potential to have speed or size modified temporarily.
+
+Ultimate - Jackpot
+Charge: 300
+Duration: 200
+Gambler bets all of its chips, removing its default cooldown for a short period of time.
+"
+label_settings = SubResource("LabelSettings_3mb2x")
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="Control/HBoxContainer/VBoxContainer/Label2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -99.0
+offset_top = -133.0
+offset_bottom = -49.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Speed = 0.9
+Friction = 1
+Size = 0.9"
+label_settings = SubResource("LabelSettings_3ug04")

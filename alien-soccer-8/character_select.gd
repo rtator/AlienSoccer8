@@ -18,23 +18,7 @@ const alienTextures = {
 	"target": preload("res://as8_sprites_png/target.png"),
 	"spectre": preload("res://as8_sprites_png/spectre.png"),
 	"mosquito": preload("res://as8_sprites_png/mosquito.png"),
-}
-const alienSkins = {
-	"basic": preload("res://as8_sprites_png/basic.png"),
-	"speedy": preload("res://as8_sprites_png/speedy.png"),
-	"scaler": preload("res://as8_sprites_png/scaler.png"),
-	"jumper": preload("res://as8_sprites_png/jumper.png"),
-	"launcher": preload("res://as8_sprites_png/launcher.png"),
-	"freezer": preload("res://as8_sprites_png/freezer.png"),
-	"clock": preload("res://as8_sprites_png/clock.png"),
-	"trickster": preload("res://as8_sprites_png/trickster.png"),
-	"gambler": preload("res://as8_sprites_png/gambler.png"),
-	"wrangler": preload("res://as8_sprites_png/wrangler.png"),
-	"twins": preload("res://as8_sprites_png/twins_blue.png"),
-	"warper": preload("res://as8_sprites_png/warper.png"),
-	"target": preload("res://as8_sprites_png/target.png"),
-	"spectre": preload("res://as8_sprites_png/spectre.png"),
-	"mosquito": preload("res://as8_sprites_png/mosquito.png"),
+	"cloaker": preload("res://as8_sprites_png/cloaker.png"),
 }
 
 var alien_names = alienTextures.keys()
@@ -58,6 +42,7 @@ var p2_selected_button = 0
 	%target1,
 	%spectre1,
 	%mosquito1,
+	%cloaker1,
 ]
 
 var started = false
@@ -198,3 +183,7 @@ func _on_p_2_bot_pressed():
 	else:
 		GlobalSave.p2IsBot = true
 		%p2Bot.text = "Bot"
+
+
+func _on_back_button_pressed():
+	get_tree().change_scene_to_file("res://startScreen.tscn")

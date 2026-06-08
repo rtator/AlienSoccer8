@@ -1,0 +1,144 @@
+[gd_scene load_steps=7 format=3 uid="uid://daetn4bgklwn4"]
+
+[ext_resource type="PackedScene" uid="uid://bmr8vq1g5v5p3" path="res://alien_info_buttons.tscn" id="1_4t8ay"]
+[ext_resource type="Texture2D" uid="uid://dwm171owu3a4k" path="res://as8_sprites_png/wrangler.png" id="2_llpda"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7aflf"]
+line_spacing = 0.0
+font_size = 75
+font_color = Color(0.403922, 0, 0.231373, 1)
+outline_size = 8
+outline_color = Color(0.580392, 0, 0.329412, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wbaey"]
+font_size = 30
+font_color = Color(0.65098, 0.301961, 0.47451, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6j7qr"]
+font_size = 15
+font_color = Color(0.65098, 0.301961, 0.47451, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_72m85"]
+font_size = 18
+font_color = Color(0.65098, 0.301961, 0.47451, 1)
+
+[node name="wranglerAlienInfo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="baseAlienInfo" parent="." instance=ExtResource("1_4t8ay")]
+layout_mode = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -538.0
+offset_right = 576.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -200.0
+offset_right = 404.0
+offset_bottom = 200.0
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_vertical = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_llpda")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(752, 400)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -94.0
+offset_top = -103.0
+offset_right = 94.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "WRANGLER"
+label_settings = SubResource("LabelSettings_7aflf")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "GET OVER HERE!"
+label_settings = SubResource("LabelSettings_wbaey")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Wrangler is the first of some new aliens being added to the Alien Soccer franchise, using a lasso to reel in the ball and sticks of dynamite to stun the opponent or hit the ball. However, Wrangler is slower than average.
+
+Default - Round 'em Up
+Cooldown: 150
+Duration: 50
+Wrangler throws a lasso diagonally upwards. Hitting the ball will reel it in and then throw it forwards.
+
+Ultimate - Clearing Land
+Charge: 400
+Duration: 300
+Wrangler tosses sticks of dynamite straight forwards that explode after a delay or whenever they make contact with the ball/opponent, exploding and stunning the opponent or moving the ball.
+"
+label_settings = SubResource("LabelSettings_6j7qr")
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="Control/HBoxContainer/VBoxContainer/Label2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -160.0
+offset_bottom = -76.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Speed = 1
+Friction = 1
+Size = 1"
+label_settings = SubResource("LabelSettings_72m85")

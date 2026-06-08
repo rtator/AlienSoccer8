@@ -1,0 +1,144 @@
+[gd_scene load_steps=7 format=3 uid="uid://c22p6eob3a1yt"]
+
+[ext_resource type="PackedScene" uid="uid://bmr8vq1g5v5p3" path="res://alien_info_buttons.tscn" id="1_fihaq"]
+[ext_resource type="Texture2D" uid="uid://7owgs5hcn0tf" path="res://as8_sprites_png/speedy.png" id="2_fihaq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d1haj"]
+line_spacing = 0.0
+font_size = 75
+font_color = Color(0, 0, 0, 1)
+outline_size = 10
+outline_color = Color(1, 0.898039, 0.6, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_70glg"]
+font_size = 30
+font_color = Color(0.850908, 0.685917, 5.77569e-06, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_x55oy"]
+font_color = Color(1, 0.898039, 0.6, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_v36j6"]
+font_size = 18
+font_color = Color(1, 0.898039, 0.6, 1)
+
+[node name="speedyAlienInfo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="baseAlienInfo" parent="." instance=ExtResource("1_fihaq")]
+layout_mode = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -538.0
+offset_right = 576.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -200.0
+offset_right = 404.0
+offset_bottom = 200.0
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_vertical = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_fihaq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(752, 400)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -94.0
+offset_top = -103.0
+offset_right = 94.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "SPEEDY"
+label_settings = SubResource("LabelSettings_d1haj")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "here comes the s-train "
+label_settings = SubResource("LabelSettings_70glg")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Speedy is an alien built for high skill and little mistakes. Despite its small size, Speedy is very good at both defense and offense due to having the single highest speed stat in the game, outclassing every other alien in speed. However, Speedy is also very slippery, and can be hard to control at times, making it a difficult alien to both play and master.
+
+Default - Dash
+Cooldown: 200
+Duration: 10
+Speedy dashes forwards, hitting the ball along its dash if possible.
+
+Ultimate - Accelerated Motors
+Charge: 500
+Duration: 200
+Speedy gains a small speed boost and its friction is increased drastically, giving it much more control and power.
+"
+label_settings = SubResource("LabelSettings_x55oy")
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="Control/HBoxContainer/VBoxContainer/Label2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -97.0
+offset_top = -167.5
+offset_right = -1.0
+offset_bottom = -83.5
+grow_horizontal = 0
+grow_vertical = 0
+text = "Speed = 1
+Friction = 0.6
+Size = 0.7"
+label_settings = SubResource("LabelSettings_v36j6")

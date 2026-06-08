@@ -1,0 +1,913 @@
+[gd_scene load_steps=24 format=3 uid="uid://bmr8vq1g5v5p3"]
+
+[ext_resource type="Script" uid="uid://lirq2jm6638j" path="res://base_alien_info.gd" id="1_p8wsi"]
+[ext_resource type="Texture2D" uid="uid://327vha6fycg0" path="res://as8_sprites_png/basic.png" id="2_ch6ir"]
+[ext_resource type="Texture2D" uid="uid://7owgs5hcn0tf" path="res://as8_sprites_png/speedy.png" id="3_yvhr3"]
+[ext_resource type="Texture2D" uid="uid://dp1dek2hejsv7" path="res://as8_sprites_png/scaler.png" id="4_05o6d"]
+[ext_resource type="Texture2D" uid="uid://br613v3qc7n6j" path="res://as8_sprites_png/jumper.png" id="5_chvc8"]
+[ext_resource type="Texture2D" uid="uid://boyid07gy8tc7" path="res://as8_sprites_png/launcher.png" id="6_u5y6w"]
+[ext_resource type="Texture2D" uid="uid://cq6fbsfq4fw6k" path="res://as8_sprites_png/freezer.png" id="7_ahghl"]
+[ext_resource type="Texture2D" uid="uid://ui3muvxxr410" path="res://as8_sprites_png/clock.png" id="8_jph20"]
+[ext_resource type="Texture2D" uid="uid://3k0fopj4nh8b" path="res://as8_sprites_png/trickster.png" id="9_y5ury"]
+[ext_resource type="Texture2D" uid="uid://b7nwl08awofg1" path="res://as8_sprites_png/gambler.png" id="10_bde4n"]
+[ext_resource type="Texture2D" uid="uid://dwm171owu3a4k" path="res://as8_sprites_png/wrangler.png" id="11_m6wao"]
+[ext_resource type="Texture2D" uid="uid://r7itoo3ld2gq" path="res://as8_sprites_png/twin_both.png" id="12_p8wsi"]
+[ext_resource type="Texture2D" uid="uid://b8qoaet02ymn6" path="res://as8_sprites_png/warper.png" id="13_ysg5i"]
+[ext_resource type="Texture2D" uid="uid://dvu1ven3xo3p0" path="res://as8_sprites_png/target.png" id="14_k8cye"]
+[ext_resource type="Texture2D" uid="uid://pqiospote2ly" path="res://as8_sprites_png/spectre.png" id="15_xs5h4"]
+[ext_resource type="Texture2D" uid="uid://cd72i3j4o355c" path="res://as8_sprites_png/mosquito.png" id="16_u2k71"]
+[ext_resource type="StyleBox" uid="uid://bhwb56kpdliu" path="res://buttonText.tres" id="17_ch6ir"]
+[ext_resource type="Texture2D" uid="uid://dsf4nbpunupkc" path="res://as8_sprites_png/cloaker.png" id="17_yvhr3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ch6ir"]
+font_size = 14
+
+[sub_resource type="LabelSettings" id="LabelSettings_yvhr3"]
+font_size = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_p8wsi"]
+font_size = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_05o6d"]
+font_size = 14
+
+[sub_resource type="LabelSettings" id="LabelSettings_chvc8"]
+font_size = 14
+
+[node name="baseAlienInfo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p8wsi")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0562916, 0.0562916, 0.0562915, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -564.5
+offset_top = 11.5
+offset_right = 564.5
+offset_bottom = 117.5
+grow_horizontal = 2
+theme_override_constants/separation = 7
+
+[node name="basic" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 106)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/basic"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 53.0
+grow_horizontal = 2
+texture = ExtResource("2_ch6ir")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="HBoxContainer/basic"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -53.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/basic/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -11.5
+offset_right = 20.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Basic"
+
+[node name="speedy" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 106)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/speedy"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 53.0
+grow_horizontal = 2
+texture = ExtResource("3_yvhr3")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="HBoxContainer/speedy"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -53.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/speedy/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -11.5
+offset_right = 20.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Speedy"
+
+[node name="scaler" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 106)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/scaler"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 53.0
+grow_horizontal = 2
+texture = ExtResource("4_05o6d")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="HBoxContainer/scaler"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -53.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/scaler/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -11.5
+offset_right = 20.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Scaler"
+
+[node name="jumper" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 106)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/jumper"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 53.0
+grow_horizontal = 2
+texture = ExtResource("5_chvc8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="HBoxContainer/jumper"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -53.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/jumper/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -11.5
+offset_right = 20.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Jumper"
+
+[node name="launcher" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 106)
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/launcher"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 53.0
+grow_horizontal = 2
+texture = ExtResource("6_u5y6w")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="HBoxContainer/launcher"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -53.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/launcher/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -10.0
+offset_right = 32.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Launcher"
+label_settings = SubResource("LabelSettings_ch6ir")
+
+[node name="freezer" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 106)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/freezer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 53.0
+grow_horizontal = 2
+texture = ExtResource("7_ahghl")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="HBoxContainer/freezer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -53.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/freezer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -11.5
+offset_right = 20.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Freezer"
+
+[node name="clock" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 106)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/clock"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 53.0
+grow_horizontal = 2
+texture = ExtResource("8_jph20")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="HBoxContainer/clock"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -53.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/clock/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -11.5
+offset_right = 20.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Clock"
+
+[node name="trickster" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 106)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/trickster"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 53.0
+grow_horizontal = 2
+texture = ExtResource("9_y5ury")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="HBoxContainer/trickster"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -53.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/trickster/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -11.0
+offset_right = 32.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Trickster"
+label_settings = SubResource("LabelSettings_yvhr3")
+
+[node name="gambler" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 106)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/gambler"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 53.0
+grow_horizontal = 2
+texture = ExtResource("10_bde4n")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="HBoxContainer/gambler"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -53.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/gambler/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -11.0
+offset_right = 31.5
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Gambler"
+label_settings = SubResource("LabelSettings_p8wsi")
+
+[node name="wrangler" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 106)
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/wrangler"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 53.0
+grow_horizontal = 2
+texture = ExtResource("11_m6wao")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="HBoxContainer/wrangler"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -53.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/wrangler/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -10.0
+offset_right = 31.5
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Wrangler"
+label_settings = SubResource("LabelSettings_05o6d")
+
+[node name="twins" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 106)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/twins"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 53.0
+grow_horizontal = 2
+texture = ExtResource("12_p8wsi")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="HBoxContainer/twins"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -53.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/twins/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -11.5
+offset_right = 20.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Twins"
+
+[node name="warper" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 106)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/warper"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 53.0
+grow_horizontal = 2
+texture = ExtResource("13_ysg5i")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="HBoxContainer/warper"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -53.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/warper/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -11.5
+offset_right = 20.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Warper"
+
+[node name="target" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 106)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/target"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 53.0
+grow_horizontal = 2
+texture = ExtResource("14_k8cye")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="HBoxContainer/target"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -53.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/target/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -11.5
+offset_right = 20.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Target"
+
+[node name="spectre" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 106)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/spectre"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 53.0
+grow_horizontal = 2
+texture = ExtResource("15_xs5h4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="HBoxContainer/spectre"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -53.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/spectre/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -11.5
+offset_right = 20.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Spectre"
+
+[node name="mosquito" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 106)
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/mosquito"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 53.0
+grow_horizontal = 2
+texture = ExtResource("16_u2k71")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="HBoxContainer/mosquito"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -53.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/mosquito/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -10.0
+offset_right = 32.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Mosquito"
+label_settings = SubResource("LabelSettings_chvc8")
+
+[node name="cloaker" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 106)
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+autowrap_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/cloaker"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 53.0
+grow_horizontal = 2
+texture = ExtResource("17_yvhr3")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="HBoxContainer/cloaker"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -53.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/cloaker/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -10.0
+offset_right = 26.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Cloaker"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="backButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -59.0
+offset_right = 106.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = ExtResource("17_ch6ir")
+theme_override_styles/hover_pressed = ExtResource("17_ch6ir")
+theme_override_styles/hover = ExtResource("17_ch6ir")
+theme_override_styles/pressed = ExtResource("17_ch6ir")
+theme_override_styles/normal = ExtResource("17_ch6ir")
+text = "Back"
+
+[connection signal="pressed" from="HBoxContainer/basic" to="." method="_on_basic_pressed"]
+[connection signal="pressed" from="HBoxContainer/speedy" to="." method="_on_speedy_pressed"]
+[connection signal="pressed" from="HBoxContainer/scaler" to="." method="_on_scaler_pressed"]
+[connection signal="pressed" from="HBoxContainer/jumper" to="." method="_on_jumper_pressed"]
+[connection signal="pressed" from="HBoxContainer/launcher" to="." method="_on_launcher_pressed"]
+[connection signal="pressed" from="HBoxContainer/freezer" to="." method="_on_freezer_pressed"]
+[connection signal="pressed" from="HBoxContainer/clock" to="." method="_on_clock_pressed"]
+[connection signal="pressed" from="HBoxContainer/trickster" to="." method="_on_trickster_pressed"]
+[connection signal="pressed" from="HBoxContainer/gambler" to="." method="_on_gambler_pressed"]
+[connection signal="pressed" from="HBoxContainer/wrangler" to="." method="_on_wrangler_pressed"]
+[connection signal="pressed" from="HBoxContainer/twins" to="." method="_on_twins_pressed"]
+[connection signal="pressed" from="HBoxContainer/warper" to="." method="_on_warper_pressed"]
+[connection signal="pressed" from="HBoxContainer/target" to="." method="_on_target_pressed"]
+[connection signal="pressed" from="HBoxContainer/spectre" to="." method="_on_spectre_pressed"]
+[connection signal="pressed" from="HBoxContainer/mosquito" to="." method="_on_mosquito_pressed"]
+[connection signal="pressed" from="HBoxContainer/cloaker" to="." method="_on_cloaker_pressed"]
+[connection signal="pressed" from="CanvasLayer/backButton" to="." method="_on_back_button_pressed"]

@@ -1,0 +1,140 @@
+[gd_scene load_steps=7 format=3 uid="uid://begqmae6yc2h4"]
+
+[ext_resource type="PackedScene" uid="uid://bmr8vq1g5v5p3" path="res://alien_info_buttons.tscn" id="1_0e0dk"]
+[ext_resource type="Texture2D" uid="uid://pqiospote2ly" path="res://as8_sprites_png/spectre.png" id="2_nf42h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d3a18"]
+line_spacing = 0.0
+font_size = 75
+font_color = Color(0.85098, 0.85098, 0.85098, 1)
+outline_size = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_dyugp"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_jkvo6"]
+font_size = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_ihd1b"]
+font_size = 18
+
+[node name="spectreAlienInfo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="baseAlienInfo" parent="." instance=ExtResource("1_0e0dk")]
+layout_mode = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -538.0
+offset_right = 576.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -200.0
+offset_right = 404.0
+offset_bottom = 200.0
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_vertical = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_nf42h")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(752, 400)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -94.0
+offset_top = -103.0
+offset_right = 94.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "SPECTRE"
+label_settings = SubResource("LabelSettings_d3a18")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "scythe versus unarmed... begin!"
+label_settings = SubResource("LabelSettings_dyugp")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Spectre is a disruptive alien with a speed that increases or decreases based off the spin speed of its trusty scythe. The scythe ramps up in speed over time, restarting whenever it hits the ball. The handle/back bats the ball away, while the metal blade makes it disappear after a short delay. Unfortunately, due to its ghostly nature, Spectre itself cannot make contact with the ball.
+
+Default - Reflect
+Cooldown: 100
+Duration: N/A
+Spectre changes the direction of its scythe rotation, maintaining the same spin speed and momentum.
+
+Ultimate - Deathly Reap
+Charge: 500
+Duration: 150
+Spectre boosts the spin speed of its scythe and both sides immediately make the ball disappear.
+"
+label_settings = SubResource("LabelSettings_jkvo6")
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="Control/HBoxContainer/VBoxContainer/Label2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -137.0
+offset_bottom = -53.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Speed = 1
+Friction = 1
+Size = 1"
+label_settings = SubResource("LabelSettings_ihd1b")

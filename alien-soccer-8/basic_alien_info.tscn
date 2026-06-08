@@ -1,0 +1,139 @@
+[gd_scene load_steps=7 format=3 uid="uid://cf3k26gl3mw8j"]
+
+[ext_resource type="Texture2D" uid="uid://327vha6fycg0" path="res://as8_sprites_png/basic.png" id="2_43n5o"]
+[ext_resource type="PackedScene" uid="uid://bmr8vq1g5v5p3" path="res://alien_info_buttons.tscn" id="2_lkr61"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1rpyu"]
+line_spacing = 0.0
+font_size = 75
+font_color = Color(0.427451, 0.619608, 0.921569, 1)
+outline_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_x6q6s"]
+font_size = 30
+font_color = Color(0.229614, 0.562408, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lkr61"]
+font_size = 18
+font_color = Color(0.427451, 0.619608, 0.921569, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6s4m3"]
+font_size = 18
+font_color = Color(0.427451, 0.619608, 0.921569, 1)
+
+[node name="basicAlienInfo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="baseAlienInfo" parent="." instance=ExtResource("2_lkr61")]
+layout_mode = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -538.0
+offset_right = 576.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -200.0
+offset_right = 404.0
+offset_bottom = 200.0
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_vertical = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_43n5o")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(752, 400)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -94.0
+offset_top = -103.0
+offset_right = 94.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "BASIC"
+label_settings = SubResource("LabelSettings_1rpyu")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "no skill, no problem"
+label_settings = SubResource("LabelSettings_x6q6s")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Basic is the premiere starting alien, lacking a default ability but becoming much easier to play and master. This makes Basic a perfect middle ground, with decent stats all around. It also makes Basic exceptional at performing various techs or tricks because of its lack of jank hitboxes or inconsistent factors. As a bonus, Basic also has a simple and easy to use ultimate ability.
+
+Default - N/A
+
+Ultimate - Boost
+Charge: 500
+Duration: 200
+Basic gets 30% larger and 50% faster.
+"
+label_settings = SubResource("LabelSettings_lkr61")
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="Control/HBoxContainer/VBoxContainer/Label2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -84.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Speed = 1
+Friction = 1
+Size = 1"
+label_settings = SubResource("LabelSettings_6s4m3")

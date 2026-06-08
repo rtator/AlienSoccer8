@@ -1,0 +1,144 @@
+[gd_scene load_steps=7 format=3 uid="uid://cx7elg8l8s2ql"]
+
+[ext_resource type="PackedScene" uid="uid://bmr8vq1g5v5p3" path="res://alien_info_buttons.tscn" id="1_fy708"]
+[ext_resource type="Texture2D" uid="uid://dsf4nbpunupkc" path="res://as8_sprites_png/cloaker.png" id="2_yhvt8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fo68x"]
+line_spacing = 0.0
+font_size = 75
+font_color = Color(0.513726, 0.576471, 0.501961, 1)
+outline_size = 8
+outline_color = Color(0.190762, 0.190762, 0.190762, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rll4r"]
+font_size = 30
+font_color = Color(0.361919, 0.415303, 0.351944, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5ok6k"]
+font_size = 15
+font_color = Color(0.513726, 0.576471, 0.501961, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_a0mg0"]
+font_size = 18
+font_color = Color(0.513726, 0.576471, 0.501961, 1)
+
+[node name="cloakerAlienInfo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="baseAlienInfo" parent="." instance=ExtResource("1_fy708")]
+layout_mode = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -538.0
+offset_right = 576.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -200.0
+offset_right = 404.0
+offset_bottom = 200.0
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_vertical = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_yhvt8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(752, 400)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -94.0
+offset_top = -103.0
+offset_right = 94.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Cloaker"
+label_settings = SubResource("LabelSettings_fo68x")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "does this count as ragebait"
+label_settings = SubResource("LabelSettings_rll4r")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Cloaker is similar to Trickster and Flashbang from AS4, a visual manipulator that can throw smoke grenades to cover the opponent's side and stats. To fit a diversity quota, it is also larger and slower.
+
+Default - Chemical Cloud
+Cooldown: 200
+Duration: 300
+Cloaker tosses a smoke grenade forwards that explodes on contact or after a delay, leaving a lingering smoke cloud for 5s.
+
+Ultimate - Blot Out the Sun 
+Charge: 600
+Duration: 300
+Cloaker tosses a large smoke grenade forwards that explodes on contact or after a delay, leaving a large smoke cloud for 5s and also automatically spawning smoke to cover the opponent's cooldown.
+"
+label_settings = SubResource("LabelSettings_5ok6k")
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="Control/HBoxContainer/VBoxContainer/Label2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -169.0
+offset_bottom = -85.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Speed = 0.8
+Friction = 1
+Size = 1.2"
+label_settings = SubResource("LabelSettings_a0mg0")

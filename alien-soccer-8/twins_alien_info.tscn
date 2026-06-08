@@ -1,0 +1,143 @@
+[gd_scene load_steps=7 format=3 uid="uid://b34cm7lgw41r6"]
+
+[ext_resource type="PackedScene" uid="uid://bmr8vq1g5v5p3" path="res://alien_info_buttons.tscn" id="1_8lhjx"]
+[ext_resource type="Texture2D" uid="uid://r7itoo3ld2gq" path="res://as8_sprites_png/twin_both.png" id="2_dgdbi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dismq"]
+line_spacing = 0.0
+font_size = 75
+font_color = Color(1, 0.4, 0, 1)
+outline_size = 10
+outline_color = Color(0.427451, 0.619608, 0.921569, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6opc6"]
+font_size = 30
+font_color = Color(1, 0.4, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_o5i3p"]
+font_color = Color(0.427451, 0.619608, 0.921569, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_p32oa"]
+font_size = 18
+font_color = Color(1, 0.4, 0, 1)
+
+[node name="twinsAlienInfo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="baseAlienInfo" parent="." instance=ExtResource("1_8lhjx")]
+layout_mode = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -538.0
+offset_right = 576.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -200.0
+offset_right = 404.0
+offset_bottom = 200.0
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_vertical = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_dgdbi")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(752, 400)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -94.0
+offset_top = -103.0
+offset_right = 94.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "TWINS"
+label_settings = SubResource("LabelSettings_dismq")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "two-in-one package"
+label_settings = SubResource("LabelSettings_6opc6")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "The Twins are two shorter than average aliens with the unique defense strategy of splitting in half or snapping back together, keeping control over the field. Additionally, the Twins can juggle the ball around the field, taking it from one side to the next using their ultimate.
+
+Default - Snap / Split
+Cooldown: 100
+Duration: ∞
+The Twins snap together or split in half depending on which mode they are currently in.
+
+Ultimate - Twin Tactics
+Charge: 300
+Duration: 500
+For a few seconds, if the ball hits one of the Twins, it keeps its momentum and fires out from the other Twin instead.
+"
+label_settings = SubResource("LabelSettings_o5i3p")
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="Control/HBoxContainer/VBoxContainer/Label2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -109.0
+offset_top = -169.0
+offset_bottom = -85.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Speed = 1
+Friction = 1
+Size = 0.5 x 2"
+label_settings = SubResource("LabelSettings_p32oa")

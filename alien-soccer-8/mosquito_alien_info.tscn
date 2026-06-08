@@ -1,0 +1,144 @@
+[gd_scene load_steps=7 format=3 uid="uid://t5fnjvvm73f0"]
+
+[ext_resource type="PackedScene" uid="uid://bmr8vq1g5v5p3" path="res://alien_info_buttons.tscn" id="1_ne4li"]
+[ext_resource type="Texture2D" uid="uid://cd72i3j4o355c" path="res://as8_sprites_png/mosquito.png" id="2_gxp4e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g38qu"]
+line_spacing = 0.0
+font_size = 75
+font_color = Color(0, 0, 0, 1)
+outline_size = 8
+outline_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dgev4"]
+font_size = 30
+font_color = Color(0.788235, 0.992157, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_t015t"]
+font_size = 14
+font_color = Color(0.788235, 0.992157, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ua2ay"]
+font_size = 18
+font_color = Color(1, 0, 0, 1)
+
+[node name="mosquitoAlienInfo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="baseAlienInfo" parent="." instance=ExtResource("1_ne4li")]
+layout_mode = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -538.0
+offset_right = 576.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -200.0
+offset_right = 404.0
+offset_bottom = 200.0
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_vertical = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_gxp4e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(752, 400)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -94.0
+offset_top = -103.0
+offset_right = 94.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "MOSQUITO"
+label_settings = SubResource("LabelSettings_g38qu")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "trickster's ragebaiting disciple"
+label_settings = SubResource("LabelSettings_dgev4")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "A small, fast, annoying pest that launches projectile after projectile with the objective to make gameplay as unfun as possible. By speeding up the ball passively whenever it makes contact and increasing the ball's speed further using its abilities, Mosquito is one of the most disruptive aliens in the game.
+
+Default - Flurry of Flies
+Cooldown: 200
+Duration: 120
+Mosquito fires a small swarm forwards with gravity. The swarm speeds up the ball and pushes the opponent around.
+
+Ultimate - Hivemind Scatter
+Charge: 500
+Duration: 120
+Mosquito fires a huge swarm forwards, taking up a lot of the screen and scattering like a shotgun with the same effects as its default swarm.
+"
+label_settings = SubResource("LabelSettings_t015t")
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="Control/HBoxContainer/VBoxContainer/Label2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -99.0
+offset_top = -164.0
+offset_bottom = -80.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Speed = 1.2
+Friction = 1
+Size = 0.3"
+label_settings = SubResource("LabelSettings_ua2ay")

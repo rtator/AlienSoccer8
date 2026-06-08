@@ -1,0 +1,143 @@
+[gd_scene load_steps=7 format=3 uid="uid://2h4nd2uqd3gt"]
+
+[ext_resource type="PackedScene" uid="uid://bmr8vq1g5v5p3" path="res://alien_info_buttons.tscn" id="1_uldqy"]
+[ext_resource type="Texture2D" uid="uid://3k0fopj4nh8b" path="res://as8_sprites_png/trickster.png" id="2_24dep"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pwidq"]
+line_spacing = 0.0
+font_size = 75
+font_color = Color(0.126543, 0, 0.790173, 1)
+outline_size = 30
+outline_color = Color(0.827451, 0.027451, 0.32549, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gqsr7"]
+font_size = 30
+font_color = Color(0.667247, 0.421587, 0.121323, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qvgve"]
+font_color = Color(0.964706, 0.698039, 0.419608, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wgbar"]
+font_size = 18
+font_color = Color(0.964706, 0.698039, 0.419608, 1)
+
+[node name="tricksterAlienInfo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="baseAlienInfo" parent="." instance=ExtResource("1_uldqy")]
+layout_mode = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -538.0
+offset_right = 576.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -200.0
+offset_right = 404.0
+offset_bottom = 200.0
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_vertical = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_24dep")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(752, 400)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -94.0
+offset_top = -103.0
+offset_right = 94.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "TRICKSTER"
+label_settings = SubResource("LabelSettings_pwidq")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "watch your step"
+label_settings = SubResource("LabelSettings_gqsr7")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Trickster is a very strong alien offensively and a rather fragile alien defensively, as fast, slippery, and small alien that throws banana peels onto the opponent's field to make their controls reverse momentarily. Its ultimate ability triples the fun, making Trickster a great pick for area denial.
+
+Default - Banana Peel
+Cooldown: 200
+Duration: 450
+Trickster launches a banana peel forwards onto the opponent's field.
+
+Ultimate - Banana Shotgun
+Charge: 400
+Duration: 450
+Trickster throws three banana peels in different directions onto the opponent's field.
+"
+label_settings = SubResource("LabelSettings_qvgve")
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="Control/HBoxContainer/VBoxContainer/Label2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -111.0
+offset_top = -140.0
+offset_bottom = -56.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Speed = 0.6
+Friction = 0.5
+Size = 0.8"
+label_settings = SubResource("LabelSettings_wgbar")

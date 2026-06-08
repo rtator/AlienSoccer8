@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c256duq267kt8"]
+[gd_scene load_steps=22 format=3 uid="uid://c256duq267kt8"]
 
 [ext_resource type="Script" uid="uid://bnx85imt8okrv" path="res://character_select.gd" id="1_ybyuf"]
 [ext_resource type="StyleBox" uid="uid://bhwb56kpdliu" path="res://buttonText.tres" id="2_trven"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://c8i56obw3wbum" path="res://as8_sprites_png/twins_blue.png" id="10_r8mfn"]
 [ext_resource type="Texture2D" uid="uid://dwm171owu3a4k" path="res://as8_sprites_png/wrangler.png" id="12_haaya"]
 [ext_resource type="Texture2D" uid="uid://pqiospote2ly" path="res://as8_sprites_png/spectre.png" id="17_l1mqb"]
+[ext_resource type="Texture2D" uid="uid://dsf4nbpunupkc" path="res://as8_sprites_png/cloaker.png" id="18_lbha3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_semk5"]
 font_size = 80
@@ -451,20 +452,40 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="soon to come" type="Button" parent="Control/GridContainer"]
+[node name="cloaker1" type="Button" parent="Control/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
-theme_override_font_sizes/font_size = 17
+theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = ExtResource("2_trven")
 theme_override_styles/hover = ExtResource("2_trven")
 theme_override_styles/pressed = ExtResource("2_trven")
 theme_override_styles/normal = ExtResource("2_trven")
-text = "(maybe) soon to come"
-autowrap_mode = 3
+text = "Cloaker"
+icon = ExtResource("18_lbha3")
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
+
+[node name="backButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -59.0
+offset_right = 48.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = ExtResource("2_trven")
+theme_override_styles/hover_pressed = ExtResource("2_trven")
+theme_override_styles/hover = ExtResource("2_trven")
+theme_override_styles/pressed = ExtResource("2_trven")
+theme_override_styles/normal = ExtResource("2_trven")
+text = "Back"
 
 [connection signal="pressed" from="Control2/p1Bot" to="." method="_on_p_1_bot_pressed"]
 [connection signal="pressed" from="Control2/p2Bot" to="." method="_on_p_2_bot_pressed"]
@@ -483,4 +504,5 @@ expand_icon = true
 [connection signal="pressed" from="Control/GridContainer/target1" to="." method="_on_target_1_pressed"]
 [connection signal="pressed" from="Control/GridContainer/spectre1" to="." method="_on_warper_1_pressed"]
 [connection signal="pressed" from="Control/GridContainer/mosquito1" to="." method="_on_warper_1_pressed"]
-[connection signal="pressed" from="Control/GridContainer/soon to come" to="." method="_on_warper_1_pressed"]
+[connection signal="pressed" from="Control/GridContainer/cloaker1" to="." method="_on_warper_1_pressed"]
+[connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]

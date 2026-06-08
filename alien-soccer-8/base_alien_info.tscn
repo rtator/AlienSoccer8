@@ -1,0 +1,235 @@
+[gd_scene load_steps=18 format=3 uid="uid://h3jrol3ls251"]
+
+[ext_resource type="Texture2D" uid="uid://327vha6fycg0" path="res://as8_sprites_png/basic.png" id="1_3p67q"]
+[ext_resource type="Script" uid="uid://lirq2jm6638j" path="res://base_alien_info.gd" id="1_eqeqd"]
+[ext_resource type="Texture2D" uid="uid://7owgs5hcn0tf" path="res://as8_sprites_png/speedy.png" id="3_o5aj5"]
+[ext_resource type="Texture2D" uid="uid://dp1dek2hejsv7" path="res://as8_sprites_png/scaler.png" id="4_ia2r7"]
+[ext_resource type="Texture2D" uid="uid://br613v3qc7n6j" path="res://as8_sprites_png/jumper.png" id="5_63eya"]
+[ext_resource type="Texture2D" uid="uid://boyid07gy8tc7" path="res://as8_sprites_png/launcher.png" id="6_1sfmk"]
+[ext_resource type="Texture2D" uid="uid://cq6fbsfq4fw6k" path="res://as8_sprites_png/freezer.png" id="7_44bph"]
+[ext_resource type="Texture2D" uid="uid://ui3muvxxr410" path="res://as8_sprites_png/clock.png" id="8_m6pu8"]
+[ext_resource type="Texture2D" uid="uid://3k0fopj4nh8b" path="res://as8_sprites_png/trickster.png" id="9_8g8xd"]
+[ext_resource type="Texture2D" uid="uid://b7nwl08awofg1" path="res://as8_sprites_png/gambler.png" id="10_3wiq4"]
+[ext_resource type="Texture2D" uid="uid://dwm171owu3a4k" path="res://as8_sprites_png/wrangler.png" id="11_0lk7y"]
+[ext_resource type="Texture2D" uid="uid://c8i56obw3wbum" path="res://as8_sprites_png/twins_blue.png" id="12_su6gu"]
+[ext_resource type="Texture2D" uid="uid://b8qoaet02ymn6" path="res://as8_sprites_png/warper.png" id="13_o533q"]
+[ext_resource type="Texture2D" uid="uid://dvu1ven3xo3p0" path="res://as8_sprites_png/target.png" id="14_cxpja"]
+[ext_resource type="Texture2D" uid="uid://pqiospote2ly" path="res://as8_sprites_png/spectre.png" id="15_un4vm"]
+[ext_resource type="Texture2D" uid="uid://cd72i3j4o355c" path="res://as8_sprites_png/mosquito.png" id="16_as0ih"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sdn5w"]
+font_size = 75
+
+[node name="baseAlienInfo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eqeqd")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -538.0
+offset_right = 576.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(40, 538)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Control/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Name"
+label_settings = SubResource("LabelSettings_sdn5w")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 7
+
+[node name="basic" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 106)
+layout_mode = 2
+text = "Basic"
+icon = ExtResource("1_3p67q")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="speedy" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 106)
+layout_mode = 2
+text = "Speedy"
+icon = ExtResource("3_o5aj5")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="scaler" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 106)
+layout_mode = 2
+text = "Scaler"
+icon = ExtResource("4_ia2r7")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="jumper" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 106)
+layout_mode = 2
+text = "Jumper"
+icon = ExtResource("5_63eya")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="launcher" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 106)
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Launcher"
+icon = ExtResource("6_1sfmk")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="freezer" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 106)
+layout_mode = 2
+text = "Freezer"
+icon = ExtResource("7_44bph")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="clock" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 106)
+layout_mode = 2
+text = "Clock"
+icon = ExtResource("8_m6pu8")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="trickster" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 106)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Trickster"
+icon = ExtResource("9_8g8xd")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="gambler" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 106)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Gambler"
+icon = ExtResource("10_3wiq4")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="wrangler" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 106)
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Wrangler"
+icon = ExtResource("11_0lk7y")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="twins" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 106)
+layout_mode = 2
+text = "Twins"
+icon = ExtResource("12_su6gu")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="warper" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 106)
+layout_mode = 2
+text = "Warper"
+icon = ExtResource("13_o533q")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="target" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 106)
+layout_mode = 2
+text = "Target"
+icon = ExtResource("14_cxpja")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="spectre" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 106)
+layout_mode = 2
+text = "Spectre"
+icon = ExtResource("15_un4vm")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="mosquito" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 106)
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Mosquito"
+icon = ExtResource("16_as0ih")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="smokescreen" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 106)
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Soon to come"
+autowrap_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[connection signal="pressed" from="HBoxContainer/basic" to="." method="_on_basic_pressed"]
+[connection signal="pressed" from="HBoxContainer/speedy" to="." method="_on_speedy_pressed"]
+[connection signal="pressed" from="HBoxContainer/scaler" to="." method="_on_scaler_pressed"]
+[connection signal="pressed" from="HBoxContainer/jumper" to="." method="_on_jumper_pressed"]
+[connection signal="pressed" from="HBoxContainer/launcher" to="." method="_on_launcher_pressed"]
+[connection signal="pressed" from="HBoxContainer/freezer" to="." method="_on_freezer_pressed"]
+[connection signal="pressed" from="HBoxContainer/clock" to="." method="_on_clock_pressed"]
+[connection signal="pressed" from="HBoxContainer/trickster" to="." method="_on_trickster_pressed"]
+[connection signal="pressed" from="HBoxContainer/gambler" to="." method="_on_gambler_pressed"]
+[connection signal="pressed" from="HBoxContainer/wrangler" to="." method="_on_wrangler_pressed"]
+[connection signal="pressed" from="HBoxContainer/twins" to="." method="_on_twins_pressed"]
+[connection signal="pressed" from="HBoxContainer/warper" to="." method="_on_warper_pressed"]
+[connection signal="pressed" from="HBoxContainer/target" to="." method="_on_target_pressed"]
+[connection signal="pressed" from="HBoxContainer/spectre" to="." method="_on_spectre_pressed"]
+[connection signal="pressed" from="HBoxContainer/mosquito" to="." method="_on_mosquito_pressed"]
+[connection signal="pressed" from="HBoxContainer/smokescreen" to="." method="_on_smokescreen_pressed"]
