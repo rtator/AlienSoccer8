@@ -20,5 +20,5 @@ func _ready():
 	if OS.has_feature("server"):
 		OS.set_environment("server", "true")
 	
-	if OS.has_environment("server"):
+	if OS.has_environment("server") or OS.has_environment("FLY_PROCESS_GROUP"):
 		get_tree().change_scene_to_file("res://webrtc_lobby.tscn")

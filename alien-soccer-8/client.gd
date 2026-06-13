@@ -38,7 +38,7 @@ func RTCPeerDisconnected(testing):
 	print("rtc peer disconnected " + str(id))
 
 func connect_to_server(ip):
-	peer.create_client("ws://127.0.0.1:8915")
+	peer.create_client("ws://66.241.125.100:8080")
 	print("started client")
 
 func _on_start_client_pressed():

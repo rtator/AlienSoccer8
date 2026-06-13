@@ -14,7 +14,7 @@ enum Messages {
 	checkIn,
 }
 
-@export var host_port = 8915
+@export var host_port = 8080
 
 var users = {}
 var lobbies = {}
@@ -22,7 +22,7 @@ var lobbies = {}
 var letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" 
 
 func start_server():
-	peer.create_server(8915)
+	peer.create_server(host_port)
 	print("started server")
 
 func join_lobby(user):
@@ -96,7 +96,7 @@ func _process(delta):
 				send_to_player(data.peer, data)
 
 func _ready():
-	if OS.has_environment("server"):
+	if OS.has_environment("server") or OS.has_environment("FLY_PROCESS_GROUP"):
 		print("hosting on" + str(host_port))
 		peer.create_server(host_port)
 	
