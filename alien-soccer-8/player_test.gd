@@ -20,7 +20,7 @@ var charge_bar
 var cooldown_bar
 var charge_max = 1000
 
-var base_scale = 1
+@export var base_scale = 1
 
 var sprite
 var hitbox
@@ -34,8 +34,18 @@ var camera
 
 var is_bot = false
 
+var online = false:
+	set(value):
+		online = value
+		set_online()
+
+func set_online():
+	if online:
+		set_multiplayer_authority(int(name))
+		#%MultiplayerSynchronizer.set_multiplayer_authority(int(name))
+		print("name is " + name + ". authority is " + str(is_multiplayer_authority()))
+
 func _physics_process(delta_milliseconds):
-	print(delta_milliseconds)
 	var delta = delta_milliseconds*60
 	
 	if not is_bot:
@@ -74,10 +84,10 @@ func _physics_process(delta_milliseconds):
 		else:
 			input = Vector2(0,0)
 		_ultimate()
-
 	
 	input *= move_speed * delta
-	linear_velocity += input
+	if is_multiplayer_authority():
+		linear_velocity += input
 	
 	if input.length() > 0:
 		last_input = input.normalized()
@@ -88,10 +98,11 @@ func _physics_process(delta_milliseconds):
 		#print(sprite.scale)
 		sprite.scale.x = sprite_scale.x + (linear_velocity.y/(move_speed*squish)) * sprite_scale.y
 		sprite.scale.y = sprite_scale.y - (linear_velocity.y/(move_speed*squish)) * sprite_scale.y
-		charge_bar.value = charge
-		charge_bar.max_value = charge_max
-		cooldown_bar.value = cooldown
-		cooldown_bar.max_value = max(cooldown_bar.max_value, cooldown)
+		if charge_bar != null:
+			charge_bar.value = charge
+			charge_bar.max_value = charge_max
+			cooldown_bar.value = cooldown
+			cooldown_bar.max_value = max(cooldown_bar.max_value, cooldown)
 	scale = Vector2(base_scale, base_scale)
 
 func update_move_speed(new_speed = move_speed, new_damp = speed_damp):
@@ -116,7 +127,7 @@ func _ability_cooldown(delta):
 	pass
 
 func _unhandled_input(event):
-	if not is_bot:
+	if not is_bot and is_multiplayer_authority():
 		if event.is_action_pressed("p1_ability") and player == 1:
 			_ability()
 		elif event.is_action_pressed("p2_ability") and player == 2:

@@ -1,0 +1,85 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5wdpdx6od70k"]
+
+[ext_resource type="Script" uid="uid://dog3fk6syspe7" path="res://client.gd" id="2_08b8u"]
+[ext_resource type="Script" uid="uid://dn8wemrbfjq61" path="res://server.gd" id="3_wg3va"]
+
+[node name="webrtcLobby" type="Node"]
+
+[node name="Control" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="startClient" type="Button" parent="Control"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "start client"
+
+[node name="startServer" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -98.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "start server"
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 111.0
+offset_right = 176.0
+offset_bottom = 142.0
+text = "send text packet"
+
+[node name="joinLobby" type="Button" parent="Control"]
+layout_mode = 1
+offset_left = 38.0
+offset_top = 203.0
+offset_right = 174.0
+offset_bottom = 234.0
+text = "Join Lobby"
+
+[node name="Button2" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 970.0
+offset_top = 78.0
+offset_right = 1124.0
+offset_bottom = 109.0
+text = "server send packet"
+
+[node name="TextEdit" type="TextEdit" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 40.0
+offset_top = 264.0
+offset_right = 227.0
+offset_bottom = 317.0
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+unique_name_in_owner = true
+_spawnable_scenes = PackedStringArray("uid://xentsws1k7gy", "uid://dtflfvcqqptu5", "uid://cdfee1d6yf8mm")
+spawn_path = NodePath("../World")
+spawn_limit = 30
+
+[node name="World" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="client" type="Node" parent="."]
+script = ExtResource("2_08b8u")
+
+[node name="server" type="Node" parent="."]
+script = ExtResource("3_wg3va")
+
+[connection signal="pressed" from="Control/startClient" to="client" method="_on_start_client_pressed"]
+[connection signal="pressed" from="Control/startServer" to="server" method="_on_start_server_pressed"]
+[connection signal="pressed" from="Control/Button" to="client" method="_on_button_pressed"]
+[connection signal="pressed" from="Control/joinLobby" to="client" method="_on_join_lobby_pressed"]
+[connection signal="pressed" from="Control/Button2" to="server" method="_on_button_2_pressed"]
+[connection signal="spawned" from="MultiplayerSpawner" to="client" method="_on_multiplayer_spawner_spawned"]

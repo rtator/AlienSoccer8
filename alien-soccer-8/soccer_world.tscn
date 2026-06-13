@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://xentsws1k7gy"]
+
+[ext_resource type="PackedScene" uid="uid://c1gl0hvam08pm" path="res://ball.tscn" id="1_810fv"]
+[ext_resource type="Script" uid="uid://ca46bubimkpla" path="res://soccer_world_rtc.gd" id="1_lno64"]
+[ext_resource type="Script" uid="uid://cv2anvuqggdhc" path="res://camera_2d.gd" id="1_s0we6"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_c2mk5"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_810fv"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s0we6"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lno64"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ye7m7"]
+radius = 32.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_jp3cd"]
+
+[node name="soccerWorld" type="Node2D"]
+script = ExtResource("1_lno64")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_c2mk5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_810fv")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1152, 648)
+shape = SubResource("WorldBoundaryShape2D_s0we6")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1152, 648)
+shape = SubResource("WorldBoundaryShape2D_lno64")
+
+[node name="wall" type="StaticBody2D" parent="."]
+position = Vector2(314, 409)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall"]
+shape = SubResource("CircleShape2D_ye7m7")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="wall"]
+scale = Vector2(64, 64)
+mesh = SubResource("SphereMesh_jp3cd")
+
+[node name="wall3" type="StaticBody2D" parent="."]
+position = Vector2(179, 116)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall3"]
+shape = SubResource("CircleShape2D_ye7m7")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="wall3"]
+scale = Vector2(64, 64)
+mesh = SubResource("SphereMesh_jp3cd")
+
+[node name="wall2" type="StaticBody2D" parent="."]
+position = Vector2(963, 227)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall2"]
+shape = SubResource("CircleShape2D_ye7m7")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="wall2"]
+scale = Vector2(64, 64)
+mesh = SubResource("SphereMesh_jp3cd")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
+anchor_mode = 0
+script = ExtResource("1_s0we6")
+
+[node name="ball" parent="." instance=ExtResource("1_810fv")]
+unique_name_in_owner = true
+position = Vector2(576, 324)

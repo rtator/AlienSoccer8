@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdfee1d6yf8mm"]
+[gd_scene load_steps=7 format=3 uid="uid://cdfee1d6yf8mm"]
 
 [ext_resource type="Script" uid="uid://crgqwci1o5wuw" path="res://alien.gd" id="1_oy142"]
 [ext_resource type="Texture2D" uid="uid://327vha6fycg0" path="res://as8_sprites_png/basic.png" id="2_ulj6p"]
@@ -20,6 +20,29 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_oy142"]
+properties/0/path = NodePath(".:move_speed")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:speed_damp")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:position")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath(".:linear_velocity")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+properties/4/path = NodePath("AnimatedSprite2D:scale")
+properties/4/spawn = true
+properties/4/replication_mode = 1
+properties/5/path = NodePath("CollisionShape2D:scale")
+properties/5/spawn = true
+properties/5/replication_mode = 1
+properties/6/path = NodePath(".:base_scale")
+properties/6/spawn = true
+properties/6/replication_mode = 1
+
 [node name="basic" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_oy142")
 gravity_scale = 0.0
@@ -35,3 +58,7 @@ shape = SubResource("CircleShape2D_hbrgl")
 unique_name_in_owner = true
 scale = Vector2(0.169579, 0.17)
 sprite_frames = SubResource("SpriteFrames_i2sul")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+unique_name_in_owner = true
+replication_config = SubResource("SceneReplicationConfig_oy142")

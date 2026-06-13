@@ -18,6 +18,9 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalSave="*res://Global_Save.tscn"
+Network="res://network.gd"
+Signaling="res://Signaling.gd"
+WebrtcManager="*res://webrtcManager.gd"
 
 [display]
 

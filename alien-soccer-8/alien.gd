@@ -5,7 +5,6 @@ var speed_mult = 2
 var damp_mult = 1.5
 var size_mult = 1.3 
 
-
 func _ultimate():
 	if cooldown <= 0 and ult_dur <= 0 and charge >= charge_max:
 		if not ult_mode:
@@ -39,6 +38,11 @@ func _ability_cooldown(delta):
 		duration -= 1 * delta
 
 func on_ready():
+	if online:
+		set_multiplayer_authority(int(name))
+		#%MultiplayerSynchronizer.set_multiplayer_authority(int(name))
+		print("name is " + name + ". authority is " + str(is_multiplayer_authority()))
+	
 	base_scale = 1
 	
 	charge_max = 500

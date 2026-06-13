@@ -112,7 +112,7 @@ layout_mode = 2
 text = "Target is the third attempt on a double-scoring alien, with worse speed and size than average. Although, Target has a passive: hitting the opponent's goal in a specific zone will score two points instead of one, causing the opponent to have to manage protecting the goal while also playing normally.
 
 Default - Bullseye
-Cooldown: 100
+Cooldown: 150
 Duration: ∞
 An arrow fires from the opposing side onto Target's center. Hitting the ball will stop it in place.
 

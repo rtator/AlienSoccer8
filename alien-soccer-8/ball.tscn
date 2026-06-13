@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c1gl0hvam08pm"]
+[gd_scene load_steps=13 format=3 uid="uid://c1gl0hvam08pm"]
 
 [ext_resource type="Texture2D" uid="uid://oyhaeitiy08j" path="res://Imported piskel/sprite_0.png" id="1_41u45"]
 [ext_resource type="Script" uid="uid://16fxsmq003is" path="res://ball.gd" id="1_ktgx5"]
@@ -46,6 +46,14 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_gchj4"]
 radius = 20.0
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ktgx5"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:linear_velocity")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
 [node name="ball" type="RigidBody2D"]
 modulate = Color(1, 1, 1, 0.878431)
 collision_layer = 3
@@ -72,6 +80,9 @@ frame_progress = 0.738969
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
 shape = SubResource("CircleShape2D_gchj4")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_ktgx5")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

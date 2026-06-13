@@ -6,7 +6,7 @@ var score_board
 
 var arrow_loaded = preload("res://arrow.tscn")
 var arrow
-var arrow_speed = 1000
+var arrow_speed = 900
 var arrow_hit = false
 var shooting = false
 

@@ -15,5 +15,5 @@ func _on_body_entered(body):
 		body.ball_speed -= 10
 		body.stop_ball()
 	if body.get("is_arrow") == null:
-		shooter.cooldown = 100
+		shooter.cooldown = 150
 		queue_free()
