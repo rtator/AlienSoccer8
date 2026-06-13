@@ -15,3 +15,10 @@ func _on_button_3_pressed():
 
 func _on_button_4_pressed():
 	get_tree().change_scene_to_file("res://webrtc_lobby.tscn")
+
+func _ready():
+	if OS.has_feature("server"):
+		OS.set_environment("server", "true")
+	
+	if OS.has_environment("server"):
+		get_tree().change_scene_to_file("res://webrtc_lobby.tscn")

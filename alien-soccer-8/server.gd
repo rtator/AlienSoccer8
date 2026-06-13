@@ -96,7 +96,7 @@ func _process(delta):
 				send_to_player(data.peer, data)
 
 func _ready():
-	if "--server" in OS.get_cmdline_args():
+	if OS.has_environment("server"):
 		print("hosting on" + str(host_port))
 		peer.create_server(host_port)
 	
