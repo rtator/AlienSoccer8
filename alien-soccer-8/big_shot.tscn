@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddsb0dr4baw22"]
+[gd_scene load_steps=8 format=3 uid="uid://ddsb0dr4baw22"]
 
-[ext_resource type="Script" path="res://big_shot.gd" id="1_tje6p"]
+[ext_resource type="Script" uid="uid://5dus7xxb7j4x" path="res://big_shot.gd" id="1_tje6p"]
 [ext_resource type="Texture2D" uid="uid://dcfoex7p4jxxj" path="res://Imported piskel (9).png" id="2_4h2f1"]
+[ext_resource type="Texture2D" uid="uid://c1eokycowp5fg" path="res://AS8 skins/launcher/big_shot_2/big_shot_2_0.png" id="3_1kyo6"]
+[ext_resource type="Texture2D" uid="uid://bqrhef7e3wauo" path="res://AS8 skins/launcher/big_shot_2/big_shot_2_1.png" id="4_abb37"]
+[ext_resource type="Texture2D" uid="uid://bgsm08muqhquo" path="res://AS8 skins/launcher/big_shot_3.png" id="5_wg0xw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tje6p"]
 size = Vector2(60, 39)
@@ -14,6 +17,25 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1kyo6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_abb37")
+}],
+"loop": true,
+"name": &"default_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_wg0xw")
+}],
+"loop": true,
+"name": &"default_3",
 "speed": 5.0
 }]
 
@@ -28,9 +50,12 @@ script = ExtResource("1_tje6p")
 shape = SubResource("RectangleShape2D_tje6p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 texture_filter = 1
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_4h2f1")
+autoplay = "default"
+frame_progress = 0.769317
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

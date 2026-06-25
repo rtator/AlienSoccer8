@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4d0346q2k84n"]
+
+[ext_resource type="Texture2D" uid="uid://i8wj5pdfonbk" path="res://as8_sprites_png/down_arrow.png" id="1_fssat"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="DownArrow" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.5, 0.4)
+texture = ExtResource("1_fssat")

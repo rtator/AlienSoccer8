@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdfee1d6yf8mm"]
+[gd_scene load_steps=9 format=3 uid="uid://cdfee1d6yf8mm"]
 
 [ext_resource type="Script" uid="uid://crgqwci1o5wuw" path="res://alien.gd" id="1_oy142"]
 [ext_resource type="Texture2D" uid="uid://327vha6fycg0" path="res://as8_sprites_png/basic.png" id="2_ulj6p"]
+[ext_resource type="Texture2D" uid="uid://bx4q1t6asvxya" path="res://AS8 skins/basic/basic_1.png" id="3_hbrgl"]
+[ext_resource type="Texture2D" uid="uid://b35gukaufhcvd" path="res://AS8 skins/basic/basic_2.png" id="4_i2sul"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_oy142"]
 friction = 0.5
@@ -17,6 +19,22 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hbrgl")
+}],
+"loop": true,
+"name": &"default_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_i2sul")
+}],
+"loop": true,
+"name": &"default_2",
 "speed": 5.0
 }]
 
@@ -58,6 +76,7 @@ shape = SubResource("CircleShape2D_hbrgl")
 unique_name_in_owner = true
 scale = Vector2(0.169579, 0.17)
 sprite_frames = SubResource("SpriteFrames_i2sul")
+autoplay = "default"
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 unique_name_in_owner = true

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dfr7s3fw0d4hn"]
+[gd_scene load_steps=7 format=3 uid="uid://dfr7s3fw0d4hn"]
 
 [ext_resource type="Script" uid="uid://bv5obb263q7qc" path="res://target.gd" id="1_dcgdt"]
 [ext_resource type="Texture2D" uid="uid://dvu1ven3xo3p0" path="res://as8_sprites_png/target.png" id="2_r0aco"]
+[ext_resource type="Texture2D" uid="uid://ck4vkt103ynm4" path="res://AS8 skins/target/target_3.png" id="3_r0aco"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dcgdt"]
 friction = 0.5
@@ -14,6 +15,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_r0aco")
+}],
+"loop": true,
+"name": &"default_3",
 "speed": 5.0
 }]
 
@@ -31,6 +40,7 @@ metadata/_custom_type_script = "uid://e41xdpe4oqa2"
 unique_name_in_owner = true
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_fpkr8")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true

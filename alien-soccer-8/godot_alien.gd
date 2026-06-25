@@ -12,6 +12,9 @@ func _ability():
 	if cooldown <= 0 and ult_dur <= 0 and duration <= 0:
 		sprite.animation = "blue"
 		
+		if skin != 0:
+			%AnimatedSprite2D.animation = "blue_" + str(skin)
+		
 		dash_vec = last_input
 		dashing = true
 		duration = 10
@@ -19,6 +22,10 @@ func _ability():
 func _ultimate():
 	if cooldown <= 0 and ult_dur <= 0 and charge >= charge_max and not sped_up:
 		sprite.animation = "blue"
+		
+		if skin != 0:
+			%AnimatedSprite2D.animation = "blue_" + str(skin)
+		
 		charge = 0
 		update_move_speed(move_speed * speed_mult, speed_damp * damp_mult)
 		sped_up = true
@@ -34,12 +41,20 @@ func _ability_cooldown(delta):
 	elif dashing:
 		dashing = false
 		sprite.animation = "default"
+		
+		if skin != 0:
+			%AnimatedSprite2D.animation = "default_" + str(skin)
+		
 		cooldown = 200
 	
 	if ult_dur > 0:
 		ult_dur -= 1 * delta
 	elif sped_up:
 		sprite.animation = "default"
+		
+		if skin != 0:
+			%AnimatedSprite2D.animation = "default_" + str(skin)
+		
 		update_move_speed(move_speed / speed_mult, speed_damp / damp_mult)
 		sped_up = false
 		cooldown == 100
@@ -50,6 +65,9 @@ func _ability_cooldown(delta):
 
 func on_ready():
 	base_scale = 0.7
+	
+	if skin != 0:
+		%AnimatedSprite2D.animation = "default_" + str(skin)
 	
 	charge_max = 500
 	

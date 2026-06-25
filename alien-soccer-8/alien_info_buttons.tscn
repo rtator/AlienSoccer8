@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bmr8vq1g5v5p3"]
+[gd_scene load_steps=22 format=3 uid="uid://bmr8vq1g5v5p3"]
 
 [ext_resource type="Script" uid="uid://lirq2jm6638j" path="res://base_alien_info.gd" id="1_p8wsi"]
 [ext_resource type="Texture2D" uid="uid://327vha6fycg0" path="res://as8_sprites_png/basic.png" id="2_ch6ir"]
@@ -18,21 +18,13 @@
 [ext_resource type="Texture2D" uid="uid://cd72i3j4o355c" path="res://as8_sprites_png/mosquito.png" id="16_u2k71"]
 [ext_resource type="StyleBox" uid="uid://bhwb56kpdliu" path="res://buttonText.tres" id="17_ch6ir"]
 [ext_resource type="Texture2D" uid="uid://dsf4nbpunupkc" path="res://as8_sprites_png/cloaker.png" id="17_yvhr3"]
+[ext_resource type="Texture2D" uid="uid://utme0k1xjpqp" path="res://as8_sprites_png/pirate.png" id="18_05o6d"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_ch6ir"]
-font_size = 14
+[sub_resource type="LabelSettings" id="LabelSettings_05o6d"]
+font_size = 12
 
 [sub_resource type="LabelSettings" id="LabelSettings_yvhr3"]
 font_size = 15
-
-[sub_resource type="LabelSettings" id="LabelSettings_p8wsi"]
-font_size = 15
-
-[sub_resource type="LabelSettings" id="LabelSettings_05o6d"]
-font_size = 14
-
-[sub_resource type="LabelSettings" id="LabelSettings_chvc8"]
-font_size = 14
 
 [node name="baseAlienInfo" type="Control"]
 layout_mode = 3
@@ -57,15 +49,15 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -564.5
+offset_left = -515.0
 offset_top = 11.5
-offset_right = 564.5
+offset_right = 515.0
 offset_bottom = 117.5
 grow_horizontal = 2
 theme_override_constants/separation = 7
 
 [node name="basic" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 106)
+custom_minimum_size = Vector2(54, 106)
 layout_mode = 2
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -115,7 +107,7 @@ mouse_filter = 1
 text = "Basic"
 
 [node name="speedy" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 106)
+custom_minimum_size = Vector2(54, 106)
 layout_mode = 2
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -165,7 +157,7 @@ mouse_filter = 1
 text = "Speedy"
 
 [node name="scaler" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 106)
+custom_minimum_size = Vector2(54, 106)
 layout_mode = 2
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -215,7 +207,7 @@ mouse_filter = 1
 text = "Scaler"
 
 [node name="jumper" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 106)
+custom_minimum_size = Vector2(54, 106)
 layout_mode = 2
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -255,17 +247,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.5
-offset_top = -11.5
-offset_right = 20.5
-offset_bottom = 11.5
+offset_left = -21.5
+offset_top = -8.5
+offset_right = 21.5
+offset_bottom = 8.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 text = "Jumper"
+label_settings = SubResource("LabelSettings_05o6d")
 
 [node name="launcher" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 106)
+custom_minimum_size = Vector2(54, 106)
 layout_mode = 2
 theme_override_font_sizes/font_size = 13
 icon_alignment = 1
@@ -306,18 +299,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -32.0
-offset_top = -10.0
-offset_right = 32.0
-offset_bottom = 10.0
+offset_left = -27.5
+offset_top = -8.5
+offset_right = 27.5
+offset_bottom = 8.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 text = "Launcher"
-label_settings = SubResource("LabelSettings_ch6ir")
+label_settings = SubResource("LabelSettings_05o6d")
 
 [node name="freezer" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 106)
+custom_minimum_size = Vector2(54, 106)
 layout_mode = 2
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -357,17 +350,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.5
-offset_top = -11.5
-offset_right = 20.5
-offset_bottom = 11.5
+offset_left = -22.0
+offset_top = -8.5
+offset_right = 22.0
+offset_bottom = 8.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 text = "Freezer"
+label_settings = SubResource("LabelSettings_05o6d")
 
 [node name="clock" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 106)
+custom_minimum_size = Vector2(54, 106)
 layout_mode = 2
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -417,7 +411,7 @@ mouse_filter = 1
 text = "Clock"
 
 [node name="trickster" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 106)
+custom_minimum_size = Vector2(54, 106)
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 icon_alignment = 1
@@ -469,7 +463,7 @@ text = "Trickster"
 label_settings = SubResource("LabelSettings_yvhr3")
 
 [node name="gambler" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 106)
+custom_minimum_size = Vector2(54, 106)
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 icon_alignment = 1
@@ -510,18 +504,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -31.5
-offset_top = -11.0
-offset_right = 31.5
-offset_bottom = 11.0
+offset_left = -25.5
+offset_top = -8.5
+offset_right = 25.5
+offset_bottom = 8.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 text = "Gambler"
-label_settings = SubResource("LabelSettings_p8wsi")
+label_settings = SubResource("LabelSettings_05o6d")
 
 [node name="wrangler" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 106)
+custom_minimum_size = Vector2(54, 106)
 layout_mode = 2
 theme_override_font_sizes/font_size = 13
 icon_alignment = 1
@@ -562,10 +556,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -31.5
-offset_top = -10.0
-offset_right = 31.5
-offset_bottom = 10.0
+offset_left = -27.0
+offset_top = -8.5
+offset_right = 27.0
+offset_bottom = 8.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -573,7 +567,7 @@ text = "Wrangler"
 label_settings = SubResource("LabelSettings_05o6d")
 
 [node name="twins" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 106)
+custom_minimum_size = Vector2(54, 106)
 layout_mode = 2
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -623,7 +617,7 @@ mouse_filter = 1
 text = "Twins"
 
 [node name="warper" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 106)
+custom_minimum_size = Vector2(54, 106)
 layout_mode = 2
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -663,17 +657,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.5
-offset_top = -11.5
-offset_right = 20.5
-offset_bottom = 11.5
+offset_left = -22.0
+offset_top = -8.5
+offset_right = 22.0
+offset_bottom = 8.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 text = "Warper"
+label_settings = SubResource("LabelSettings_05o6d")
 
 [node name="target" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 106)
+custom_minimum_size = Vector2(54, 106)
 layout_mode = 2
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -723,7 +718,7 @@ mouse_filter = 1
 text = "Target"
 
 [node name="spectre" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 106)
+custom_minimum_size = Vector2(54, 106)
 layout_mode = 2
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -763,17 +758,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.5
-offset_top = -11.5
-offset_right = 20.5
-offset_bottom = 11.5
+offset_left = -22.0
+offset_top = -8.5
+offset_right = 22.0
+offset_bottom = 8.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 text = "Spectre"
+label_settings = SubResource("LabelSettings_05o6d")
 
 [node name="mosquito" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 106)
+custom_minimum_size = Vector2(54, 106)
 layout_mode = 2
 theme_override_font_sizes/font_size = 13
 icon_alignment = 1
@@ -814,18 +810,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -32.0
-offset_top = -10.0
-offset_right = 32.0
-offset_bottom = 10.0
+offset_left = -27.5
+offset_top = -8.5
+offset_right = 27.5
+offset_bottom = 8.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 text = "Mosquito"
-label_settings = SubResource("LabelSettings_chvc8")
+label_settings = SubResource("LabelSettings_05o6d")
 
 [node name="cloaker" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 106)
+custom_minimum_size = Vector2(54, 106)
 layout_mode = 2
 theme_override_font_sizes/font_size = 13
 autowrap_mode = 2
@@ -867,14 +863,67 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -26.0
-offset_top = -10.0
-offset_right = 26.0
-offset_bottom = 10.0
+offset_left = -22.5
+offset_top = -8.5
+offset_right = 22.5
+offset_bottom = 8.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 text = "Cloaker"
+label_settings = SubResource("LabelSettings_05o6d")
+
+[node name="pirate" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(54, 106)
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+autowrap_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/pirate"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 53.0
+grow_horizontal = 2
+texture = ExtResource("18_05o6d")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="HBoxContainer/pirate"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -53.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/pirate/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -11.5
+offset_right = 23.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Pirate"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -910,4 +959,5 @@ text = "Back"
 [connection signal="pressed" from="HBoxContainer/spectre" to="." method="_on_spectre_pressed"]
 [connection signal="pressed" from="HBoxContainer/mosquito" to="." method="_on_mosquito_pressed"]
 [connection signal="pressed" from="HBoxContainer/cloaker" to="." method="_on_cloaker_pressed"]
+[connection signal="pressed" from="HBoxContainer/pirate" to="." method="_on_pirate_pressed"]
 [connection signal="pressed" from="CanvasLayer/backButton" to="." method="_on_back_button_pressed"]

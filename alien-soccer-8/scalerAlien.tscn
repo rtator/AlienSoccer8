@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://jngiuawc8adg"]
+[gd_scene load_steps=7 format=3 uid="uid://jngiuawc8adg"]
 
 [ext_resource type="Script" uid="uid://52yewfw28rxw" path="res://scaler_alien.gd" id="1_0278l"]
 [ext_resource type="Texture2D" uid="uid://dp1dek2hejsv7" path="res://as8_sprites_png/scaler.png" id="2_3jwqp"]
+[ext_resource type="Texture2D" uid="uid://r3g36scvgxc5" path="res://AS8 skins/scaler/scaler_3.png" id="3_3jwqp"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0278l"]
 friction = 0.5
@@ -17,6 +18,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3jwqp")
+}],
+"loop": true,
+"name": &"default_3",
 "speed": 5.0
 }]
 
@@ -35,3 +44,4 @@ shape = SubResource("CircleShape2D_ragoi")
 unique_name_in_owner = true
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_23jdr")
+autoplay = "default"

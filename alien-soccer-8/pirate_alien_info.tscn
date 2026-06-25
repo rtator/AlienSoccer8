@@ -1,0 +1,140 @@
+[gd_scene load_steps=6 format=3 uid="uid://onq7tpusmoep"]
+
+[ext_resource type="PackedScene" uid="uid://bmr8vq1g5v5p3" path="res://alien_info_buttons.tscn" id="1_1smjf"]
+[ext_resource type="Texture2D" uid="uid://utme0k1xjpqp" path="res://as8_sprites_png/pirate.png" id="2_5t70p"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_goo81"]
+line_spacing = 0.0
+font_size = 75
+font_color = Color(0.796078, 0.796078, 0.345098, 1)
+outline_size = 8
+outline_color = Color(0.34902, 0.34902, 0.34902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_y3372"]
+font_size = 30
+font_color = Color(0.424601, 0.423626, 0.139985, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_t1yno"]
+font_size = 13
+font_color = Color(0.796078, 0.796078, 0.345098, 1)
+
+[node name="pirateAlienInfo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="baseAlienInfo" parent="." instance=ExtResource("1_1smjf")]
+layout_mode = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -538.0
+offset_right = 576.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -200.0
+offset_right = 404.0
+offset_bottom = 200.0
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_vertical = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_5t70p")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(752, 400)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -94.0
+offset_top = -103.0
+offset_right = 94.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "PIRATE"
+label_settings = SubResource("LabelSettings_goo81")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "no skill, no problem"
+label_settings = SubResource("LabelSettings_y3372")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "A sluggish, ranged offensive alien with cannons in the corner of its side to send the enemy reeling from its attacks. Pirate has the same slowing balls that Trickster had in Alien Soccer 4, but with high burst potential and the longest cooldowns of any alien in-game. 
+
+Default - Cannon Blast
+Cooldown: 500
+Duration: 300
+Pirate fires 2 cannonballs from both corners of its side of the field (2 cannonballs total) in a random direction, which bounce around at a high speed similar to the main soccer ball. If these balls hit the opponent, the opponent is slowed by 40% for 100 ticks (per hit). They can also knock around the ball.
+
+Ultimate - X Marks the Spot
+Charge: 900
+Duration: 400
+Pirate fires 2 cannonballs from each corner of its side of the field (4 cannonballs total) in the direction of the opponent, which bounce around at a high speed similar to the main soccer ball. If these balls hit the opponent, the opponent is slowed by 50% for 150 ticks (per hit). They can also knock around the ball.
+"
+label_settings = SubResource("LabelSettings_t1yno")
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="Control/HBoxContainer/VBoxContainer/Label2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -148.0
+offset_bottom = -64.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Speed = 1
+Friction = 1
+Size = 1"
+label_settings = SubResource("LabelSettings_t1yno")

@@ -27,23 +27,24 @@ func _on_timer_timeout():
 
 
 func _on_end_timeout():
-	exploded = true
-	%AnimatedSprite2D.visible = false
-	%GPUParticles2D.emitting = true
-	%GPUParticles2D.scale *= 3
-	%CollisionShape2D.scale *= 3
+	if not exploded:
+		exploded = true
+		%AnimatedSprite2D.visible = false
+		%GPUParticles2D.emitting = true
+		%GPUParticles2D.scale *= 3
+		%CollisionShape2D.scale *= 3
 
 func _on_gpu_particles_2d_finished():
 	queue_free()
 
 
 func _on_body_entered(body):
-	if body != user:
+	if body != user and not exploded:
 		apply_central_impulse((body.position - position).normalized() * strength)
 		exploded = true
 		%end.stop()
 		%AnimatedSprite2D.visible = false
 		%GPUParticles2D.emitting = true
-		%GPUParticles2D.scale = Vector2(0.6,0.6)
-		%CollisionShape2D.scale = Vector2(3,3)
+		%GPUParticles2D.scale *= 3
+		%CollisionShape2D.scale *= 3
 		linear_velocity *= 0

@@ -18,6 +18,7 @@ func _ability():
 		arrow = arrow_loaded.instantiate()
 		arrow.player = player
 		arrow.shooter = self
+		arrow.skin = skin
 		arrow.position = Vector2(576, position.y)
 		var arrow_vec = Vector2(position.x - 576, 0).normalized() * arrow_speed
 		arrow.linear_velocity = arrow_vec
@@ -49,6 +50,9 @@ func on_ready():
 		goal.position.x = 1152
 	goal.player = player
 	add_sibling(goal)
+	
+	if skin != 0:
+		%AnimatedSprite2D.animation = "default_" + str(skin)
 	
 	base_scale = 0.85
 	

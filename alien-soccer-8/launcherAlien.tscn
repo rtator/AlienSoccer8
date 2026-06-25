@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbseeu0y7ifxj"]
+[gd_scene load_steps=8 format=3 uid="uid://cbseeu0y7ifxj"]
 
 [ext_resource type="Script" uid="uid://bvqhj2e0yse74" path="res://launcher_alien.gd" id="1_p70r7"]
 [ext_resource type="Texture2D" uid="uid://boyid07gy8tc7" path="res://as8_sprites_png/launcher.png" id="2_r31jk"]
+[ext_resource type="Texture2D" uid="uid://byvptn0clkemx" path="res://AS8 skins/launcher/launcher_2.png" id="3_42u74"]
+[ext_resource type="Texture2D" uid="uid://b26cb087kabr5" path="res://AS8 skins/launcher/launcher_3.png" id="4_0pn41"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_p70r7"]
 friction = 0.5
@@ -14,6 +16,22 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_42u74")
+}],
+"loop": true,
+"name": &"default_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_0pn41")
+}],
+"loop": true,
+"name": &"default_3",
 "speed": 5.0
 }]
 
@@ -31,6 +49,7 @@ metadata/_custom_type_script = "uid://e41xdpe4oqa2"
 unique_name_in_owner = true
 scale = Vector2(0.16, 0.16)
 sprite_frames = SubResource("SpriteFrames_42u74")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true

@@ -26,6 +26,10 @@ func _ultimate():
 		charge = 0
 		twin_sprite1.animation = "ult"
 		twin_sprite2.animation = "ult"
+		
+		if skin != 0:
+			%AnimatedSprite2D2.animation = "ult_" + str(skin)
+			%AnimatedSprite2D3.animation = "ult_" + str(skin)
 
 func _ability_cooldown(delta):
 	if cooldown > 0:
@@ -37,6 +41,10 @@ func _ability_cooldown(delta):
 		ulting = false
 		twin_sprite1.animation = "default"
 		twin_sprite2.animation = "default"
+		
+		if skin != 0:
+			%AnimatedSprite2D2.animation = "default_" + str(skin)
+			%AnimatedSprite2D3.animation = "default_" + str(skin)
 	
 	if charge < charge_max:
 		charge += delta
@@ -63,6 +71,13 @@ func _ability_cooldown(delta):
 
 func on_ready():
 	base_scale = 1
+	
+	if skin != 0:
+		%AnimatedSprite2D2.animation = "default_" + str(skin)
+		%AnimatedSprite2D3.animation = "default_" + str(skin)
+		%AnimatedSprite2D3.rotation = 0
+		%AnimatedSprite2D2.scale = Vector2(0.16, 0.16)
+		%AnimatedSprite2D3.scale = Vector2(0.16, 0.16)
 	
 	stretch = 1000
 	squish = 1000

@@ -1,0 +1,78 @@
+[gd_scene load_steps=4 format=3 uid="uid://cknn5egrrplmj"]
+
+[ext_resource type="Script" uid="uid://epa3v8p7ai6x" path="res://settings_misc.gd" id="1_txy25"]
+[ext_resource type="StyleBox" uid="uid://bhwb56kpdliu" path="res://buttonText.tres" id="2_b4rmj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_447o8"]
+font_size = 100
+font_color = Color(1, 0.486275, 0, 1)
+
+[node name="settingsMisc" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_txy25")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -350.5
+offset_right = 350.5
+offset_bottom = 137.0
+grow_horizontal = 2
+text = "Miscellaneous Settings"
+label_settings = SubResource("LabelSettings_447o8")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -36.5
+offset_top = -46.0
+offset_right = 36.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = ExtResource("2_b4rmj")
+theme_override_styles/hover_pressed = ExtResource("2_b4rmj")
+theme_override_styles/hover = ExtResource("2_b4rmj")
+theme_override_styles/pressed = ExtResource("2_b4rmj")
+theme_override_styles/normal = ExtResource("2_b4rmj")
+text = "Back"
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="fullscreenButton" type="Button" parent="GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = ExtResource("2_b4rmj")
+theme_override_styles/hover_pressed = ExtResource("2_b4rmj")
+theme_override_styles/hover = ExtResource("2_b4rmj")
+theme_override_styles/pressed = ExtResource("2_b4rmj")
+theme_override_styles/normal = ExtResource("2_b4rmj")
+toggle_mode = true
+text = "Fullscreen: Off"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="toggled" from="GridContainer/fullscreenButton" to="." method="_on_fullscreen_button_toggled"]

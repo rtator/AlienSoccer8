@@ -64,6 +64,10 @@ func _ability_cooldown(delta):
 func on_ready():
 	base_scale = 0.3
 	
+	if skin != 0:
+		%AnimatedSprite2D.scale = Vector2(0.21, 0.21)
+		%AnimatedSprite2D.animation = "default_" + str(skin)
+	
 	charge_max = 500
 	
 	update_move_speed(move_speed * 1.2, speed_damp)

@@ -21,6 +21,7 @@ func _ability():
 		bullet.call_deferred("set_axis_velocity", offsetVec * bullet_speed)
 		shooting = true
 		bullet.shooter = self
+		bullet.skin = skin
 		get_parent().add_child(bullet)
 
 func _ultimate():
@@ -35,6 +36,7 @@ func _ultimate():
 		big_shot.linear_velocity = offsetVec * bullet_speed
 		big_shotting = true
 		big_shot.shooter = self
+		big_shot.skin = skin
 		get_parent().add_child(big_shot)
 		camera.shake(20)
 
@@ -80,6 +82,10 @@ func on_ready():
 	#physics_material_override.friction = 0.1
 	
 	base_scale = 0.9
+	
+	if skin != 0:
+		%AnimatedSprite2D.scale = Vector2(0.17, 0.17)
+		%AnimatedSprite2D.animation = "default_" + str(skin)
 	
 	charge_max = 300
 	

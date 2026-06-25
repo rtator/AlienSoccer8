@@ -34,6 +34,8 @@ var camera
 
 var is_bot = false
 
+var skin
+
 var online = false:
 	set(value):
 		online = value
@@ -55,19 +57,21 @@ func _physics_process(delta_milliseconds):
 			input = Input.get_vector("p2_left", "p2_right","p2_up","p2_down")
 	else:
 		if initialized:
-			input = (ball.position - position)
-			input.x = 0
+			if character == "spectre":
+				input = (ball.position - position) + Vector2(32, -32 * self.spin_dir)
+			else:
+				input = (ball.position - position)
 			if input.length() > 25:
 				if (player == 1):
-					if position.x >= 50 and ball.linear_velocity.length() > 0:
+					if (position.x >= 50 or (position.x >= 150 and character == "spectre")) and ball.linear_velocity.length() > 0:
 						input.x = -input.length()/2
-					elif ball.linear_velocity.length() <= 0:
-						input.x = input.length()/2
+					elif ball.linear_velocity.length() > 0:
+						input.x = 0
 				else:
-					if position.x <= 1102 and ball.linear_velocity.length() > 0:
+					if (position.x <= 1102 or (position.x <= 1002 and character == "spectre")) and ball.linear_velocity.length() > 0:
 						input.x = input.length()/2
-					elif ball.linear_velocity.length() <= 0:
-						input.x = -input.length()/2
+					elif ball.linear_velocity.length() > 0:
+						input.x = 0
 				input = input.normalized()
 			else:
 				input = Vector2(0,0)
@@ -84,6 +88,7 @@ func _physics_process(delta_milliseconds):
 		else:
 			input = Vector2(0,0)
 		_ultimate()
+		_ability()
 	
 	input *= move_speed * delta
 	if is_multiplayer_authority():

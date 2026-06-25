@@ -1,7 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://bt2kcuv7vlgch"]
+[gd_scene load_steps=18 format=3 uid="uid://bt2kcuv7vlgch"]
 
 [ext_resource type="Script" uid="uid://cbdks3b8bluro" path="res://freezer.gd" id="1_wcl5j"]
 [ext_resource type="Texture2D" uid="uid://cq6fbsfq4fw6k" path="res://as8_sprites_png/freezer.png" id="2_81d0e"]
+[ext_resource type="Texture2D" uid="uid://o6gn73armtet" path="res://AS8 skins/freezer/freezer_2/freezer_2_00.png" id="3_j6spw"]
+[ext_resource type="Texture2D" uid="uid://buh51ie86fapl" path="res://AS8 skins/freezer/freezer_2/freezer_2_01.png" id="4_hxtu5"]
+[ext_resource type="Texture2D" uid="uid://qtwopfdi1gbb" path="res://AS8 skins/freezer/freezer_2/freezer_2_02.png" id="5_56hfo"]
+[ext_resource type="Texture2D" uid="uid://bvam706lul4lq" path="res://AS8 skins/freezer/freezer_2/freezer_2_03.png" id="6_11405"]
+[ext_resource type="Texture2D" uid="uid://b2b8a5fexk17o" path="res://AS8 skins/freezer/freezer_2/freezer_2_04.png" id="7_b414m"]
+[ext_resource type="Texture2D" uid="uid://cbwhie3v4s4ao" path="res://AS8 skins/freezer/freezer_2/freezer_2_05.png" id="8_ar6u4"]
+[ext_resource type="Texture2D" uid="uid://cvpd7rpks0mp7" path="res://AS8 skins/freezer/freezer_2/freezer_2_06.png" id="9_wp4x7"]
+[ext_resource type="Texture2D" uid="uid://c107fq0qejjx3" path="res://AS8 skins/freezer/freezer_2/freezer_2_07.png" id="10_2kchd"]
+[ext_resource type="Texture2D" uid="uid://d16vqhfn260pa" path="res://AS8 skins/freezer/freezer_2/freezer_2_08.png" id="11_v7lcv"]
+[ext_resource type="Texture2D" uid="uid://bksnju47wtxyg" path="res://AS8 skins/freezer/freezer_2/freezer_2_09.png" id="12_yhsfv"]
+[ext_resource type="Texture2D" uid="uid://8lqnwcm05w7x" path="res://AS8 skins/freezer/freezer_2/freezer_2_10.png" id="13_5t252"]
+[ext_resource type="Texture2D" uid="uid://c3mhb62mh7pri" path="res://AS8 skins/freezer/freezer_2/freezer_2_11.png" id="14_exl7o"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wcl5j"]
 friction = 0.5
@@ -14,6 +26,47 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_j6spw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hxtu5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_56hfo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_11405")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_b414m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ar6u4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_wp4x7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_2kchd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_v7lcv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_yhsfv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_5t252")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_exl7o")
+}],
+"loop": true,
+"name": &"default_2",
 "speed": 5.0
 }]
 
@@ -31,6 +84,7 @@ metadata/_custom_type_script = "uid://e41xdpe4oqa2"
 unique_name_in_owner = true
 scale = Vector2(0.14, 0.14)
 sprite_frames = SubResource("SpriteFrames_71nmx")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true

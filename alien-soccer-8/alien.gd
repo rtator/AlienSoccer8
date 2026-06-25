@@ -43,6 +43,9 @@ func on_ready():
 		#%MultiplayerSynchronizer.set_multiplayer_authority(int(name))
 		print("name is " + name + ". authority is " + str(is_multiplayer_authority()))
 	
+	if skin != 0:
+		%AnimatedSprite2D.animation = "default_" + str(skin)
+	
 	base_scale = 1
 	
 	charge_max = 500

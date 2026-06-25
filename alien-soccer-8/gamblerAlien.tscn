@@ -1,10 +1,20 @@
-[gd_scene load_steps=9 format=3 uid="uid://4sy0hot10mrh"]
+[gd_scene load_steps=19 format=3 uid="uid://4sy0hot10mrh"]
 
 [ext_resource type="Script" uid="uid://dxo0rw0sd1ysu" path="res://gambler.gd" id="1_kfaa7"]
 [ext_resource type="Texture2D" uid="uid://b7nwl08awofg1" path="res://as8_sprites_png/gambler.png" id="2_idu26"]
+[ext_resource type="Texture2D" uid="uid://bwig0he7urayw" path="res://AS8 skins/gambler/gambler_1.png" id="3_2m258"]
 [ext_resource type="Texture2D" uid="uid://dc3ul6mpyoa2w" path="res://as8_sprites_png/Imported piskel (47).png" id="3_4lolu"]
 [ext_resource type="Texture2D" uid="uid://dkbs12tpshag4" path="res://as8_sprites_png/Imported piskel (48).png" id="4_be3x5"]
+[ext_resource type="Texture2D" uid="uid://sd02sxbbhp38" path="res://AS8 skins/gambler/gambler_2.png" id="4_hca0x"]
 [ext_resource type="Texture2D" uid="uid://c7272nioh4bwc" path="res://as8_sprites_png/Imported piskel (49).png" id="5_hyhps"]
+[ext_resource type="Texture2D" uid="uid://c2g3rws6iaoo1" path="res://AS8 skins/gambler/gambler_1_bad.png" id="6_hb06i"]
+[ext_resource type="Texture2D" uid="uid://b77uywupdl8lt" path="res://AS8 skins/gambler/gambler_2_bad.png" id="7_8c207"]
+[ext_resource type="Texture2D" uid="uid://bywqif6jlxbay" path="res://AS8 skins/gambler/gambler_1_ult.png" id="9_ca3bi"]
+[ext_resource type="Texture2D" uid="uid://lw864hojax4r" path="res://AS8 skins/gambler/gambler_2_ult/gambler_2_ult_0.png" id="10_47ven"]
+[ext_resource type="Texture2D" uid="uid://dtdrvrno0t1wv" path="res://AS8 skins/gambler/gambler_2_ult/gambler_2_ult_1.png" id="11_7fb72"]
+[ext_resource type="Texture2D" uid="uid://bcu4kjhcga4j6" path="res://AS8 skins/gambler/gambler_2_ult/gambler_2_ult_2.png" id="12_llfxq"]
+[ext_resource type="Texture2D" uid="uid://6q0usk8cwspq" path="res://AS8 skins/gambler/gambler_1_good.png" id="14_5ggdl"]
+[ext_resource type="Texture2D" uid="uid://tnq2posykpsd" path="res://AS8 skins/gambler/gambler_2_good.png" id="15_6x167"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kfaa7"]
 friction = 0.5
@@ -21,10 +31,42 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("3_2m258")
+}],
+"loop": true,
+"name": &"default_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_hca0x")
+}],
+"loop": true,
+"name": &"default_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("3_4lolu")
 }],
 "loop": true,
 "name": &"lose",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_hb06i")
+}],
+"loop": true,
+"name": &"lose_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_8c207")
+}],
+"loop": true,
+"name": &"lose_2",
 "speed": 5.0
 }, {
 "frames": [{
@@ -37,10 +79,48 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("9_ca3bi")
+}],
+"loop": true,
+"name": &"ult_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_47ven")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_7fb72")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_llfxq")
+}],
+"loop": true,
+"name": &"ult_2",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("5_hyhps")
 }],
 "loop": true,
 "name": &"win",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_5ggdl")
+}],
+"loop": true,
+"name": &"win_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_6x167")
+}],
+"loop": true,
+"name": &"win_2",
 "speed": 5.0
 }]
 
@@ -58,7 +138,9 @@ metadata/_custom_type_script = "uid://e41xdpe4oqa2"
 unique_name_in_owner = true
 scale = Vector2(0.16, 0.16)
 sprite_frames = SubResource("SpriteFrames_6hnh6")
+animation = &"ult_1"
 autoplay = "default"
+frame_progress = 0.470547
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true

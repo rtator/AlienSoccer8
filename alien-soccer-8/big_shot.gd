@@ -3,6 +3,7 @@ extends RigidBody2D
 var delete = false
 
 var shooter
+var skin = 0
 
 func _on_body_entered(body):
 	if body != shooter:
@@ -16,3 +17,9 @@ func _on_body_entered(body):
 
 func _on_timer_timeout():
 	delete = true
+
+func _ready():
+	if skin != 0:
+		%AnimatedSprite2D.scale = Vector2(2,2)
+		%AnimatedSprite2D.animation = "default_" + str(skin)
+		%AnimatedSprite2D.play()

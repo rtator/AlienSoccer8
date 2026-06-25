@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ukc0uwg8f27a"]
+[gd_scene load_steps=9 format=3 uid="uid://ukc0uwg8f27a"]
 
 [ext_resource type="Script" uid="uid://bwjx2x374x4um" path="res://wrangler.gd" id="1_d2dxy"]
 [ext_resource type="Texture2D" uid="uid://dwm171owu3a4k" path="res://as8_sprites_png/wrangler.png" id="2_evsrd"]
+[ext_resource type="Texture2D" uid="uid://cj3xm0e3lsjwi" path="res://AS8 skins/wrangler/wrangler_1.png" id="3_sea2r"]
+[ext_resource type="Texture2D" uid="uid://rsi023yltetd" path="res://AS8 skins/wrangler/wrangler_2.png" id="4_mfim4"]
+[ext_resource type="Texture2D" uid="uid://ccdlpydxlkajc" path="res://AS8 skins/wrangler/wrangler_3.png" id="5_gfokf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d2dxy"]
 friction = 0.5
@@ -14,6 +17,30 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_sea2r")
+}],
+"loop": true,
+"name": &"default_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_mfim4")
+}],
+"loop": true,
+"name": &"default_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_gfokf")
+}],
+"loop": true,
+"name": &"default_3",
 "speed": 5.0
 }]
 
@@ -31,6 +58,7 @@ metadata/_custom_type_script = "uid://e41xdpe4oqa2"
 unique_name_in_owner = true
 scale = Vector2(0.19, 0.19)
 sprite_frames = SubResource("SpriteFrames_y1mqi")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true

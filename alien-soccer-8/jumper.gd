@@ -48,6 +48,9 @@ func _ability_cooldown(delta):
 func on_ready():
 	physics_material_override.friction = 0.1
 	
+	if skin != 0:
+		%AnimatedSprite2D.animation = "default_" + str(skin)
+	
 	squish = 500
 	base_scale = 1.3 
 	

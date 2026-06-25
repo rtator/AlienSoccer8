@@ -15,6 +15,7 @@ func _ability():
 		var block = block_load.instantiate()
 		block.position = position
 		block.user = self
+		block.skin = skin
 		block_amount += 1
 		get_parent().add_child(block)
 		cooldown = 200
@@ -46,6 +47,10 @@ func _ability_cooldown(delta):
 
 func on_ready():
 	base_scale = 0.8
+	
+	if skin != 0:
+		%AnimatedSprite2D.animation = "default_" + str(skin)
+		%AnimatedSprite2D.play()
 	
 	squish *= 2
 	stretch *= 2

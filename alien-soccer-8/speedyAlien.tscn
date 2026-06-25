@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmt5inmp04xyr"]
+[gd_scene load_steps=9 format=3 uid="uid://cmt5inmp04xyr"]
 
 [ext_resource type="Script" uid="uid://bpytwx3kfrifx" path="res://godot_alien.gd" id="1_oxet1"]
 [ext_resource type="Texture2D" uid="uid://7owgs5hcn0tf" path="res://as8_sprites_png/speedy.png" id="2_oxet1"]
 [ext_resource type="Texture2D" uid="uid://c0sbhgbyl24x5" path="res://as8_sprites_png/speedy_blue.png" id="2_y7bfr"]
+[ext_resource type="Texture2D" uid="uid://dpwylt6ctiujf" path="res://AS8 skins/speedy/speedy_2_glow.png" id="3_vibcy"]
+[ext_resource type="Texture2D" uid="uid://cpb5u3xisds78" path="res://AS8 skins/speedy/speedy_2.png" id="5_bwc5n"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yv1w5"]
 friction = 0.5
@@ -22,10 +24,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("3_vibcy")
+}],
+"loop": true,
+"name": &"blue_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("2_oxet1")
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_bwc5n")
+}],
+"loop": true,
+"name": &"default_2",
 "speed": 5.0
 }]
 
@@ -44,6 +62,4 @@ shape = SubResource("CircleShape2D_p6lch")
 unique_name_in_owner = true
 scale = Vector2(0.16, 0.16)
 sprite_frames = SubResource("SpriteFrames_qv5dp")
-animation = &"blue"
 autoplay = "default"
-frame_progress = 0.362092

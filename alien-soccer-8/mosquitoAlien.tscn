@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwbx3ilov3ap1"]
+[gd_scene load_steps=8 format=3 uid="uid://cwbx3ilov3ap1"]
 
 [ext_resource type="Script" uid="uid://b7s0mio1ggxh0" path="res://mosquito.gd" id="1_q0i2c"]
 [ext_resource type="Texture2D" uid="uid://cd72i3j4o355c" path="res://as8_sprites_png/mosquito.png" id="2_pvg3q"]
+[ext_resource type="Texture2D" uid="uid://d272vu0tmdxdl" path="res://AS8 skins/mosquito/mosquito_1.png" id="3_lulee"]
+[ext_resource type="Texture2D" uid="uid://dqro2hh1fnhgk" path="res://AS8 skins/mosquito/mosquito_2.png" id="4_fdha5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q0i2c"]
 friction = 0.5
@@ -14,6 +16,22 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_lulee")
+}],
+"loop": true,
+"name": &"default_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_fdha5")
+}],
+"loop": true,
+"name": &"default_2",
 "speed": 5.0
 }]
 
@@ -31,6 +49,7 @@ metadata/_custom_type_script = "uid://e41xdpe4oqa2"
 unique_name_in_owner = true
 scale = Vector2(0.16, 0.16)
 sprite_frames = SubResource("SpriteFrames_lulee")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true

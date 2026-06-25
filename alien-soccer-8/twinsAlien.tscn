@@ -1,11 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://11thqhapsrp7"]
+[gd_scene load_steps=15 format=3 uid="uid://11thqhapsrp7"]
 
 [ext_resource type="Script" uid="uid://dm40gx2uggxf5" path="res://twins.gd" id="1_w6qly"]
 [ext_resource type="Texture2D" uid="uid://b0mbi5v51remh" path="res://as8_sprites_png/twins_orange.png" id="2_epd0s"]
 [ext_resource type="Texture2D" uid="uid://cvqt666oyu14c" path="res://as8_sprites_png/twins_blue_ult.png" id="3_1h2hp"]
+[ext_resource type="Texture2D" uid="uid://cg7krc8tf4qjm" path="res://AS8 skins/twins/twins_blue_1.png" id="3_ohy35"]
 [ext_resource type="Texture2D" uid="uid://c8i56obw3wbum" path="res://as8_sprites_png/twins_blue.png" id="3_tm61d"]
 [ext_resource type="Texture2D" uid="uid://dr7h8e5188co" path="res://as8_sprites_png/twins_orange_blue.png" id="5_iaob6"]
+[ext_resource type="Texture2D" uid="uid://bq6ermroqpcu5" path="res://AS8 skins/twins/twins_blue_1_ult.png" id="5_qtmj2"]
 [ext_resource type="Shape2D" uid="uid://fkc16h4w2hcp" path="res://twin_collision.tres" id="6_1h2hp"]
+[ext_resource type="Texture2D" uid="uid://dw3jfbyolt4sg" path="res://AS8 skins/twins/twins_orange_1.png" id="7_a4a03"]
+[ext_resource type="Texture2D" uid="uid://cgiap8x5v8toq" path="res://AS8 skins/twins/twins_orange_1_ult.png" id="9_us6n6"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w6qly"]
 friction = 0.5
@@ -24,10 +28,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("3_ohy35")
+}],
+"loop": true,
+"name": &"default_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("3_1h2hp")
 }],
 "loop": true,
 "name": &"ult",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_qtmj2")
+}],
+"loop": true,
+"name": &"ult_1",
 "speed": 5.0
 }]
 
@@ -43,10 +63,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("7_a4a03")
+}],
+"loop": true,
+"name": &"default_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("5_iaob6")
 }],
 "loop": true,
 "name": &"ult",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_us6n6")
+}],
+"loop": true,
+"name": &"ult_1",
 "speed": 5.0
 }]
 
@@ -76,6 +112,7 @@ position = Vector2(0, -16)
 rotation = 3.14159
 scale = Vector2(0.26, 0.26)
 sprite_frames = SubResource("SpriteFrames_1h2hp")
+animation = &"ult_1"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

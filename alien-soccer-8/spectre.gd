@@ -5,7 +5,7 @@ var spin_speed = base_spin_speed
 var spin_mult = 0.02
 var spin_dir = 1
 
-var base_move_speed = 70
+var base_move_speed = 70 * 0.8
 
 var invis_timer = 0
 var invising = false
@@ -28,10 +28,17 @@ func _ultimate():
 		charge = 0
 
 func _ability_cooldown(delta):
+	position.y = clamp(position.y, 32, 616)
+	if player == 1:
+		position.x = clamp(position.x, 32, 544)
+	else:
+		position.x = clamp(position.x, 608, 1120)
+	
 	angular_velocity = spin_speed
 	sprite.global_rotation = 0
 	if spin_speed <= 15:
 		spin_speed += (spin_mult * delta) * spin_dir
+		print(move_speed + (spin_mult * delta * 2))
 		update_move_speed(move_speed + (spin_mult * delta * 2))
 	
 	if charge < charge_max and not ulting:
@@ -91,6 +98,11 @@ func _on_area_2d_body_entered(body):
 
 func on_ready():
 	base_scale = 1
+	
+	if skin != 0:
+		if skin != 3:
+			%AnimatedSprite2D.scale = Vector2(0.19, 0.19)
+		%AnimatedSprite2D.animation = "default_" + str(skin)
 	
 	charge_max = 500
 	

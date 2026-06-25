@@ -17,6 +17,7 @@ const player_objects = {
 	"mosquito": preload("res://mosquitoAlien.tscn"),
 	"spectre": preload("res://spectreAlien.tscn"),
 	"cloaker": preload("res://cloakerAlien.tscn"),
+	"pirate": preload("res://pirateAlien.tscn"),
 }
 
 var p1
@@ -32,6 +33,7 @@ func _ready():
 	p1.set_player(1)
 	p1.charge_bar = %p1Charge
 	p1.cooldown_bar = %p1Cooldown
+	p1.skin = GlobalSave.p1Skin
 	
 	if GlobalSave.p1Char == "target":
 		%p2Wall.collision_layer = 0
@@ -47,15 +49,18 @@ func _ready():
 	p2.set_player(2)
 	p2.charge_bar = %p2Charge
 	p2.cooldown_bar = %p2Cooldown
+	p2.skin = GlobalSave.p2Skin
+	
+	if GlobalSave.p2Char == "target":
+		%p1Wall.collision_layer = 0
+		%p1Wall.collision_mask = 0
+		p2.score_board = %p2Score
 	
 	p1.opponent = p2
 	p1.character = GlobalSave.p1Char
 	p2.opponent = p1
 	p2.character = GlobalSave.p2Char
-	if GlobalSave.p2Char == "target":
-		%p1Wall.collision_layer = 0
-		%p1Wall.collision_mask = 0
-		p2.score_board = %p2Score
+	
 	
 	add_child(p1)
 	add_child(p2)

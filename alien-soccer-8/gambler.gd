@@ -19,8 +19,12 @@ func _ability():
 		if not ulting:
 			if roll > 2:
 				sprite.animation = "win"
+				if skin != 0:
+					%AnimatedSprite2D.animation = "win_" + str(skin)
 			else:
 				sprite.animation = "lose"
+				if skin != 0:
+					%AnimatedSprite2D.animation = "lose_" + str(skin)
 		
 		var change = [roll, 100]
 		changes.push_front(change)
@@ -31,6 +35,9 @@ func _ultimate():
 		ult_dur = 200
 		charge = 0
 		sprite.animation = "ult"
+		if skin != 0:
+			%AnimatedSprite2D.animation = "ult_" + str(skin)
+			%AnimatedSprite2D.play()
 
 func _ability_cooldown(delta):
 	if cooldown > 0:
@@ -43,7 +50,9 @@ func _ability_cooldown(delta):
 		ult_dur -= delta
 	elif ulting:
 		ulting = false
-		sprite.animation = "lose"
+		sprite.animation = "default"
+		if skin != 0:
+			%AnimatedSprite2D.animation = "default_" + str(skin)
 		
 	
 	if len(changes) > 0:
@@ -65,12 +74,18 @@ func _ability_cooldown(delta):
 				changes.erase(item)
 				if not ulting:
 					sprite.animation = "default"
+					if skin != 0:
+						%AnimatedSprite2D.animation = "default_" + str(skin)
 					cooldown = 100
 				
 				break
 
 func on_ready():
 	base_scale = 0.9
+	
+	if skin != 0:
+		%AnimatedSprite2D.scale = Vector2(0.17, 0.17)
+		%AnimatedSprite2D.animation = "default_" + str(skin)
 	
 	charge_max = 300
 	

@@ -1,0 +1,108 @@
+[gd_scene load_steps=13 format=3 uid="uid://tn0441dpcmlp"]
+
+[ext_resource type="Script" uid="uid://c3u5bt238fcax" path="res://cannons.gd" id="1_bucxk"]
+[ext_resource type="Texture2D" uid="uid://dfqirpyisrnwy" path="res://as8_sprites_png/cannon.png" id="1_o3nh1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bucxk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_o3nh1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Curve" id="Curve_bucxk"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 1, Vector2(0.75, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -4.0, 0.0, 1, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ktxi0"]
+curve = SubResource("Curve_bucxk")
+
+[sub_resource type="Gradient" id="Gradient_fxi4v"]
+colors = PackedColorArray(1, 0.0901961, 0, 1, 1, 0.913725, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5s78e"]
+gradient = SubResource("Gradient_fxi4v")
+
+[sub_resource type="Gradient" id="Gradient_h1f4o"]
+offsets = PackedFloat32Array(0, 0.58156, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.959009, 0.959009, 0.959009, 1, 0.277528, 0.277528, 0.277528, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gficf"]
+gradient = SubResource("Gradient_h1f4o")
+
+[sub_resource type="Curve" id="Curve_ab5he"]
+_limits = [0.0, 1.5, 0.0, 1.0]
+_data = [Vector2(0, 0.519455), 0.0, 0.0, 0, 0, Vector2(0.5, 1.5), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_w0qnp"]
+curve = SubResource("Curve_ab5he")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_105aj"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 10, 1)
+velocity_pivot = Vector3(-10, 0, 0)
+initial_velocity_min = 125.0
+initial_velocity_max = 250.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -200.0
+linear_accel_max = -200.0
+scale_min = 5.0
+scale_max = 10.0
+scale_curve = SubResource("CurveTexture_w0qnp")
+color_ramp = SubResource("GradientTexture1D_gficf")
+color_initial_ramp = SubResource("GradientTexture1D_5s78e")
+alpha_curve = SubResource("CurveTexture_ktxi0")
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_bucxk")
+
+[node name="cannon_1" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(30, 33)
+rotation = 2.0944
+scale = Vector2(0.16, 0.16)
+sprite_frames = SubResource("SpriteFrames_bucxk")
+
+[node name="particles_1" type="GPUParticles2D" parent="cannon_1"]
+unique_name_in_owner = true
+position = Vector2(21.8149, -149.716)
+rotation = -1.5708
+scale = Vector2(6.25, 6.25)
+emitting = false
+amount = 30
+lifetime = 0.55
+one_shot = true
+explosiveness = 0.9
+process_material = SubResource("ParticleProcessMaterial_105aj")
+
+[node name="cannon_2" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(30, 615)
+rotation = 1.0472
+scale = Vector2(0.16, 0.16)
+sprite_frames = SubResource("SpriteFrames_bucxk")
+
+[node name="particles_2" type="GPUParticles2D" parent="cannon_2"]
+unique_name_in_owner = true
+position = Vector2(-28.0649, -138.89)
+rotation = -1.5708
+scale = Vector2(6.25, 6.25)
+emitting = false
+amount = 30
+lifetime = 0.55
+one_shot = true
+explosiveness = 0.9
+process_material = SubResource("ParticleProcessMaterial_105aj")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
