@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://bxaudfdnsjhcd"]
+
+[ext_resource type="Script" uid="uid://cy006uvidc4y" path="res://addons/tube-2dfc5c1ef8432af121eee775b5cd4ca2edc93bca/addons/tube/tube_client.gd" id="1_o4xmw"]
+[ext_resource type="Resource" uid="uid://b6643gne0dquf" path="res://tube_context.tres" id="2_y4usk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywy0x"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_vt7g2"]
+font_size = 75
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vt7g2"]
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[node name="Node" type="Node" unique_id=199295128]
+
+[node name="TubeClient" type="Node" parent="." unique_id=998493657]
+script = ExtResource("1_o4xmw")
+context = ExtResource("2_y4usk")
+metadata/_custom_type_script = "uid://cy006uvidc4y"
+
+[node name="Control" type="Control" parent="." unique_id=1723111878]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control" unique_id=1056124130]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ywy0x")
+
+[node name="Control" type="Control" parent="Control/Panel" unique_id=917029056]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 245.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Control/Panel/Control" unique_id=1162674034]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -349.0
+offset_top = -51.5
+offset_right = 349.0
+offset_bottom = 51.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Alien Soccer Online"
+label_settings = SubResource("LabelSettings_vt7g2")
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/Panel" unique_id=776618983]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -57.5
+offset_right = 70.0
+offset_bottom = 57.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vt7g2")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Panel/PanelContainer" unique_id=907326764]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/PanelContainer/MarginContainer" unique_id=1622741094]
+layout_mode = 2
+alignment = 1
+
+[node name="TextEdit" type="TextEdit" parent="Control/Panel/PanelContainer/MarginContainer/VBoxContainer" unique_id=1336344666]
+custom_minimum_size = Vector2(144, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+placeholder_text = "Enter Your Name"
+
+[node name="Control" type="Control" parent="Control/Panel/PanelContainer/MarginContainer/VBoxContainer" unique_id=1761018552]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="TextEdit2" type="TextEdit" parent="Control/Panel/PanelContainer/MarginContainer/VBoxContainer" unique_id=118009525]
+custom_minimum_size = Vector2(210, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/line_spacing = -5
+placeholder_text = "Lobby Id (If Joining Game)"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel/PanelContainer/MarginContainer/VBoxContainer" unique_id=2506916]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="Control/Panel/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1764581711]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Host game"
+
+[node name="Button3" type="Button" parent="Control/Panel/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=297404889]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Join game"
