@@ -8,11 +8,15 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Alien Soccer 8"
 run/main_scene="uid://dfgj7m8i6rype"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -29,6 +33,10 @@ window/stretch/mode="canvas_items"
 [editor]
 
 movie_writer/movie_file="C:/Users/hiros/OneDrive/Documents/alien-soccer-8/Movies/Movies.avi"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/tube-2dfc5c1ef8432af121eee775b5cd4ca2edc93bca/addons/tube/plugin.cfg")
 
 [file_customization]
 
