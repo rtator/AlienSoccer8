@@ -1,526 +1,107 @@
 [gd_scene format=3 uid="uid://c256duq267kt8"]
 
-[ext_resource type="Script" uid="uid://bnx85imt8okrv" path="res://character_select.gd" id="1_ybyuf"]
-[ext_resource type="StyleBox" uid="uid://bhwb56kpdliu" path="res://buttonText.tres" id="2_trven"]
-[ext_resource type="Texture2D" uid="uid://br2hsa7xxgrei" path="res://as8_sprites_png/basic.png" id="3_trven"]
-[ext_resource type="Texture2D" uid="uid://6ageq0ptq4y4" path="res://as8_sprites_png/speedy.png" id="4_kjjwk"]
-[ext_resource type="Texture2D" uid="uid://8asayyvoykoc" path="res://as8_sprites_png/scaler.png" id="5_ix0ar"]
-[ext_resource type="Texture2D" uid="uid://dny64miwbnadi" path="res://as8_sprites_png/jumper.png" id="6_uwg4n"]
-[ext_resource type="Texture2D" uid="uid://7scjrlv7iua" path="res://as8_sprites_png/launcher.png" id="7_r8mfn"]
-[ext_resource type="Texture2D" uid="uid://dk6tb7i860mpg" path="res://as8_sprites_png/target.png" id="8_u11kp"]
-[ext_resource type="Texture2D" uid="uid://r37u7ssrge1m" path="res://as8_sprites_png/freezer.png" id="8_uwg4n"]
-[ext_resource type="Texture2D" uid="uid://p40n8jlluwup" path="res://as8_sprites_png/clock.png" id="9_haaya"]
-[ext_resource type="Texture2D" uid="uid://cfydprgjulx3i" path="res://as8_sprites_png/trickster.png" id="9_n7atd"]
-[ext_resource type="Texture2D" uid="uid://bqtlmsyowppax" path="res://as8_sprites_png/warper.png" id="9_tepe3"]
-[ext_resource type="Texture2D" uid="uid://dfsubiikoyqdq" path="res://as8_sprites_png/gambler.png" id="9_u11kp"]
-[ext_resource type="Texture2D" uid="uid://b0g4ufvqlab2o" path="res://as8_sprites_png/mosquito.png" id="10_ix0ar"]
-[ext_resource type="Texture2D" uid="uid://dcup8xwuweju5" path="res://as8_sprites_png/twins_blue.png" id="10_r8mfn"]
-[ext_resource type="Texture2D" uid="uid://c0df03marbxwe" path="res://as8_sprites_png/wrangler.png" id="12_haaya"]
+[ext_resource type="Script" uid="uid://1g7fs0so2igl" path="res://spectre.gd" id="1_lf7tc"]
+[ext_resource type="Texture2D" uid="uid://bp68i3xpi0pkj" path="res://AS8 skins/spectre/spectre_1.png" id="3_6mfm2"]
+[ext_resource type="Texture2D" uid="uid://o80brdoh1vum" path="res://AS8 skins/spectre/spectre_2.png" id="4_cftfa"]
+[ext_resource type="Texture2D" uid="uid://ci1rjjc1c3deo" path="res://AS8 skins/spectre/spectre_3.png" id="5_kjjwk"]
+[ext_resource type="Texture2D" uid="uid://dkgkr5ngo8mic" path="res://as8_sprites_png/scythe.png" id="6_ix0ar"]
 [ext_resource type="Texture2D" uid="uid://id27cy7k7kax" path="res://as8_sprites_png/spectre.png" id="17_l1mqb"]
-[ext_resource type="Texture2D" uid="uid://cor4l4c6manrn" path="res://as8_sprites_png/cloaker.png" id="18_lbha3"]
-[ext_resource type="Texture2D" uid="uid://byw86dnujr2ih" path="res://as8_sprites_png/pirate.png" id="19_tcrs3"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_semk5"]
-font_size = 80
-font_color = Color(0.414146, 0.711646, 1, 1)
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pgdjt"]
+friction = 0.0
 
-[sub_resource type="LabelSettings" id="LabelSettings_sky72"]
-font_size = 30
-font_color = Color(0.414146, 0.711646, 1, 1)
+[sub_resource type="SpriteFrames" id="SpriteFrames_d5tak"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_l1mqb")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6mfm2")
+}],
+"loop": 1,
+"name": &"default_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_cftfa")
+}],
+"loop": 1,
+"name": &"default_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_kjjwk")
+}],
+"loop": 1,
+"name": &"default_3",
+"speed": 5.0
+}]
 
-[sub_resource type="LabelSettings" id="LabelSettings_kjjwk"]
-font_size = 50
-font_color = Color(1, 0, 0, 1)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6rgvc"]
+radius = 7.5
+height = 47.5
 
-[node name="Control" type="Control" unique_id=1402323646]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_ybyuf")
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0qn74"]
+radius = 5.0
+height = 25.0
 
-[node name="Label" type="Label" parent="." unique_id=799633867]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -222.0
-offset_right = 222.0
-offset_bottom = 110.0
-grow_horizontal = 2
-text = "Alien Select"
-label_settings = SubResource("LabelSettings_semk5")
-horizontal_alignment = 3
+[node name="spectre" type="RigidBody2D" unique_id=1355204954]
+physics_material_override = SubResource("PhysicsMaterial_pgdjt")
+gravity_scale = 0.0
+center_of_mass_mode = 1
+contact_monitor = true
+max_contacts_reported = 2
+script = ExtResource("1_lf7tc")
+metadata/_custom_type_script = "uid://e41xdpe4oqa2"
 
-[node name="Label2" type="Label" parent="." unique_id=670366871]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -156.0
-offset_right = 157.0
-offset_bottom = 156.0
-grow_vertical = 2
-text = "Use WASD to move selecter and  E to select  an alien.
-use 1 and 2 to select your skin."
-label_settings = SubResource("LabelSettings_sky72")
-autowrap_mode = 3
-
-[node name="Label3" type="Label" parent="." unique_id=172123574]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -145.0
-offset_top = -133.0
-offset_bottom = 134.0
-grow_horizontal = 0
-grow_vertical = 2
-text = "Use IJKL to move selecter and O to select an alien.
-use 1 and 2 to select your skin."
-label_settings = SubResource("LabelSettings_sky72")
-autowrap_mode = 3
-
-[node name="Control2" type="Control" parent="." unique_id=989601601]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -424.0
-offset_top = -324.0
-offset_right = 424.0
-offset_bottom = 324.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="p1Bot" type="Button" parent="Control2" unique_id=1265207272]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=775595074]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 80.0
-offset_top = -69.0
-offset_right = 234.0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = ExtResource("2_trven")
-theme_override_styles/pressed = ExtResource("2_trven")
-theme_override_styles/hover = ExtResource("2_trven")
-theme_override_styles/focus = ExtResource("2_trven")
-text = "Player"
+modulate = Color(1, 1, 1, 0.278431)
+scale = Vector2(0.16, 0.16)
+sprite_frames = SubResource("SpriteFrames_d5tak")
+autoplay = "default"
 
-[node name="p2Bot" type="Button" parent="Control2" unique_id=591733210]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1811984109]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -234.0
-offset_top = -69.0
-offset_right = -80.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = ExtResource("2_trven")
-theme_override_styles/pressed = ExtResource("2_trven")
-theme_override_styles/hover = ExtResource("2_trven")
-theme_override_styles/focus = ExtResource("2_trven")
-text = "Player"
+position = Vector2(0, -58)
+shape = SubResource("CapsuleShape2D_6rgvc")
 
-[node name="Control" type="Control" parent="." unique_id=1490181190]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -392.0
-offset_top = -200.0
-offset_right = 393.0
-offset_bottom = 251.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Scythe" type="Sprite2D" parent="CollisionShape2D" unique_id=387589101]
+position = Vector2(0, -2)
+rotation = -0.785398
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_ix0ar")
 
-[node name="p1Rect" type="TextureRect" parent="Control" unique_id=2083550456]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -140.0
-offset_right = 280.0
-grow_vertical = 0
-mouse_force_pass_scroll_events = false
-expand_mode = 1
-stretch_mode = 5
+[node name="Area2D" type="Area2D" parent="CollisionShape2D" unique_id=154110630]
+position = Vector2(-16, -7)
 
-[node name="p1Started" type="Label" parent="Control/p1Rect" unique_id=1416381440]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/Area2D" unique_id=1890626589]
+position = Vector2(2, -2)
+rotation = 0.785398
+shape = SubResource("CapsuleShape2D_0qn74")
+debug_color = Color(1, 0.6, 0.701961, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1395584575]
 unique_name_in_owner = true
 visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Selected"
-label_settings = SubResource("LabelSettings_kjjwk")
+position = Vector2(0, 58)
+rotation = 3.1415927
+shape = SubResource("CapsuleShape2D_6rgvc")
+disabled = true
 
-[node name="p2Rect" type="TextureRect" parent="Control" unique_id=1250898222]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -280.0
-offset_top = -140.0
-grow_horizontal = 0
-grow_vertical = 0
-expand_mode = 1
-stretch_mode = 5
+[node name="Scythe" type="Sprite2D" parent="CollisionShape2D2" unique_id=1195678906]
+position = Vector2(0, -2)
+rotation = -0.785398
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_ix0ar")
 
-[node name="p2Started" type="Label" parent="Control/p2Rect" unique_id=2014574070]
-unique_name_in_owner = true
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -101.5
-offset_top = -34.5
-offset_right = 101.5
-offset_bottom = 34.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Selected"
-label_settings = SubResource("LabelSettings_kjjwk")
-
-[node name="GridContainer" type="GridContainer" parent="Control" unique_id=514004744]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/h_separation = 30
-theme_override_constants/v_separation = 20
-columns = 6
-
-[node name="basic1" type="Button" parent="Control/GridContainer" unique_id=1706615147]
-unique_name_in_owner = true
-layout_mode = 2
-mouse_filter = 2
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = ExtResource("2_trven")
-theme_override_styles/pressed = ExtResource("2_trven")
-theme_override_styles/hover = ExtResource("2_trven")
-theme_override_styles/focus = ExtResource("2_trven")
-text = "Basic"
-icon = ExtResource("3_trven")
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
-
-[node name="speedy1" type="Button" parent="Control/GridContainer" unique_id=1107432856]
-unique_name_in_owner = true
-layout_mode = 2
-mouse_filter = 2
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = ExtResource("2_trven")
-theme_override_styles/pressed = ExtResource("2_trven")
-theme_override_styles/hover = ExtResource("2_trven")
-theme_override_styles/focus = ExtResource("2_trven")
-text = "Speedy
-"
-icon = ExtResource("4_kjjwk")
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
-
-[node name="scaler1" type="Button" parent="Control/GridContainer" unique_id=887000655]
-unique_name_in_owner = true
-layout_mode = 2
-mouse_filter = 2
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = ExtResource("2_trven")
-theme_override_styles/pressed = ExtResource("2_trven")
-theme_override_styles/hover = ExtResource("2_trven")
-theme_override_styles/focus = ExtResource("2_trven")
-text = "Scaler"
-icon = ExtResource("5_ix0ar")
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
-
-[node name="jumper1" type="Button" parent="Control/GridContainer" unique_id=119335593]
-unique_name_in_owner = true
-layout_mode = 2
-mouse_filter = 2
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = ExtResource("2_trven")
-theme_override_styles/pressed = ExtResource("2_trven")
-theme_override_styles/hover = ExtResource("2_trven")
-theme_override_styles/focus = ExtResource("2_trven")
-text = "Jumper"
-icon = ExtResource("6_uwg4n")
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
-
-[node name="launcher1" type="Button" parent="Control/GridContainer" unique_id=1696709289]
-unique_name_in_owner = true
-layout_mode = 2
-mouse_filter = 2
-theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = ExtResource("2_trven")
-theme_override_styles/pressed = ExtResource("2_trven")
-theme_override_styles/hover = ExtResource("2_trven")
-theme_override_styles/focus = ExtResource("2_trven")
-text = "Launcher"
-icon = ExtResource("7_r8mfn")
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
-
-[node name="freezer1" type="Button" parent="Control/GridContainer" unique_id=827629061]
-unique_name_in_owner = true
-layout_mode = 2
-mouse_filter = 2
-theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = ExtResource("2_trven")
-theme_override_styles/pressed = ExtResource("2_trven")
-theme_override_styles/hover = ExtResource("2_trven")
-theme_override_styles/focus = ExtResource("2_trven")
-text = "Freezer"
-icon = ExtResource("8_uwg4n")
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
-
-[node name="clock1" type="Button" parent="Control/GridContainer" unique_id=556923459]
-unique_name_in_owner = true
-layout_mode = 2
-mouse_filter = 2
-theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = ExtResource("2_trven")
-theme_override_styles/pressed = ExtResource("2_trven")
-theme_override_styles/hover = ExtResource("2_trven")
-theme_override_styles/focus = ExtResource("2_trven")
-text = "Clock"
-icon = ExtResource("9_haaya")
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
-
-[node name="trickster1" type="Button" parent="Control/GridContainer" unique_id=1613452182]
-unique_name_in_owner = true
-layout_mode = 2
-mouse_filter = 2
-theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = ExtResource("2_trven")
-theme_override_styles/pressed = ExtResource("2_trven")
-theme_override_styles/hover = ExtResource("2_trven")
-theme_override_styles/focus = ExtResource("2_trven")
-text = "Trickster"
-icon = ExtResource("9_n7atd")
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
-
-[node name="gambler1" type="Button" parent="Control/GridContainer" unique_id=1297172564]
-unique_name_in_owner = true
-layout_mode = 2
-mouse_filter = 2
-theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = ExtResource("2_trven")
-theme_override_styles/pressed = ExtResource("2_trven")
-theme_override_styles/hover = ExtResource("2_trven")
-theme_override_styles/focus = ExtResource("2_trven")
-text = "Gambler"
-icon = ExtResource("9_u11kp")
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
-
-[node name="wrangler1" type="Button" parent="Control/GridContainer" unique_id=1010580686]
-unique_name_in_owner = true
-layout_mode = 2
-mouse_filter = 2
-theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = ExtResource("2_trven")
-theme_override_styles/pressed = ExtResource("2_trven")
-theme_override_styles/hover = ExtResource("2_trven")
-theme_override_styles/focus = ExtResource("2_trven")
-text = "Wrangler"
-icon = ExtResource("12_haaya")
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
-
-[node name="twins1" type="Button" parent="Control/GridContainer" unique_id=862432145]
-unique_name_in_owner = true
-layout_mode = 2
-mouse_filter = 2
-theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = ExtResource("2_trven")
-theme_override_styles/pressed = ExtResource("2_trven")
-theme_override_styles/hover = ExtResource("2_trven")
-theme_override_styles/focus = ExtResource("2_trven")
-text = "twins"
-icon = ExtResource("10_r8mfn")
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
-
-[node name="warper1" type="Button" parent="Control/GridContainer" unique_id=951487881]
-unique_name_in_owner = true
-layout_mode = 2
-mouse_filter = 2
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = ExtResource("2_trven")
-theme_override_styles/pressed = ExtResource("2_trven")
-theme_override_styles/hover = ExtResource("2_trven")
-theme_override_styles/focus = ExtResource("2_trven")
-text = "Warper"
-icon = ExtResource("9_tepe3")
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
-
-[node name="Control" type="Control" parent="Control/GridContainer" unique_id=1426496862]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-
-[node name="target1" type="Button" parent="Control/GridContainer" unique_id=1214390069]
-unique_name_in_owner = true
-layout_mode = 2
-mouse_filter = 2
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = ExtResource("2_trven")
-theme_override_styles/pressed = ExtResource("2_trven")
-theme_override_styles/hover = ExtResource("2_trven")
-theme_override_styles/focus = ExtResource("2_trven")
-text = "Target"
-icon = ExtResource("8_u11kp")
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
-
-[node name="spectre1" type="Button" parent="Control/GridContainer" unique_id=216234117]
-unique_name_in_owner = true
-layout_mode = 2
-mouse_filter = 2
-theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = ExtResource("2_trven")
-theme_override_styles/pressed = ExtResource("2_trven")
-theme_override_styles/hover = ExtResource("2_trven")
-theme_override_styles/focus = ExtResource("2_trven")
-text = "Spectre"
-icon = ExtResource("17_l1mqb")
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
-
-[node name="mosquito1" type="Button" parent="Control/GridContainer" unique_id=292515794]
-unique_name_in_owner = true
-layout_mode = 2
-mouse_filter = 2
-theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = ExtResource("2_trven")
-theme_override_styles/pressed = ExtResource("2_trven")
-theme_override_styles/hover = ExtResource("2_trven")
-theme_override_styles/focus = ExtResource("2_trven")
-text = "Mosquito"
-icon = ExtResource("10_ix0ar")
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
-
-[node name="cloaker1" type="Button" parent="Control/GridContainer" unique_id=1935493437]
-unique_name_in_owner = true
-layout_mode = 2
-mouse_filter = 2
-theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = ExtResource("2_trven")
-theme_override_styles/pressed = ExtResource("2_trven")
-theme_override_styles/hover = ExtResource("2_trven")
-theme_override_styles/focus = ExtResource("2_trven")
-text = "Cloaker"
-icon = ExtResource("18_lbha3")
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
-
-[node name="pirate1" type="Button" parent="Control/GridContainer" unique_id=57628324]
-unique_name_in_owner = true
-layout_mode = 2
-mouse_filter = 2
-theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = ExtResource("2_trven")
-theme_override_styles/pressed = ExtResource("2_trven")
-theme_override_styles/hover = ExtResource("2_trven")
-theme_override_styles/focus = ExtResource("2_trven")
-text = "Pirate"
-icon = ExtResource("19_tcrs3")
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
-
-[node name="backButton" type="Button" parent="." unique_id=257270564]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -48.0
-offset_top = -59.0
-offset_right = 48.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = ExtResource("2_trven")
-theme_override_styles/pressed = ExtResource("2_trven")
-theme_override_styles/hover = ExtResource("2_trven")
-theme_override_styles/hover_pressed = ExtResource("2_trven")
-theme_override_styles/focus = ExtResource("2_trven")
-text = "Back"
-
-[connection signal="pressed" from="Control2/p1Bot" to="." method="_on_p_1_bot_pressed"]
-[connection signal="pressed" from="Control2/p2Bot" to="." method="_on_p_2_bot_pressed"]
-[connection signal="pressed" from="Control/GridContainer/basic1" to="." method="_on_basic_1_pressed"]
-[connection signal="pressed" from="Control/GridContainer/speedy1" to="." method="_on_speedy_1_pressed"]
-[connection signal="pressed" from="Control/GridContainer/scaler1" to="." method="_on_scaler_1_pressed"]
-[connection signal="pressed" from="Control/GridContainer/jumper1" to="." method="_on_jumper_1_pressed"]
-[connection signal="pressed" from="Control/GridContainer/launcher1" to="." method="_on_launcher_1_pressed"]
-[connection signal="pressed" from="Control/GridContainer/freezer1" to="." method="_on_warper_1_pressed"]
-[connection signal="pressed" from="Control/GridContainer/clock1" to="." method="_on_warper_1_pressed"]
-[connection signal="pressed" from="Control/GridContainer/trickster1" to="." method="_on_warper_1_pressed"]
-[connection signal="pressed" from="Control/GridContainer/gambler1" to="." method="_on_warper_1_pressed"]
-[connection signal="pressed" from="Control/GridContainer/wrangler1" to="." method="_on_target_1_pressed"]
-[connection signal="pressed" from="Control/GridContainer/twins1" to="." method="_on_warper_1_pressed"]
-[connection signal="pressed" from="Control/GridContainer/warper1" to="." method="_on_warper_1_pressed"]
-[connection signal="pressed" from="Control/GridContainer/target1" to="." method="_on_target_1_pressed"]
-[connection signal="pressed" from="Control/GridContainer/spectre1" to="." method="_on_warper_1_pressed"]
-[connection signal="pressed" from="Control/GridContainer/mosquito1" to="." method="_on_warper_1_pressed"]
-[connection signal="pressed" from="Control/GridContainer/cloaker1" to="." method="_on_warper_1_pressed"]
-[connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="CollisionShape2D/Area2D" to="." method="_on_area_2d_body_entered"]
