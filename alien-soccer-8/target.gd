@@ -25,7 +25,7 @@ func _ability():
 		if player == 1:
 			arrow.position = Vector2(randf_range(0, 576), 30)
 		else:
-			arrow.position = Vector2(randf_range(0, 1120), 30)
+			arrow.position = Vector2(randf_range(576, 1120), 30)
 		arrow.linear_velocity = arrow_vec
 		add_sibling(arrow)
 
