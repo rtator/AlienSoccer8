@@ -1,107 +1,87 @@
 [gd_scene format=3 uid="uid://c1gl0hvam08pm"]
 
-[ext_resource type="Script" uid="uid://1g7fs0so2igl" path="res://spectre.gd" id="1_gchj4"]
-[ext_resource type="Texture2D" uid="uid://id27cy7k7kax" path="res://as8_sprites_png/spectre.png" id="2_01kih"]
-[ext_resource type="Texture2D" uid="uid://bp68i3xpi0pkj" path="res://AS8 skins/spectre/spectre_1.png" id="3_1iob0"]
-[ext_resource type="Texture2D" uid="uid://o80brdoh1vum" path="res://AS8 skins/spectre/spectre_2.png" id="4_0jqm0"]
-[ext_resource type="Texture2D" uid="uid://ci1rjjc1c3deo" path="res://AS8 skins/spectre/spectre_3.png" id="5_nidkk"]
-[ext_resource type="Texture2D" uid="uid://dkgkr5ngo8mic" path="res://as8_sprites_png/scythe.png" id="6_vb544"]
+[ext_resource type="Texture2D" uid="uid://p6padjusrhcu" path="res://Imported piskel/sprite_0.png" id="1_41u45"]
+[ext_resource type="Script" uid="uid://16fxsmq003is" path="res://ball.gd" id="1_ktgx5"]
+[ext_resource type="Texture2D" uid="uid://cngw3wi7qr7rf" path="res://Imported piskel/sprite_1.png" id="2_ktgx5"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pgdjt"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hgol0"]
 friction = 0.0
+bounce = 1.0
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_d5tak"]
+[sub_resource type="Gradient" id="Gradient_ktgx5"]
+colors = PackedColorArray(1, 1, 1, 0.478431, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hgol0"]
+gradient = SubResource("Gradient_ktgx5")
+
+[sub_resource type="Curve" id="Curve_ktgx5"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hgol0"]
+curve = SubResource("Curve_ktgx5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ktgx5"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_min = 0.11
+scale_max = 0.11
+scale_curve = SubResource("CurveTexture_hgol0")
+color_ramp = SubResource("GradientTexture1D_hgol0")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n5601"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_01kih")
+"texture": ExtResource("1_41u45")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ktgx5")
 }],
 "loop": 1,
 "name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_1iob0")
-}],
-"loop": 1,
-"name": &"default_1",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_0jqm0")
-}],
-"loop": 1,
-"name": &"default_2",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_nidkk")
-}],
-"loop": 1,
-"name": &"default_3",
-"speed": 5.0
+"speed": 2.5
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6rgvc"]
-radius = 7.5
-height = 47.5
+[sub_resource type="CircleShape2D" id="CircleShape2D_gchj4"]
+radius = 20.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0qn74"]
-radius = 5.0
-height = 25.0
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ktgx5"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:linear_velocity")
+properties/1/spawn = true
+properties/1/replication_mode = 1
 
-[node name="spectre" type="RigidBody2D" unique_id=1355204954]
-physics_material_override = SubResource("PhysicsMaterial_pgdjt")
+[node name="ball" type="RigidBody2D" unique_id=676700023]
+collision_layer = 3
+collision_mask = 3
+mass = 0.1
+physics_material_override = SubResource("PhysicsMaterial_hgol0")
 gravity_scale = 0.0
-center_of_mass_mode = 1
+lock_rotation = true
 contact_monitor = true
-max_contacts_reported = 2
-script = ExtResource("1_gchj4")
-metadata/_custom_type_script = "uid://e41xdpe4oqa2"
+max_contacts_reported = 10
+script = ExtResource("1_ktgx5")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=775595074]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=892012042]
+amount = 4
+texture = ExtResource("1_41u45")
+process_material = SubResource("ParticleProcessMaterial_ktgx5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1083298279]
 unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0.278431)
-scale = Vector2(0.16, 0.16)
-sprite_frames = SubResource("SpriteFrames_d5tak")
-autoplay = "default"
+scale = Vector2(0.11, 0.11)
+sprite_frames = SubResource("SpriteFrames_n5601")
+frame_progress = 0.738969
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1811984109]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=859181924]
 unique_name_in_owner = true
-position = Vector2(0, -58)
-shape = SubResource("CapsuleShape2D_6rgvc")
+shape = SubResource("CircleShape2D_gchj4")
 
-[node name="Scythe" type="Sprite2D" parent="CollisionShape2D" unique_id=387589101]
-position = Vector2(0, -2)
-rotation = -0.785398
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("6_vb544")
-
-[node name="Area2D" type="Area2D" parent="CollisionShape2D" unique_id=154110630]
-position = Vector2(-16, -7)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/Area2D" unique_id=1890626589]
-position = Vector2(2, -2)
-rotation = 0.785398
-shape = SubResource("CapsuleShape2D_0qn74")
-debug_color = Color(1, 0.6, 0.701961, 0.419608)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1395584575]
-unique_name_in_owner = true
-visible = false
-position = Vector2(0, 58)
-rotation = 3.1415927
-shape = SubResource("CapsuleShape2D_6rgvc")
-disabled = true
-
-[node name="Scythe" type="Sprite2D" parent="CollisionShape2D2" unique_id=1195678906]
-position = Vector2(0, -2)
-rotation = -0.785398
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("6_vb544")
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=48153069]
+replication_config = SubResource("SceneReplicationConfig_ktgx5")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_entered" from="CollisionShape2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
