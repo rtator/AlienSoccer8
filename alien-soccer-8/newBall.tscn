@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://bk8laskp5mar0"]
+
+[ext_resource type="Script" uid="uid://16fxsmq003is" path="res://ball.gd" id="1_h858q"]
+[ext_resource type="Texture2D" uid="uid://p6padjusrhcu" path="res://Imported piskel/sprite_0.png" id="2_bxcx0"]
+[ext_resource type="Texture2D" uid="uid://cngw3wi7qr7rf" path="res://Imported piskel/sprite_1.png" id="3_ba666"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hgol0"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="Gradient" id="Gradient_ktgx5"]
+colors = PackedColorArray(1, 1, 1, 0.478431, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hgol0"]
+gradient = SubResource("Gradient_ktgx5")
+
+[sub_resource type="Curve" id="Curve_ktgx5"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hgol0"]
+curve = SubResource("Curve_ktgx5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ktgx5"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_min = 0.11
+scale_max = 0.11
+scale_curve = SubResource("CurveTexture_hgol0")
+color_ramp = SubResource("GradientTexture1D_hgol0")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n5601"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bxcx0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ba666")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 2.5
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gchj4"]
+radius = 20.0
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ktgx5"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:linear_velocity")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="ball" type="RigidBody2D" unique_id=676700023]
+collision_layer = 3
+collision_mask = 3
+mass = 0.1
+physics_material_override = SubResource("PhysicsMaterial_hgol0")
+gravity_scale = 0.0
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 10
+script = ExtResource("1_h858q")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=892012042]
+amount = 4
+texture = ExtResource("2_bxcx0")
+process_material = SubResource("ParticleProcessMaterial_ktgx5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1083298279]
+unique_name_in_owner = true
+scale = Vector2(0.11, 0.11)
+sprite_frames = SubResource("SpriteFrames_n5601")
+frame_progress = 0.738969
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=859181924]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_gchj4")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=48153069]
+replication_config = SubResource("SceneReplicationConfig_ktgx5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
