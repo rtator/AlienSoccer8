@@ -56,7 +56,7 @@ func _ability_cooldown(delta):
 	elif opp_slowed_big:
 		opp_slowed_big = false
 		opponent.update_move_speed(opponent.move_speed * 4)
-		cooldown = 100
+		charge = 0
 	
 	
 	if shooting:
@@ -65,14 +65,14 @@ func _ability_cooldown(delta):
 			if opp_slowed:
 				duration = 75
 			else:
-				cooldown = 100 
+				cooldown = 200 
 			shooting = false
 	elif duration > 0:
 		duration -= 1
 	elif opp_slowed:
 		opp_slowed = false
 		opponent.update_move_speed(opponent.move_speed * 3)
-		cooldown = 100
+		cooldown = 200
 	
 	if cooldown > 0:
 		cooldown -= 1 * delta
@@ -87,6 +87,6 @@ func on_ready():
 		%AnimatedSprite2D.scale = Vector2(0.17, 0.17)
 		%AnimatedSprite2D.animation = "default_" + str(skin)
 	
-	charge_max = 300
+	charge_max = 500
 	
-	update_move_speed(move_speed * 0.9, speed_damp)
+	update_move_speed(move_speed * 0.85, speed_damp)

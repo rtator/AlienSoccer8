@@ -12,6 +12,8 @@ var shooting = false
 
 var ulting = false
 
+var sped_up = false
+var speed_timer = 0
 func _ability():
 	if not shooting and cooldown <= 0:
 		shooting = true
@@ -19,8 +21,11 @@ func _ability():
 		arrow.player = player
 		arrow.shooter = self
 		arrow.skin = skin
-		arrow.position = Vector2(576, position.y)
-		var arrow_vec = Vector2(position.x - 576, 0).normalized() * arrow_speed
+		var arrow_vec = Vector2(0, 1)
+		if player == 1:
+			arrow.position = Vector2(randf_range(0, 576), 30)
+		else:
+			arrow.position = Vector2(randf_range(0, 1120), 30)
 		arrow.linear_velocity = arrow_vec
 		add_sibling(arrow)
 
@@ -41,11 +46,20 @@ func _ability_cooldown(delta):
 	
 	if cooldown > 0:
 		shooting = false
-		cooldown -= 1
+		cooldown -= delta
+	
+	if sped_up and speed_timer > 0:
+		speed_timer -= delta
+	elif sped_up:
+		update_move_speed(move_speed / 1.5, speed_damp)
+		sped_up = false
+		print("slowed")
 
 func on_ready():
 	goal = goal_loaded.instantiate()
 	goal.score_board = score_board
+	goal.camera = camera
+	goal.user = self
 	if player == 1:
 		goal.position.x = 1152
 	goal.player = player
@@ -54,9 +68,15 @@ func on_ready():
 	if skin != 0:
 		%AnimatedSprite2D.animation = "default_" + str(skin)
 	
-	base_scale = 0.85
+	base_scale = 0.8
 	
 	charge_max = 700
 	
-	update_move_speed(move_speed * 0.85, speed_damp)
+	update_move_speed(move_speed * 0.8, speed_damp)
 	
+
+func on_hit() :
+	if not sped_up:
+		sped_up = true
+		speed_timer = 200
+		update_move_speed(move_speed * 1.5, speed_damp)

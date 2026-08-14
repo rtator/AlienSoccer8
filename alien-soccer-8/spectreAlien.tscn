@@ -1,11 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bhn506r0oadyw"]
+[gd_scene format=3 uid="uid://bhn506r0oadyw"]
 
 [ext_resource type="Script" uid="uid://1g7fs0so2igl" path="res://spectre.gd" id="1_pgdjt"]
-[ext_resource type="Texture2D" uid="uid://bq2xerwnpotri" path="res://as8_sprites_png/scythe.png" id="2_mm2p3"]
-[ext_resource type="Texture2D" uid="uid://pqiospote2ly" path="res://as8_sprites_png/spectre.png" id="3_colhm"]
-[ext_resource type="Texture2D" uid="uid://ccnd2ggbikumv" path="res://AS8 skins/spectre/spectre_1.png" id="3_d5tak"]
-[ext_resource type="Texture2D" uid="uid://dvnk33eu0tifi" path="res://AS8 skins/spectre/spectre_2.png" id="4_0qn74"]
-[ext_resource type="Texture2D" uid="uid://cpf7gin5xy5uo" path="res://AS8 skins/spectre/spectre_3.png" id="5_6rgvc"]
+[ext_resource type="Texture2D" uid="uid://dkgkr5ngo8mic" path="res://as8_sprites_png/scythe.png" id="2_mm2p3"]
+[ext_resource type="Texture2D" uid="uid://id27cy7k7kax" path="res://as8_sprites_png/spectre.png" id="3_colhm"]
+[ext_resource type="Texture2D" uid="uid://bp68i3xpi0pkj" path="res://AS8 skins/spectre/spectre_1.png" id="3_d5tak"]
+[ext_resource type="Texture2D" uid="uid://o80brdoh1vum" path="res://AS8 skins/spectre/spectre_2.png" id="4_0qn74"]
+[ext_resource type="Texture2D" uid="uid://ci1rjjc1c3deo" path="res://AS8 skins/spectre/spectre_3.png" id="5_6rgvc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pgdjt"]
 friction = 0.0
@@ -16,7 +16,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_colhm")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -24,7 +24,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_d5tak")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default_1",
 "speed": 5.0
 }, {
@@ -32,7 +32,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_0qn74")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default_2",
 "speed": 5.0
 }, {
@@ -40,7 +40,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_6rgvc")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default_3",
 "speed": 5.0
 }]
@@ -53,7 +53,7 @@ height = 47.5
 radius = 5.0
 height = 25.0
 
-[node name="spectre" type="RigidBody2D"]
+[node name="spectre" type="RigidBody2D" unique_id=1355204954]
 physics_material_override = SubResource("PhysicsMaterial_pgdjt")
 gravity_scale = 0.0
 center_of_mass_mode = 1
@@ -62,32 +62,46 @@ max_contacts_reported = 2
 script = ExtResource("1_pgdjt")
 metadata/_custom_type_script = "uid://e41xdpe4oqa2"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=775595074]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.278431)
 scale = Vector2(0.16, 0.16)
 sprite_frames = SubResource("SpriteFrames_d5tak")
 autoplay = "default"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1811984109]
 unique_name_in_owner = true
 position = Vector2(0, -58)
 shape = SubResource("CapsuleShape2D_6rgvc")
 
-[node name="Scythe" type="Sprite2D" parent="CollisionShape2D"]
+[node name="Scythe" type="Sprite2D" parent="CollisionShape2D" unique_id=387589101]
 position = Vector2(0, -2)
 rotation = -0.785398
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_mm2p3")
 
-[node name="Area2D" type="Area2D" parent="CollisionShape2D"]
+[node name="Area2D" type="Area2D" parent="CollisionShape2D" unique_id=154110630]
 position = Vector2(-16, -7)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/Area2D" unique_id=1890626589]
 position = Vector2(2, -2)
 rotation = 0.785398
 shape = SubResource("CapsuleShape2D_0qn74")
 debug_color = Color(1, 0.6, 0.701961, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1395584575]
+unique_name_in_owner = true
+visible = false
+position = Vector2(0, 58)
+rotation = 3.1415927
+shape = SubResource("CapsuleShape2D_6rgvc")
+disabled = true
+
+[node name="Scythe" type="Sprite2D" parent="CollisionShape2D2" unique_id=1195678906]
+position = Vector2(0, -2)
+rotation = -0.785398
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_mm2p3")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="CollisionShape2D/Area2D" to="." method="_on_area_2d_body_entered"]

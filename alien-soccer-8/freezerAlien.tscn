@@ -1,19 +1,19 @@
-[gd_scene load_steps=18 format=3 uid="uid://bt2kcuv7vlgch"]
+[gd_scene format=3 uid="uid://bt2kcuv7vlgch"]
 
 [ext_resource type="Script" uid="uid://cbdks3b8bluro" path="res://freezer.gd" id="1_wcl5j"]
-[ext_resource type="Texture2D" uid="uid://cq6fbsfq4fw6k" path="res://as8_sprites_png/freezer.png" id="2_81d0e"]
-[ext_resource type="Texture2D" uid="uid://o6gn73armtet" path="res://AS8 skins/freezer/freezer_2/freezer_2_00.png" id="3_j6spw"]
-[ext_resource type="Texture2D" uid="uid://buh51ie86fapl" path="res://AS8 skins/freezer/freezer_2/freezer_2_01.png" id="4_hxtu5"]
-[ext_resource type="Texture2D" uid="uid://qtwopfdi1gbb" path="res://AS8 skins/freezer/freezer_2/freezer_2_02.png" id="5_56hfo"]
-[ext_resource type="Texture2D" uid="uid://bvam706lul4lq" path="res://AS8 skins/freezer/freezer_2/freezer_2_03.png" id="6_11405"]
-[ext_resource type="Texture2D" uid="uid://b2b8a5fexk17o" path="res://AS8 skins/freezer/freezer_2/freezer_2_04.png" id="7_b414m"]
-[ext_resource type="Texture2D" uid="uid://cbwhie3v4s4ao" path="res://AS8 skins/freezer/freezer_2/freezer_2_05.png" id="8_ar6u4"]
-[ext_resource type="Texture2D" uid="uid://cvpd7rpks0mp7" path="res://AS8 skins/freezer/freezer_2/freezer_2_06.png" id="9_wp4x7"]
-[ext_resource type="Texture2D" uid="uid://c107fq0qejjx3" path="res://AS8 skins/freezer/freezer_2/freezer_2_07.png" id="10_2kchd"]
-[ext_resource type="Texture2D" uid="uid://d16vqhfn260pa" path="res://AS8 skins/freezer/freezer_2/freezer_2_08.png" id="11_v7lcv"]
-[ext_resource type="Texture2D" uid="uid://bksnju47wtxyg" path="res://AS8 skins/freezer/freezer_2/freezer_2_09.png" id="12_yhsfv"]
-[ext_resource type="Texture2D" uid="uid://8lqnwcm05w7x" path="res://AS8 skins/freezer/freezer_2/freezer_2_10.png" id="13_5t252"]
-[ext_resource type="Texture2D" uid="uid://c3mhb62mh7pri" path="res://AS8 skins/freezer/freezer_2/freezer_2_11.png" id="14_exl7o"]
+[ext_resource type="Texture2D" uid="uid://r37u7ssrge1m" path="res://as8_sprites_png/freezer.png" id="2_81d0e"]
+[ext_resource type="Texture2D" uid="uid://cyeymwbwq7qe1" path="res://AS8 skins/freezer/freezer_2/freezer_2_00.png" id="3_j6spw"]
+[ext_resource type="Texture2D" uid="uid://fvd3k2mpn6oq" path="res://AS8 skins/freezer/freezer_2/freezer_2_01.png" id="4_hxtu5"]
+[ext_resource type="Texture2D" uid="uid://8pquomgitem1" path="res://AS8 skins/freezer/freezer_2/freezer_2_02.png" id="5_56hfo"]
+[ext_resource type="Texture2D" uid="uid://bffp53p0d0dua" path="res://AS8 skins/freezer/freezer_2/freezer_2_03.png" id="6_11405"]
+[ext_resource type="Texture2D" uid="uid://bjl3a6vh332q3" path="res://AS8 skins/freezer/freezer_2/freezer_2_04.png" id="7_b414m"]
+[ext_resource type="Texture2D" uid="uid://oa1hvmm3yiux" path="res://AS8 skins/freezer/freezer_2/freezer_2_05.png" id="8_ar6u4"]
+[ext_resource type="Texture2D" uid="uid://jsf172scrtxv" path="res://AS8 skins/freezer/freezer_2/freezer_2_06.png" id="9_wp4x7"]
+[ext_resource type="Texture2D" uid="uid://be8xllpsg07dc" path="res://AS8 skins/freezer/freezer_2/freezer_2_07.png" id="10_2kchd"]
+[ext_resource type="Texture2D" uid="uid://pwd8o7k3rw06" path="res://AS8 skins/freezer/freezer_2/freezer_2_08.png" id="11_v7lcv"]
+[ext_resource type="Texture2D" uid="uid://brum75fufth4" path="res://AS8 skins/freezer/freezer_2/freezer_2_09.png" id="12_yhsfv"]
+[ext_resource type="Texture2D" uid="uid://b6g333mp82b8b" path="res://AS8 skins/freezer/freezer_2/freezer_2_10.png" id="13_5t252"]
+[ext_resource type="Texture2D" uid="uid://blj61ahwuo2eq" path="res://AS8 skins/freezer/freezer_2/freezer_2_11.png" id="14_exl7o"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wcl5j"]
 friction = 0.5
@@ -24,7 +24,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_81d0e")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -65,7 +65,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("14_exl7o")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default_2",
 "speed": 5.0
 }]
@@ -73,19 +73,19 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_j5c24"]
 radius = 32.0
 
-[node name="freezer" type="RigidBody2D"]
+[node name="freezer" type="RigidBody2D" unique_id=1965476771]
 physics_material_override = SubResource("PhysicsMaterial_wcl5j")
 gravity_scale = 0.0
 lock_rotation = true
 script = ExtResource("1_wcl5j")
 metadata/_custom_type_script = "uid://e41xdpe4oqa2"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=598054993]
 unique_name_in_owner = true
 scale = Vector2(0.14, 0.14)
 sprite_frames = SubResource("SpriteFrames_71nmx")
 autoplay = "default"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=915611765]
 unique_name_in_owner = true
 shape = SubResource("CircleShape2D_j5c24")

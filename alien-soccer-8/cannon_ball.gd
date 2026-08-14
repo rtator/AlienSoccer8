@@ -7,11 +7,11 @@ var user
 
 var ult = false
 
-var duration = 300
+var duration = 400
 
 func _ready():
 	if ult:
-		duration = 400
+		duration = 500
 		%tint.visible = true
 
 func _physics_process(delta):

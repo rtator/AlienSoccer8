@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dac6rb47ynoli"]
+[gd_scene format=3 uid="uid://dac6rb47ynoli"]
 
 [ext_resource type="Script" uid="uid://kmnkg5nka3fa" path="res://target_wall.gd" id="1_fqdwp"]
-[ext_resource type="Texture2D" uid="uid://dvu1ven3xo3p0" path="res://as8_sprites_png/target.png" id="1_g0dls"]
+[ext_resource type="Texture2D" uid="uid://dk6tb7i860mpg" path="res://as8_sprites_png/target.png" id="1_g0dls"]
 [ext_resource type="Script" uid="uid://bvqnn37idjgo" path="res://static_body_2d.gd" id="3_vkik2"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fqdwp"]
@@ -13,31 +13,33 @@ normal = Vector2(-1, 0)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ph85e"]
 size = Vector2(20, 216)
 
-[node name="StaticBody2D" type="StaticBody2D"]
+[node name="StaticBody2D" type="StaticBody2D" unique_id=190387767]
 position = Vector2(0, 324)
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_fqdwp")
 
-[node name="p1" type="CollisionShape2D" parent="."]
+[node name="p1" type="CollisionShape2D" parent="." unique_id=60564101]
 unique_name_in_owner = true
 shape = SubResource("WorldBoundaryShape2D_fqdwp")
 
-[node name="p2" type="CollisionShape2D" parent="."]
+[node name="p2" type="CollisionShape2D" parent="." unique_id=1882574856]
 unique_name_in_owner = true
 shape = SubResource("WorldBoundaryShape2D_vkik2")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1952245644]
 unique_name_in_owner = true
 wait_time = 5.0
 
-[node name="goal" type="StaticBody2D" parent="."]
+[node name="goal" type="StaticBody2D" parent="." unique_id=221492670]
 unique_name_in_owner = true
 script = ExtResource("3_vkik2")
 
-[node name="Sprite2D" type="Sprite2D" parent="goal"]
+[node name="Sprite2D" type="Sprite2D" parent="goal" unique_id=55241815]
 scale = Vector2(0.1, 0.65)
 texture = ExtResource("1_g0dls")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="goal"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="goal" unique_id=2121087836]
 shape = SubResource("RectangleShape2D_ph85e")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -10,8 +10,8 @@ var dash_speed = 1500
 
 var ball_speed = 200
 
-var ball_slow = 5
-var all_slow = 6
+var ball_slow = 2.5
+var all_slow = 3
 
 func _ability():
 	if cooldown <= 0 and not ball_slowed and not all_slowed and duration <= 0:
@@ -49,8 +49,8 @@ func _ability_cooldown(delta):
 		ball_slowed = false
 		ball.ball_speed = ball_speed
 		ball.speed_add = 10
-		cooldown = 200
-	
+		cooldown = 300
+		
 	if ult_dur > 0:
 		ult_dur -= 1 * delta
 	elif all_slowed:
@@ -65,7 +65,7 @@ func _ability_cooldown(delta):
 		cooldown -= 1 * delta
 
 func on_ready():
-	base_scale = 1.0
+	base_scale = 0.8
 	
 	if skin != 0:
 		%AnimatedSprite2D.animation = "default_" + str(skin)

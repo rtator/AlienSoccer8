@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://dfr7s3fw0d4hn"]
+[gd_scene format=3 uid="uid://c78xbphirae78"]
 
-[ext_resource type="Script" uid="uid://bv5obb263q7qc" path="res://target.gd" id="1_dcgdt"]
-[ext_resource type="Texture2D" uid="uid://dk6tb7i860mpg" path="res://as8_sprites_png/target.png" id="2_r0aco"]
-[ext_resource type="Texture2D" uid="uid://ikbgxp71vjr2" path="res://AS8 skins/target/target_3.png" id="3_r0aco"]
+[ext_resource type="Script" uid="uid://bv5obb263q7qc" path="res://target.gd" id="1_3rpb2"]
+[ext_resource type="Texture2D" uid="uid://dk6tb7i860mpg" path="res://as8_sprites_png/target.png" id="2_unga6"]
+[ext_resource type="Texture2D" uid="uid://ikbgxp71vjr2" path="res://AS8 skins/target/target_3.png" id="3_l2e2a"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dcgdt"]
 friction = 0.5
@@ -11,7 +11,7 @@ friction = 0.5
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_r0aco")
+"texture": ExtResource("2_unga6")
 }],
 "loop": 1,
 "name": &"default",
@@ -19,7 +19,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_r0aco")
+"texture": ExtResource("3_l2e2a")
 }],
 "loop": 1,
 "name": &"default_3",
@@ -33,7 +33,7 @@ radius = 32.0
 physics_material_override = SubResource("PhysicsMaterial_dcgdt")
 gravity_scale = 0.0
 lock_rotation = true
-script = ExtResource("1_dcgdt")
+script = ExtResource("1_3rpb2")
 metadata/_custom_type_script = "uid://e41xdpe4oqa2"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2082620993]

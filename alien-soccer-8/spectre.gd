@@ -15,12 +15,16 @@ var ulting
 func _ability():
 	if cooldown <= 0:
 		hitbox.scale.x *= -1
+		%CollisionShape2D2.scale.x *= -1
 		spin_speed *= -1
 		spin_dir *= -1
 		cooldown = 100
 
 func _ultimate():
 	if charge >= charge_max and not ulting:
+		%CollisionShape2D2.disabled = false
+		%CollisionShape2D2.visible = true
+		
 		ulting = false 
 		ult_dur = 150
 		ulting = true
@@ -36,10 +40,12 @@ func _ability_cooldown(delta):
 	
 	angular_velocity = spin_speed
 	sprite.global_rotation = 0
-	if spin_speed <= 15:
+	if abs(spin_speed) <= 15:
 		spin_speed += (spin_mult * delta) * spin_dir
-		print(move_speed + (spin_mult * delta * 2))
+		print(move_speed + (spin_mult * delta * 2) - (spin_speed * 2))
 		update_move_speed(move_speed + (spin_mult * delta * 2))
+	else:
+		update_move_speed(48 + (spin_mult * delta * 2))
 	
 	if charge < charge_max and not ulting:
 		charge += delta
@@ -50,6 +56,8 @@ func _ability_cooldown(delta):
 	elif ulting:
 		ulting = false
 		modulate = Color(1,1,1)
+		%CollisionShape2D2.disabled = true
+		%CollisionShape2D2.visible = false
 	
 	if cooldown > 0:
 		cooldown -= 1 * delta
@@ -59,8 +67,8 @@ func _ability_cooldown(delta):
 		
 		spin_speed = 15 * spin_dir
 		
-		var h = 50
-		var a =  ((invis_timer - h) / h) - 0.1
+		var h = 60
+		var a =  ((invis_timer - h) / h) - 0.3
 		print(a)
 		ball.modulate = Color(1,1,1,a)
 	elif invis_timer > 0:
@@ -68,8 +76,8 @@ func _ability_cooldown(delta):
 		
 		spin_speed = 15 * spin_dir
 		
-		var h = 50
-		var a = (1 - (invis_timer / h)) - 0.1
+		var h = 60
+		var a = (1 - (invis_timer / h)) - 0.3
 		print(a)
 		ball.modulate = Color(1,1,1,a)
 	elif invising:
@@ -82,7 +90,7 @@ func _on_body_entered(body):
 			update_move_speed(base_move_speed)
 		else:
 			invising = true
-			invis_timer = 100
+			invis_timer = 120
 
 func _on_area_2d_body_entered(body):
 	if body == ball:
@@ -90,10 +98,10 @@ func _on_area_2d_body_entered(body):
 			spin_speed = base_spin_speed * spin_dir
 			update_move_speed(base_move_speed)
 			invising = true
-			invis_timer = 100
+			invis_timer = 120
 		else:
 			invising = true
-			invis_timer = 100
+			invis_timer = 120
 
 
 func on_ready():

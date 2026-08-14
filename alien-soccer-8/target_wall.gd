@@ -7,6 +7,10 @@ var player
 var score_board
 var goal
 
+var user
+
+var camera
+
 var ult_ended = false
 
 func _ready():
@@ -26,16 +30,20 @@ func _ready():
 
 func ult():
 	%Timer.start()
-	goal.scale.y = 3
+	goal.scale.y = 2
+	position.y = user.position.y
 
 func _on_timer_timeout():
 	goal.scale.y = 1
+	goal.position.y = 324
 	ult_ended = true
 
 func add_score():
 	goal.score += 1
 	score_board.text = str(goal.score)
 	if player == 2:
+		camera.zoom_left()
 		return Vector2(288, 324)
 	else:
+		camera.zoom_right()
 		return Vector2(864, 324)

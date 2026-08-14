@@ -18,7 +18,7 @@ func _ability():
 		block.skin = skin
 		block_amount += 1
 		get_parent().add_child(block)
-		cooldown = 200
+		cooldown = 400
 
 func _ultimate():
 	if charge >= charge_max and not opp_slipping and ult_dur <= 0:

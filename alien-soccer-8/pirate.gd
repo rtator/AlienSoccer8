@@ -66,8 +66,8 @@ func on_ready():
 	cannons.user = self
 	add_sibling(cannons)
 	
-	base_scale = 1
+	base_scale = 1.1
 	
 	charge_max = 900
 	
-	update_move_speed(move_speed * 0.8, speed_damp)
+	update_move_speed(move_speed * 0.9, speed_damp)
