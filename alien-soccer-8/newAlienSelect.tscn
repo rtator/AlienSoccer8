@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dwdl3b5rtfykt"]
 
 [ext_resource type="Script" uid="uid://bnx85imt8okrv" path="res://character_select.gd" id="1_fl420"]
+[ext_resource type="Theme" uid="uid://cerrqasbkbfyc" path="res://menu_screen_theme.tres" id="1_tj70t"]
 [ext_resource type="StyleBox" uid="uid://bhwb56kpdliu" path="res://buttonText.tres" id="2_tj70t"]
 [ext_resource type="Texture2D" uid="uid://br2hsa7xxgrei" path="res://as8_sprites_png/basic.png" id="3_78ltf"]
 [ext_resource type="Texture2D" uid="uid://6ageq0ptq4y4" path="res://as8_sprites_png/speedy.png" id="4_m0xsj"]
@@ -24,10 +25,6 @@
 font_size = 80
 font_color = Color(0.414146, 0.711646, 1, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_sky72"]
-font_size = 30
-font_color = Color(0.414146, 0.711646, 1, 1)
-
 [sub_resource type="LabelSettings" id="LabelSettings_kjjwk"]
 font_size = 50
 font_color = Color(1, 0, 0, 1)
@@ -39,6 +36,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_tj70t")
 script = ExtResource("1_fl420")
 
 [node name="Label" type="Label" parent="." unique_id=799633867]
@@ -53,37 +51,6 @@ grow_horizontal = 2
 text = "Alien Select"
 label_settings = SubResource("LabelSettings_semk5")
 horizontal_alignment = 3
-
-[node name="Label2" type="Label" parent="." unique_id=670366871]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -156.0
-offset_right = 157.0
-offset_bottom = 156.0
-grow_vertical = 2
-text = "Use WASD to move selecter and  E to select  an alien.
-use 1 and 2 to select your skin."
-label_settings = SubResource("LabelSettings_sky72")
-autowrap_mode = 3
-
-[node name="Label3" type="Label" parent="." unique_id=172123574]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -145.0
-offset_top = -133.0
-offset_bottom = 134.0
-grow_horizontal = 0
-grow_vertical = 2
-text = "Use IJKL to move selecter and O to select an alien.
-use 1 and 2 to select your skin."
-label_settings = SubResource("LabelSettings_sky72")
-autowrap_mode = 3
 
 [node name="Control2" type="Control" parent="." unique_id=989601601]
 layout_mode = 1
@@ -105,15 +72,12 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 80.0
-offset_top = -69.0
-offset_right = 234.0
+offset_left = 119.0
+offset_top = -68.0
+offset_right = 224.0
+offset_bottom = -1.0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = ExtResource("2_tj70t")
-theme_override_styles/pressed = ExtResource("2_tj70t")
-theme_override_styles/hover = ExtResource("2_tj70t")
-theme_override_styles/focus = ExtResource("2_tj70t")
+theme_override_font_sizes/font_size = 20
 text = "Player"
 
 [node name="p2Bot" type="Button" parent="Control2" unique_id=591733210]
@@ -124,16 +88,13 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -234.0
-offset_top = -69.0
-offset_right = -80.0
+offset_left = -223.0
+offset_top = -68.0
+offset_right = -118.0
+offset_bottom = -1.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = ExtResource("2_tj70t")
-theme_override_styles/pressed = ExtResource("2_tj70t")
-theme_override_styles/hover = ExtResource("2_tj70t")
-theme_override_styles/focus = ExtResource("2_tj70t")
+theme_override_font_sizes/font_size = 20
 text = "Player"
 
 [node name="Control" type="Control" parent="." unique_id=1490181190]
@@ -492,17 +453,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -48.0
-offset_top = -59.0
-offset_right = 48.0
+offset_left = -44.5
+offset_top = -67.0
+offset_right = 44.5
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = ExtResource("2_tj70t")
-theme_override_styles/pressed = ExtResource("2_tj70t")
-theme_override_styles/hover = ExtResource("2_tj70t")
+theme_override_font_sizes/font_size = 20
 theme_override_styles/hover_pressed = ExtResource("2_tj70t")
-theme_override_styles/focus = ExtResource("2_tj70t")
 text = "Back"
 
 [connection signal="pressed" from="Control2/p1Bot" to="." method="_on_p_1_bot_pressed"]

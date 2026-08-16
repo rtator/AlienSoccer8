@@ -1,22 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://kwvuhrv71rxx"]
+[gd_scene format=3 uid="uid://kwvuhrv71rxx"]
 
+[ext_resource type="Theme" uid="uid://cerrqasbkbfyc" path="res://menu_screen_theme.tres" id="1_3ykye"]
 [ext_resource type="Script" uid="uid://mapskloi4okd" path="res://settings.gd" id="1_nkug2"]
-[ext_resource type="StyleBox" uid="uid://bhwb56kpdliu" path="res://buttonText.tres" id="2_3ykye"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gc0em"]
 font_size = 100
 font_color = Color(1, 0.6, 0, 1)
 
-[node name="settings" type="Control"]
+[node name="settings" type="Control" unique_id=668814356]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_3ykye")
 script = ExtResource("1_nkug2")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=501680188]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -28,7 +29,7 @@ grow_horizontal = 2
 text = "Settings"
 label_settings = SubResource("LabelSettings_gc0em")
 
-[node name="GridContainer" type="GridContainer" parent="."]
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1297162057]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -42,37 +43,22 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="visualsButton" type="Button" parent="GridContainer"]
+[node name="visualsButton" type="Button" parent="GridContainer" unique_id=1001177436]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-theme_override_styles/focus = ExtResource("2_3ykye")
-theme_override_styles/hover_pressed = ExtResource("2_3ykye")
-theme_override_styles/hover = ExtResource("2_3ykye")
-theme_override_styles/pressed = ExtResource("2_3ykye")
-theme_override_styles/normal = ExtResource("2_3ykye")
 text = "Visuals"
 
-[node name="keybindsButton" type="Button" parent="GridContainer"]
+[node name="keybindsButton" type="Button" parent="GridContainer" unique_id=560916691]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-theme_override_styles/focus = ExtResource("2_3ykye")
-theme_override_styles/hover_pressed = ExtResource("2_3ykye")
-theme_override_styles/hover = ExtResource("2_3ykye")
-theme_override_styles/pressed = ExtResource("2_3ykye")
-theme_override_styles/normal = ExtResource("2_3ykye")
 text = "Keybinds"
 
-[node name="miscButton" type="Button" parent="GridContainer"]
+[node name="miscButton" type="Button" parent="GridContainer" unique_id=1888230635]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-theme_override_styles/focus = ExtResource("2_3ykye")
-theme_override_styles/hover_pressed = ExtResource("2_3ykye")
-theme_override_styles/hover = ExtResource("2_3ykye")
-theme_override_styles/pressed = ExtResource("2_3ykye")
-theme_override_styles/normal = ExtResource("2_3ykye")
 text = "Misc"
 
-[node name="backButton" type="Button" parent="."]
+[node name="backButton" type="Button" parent="." unique_id=1800218084]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -85,11 +71,6 @@ offset_right = 36.5
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 50
-theme_override_styles/focus = ExtResource("2_3ykye")
-theme_override_styles/hover_pressed = ExtResource("2_3ykye")
-theme_override_styles/hover = ExtResource("2_3ykye")
-theme_override_styles/pressed = ExtResource("2_3ykye")
-theme_override_styles/normal = ExtResource("2_3ykye")
 text = "Back"
 
 [connection signal="pressed" from="GridContainer/visualsButton" to="." method="_on_visuals_button_pressed"]

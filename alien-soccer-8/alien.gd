@@ -5,6 +5,12 @@ var speed_mult = 2
 var damp_mult = 1.5
 var size_mult = 1.3 
 
+@onready var shockwave = %basic_shockwave
+
+func _ability():
+	if not shockwave.on and cooldown <= 0:
+		shockwave.fire()
+
 func _ultimate():
 	if cooldown <= 0 and ult_dur <= 0 and charge >= charge_max:
 		if not ult_mode:
@@ -38,6 +44,8 @@ func _ability_cooldown(delta):
 		duration -= 1 * delta
 
 func on_ready():
+	shockwave.user = self
+	
 	if online:
 		set_multiplayer_authority(int(name))
 		#%MultiplayerSynchronizer.set_multiplayer_authority(int(name))

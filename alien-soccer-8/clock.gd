@@ -32,7 +32,8 @@ func _ultimate():
 		ball_speed = ball.ball_speed
 		ball.ball_speed /= all_slow
 		ball.speed_add /= all_slow
-		opponent.update_move_speed(opponent.move_speed / all_slow, opponent.speed_damp)
+		if opponent != null:
+			opponent.update_move_speed(opponent.move_speed / all_slow, opponent.speed_damp)
 		all_slowed = true
 		ult_dur = 100
 
@@ -58,7 +59,8 @@ func _ability_cooldown(delta):
 		if skin != 0:
 			%AnimatedSprite2D.animation = "default_" + str(skin)
 		ball.ball_speed = ball_speed
-		opponent.update_move_speed(opponent.move_speed * all_slow, opponent.speed_damp)
+		if opponent != null:
+			opponent.update_move_speed(opponent.move_speed * all_slow, opponent.speed_damp)
 		all_slowed = false
 	
 	if cooldown > 0:

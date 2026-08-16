@@ -11,6 +11,8 @@ var bomb_speed = 1000
 
 var half_dur = 25
 
+var slow_timer  = 0
+
 var lasso_out = false
 func _ability():
 	if cooldown <= 0 and duration <= 0 and not lasso_out:
@@ -61,11 +63,18 @@ func _ability_cooldown(delta):
 				lasso.scale.x = -(duration / half_dur) - 0.2
 			lasso.scale.y = duration / half_dur + 0.2
 	elif lasso_out:
-		cooldown = 150
+		cooldown = 200
 		lasso_out = false
 		if lasso.ball_grabbed:
 			camera.shake(10)
 		lasso.queue_free()
+	
+	if slow_timer > 1:
+		slow_timer -= 1
+	elif slow_timer > 0:
+		slow_timer -= 1
+		opponent.update_move_speed(opponent.move_speed / 0.7)
+		print("unslow")
 
 func on_ready():
 	base_scale = 0.8

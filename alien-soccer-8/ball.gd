@@ -2,6 +2,7 @@ extends RigidBody2D
 
 var ball_base_speed = 200
 var ball_speed = ball_base_speed
+var temp_speed = 0
 
 var new_pos = Vector2(200,200)
 var reseting = false
@@ -14,7 +15,7 @@ var score_fx_load = preload("res://scorefx.tscn")
 var speed_add = 10
 
 func _physics_process(delta):
-	linear_velocity = linear_velocity.normalized() * ball_speed
+	linear_velocity = linear_velocity.normalized() * (ball_speed + temp_speed)
 	ball_speed += delta
 	if reseting:
 		print(%AnimatedSprite2D.global_position)
@@ -45,6 +46,7 @@ func effect_spawn(score = false):
 
 func _on_body_entered(body):
 	ball_speed += speed_add
+	temp_speed = 0
 	#print(ball_speed)
 	if body.has_method("add_score"):
 		effect_spawn(true)

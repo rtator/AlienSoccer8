@@ -9,6 +9,10 @@ var p2Skin = 0
 var p1IsBot = false
 var p2IsBot = false
 
+var winner = 1
+
 var screenShake = 3
 
 var vfxEnabled = true
+
+var winMax = 30

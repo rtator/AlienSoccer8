@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdfee1d6yf8mm"]
+[gd_scene format=3 uid="uid://cdfee1d6yf8mm"]
 
 [ext_resource type="Script" uid="uid://crgqwci1o5wuw" path="res://alien.gd" id="1_oy142"]
-[ext_resource type="Texture2D" uid="uid://327vha6fycg0" path="res://as8_sprites_png/basic.png" id="2_ulj6p"]
-[ext_resource type="Texture2D" uid="uid://bx4q1t6asvxya" path="res://AS8 skins/basic/basic_1.png" id="3_hbrgl"]
-[ext_resource type="Texture2D" uid="uid://b35gukaufhcvd" path="res://AS8 skins/basic/basic_2.png" id="4_i2sul"]
+[ext_resource type="Texture2D" uid="uid://br2hsa7xxgrei" path="res://as8_sprites_png/basic.png" id="2_ulj6p"]
+[ext_resource type="Texture2D" uid="uid://by5878itkx1op" path="res://AS8 skins/basic/basic_1.png" id="3_hbrgl"]
+[ext_resource type="Texture2D" uid="uid://wgorn6u2ulhx" path="res://AS8 skins/basic/basic_2.png" id="4_i2sul"]
+[ext_resource type="PackedScene" uid="uid://csd6wy3qfun7s" path="res://basic_shockwave.tscn" id="5_i2sul"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_oy142"]
 friction = 0.5
@@ -17,7 +18,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_ulj6p")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -25,7 +26,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_hbrgl")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default_1",
 "speed": 5.0
 }, {
@@ -33,7 +34,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_i2sul")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default_2",
 "speed": 5.0
 }]
@@ -61,23 +62,26 @@ properties/6/path = NodePath(".:base_scale")
 properties/6/spawn = true
 properties/6/replication_mode = 1
 
-[node name="basic" type="RigidBody2D"]
+[node name="basic" type="RigidBody2D" unique_id=1394581937]
 physics_material_override = SubResource("PhysicsMaterial_oy142")
 gravity_scale = 0.0
 lock_rotation = true
 script = ExtResource("1_oy142")
 metadata/_custom_type_script = "uid://e41xdpe4oqa2"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=846217219]
 unique_name_in_owner = true
 shape = SubResource("CircleShape2D_hbrgl")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=271426641]
 unique_name_in_owner = true
 scale = Vector2(0.169579, 0.17)
 sprite_frames = SubResource("SpriteFrames_i2sul")
 autoplay = "default"
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=940911850]
 unique_name_in_owner = true
 replication_config = SubResource("SceneReplicationConfig_oy142")
+
+[node name="basic_shockwave" parent="." unique_id=741530269 instance=ExtResource("5_i2sul")]
+unique_name_in_owner = true

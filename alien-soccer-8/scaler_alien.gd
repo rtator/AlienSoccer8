@@ -8,12 +8,15 @@ var ball_growth_mult = 2
 
 var original_size = 1.3
 
+var ball_grow_timer = 0
+
 func _ability():
 	if cooldown <= 0 and duration <= 0:
 		#update_move_speed(move_speed * speed_mult, speed_damp * damp_mult)
-		ball.set_ball_scale(ball_growth_mult)
-		ball_grown = true
-		duration = 200
+		ball_grow_timer = 5
+		#ball.set_ball_scale(ball_growth_mult)
+		#ball_grown = true
+		#duration = 200
 
 func _ultimate():
 	if ult_dur <= 0 and charge >= charge_max and not grown:
@@ -27,12 +30,34 @@ func _ability_cooldown(delta):
 	if charge < charge_max and not grown:
 		charge += delta
 	
-	if duration > 0:
-		duration -= 1
-	elif ball_grown:
+	if ball_grow_timer > 1 and not ball_grown:
+		ball_grow_timer -= 0.5
+		ball.set_ball_scale(ball_growth_mult / max(0.73 , ((ball_grow_timer / 5) + 0.73)))
+		camera.shake(2)
+		
+	elif ball_grow_timer > 1 and ball_grown:
+		ball_grow_timer -= 0.5
+		ball.set_ball_scale(ball_growth_mult * (ball_grow_timer / 5))
+		camera.shake(2)
+		print(ball_grow_timer)
+		
+	elif ball_grow_timer > 0 and not ball_grown:
+		ball_grow_timer -= 1
+		ball.set_ball_scale(ball_growth_mult)
+		ball_grown = true
+		duration = 200
+		camera.shake(9)
+	elif ball_grow_timer > 0 and ball_grown:
+		ball_grow_timer -= 1
 		ball_grown = false
 		ball.set_ball_scale(1)
 		cooldown = 200
+		
+	
+	if duration > 0:
+		duration -= 1
+	elif ball_grown and ball_grow_timer <= 0:
+		ball_grow_timer = 5
 	
 	if ult_dur > 0:
 		ult_dur -= 1 * delta

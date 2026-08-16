@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ix4foice14kp"]
+[gd_scene format=3 uid="uid://ix4foice14kp"]
 
 [ext_resource type="Script" uid="uid://c86l0e61v05fn" path="res://keybinds.gd" id="1_ja6h7"]
+[ext_resource type="Theme" uid="uid://cerrqasbkbfyc" path="res://menu_screen_theme.tres" id="1_qpxl4"]
 [ext_resource type="Script" uid="uid://cotp26xbj2r3b" path="res://remap_button.gd" id="2_qpxl4"]
-[ext_resource type="StyleBox" uid="uid://bhwb56kpdliu" path="res://buttonText.tres" id="3_78j6d"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ja6h7"]
 font_size = 100
@@ -11,16 +11,17 @@ font_color = Color(1, 0.486275, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_06v6r"]
 font_size = 30
 
-[node name="keybinds" type="Control"]
+[node name="keybinds" type="Control" unique_id=690125077]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_qpxl4")
 script = ExtResource("1_ja6h7")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=2029419537]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -32,7 +33,7 @@ grow_horizontal = 2
 text = "Keybinds"
 label_settings = SubResource("LabelSettings_ja6h7")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=1098897274]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -45,14 +46,9 @@ offset_right = 36.5
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 50
-theme_override_styles/focus = ExtResource("3_78j6d")
-theme_override_styles/hover_pressed = ExtResource("3_78j6d")
-theme_override_styles/hover = ExtResource("3_78j6d")
-theme_override_styles/pressed = ExtResource("3_78j6d")
-theme_override_styles/normal = ExtResource("3_78j6d")
 text = "Back"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1682536701]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -66,186 +62,210 @@ offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=997492501]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1539679232]
+custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 
-[node name="p1UpLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="p1UpLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=472912502]
 layout_mode = 2
 text = "P1 Up"
 label_settings = SubResource("LabelSettings_06v6r")
+horizontal_alignment = 1
 
-[node name="p1UpButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="p1UpButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=915833426]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "W"
 script = ExtResource("2_qpxl4")
 input = "p1_up"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1731805729]
+custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 
-[node name="p1DownLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="p1DownLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1558086476]
 layout_mode = 2
 text = "P1 Down"
 label_settings = SubResource("LabelSettings_06v6r")
+horizontal_alignment = 1
 
-[node name="p1DownButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="p1DownButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=305945432]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "W"
 script = ExtResource("2_qpxl4")
 input = "p1_down"
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=132883212]
+custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 
-[node name="p1LeftLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer3"]
+[node name="p1LeftLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=757132106]
 layout_mode = 2
 text = "P1 Left"
 label_settings = SubResource("LabelSettings_06v6r")
+horizontal_alignment = 1
 
-[node name="p1LeftButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer3"]
+[node name="p1LeftButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=803060391]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "W"
 script = ExtResource("2_qpxl4")
 input = "p1_left"
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer4" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1047427081]
+custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 
-[node name="p1RightLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer4"]
+[node name="p1RightLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer4" unique_id=518038201]
 layout_mode = 2
 text = "P1 Right"
 label_settings = SubResource("LabelSettings_06v6r")
+horizontal_alignment = 1
 
-[node name="p1RightButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer4"]
+[node name="p1RightButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer4" unique_id=1258157105]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "W"
 script = ExtResource("2_qpxl4")
 input = "p1_right"
 
-[node name="VBoxContainer5" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer5" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=207434932]
+custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 
-[node name="p1AbilityLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer5"]
+[node name="p1AbilityLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer5" unique_id=394571457]
 layout_mode = 2
 text = "P1 Ability"
 label_settings = SubResource("LabelSettings_06v6r")
+horizontal_alignment = 1
 
-[node name="p1AbilityButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer5"]
+[node name="p1AbilityButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer5" unique_id=2071889594]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "W"
 script = ExtResource("2_qpxl4")
 input = "p1_ability"
 
-[node name="VBoxContainer6" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer6" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1307233911]
+custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 
-[node name="p1UltLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer6"]
+[node name="p1UltLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer6" unique_id=88490585]
 layout_mode = 2
 text = "P1 Ultimate"
 label_settings = SubResource("LabelSettings_06v6r")
+horizontal_alignment = 1
 
-[node name="p1UltButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer6"]
+[node name="p1UltButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer6" unique_id=1016667311]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "W"
 script = ExtResource("2_qpxl4")
 input = "p1_ult"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=1839097637]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2" unique_id=1724189175]
+custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 
-[node name="p2UpLabel" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
+[node name="p2UpLabel" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=1414377500]
 layout_mode = 2
 text = "P2 Up"
 label_settings = SubResource("LabelSettings_06v6r")
+horizontal_alignment = 1
 
-[node name="p2UpButton" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
+[node name="p2UpButton" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=118958042]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "W"
 script = ExtResource("2_qpxl4")
 input = "p2_up"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2" unique_id=1243718515]
+custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 
-[node name="p2DownLabel" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer2"]
+[node name="p2DownLabel" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer2" unique_id=610565084]
 layout_mode = 2
 text = "P2 Down"
 label_settings = SubResource("LabelSettings_06v6r")
+horizontal_alignment = 1
 
-[node name="p2DownButton" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer2"]
+[node name="p2DownButton" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer2" unique_id=1124559629]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "W"
 script = ExtResource("2_qpxl4")
 input = "p2_down"
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2" unique_id=1610395313]
+custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 
-[node name="p2LeftLabel" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer3"]
+[node name="p2LeftLabel" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer3" unique_id=885104353]
 layout_mode = 2
 text = "p2 Left"
 label_settings = SubResource("LabelSettings_06v6r")
+horizontal_alignment = 1
 
-[node name="p2LeftButton" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer3"]
+[node name="p2LeftButton" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer3" unique_id=1524440078]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "W"
 script = ExtResource("2_qpxl4")
 input = "p2_left"
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+[node name="VBoxContainer4" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2" unique_id=905842227]
+custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 
-[node name="p2RightLabel" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer4"]
+[node name="p2RightLabel" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer4" unique_id=1309606548]
 layout_mode = 2
 text = "P2 Right"
 label_settings = SubResource("LabelSettings_06v6r")
+horizontal_alignment = 1
 
-[node name="p2RightButton" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer4"]
+[node name="p2RightButton" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer4" unique_id=1844536846]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "W"
 script = ExtResource("2_qpxl4")
 input = "p2_right"
 
-[node name="VBoxContainer5" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+[node name="VBoxContainer5" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2" unique_id=1779078582]
+custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 
-[node name="p2AbilityLabel" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer5"]
+[node name="p2AbilityLabel" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer5" unique_id=1461715245]
 layout_mode = 2
 text = "P2 Ability"
 label_settings = SubResource("LabelSettings_06v6r")
+horizontal_alignment = 1
 
-[node name="p2AbilityButton" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer5"]
+[node name="p2AbilityButton" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer5" unique_id=1505657587]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "W"
 script = ExtResource("2_qpxl4")
 input = "p2_ability"
 
-[node name="VBoxContainer6" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+[node name="VBoxContainer6" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2" unique_id=915481603]
+custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 
-[node name="p2AbilityLabel" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer6"]
+[node name="p2AbilityLabel" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer6" unique_id=458810495]
 layout_mode = 2
 text = "P2 Ultimate"
 label_settings = SubResource("LabelSettings_06v6r")
+horizontal_alignment = 1
 
-[node name="p2AbilityButton" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer6"]
+[node name="p2AbilityButton" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer6" unique_id=1074273694]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "W"

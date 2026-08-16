@@ -5,6 +5,8 @@ var shake_fade = 0.8
 
 var zoomed_left = false
 
+var won = false
+
 func shake(strength):
 	shake_amount = strength
 
@@ -18,15 +20,23 @@ func _process(delta):
 			zoom.x -= 0.001
 			zoom.y -= 0.001
 			position.x += 1152*0.0005
-			Engine.time_scale += 0.01
+			if not won:
+				Engine.time_scale += 0.01
 		else:
 			zoom.x -= 0.001
 			zoom.y -= 0.001
 			position.x -= 1152*0.0005
-			Engine.time_scale += 0.01
+			if not won:
+				Engine.time_scale += 0.01
 	elif Engine.time_scale > 1:
 		Engine.time_scale = 1
 		print(Engine.time_scale)
+	elif won:
+		if %ColorRect.color.a > 1:
+			print("win")
+			get_tree().change_scene_to_file("res://winscreen.tscn")
+		else:
+			%ColorRect.color.a += 0.01
 
 func zoom_left():
 	zoomed_left = true
@@ -41,6 +51,24 @@ func zoom_right():
 	zoom.x += 0.1
 	zoom.y += 0.1
 	position.x += 1152 * 0.05
+
+func zoom_left_won():
+	zoomed_left = true
+	Engine.time_scale = 0.1
+	zoom.x += 0.1
+	zoom.y += 0.1
+	position.x -= 1152 * 0.05
+	
+	won = true
+
+func zoom_right_won():
+	zoomed_left = false
+	Engine.time_scale = 0.1
+	zoom.x += 0.1
+	zoom.y += 0.1
+	position.x += 1152 * 0.05
+	
+	won = true
 
 func get_shake_vec(amount):
 	return Vector2(randf_range(-shake_amount, shake_amount), randf_range(-shake_amount, shake_amount))

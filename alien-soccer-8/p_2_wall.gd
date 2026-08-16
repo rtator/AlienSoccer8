@@ -13,6 +13,13 @@ func add_score():
 	score += 1 
 	score_board.text = str(score)
 	
-	camera.zoom_right()
-	
-	return Vector2(864, 324)
+	if score >= GlobalSave.winMax:
+		GlobalSave.winner = 1
+		
+		camera.zoom_right_won()
+		
+		return Vector2(864, 324)
+	else:
+		camera.zoom_right()
+		
+		return Vector2(864, 324)

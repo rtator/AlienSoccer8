@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://blpob5c7hjran"]
+
+[ext_resource type="Theme" uid="uid://cerrqasbkbfyc" path="res://menu_screen_theme.tres" id="1_q84uy"]
+[ext_resource type="Script" uid="uid://cd48wsuchkems" path="res://pause_screen.gd" id="2_wrv52"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qgyb7"]
+font_size = 100
+font_color = Color(1, 1, 1, 0.73333335)
+
+[node name="pauseScreen" type="Control" unique_id=211440756]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_q84uy")
+script = ExtResource("2_wrv52")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1484552]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.59607846)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=259819974]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=928332349]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Resume"
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=476760394]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Back to Menu"
+
+[node name="Label" type="Label" parent="." unique_id=707942875]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+text = "Paused"
+label_settings = SubResource("LabelSettings_qgyb7")
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

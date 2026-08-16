@@ -21,7 +21,7 @@ func _ability():
 		arrow.player = player
 		arrow.shooter = self
 		arrow.skin = skin
-		var arrow_vec = Vector2(0, 1)
+		var arrow_vec = Vector2(0, 0)
 		if player == 1:
 			arrow.position = Vector2(randf_range(0, 576), 30)
 		else:
@@ -73,7 +73,7 @@ func on_ready():
 	charge_max = 700
 	
 	update_move_speed(move_speed * 0.8, speed_damp)
-	
+
 
 func on_hit() :
 	if not sped_up:

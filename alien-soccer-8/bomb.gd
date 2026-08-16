@@ -47,4 +47,10 @@ func _on_body_entered(body):
 		%GPUParticles2D.emitting = true
 		%GPUParticles2D.scale *= 3
 		%CollisionShape2D.scale *= 3
+		
+		if body.has_method("update_move_speed"):
+			body.update_move_speed(body.move_speed * 0.7)
+			user.slow_timer = 100
+			print("slowed")
+		
 		linear_velocity *= 0

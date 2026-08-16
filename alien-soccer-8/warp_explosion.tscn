@@ -1,9 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://ccpcboxywt1ju"]
+[gd_scene format=3 uid="uid://ccpcboxywt1ju"]
 
 [ext_resource type="Script" uid="uid://c2ei0hyxbkob8" path="res://warp_explosion.gd" id="1_8ptsm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i2trq"]
-radius = 50.0
+radius = 75.0
 
 [sub_resource type="Gradient" id="Gradient_bja24"]
 offsets = PackedFloat32Array(0, 0.716312, 1)
@@ -40,20 +40,21 @@ gravity = Vector3(0, 0, 0)
 damping_min = 50.0
 damping_max = 60.0
 damping_curve = SubResource("CurveTexture_i2trq")
-scale_min = 10.0
-scale_max = 10.0
+scale_min = 13.0
+scale_max = 13.0
 scale_curve = SubResource("CurveTexture_bja24")
 color_initial_ramp = SubResource("GradientTexture1D_8ptsm")
 
-[node name="warpExplosion" type="StaticBody2D"]
+[node name="warpExplosion" type="StaticBody2D" unique_id=1534435572]
+scale = Vector2(1.34, 1.34)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_8ptsm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=6224460]
 shape = SubResource("CircleShape2D_i2trq")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1926624453]
 unique_name_in_owner = true
 emitting = false
 amount = 100

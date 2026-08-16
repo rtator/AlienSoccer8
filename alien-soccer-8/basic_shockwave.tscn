@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://csd6wy3qfun7s"]
+
+[ext_resource type="Script" uid="uid://bovmdp3rwtygf" path="res://basic_shockwave.gd" id="1_macv8"]
+[ext_resource type="Texture2D" uid="uid://2h44nrq1o76f" path="res://circle_03_a.png" id="2_qh0d3"]
+
+[sub_resource type="Curve" id="Curve_18lq8"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_fwe7r"]
+curve = SubResource("Curve_18lq8")
+
+[sub_resource type="Gradient" id="Gradient_pglal"]
+colors = PackedColorArray(0, 0.5647468, 0.86384493, 1, 0.31859374, 0.912072, 0.9999998, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qgyb7"]
+gradient = SubResource("Gradient_pglal")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qgyb7"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+inherit_velocity_ratio = -0.185
+spread = 180.0
+initial_velocity_min = 50.0
+initial_velocity_max = 175.0
+gravity = Vector3(0, 0, 0)
+damping_min = 5.0
+damping_max = 50.000004
+use_scale_3d = true
+scale_3d_min = Vector3(1, 10, 1)
+scale_3d_max = Vector3(1, 10, 1)
+color_initial_ramp = SubResource("GradientTexture1D_qgyb7")
+alpha_curve = SubResource("CurveTexture_fwe7r")
+
+[sub_resource type="Curve" id="Curve_ymcya"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 2), 0.0, -3.2928994, 0, 0, Vector2(1, 0), 0.069889836, 1.4, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_nq3bg"]
+curve = SubResource("Curve_ymcya")
+
+[sub_resource type="Curve" id="Curve_rxur1"]
+_limits = [1.0, 4.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 4.2, 0, 0, Vector2(1, 4), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_vt7g2"]
+curve = SubResource("Curve_rxur1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p5iua"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_min = 0.099999994
+scale_max = 0.099999994
+scale_curve = SubResource("CurveTexture_vt7g2")
+color = Color(0.3891903, 0.5827249, 1, 1)
+alpha_curve = SubResource("CurveTexture_nq3bg")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4jrri"]
+radius = 60.0
+
+[node name="basic_shockwave" type="Area2D" unique_id=741530269]
+script = ExtResource("1_macv8")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=547345526]
+unique_name_in_owner = true
+emitting = false
+amount = 100
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.9
+process_material = SubResource("ParticleProcessMaterial_qgyb7")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="." unique_id=2021265819]
+unique_name_in_owner = true
+emitting = false
+amount = 1
+texture = ExtResource("2_qh0d3")
+lifetime = 0.5
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_p5iua")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=333518771]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_4jrri")
+disabled = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="finished" from="GPUParticles2D2" to="." method="_on_gpu_particles_2d_2_finished"]

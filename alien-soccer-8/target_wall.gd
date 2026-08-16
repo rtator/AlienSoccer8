@@ -31,11 +31,12 @@ func _ready():
 func ult():
 	%Timer.start()
 	goal.scale.y = 2
-	position.y = user.position.y
+	print(user.position.y)
+	goal.position.y = user.position.y - 324
 
 func _on_timer_timeout():
 	goal.scale.y = 1
-	goal.position.y = 324
+	goal.position.y = 0
 	ult_ended = true
 
 func add_score():

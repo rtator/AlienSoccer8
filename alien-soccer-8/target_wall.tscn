@@ -28,6 +28,7 @@ shape = SubResource("WorldBoundaryShape2D_vkik2")
 [node name="Timer" type="Timer" parent="." unique_id=1952245644]
 unique_name_in_owner = true
 wait_time = 5.0
+one_shot = true
 
 [node name="goal" type="StaticBody2D" parent="." unique_id=221492670]
 unique_name_in_owner = true

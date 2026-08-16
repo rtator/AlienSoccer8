@@ -1,7 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://d02xlfh0d8pnw"]
+[gd_scene format=3 uid="uid://d02xlfh0d8pnw"]
 
 [ext_resource type="PackedScene" uid="uid://bmr8vq1g5v5p3" path="res://alien_info_buttons.tscn" id="1_4m3kp"]
-[ext_resource type="Texture2D" uid="uid://dvu1ven3xo3p0" path="res://as8_sprites_png/target.png" id="2_2fsuw"]
+[ext_resource type="Texture2D" uid="uid://dk6tb7i860mpg" path="res://as8_sprites_png/target.png" id="2_2fsuw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mwc7y"]
+font_size = 18
+font_color = Color(1, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_s68ix"]
 line_spacing = 0.0
@@ -16,11 +20,7 @@ font_color = Color(0.694118, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_c1vrf"]
 font_color = Color(1, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_mwc7y"]
-font_size = 18
-font_color = Color(1, 0, 0, 1)
-
-[node name="targetAlienInfo" type="Control"]
+[node name="targetAlienInfo" type="Control" unique_id=591189438]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,10 +28,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="baseAlienInfo" parent="." instance=ExtResource("1_4m3kp")]
+[node name="baseAlienInfo" parent="." unique_id=752326424 instance=ExtResource("1_4m3kp")]
 layout_mode = 1
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=1678430191]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -44,7 +44,20 @@ offset_right = 576.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+[node name="Label4" type="Label" parent="Control" unique_id=1603892549]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -109.0
+offset_bottom = 84.0
+grow_horizontal = 0
+text = "Speed = 0.8
+Friction = 1
+Size = 0.8"
+label_settings = SubResource("LabelSettings_mwc7y")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=740464305]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -55,11 +68,11 @@ offset_bottom = 200.0
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="Control" type="Control" parent="Control/HBoxContainer"]
+[node name="Control" type="Control" parent="Control/HBoxContainer" unique_id=145389205]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control"]
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control" unique_id=1400533150]
 custom_minimum_size = Vector2(400, 400)
 layout_mode = 1
 anchors_preset = 4
@@ -74,17 +87,17 @@ texture = ExtResource("2_2fsuw")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer" unique_id=1545550743]
 custom_minimum_size = Vector2(752, 400)
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer" unique_id=907665348]
 custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Control"]
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Control" unique_id=281620315]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -101,41 +114,24 @@ label_settings = SubResource("LabelSettings_s68ix")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=1894719774]
 layout_mode = 2
 text = "double the points, double the fun"
 label_settings = SubResource("LabelSettings_arn3r")
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=1484691173]
 layout_mode = 2
 text = "Target is the third attempt on a double-scoring alien, with worse speed and size than average. Although, Target has a passive: hitting the opponent's goal in a specific zone will score two points instead of one, causing the opponent to have to manage protecting the goal while also playing normally.
 
 Default - Bullseye
-Cooldown: 150
-Duration: ∞
-An arrow fires from the opposing side onto Target's center. Hitting the ball will stop it in place.
+Cooldown: 200
+Duration:  ∞
+An arrow fires from above after a delay. If it hits Target, then Target gets a speed boost temporarily.
 
 Ultimate - Focal Points
 Charge: 700
 Duration: 300
-Target makes the opposing side's entire scoring zone worth 2x points temporarily.
-"
+The 2x goal area is relocated temporarily to wherever Target is vertically."
 label_settings = SubResource("LabelSettings_c1vrf")
 autowrap_mode = 2
-
-[node name="Label4" type="Label" parent="Control/HBoxContainer/VBoxContainer/Label2"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -96.0
-offset_top = -84.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "Speed = 0.85
-Friction = 1
-Size = 0.85"
-label_settings = SubResource("LabelSettings_mwc7y")

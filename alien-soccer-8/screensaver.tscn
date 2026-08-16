@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://mg8n0uslpsyb"]
+
+[ext_resource type="Script" uid="uid://uuv264ihfd54" path="res://screensaver.gd" id="1_vh1kx"]
+[ext_resource type="PackedScene" uid="uid://c1gl0hvam08pm" path="res://ball.tscn" id="2_4biwj"]
+[ext_resource type="Script" uid="uid://cv2anvuqggdhc" path="res://camera_2d.gd" id="3_4biwj"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_oomhj"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qgyb7"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5lm0x"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_a7iya"]
+normal = Vector2(1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4biwj"]
+size = Vector2(210, 376.5)
+
+[node name="screensaver" type="Node2D" unique_id=312288511]
+script = ExtResource("1_vh1kx")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1896899883]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2073786929]
+shape = SubResource("WorldBoundaryShape2D_oomhj")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1123066930]
+position = Vector2(0, 648)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=754935232]
+shape = SubResource("WorldBoundaryShape2D_qgyb7")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=566797802]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=519265137]
+position = Vector2(1152, 0)
+shape = SubResource("WorldBoundaryShape2D_5lm0x")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=2126357046]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=2109060907]
+shape = SubResource("WorldBoundaryShape2D_a7iya")
+
+[node name="ball" parent="." unique_id=676700023 instance=ExtResource("2_4biwj")]
+unique_name_in_owner = true
+position = Vector2(787, 320)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=208386027]
+unique_name_in_owner = true
+position = Vector2(576, 324)
+enabled = false
+script = ExtResource("3_4biwj")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="." unique_id=887391051]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5" unique_id=1655348223]
+position = Vector2(576, 324)
+shape = SubResource("RectangleShape2D_4biwj")

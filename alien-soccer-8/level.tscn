@@ -1,7 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://b3m6xkrm18rpv"]
+[gd_scene format=3 uid="uid://b3m6xkrm18rpv"]
 
 [ext_resource type="Script" uid="uid://5qmjw0wrextr" path="res://level_test.gd" id="1_u52ul"]
-[ext_resource type="Texture2D" uid="uid://bibmgndwxclir" path="res://Imported piskel (30).png" id="2_f2txt"]
+[ext_resource type="Texture2D" uid="uid://cwxmd71ouvs8q" path="res://as8BG.png" id="2_km5ld"]
 [ext_resource type="PackedScene" uid="uid://c1gl0hvam08pm" path="res://ball.tscn" id="2_vonw3"]
 [ext_resource type="Script" uid="uid://6ddf1jx7j5bu" path="res://p_1_wall.gd" id="3_0b4ue"]
 [ext_resource type="Script" uid="uid://bbduc43ljf86y" path="res://p_2_wall.gd" id="4_f2txt"]
@@ -26,16 +26,17 @@ normal = Vector2(1, 0)
 [sub_resource type="LabelSettings" id="LabelSettings_km5ld"]
 font_size = 100
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" unique_id=1360616762]
 script = ExtResource("1_u52ul")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=578885159]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=358817453]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -48,57 +49,58 @@ offset_right = 576.0
 offset_bottom = 324.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_f2txt")
+texture = ExtResource("2_km5ld")
 
-[node name="ball" parent="." instance=ExtResource("2_vonw3")]
+[node name="ball" parent="." unique_id=566372413 instance=ExtResource("2_vonw3")]
 unique_name_in_owner = true
 position = Vector2(575, 324)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=279606441]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1506955700]
 position = Vector2(575, 0)
 shape = SubResource("WorldBoundaryShape2D_oi3di")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1343766461]
 position = Vector2(575, 650)
 shape = SubResource("WorldBoundaryShape2D_0b4ue")
 
-[node name="p1Wall" type="StaticBody2D" parent="."]
+[node name="p1Wall" type="StaticBody2D" parent="." unique_id=2095525044]
 unique_name_in_owner = true
 position = Vector2(0, 324)
 script = ExtResource("3_0b4ue")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="p1Wall"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="p1Wall" unique_id=1450264476]
 shape = SubResource("WorldBoundaryShape2D_f2txt")
 
-[node name="p2Wall" type="StaticBody2D" parent="."]
+[node name="p2Wall" type="StaticBody2D" parent="." unique_id=117678425]
 unique_name_in_owner = true
 position = Vector2(1152, 324)
 script = ExtResource("4_f2txt")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="p2Wall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="p2Wall" unique_id=618115824]
 shape = SubResource("WorldBoundaryShape2D_1ainy")
 
-[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+[node name="StaticBody2D5" type="StaticBody2D" parent="." unique_id=1545676143]
 position = Vector2(575, 322)
 collision_layer = 8
 collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5" unique_id=641536169]
 shape = SubResource("WorldBoundaryShape2D_1ainy")
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1755205269]
 position = Vector2(575, 324)
 collision_layer = 128
 collision_mask = 128
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D4"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1001154684]
 shape = SubResource("WorldBoundaryShape2D_n6hdu")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1107436358]
+unique_name_in_owner = true
 
-[node name="Control2" type="Control" parent="CanvasLayer"]
+[node name="Control2" type="Control" parent="CanvasLayer" unique_id=1921019055]
 layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
@@ -108,7 +110,7 @@ offset_right = 200.0
 offset_bottom = 100.0
 grow_horizontal = 2
 
-[node name="p1Score" type="Label" parent="CanvasLayer/Control2"]
+[node name="p1Score" type="Label" parent="CanvasLayer/Control2" unique_id=1048649515]
 unique_name_in_owner = true
 layout_mode = 1
 offset_right = 57.0
@@ -116,7 +118,7 @@ offset_bottom = 137.0
 text = "0"
 label_settings = SubResource("LabelSettings_km5ld")
 
-[node name="p2Score" type="Label" parent="CanvasLayer/Control2"]
+[node name="p2Score" type="Label" parent="CanvasLayer/Control2" unique_id=1282203651]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 1
@@ -128,7 +130,7 @@ grow_horizontal = 0
 text = "0"
 label_settings = SubResource("LabelSettings_km5ld")
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer" unique_id=946854761]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -143,57 +145,63 @@ theme_override_constants/h_separation = 30
 theme_override_constants/v_separation = 0
 columns = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/GridContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer" unique_id=2134850449]
 layout_mode = 2
 text = "Cooldown:"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="CanvasLayer/GridContainer"]
+[node name="Label2" type="Label" parent="CanvasLayer/GridContainer" unique_id=1470076130]
 layout_mode = 2
 text = "Cooldown:"
 horizontal_alignment = 1
 
-[node name="p1Cooldown" type="ProgressBar" parent="CanvasLayer/GridContainer"]
+[node name="p1Cooldown" type="ProgressBar" parent="CanvasLayer/GridContainer" unique_id=1102084538]
 unique_name_in_owner = true
-clip_contents = true
 custom_minimum_size = Vector2(500, 0)
+clip_contents = true
 layout_mode = 2
 max_value = 1.0
 script = ExtResource("6_n6hdu")
 
-[node name="p2Cooldown" type="ProgressBar" parent="CanvasLayer/GridContainer"]
+[node name="p2Cooldown" type="ProgressBar" parent="CanvasLayer/GridContainer" unique_id=1405008298]
 unique_name_in_owner = true
-clip_contents = true
 custom_minimum_size = Vector2(500, 0)
+clip_contents = true
 layout_mode = 2
 max_value = 1.0
 script = ExtResource("6_n6hdu")
 
-[node name="Label3" type="Label" parent="CanvasLayer/GridContainer"]
+[node name="Label3" type="Label" parent="CanvasLayer/GridContainer" unique_id=725943658]
 layout_mode = 2
 text = "Ultimate Charge:"
 horizontal_alignment = 1
 
-[node name="Label4" type="Label" parent="CanvasLayer/GridContainer"]
+[node name="Label4" type="Label" parent="CanvasLayer/GridContainer" unique_id=1843574965]
 layout_mode = 2
 text = "Ultimate Charge:"
 horizontal_alignment = 1
 
-[node name="p1Charge" type="ProgressBar" parent="CanvasLayer/GridContainer"]
+[node name="p1Charge" type="ProgressBar" parent="CanvasLayer/GridContainer" unique_id=1438444916]
 unique_name_in_owner = true
-clip_contents = true
 custom_minimum_size = Vector2(500, 0)
+clip_contents = true
 layout_mode = 2
 script = ExtResource("7_km5ld")
 
-[node name="p2Charge" type="ProgressBar" parent="CanvasLayer/GridContainer"]
+[node name="p2Charge" type="ProgressBar" parent="CanvasLayer/GridContainer" unique_id=704656003]
 unique_name_in_owner = true
-clip_contents = true
 custom_minimum_size = Vector2(500, 0)
+clip_contents = true
 layout_mode = 2
 script = ExtResource("7_km5ld")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=170467533]
+unique_name_in_owner = true
+offset_right = 1153.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=633352477]
 unique_name_in_owner = true
 position = Vector2(576, 324)
 script = ExtResource("6_1ainy")

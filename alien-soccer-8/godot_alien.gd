@@ -2,14 +2,14 @@ extends alien
 
 var sped_up = false
 var dashing = false
-var speed_mult = 3
-var damp_mult = 1.5
+var speed_mult = 4
+var damp_mult = 3
 
 var dash_vec = Vector2(0,0)
 var dash_speed = 1500
 
 func _ability():
-	if cooldown <= 0 and ult_dur <= 0 and duration <= 0:
+	if cooldown <= 0 and ult_dur <= 0 and duration <= 0 and not dashing:
 		sprite.animation = "blue"
 		
 		if skin != 0:
@@ -64,7 +64,7 @@ func _ability_cooldown(delta):
 		print(cooldown)
 
 func on_ready():
-	base_scale = 0.7
+	base_scale = 0.55
 	
 	if skin != 0:
 		%AnimatedSprite2D.animation = "default_" + str(skin)

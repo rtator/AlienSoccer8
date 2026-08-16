@@ -5,10 +5,15 @@ var blue_strength = 35
 var ult_length = 300
 var ball_grown = false
 
+var jump_cd = 0
+
+var ground_pounding = false
+
 func _ability():
 	if cooldown <= 0:
-		linear_velocity.y = -move_speed * 85
-		cooldown = 7
+		ground_pounding = true
+		linear_velocity.y = 5000
+		cooldown = 150
 
 func _ultimate():
 	if ult_dur <= 0 and charge >= charge_max and not bluing:
@@ -24,9 +29,13 @@ func _ultimate():
 		ult_dur = ult_length
 
 func _ability_cooldown(delta):
-	gravity_scale = move_speed/3.1
+	gravity_scale = move_speed/6.2
 	if charge < charge_max and not bluing:
 		charge += delta
+	
+	if ground_pounding and linear_velocity.y == 0:
+		camera.shake(500)
+		ground_pounding = false
 	
 	if ult_dur > 0:
 		ult_dur -= 1 * delta
@@ -43,7 +52,13 @@ func _ability_cooldown(delta):
 	
 	if cooldown > 0:
 		cooldown -= 1 * delta
-		print(cooldown)
+	
+	if jump_cd > 0:
+		jump_cd -= 1 * delta
+	
+	if not ground_pounding and jump_cd <= 0 and ((Input.is_action_just_pressed("p1_up") and player == 1) or (Input.is_action_just_pressed("p2_up") and player == 2)):
+		linear_velocity.y = -move_speed * 42
+		jump_cd = 7
 
 func on_ready():
 	physics_material_override.friction = 0.1
@@ -52,9 +67,9 @@ func on_ready():
 		%AnimatedSprite2D.animation = "default_" + str(skin)
 	
 	squish = 500
-	base_scale = 1.3 
+	base_scale = 1.2
 	
 	
 	charge_max = 350
 	
-	update_move_speed(move_speed * 0.25, speed_damp * 0.5)
+	update_move_speed(move_speed * 0.5, speed_damp * 0.5)

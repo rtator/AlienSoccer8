@@ -18,7 +18,7 @@ func _ability():
 		banana.shooter = self
 		banana.ball = ball
 		add_sibling(banana)
-		cooldown = 200
+		cooldown = 400
 
 func _ultimate():
 	if charge >= charge_max:
@@ -74,6 +74,6 @@ func on_ready():
 	if skin != 0:
 		%AnimatedSprite2D.animation = "default_" + str(skin)
 	
-	charge_max = 400
+	charge_max = 600
 	
 	update_move_speed(move_speed * 0.6, speed_damp * 0.5)

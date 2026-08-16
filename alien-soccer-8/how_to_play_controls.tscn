@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://csl8ctl7lyfyi"]
+
+[ext_resource type="Theme" uid="uid://cerrqasbkbfyc" path="res://menu_screen_theme.tres" id="1_4iafw"]
+[ext_resource type="Script" uid="uid://d0tidhf72d3ca" path="res://how_to_play.gd" id="2_wva6h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pg7y5"]
+font_size = 100
+font_color = Color(0.45519978, 0.7353447, 0.98530644, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3hqcg"]
+font_size = 30
+font_color = Color(0.414146, 0.711646, 1, 1)
+
+[node name="how_to_play_controls" type="Control" unique_id=1589982065]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_4iafw")
+script = ExtResource("2_wva6h")
+
+[node name="Label" type="Label" parent="." unique_id=2048263128]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -216.0
+offset_right = 216.0
+offset_bottom = 120.0
+grow_horizontal = 2
+text = "Controls"
+label_settings = SubResource("LabelSettings_pg7y5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2111541042]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -550.0
+offset_top = -83.0
+offset_right = 550.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=382956511]
+layout_mode = 2
+text = "Player 1 uses WASD to move around, E to use default ability, and R to use their ultimate ability. Player 2 uses IJKL to move around, O to use default ability, and P to use ultimate ability. If you prefer a different control scheme, you can change it in  Settings >  Keybinds.
+Before a match starts, you can click a player's name to make them a bot that plays for you."
+label_settings = SubResource("LabelSettings_3hqcg")
+horizontal_alignment = 3
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1118541202]
+layout_mode = 2
+theme_override_constants/separation = 375
+alignment = 1
+
+[node name="how_to_play_button" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=2028079224]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "How to Play
+"
+
+[node name="ability_button" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=299940084]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Abilities"
+
+[node name="Button3" type="Button" parent="." unique_id=559562697]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -79.0
+offset_top = -79.0
+offset_right = 79.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Back"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/how_to_play_button" to="." method="_on_how_to_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ability_button" to="." method="_on_ability_button_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]

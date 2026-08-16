@@ -23,6 +23,13 @@ const player_objects = {
 var p1
 var p2
 
+var paused = false
+
+var pause_screen_load = preload("res://pauseScreen.tscn")
+var pause_screen
+
+@onready var canvas_layer = %CanvasLayer
+
 func _ready():
 	p1 = player_objects[GlobalSave.p1Char].instantiate()
 	p1.ball = %ball
@@ -64,3 +71,20 @@ func _ready():
 	
 	add_child(p1)
 	add_child(p2)
+	
+	pause_screen = pause_screen_load.instantiate()
+	pause_screen.visible = false
+	pause_screen.level = self
+	canvas_layer.add_child(pause_screen)
+
+func unpause():
+	Engine.time_scale = 1
+	paused = false
+	pause_screen.visible = false
+
+func _unhandled_input(event):
+	if event.is_action_pressed("pause") :
+		if not paused:
+			Engine.time_scale = 0
+			paused = true
+			pause_screen.visible = true

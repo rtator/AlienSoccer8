@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2becldmkcp7y"]
+[gd_scene format=3 uid="uid://d2becldmkcp7y"]
 
 [ext_resource type="Script" uid="uid://cqu3dc0i5m4oy" path="res://settings_visuals.gd" id="1_4tb4u"]
-[ext_resource type="StyleBox" uid="uid://bhwb56kpdliu" path="res://buttonText.tres" id="2_igpoo"]
+[ext_resource type="Theme" uid="uid://cerrqasbkbfyc" path="res://menu_screen_theme.tres" id="1_igpoo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gfd7l"]
 font_size = 100
@@ -13,16 +13,17 @@ font_size = 30
 [sub_resource type="LabelSettings" id="LabelSettings_iha3t"]
 font_size = 15
 
-[node name="settingsVisuals" type="Control"]
+[node name="settingsVisuals" type="Control" unique_id=1149617282]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_igpoo")
 script = ExtResource("1_4tb4u")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=171068460]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -34,7 +35,7 @@ grow_horizontal = 2
 text = "Visual Settings"
 label_settings = SubResource("LabelSettings_gfd7l")
 
-[node name="GridContainer" type="GridContainer" parent="."]
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1123828805]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -48,28 +49,28 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="shake" type="Label" parent="GridContainer"]
+[node name="shake" type="Label" parent="GridContainer" unique_id=1949824091]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Screen Shake"
 label_settings = SubResource("LabelSettings_vssmm")
 horizontal_alignment = 1
 
-[node name="shakeValue" type="Label" parent="GridContainer"]
+[node name="shakeValue" type="Label" parent="GridContainer" unique_id=943765147]
 unique_name_in_owner = true
 layout_mode = 2
 text = "3"
 label_settings = SubResource("LabelSettings_iha3t")
 horizontal_alignment = 1
 
-[node name="shakeSlider" type="HSlider" parent="GridContainer"]
+[node name="shakeSlider" type="HSlider" parent="GridContainer" unique_id=999674491]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 20)
 layout_mode = 2
 max_value = 6.0
 value = 3.0
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=1240675696]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -82,11 +83,6 @@ offset_right = 36.5
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 50
-theme_override_styles/focus = ExtResource("2_igpoo")
-theme_override_styles/hover_pressed = ExtResource("2_igpoo")
-theme_override_styles/hover = ExtResource("2_igpoo")
-theme_override_styles/pressed = ExtResource("2_igpoo")
-theme_override_styles/normal = ExtResource("2_igpoo")
 text = "Back"
 
 [connection signal="value_changed" from="GridContainer/shakeSlider" to="." method="_on_shake_slider_value_changed"]
