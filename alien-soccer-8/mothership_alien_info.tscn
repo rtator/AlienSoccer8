@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://eeynl1l4jpfq"]
+
+[ext_resource type="PackedScene" uid="uid://bmr8vq1g5v5p3" path="res://alien_info_buttons.tscn" id="1_rjwmd"]
+[ext_resource type="Texture2D" uid="uid://ds2dsdsukimos" path="res://as8_sprites_png/mothership.png" id="2_mjy83"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nv12w"]
+font_size = 18
+font_color = Color(0.49803922, 0.9098039, 0.64705884, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pdri7"]
+line_spacing = 0.0
+font_size = 75
+font_color = Color(0.3874073, 0.79724556, 0.54374176, 1)
+outline_size = 8
+outline_color = Color(0.3553136, 0.35531354, 0.35531357, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_oofeg"]
+font_size = 30
+font_color = Color(0.30307278, 0.65740407, 0.44152865, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_htjv7"]
+font_size = 15
+font_color = Color(0.49717844, 0.9079452, 0.6474859, 1)
+
+[node name="mothershipAlienInfo" type="Control" unique_id=1762595133]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="baseAlienInfo" parent="." unique_id=1295750602 instance=ExtResource("1_rjwmd")]
+layout_mode = 1
+
+[node name="Control" type="Control" parent="." unique_id=1376991761]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -538.0
+offset_right = 576.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label4" type="Label" parent="Control" unique_id=1782122460]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -96.0
+offset_bottom = 84.0
+grow_horizontal = 0
+text = "Speed = 1
+Friction = 1
+Size = 1"
+label_settings = SubResource("LabelSettings_nv12w")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=917881946]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -200.0
+offset_right = 404.0
+offset_bottom = 200.0
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="Control/HBoxContainer" unique_id=829243447]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control" unique_id=1366090467]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_vertical = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_mjy83")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer" unique_id=1426033514]
+custom_minimum_size = Vector2(752, 400)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer" unique_id=1543124011]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Control" unique_id=631145412]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -94.0
+offset_top = -103.0
+offset_right = 94.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "MOTHERSHIP"
+label_settings = SubResource("LabelSettings_pdri7")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=66498017]
+layout_mode = 2
+text = "100 aliens are better than one"
+label_settings = SubResource("LabelSettings_oofeg")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=13146904]
+layout_mode = 2
+text = "Spawns with a deposit of an uknown alien substance in the center that can be harvested with its ability to fill up its ult meter. Once the meter is filled, Mothership can spawn a drone at about half of the alien's size that bounces up and down and can take a few hits before breaking. The ult meter does not fill up naturally.
+
+Default - Extract
+Cooldown: 10
+Duration: N/A
+If Mothership is touching the deposit, it fills up its ult meter by 5. This can be held instead of mashed.
+
+Ultimate - Deploy
+Meter: 150
+Duration: ∞
+Mothership deploys a small drone that moves up and down the screen and can hit the ball 3 times before breaking."
+label_settings = SubResource("LabelSettings_htjv7")
+autowrap_mode = 2

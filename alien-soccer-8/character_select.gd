@@ -20,6 +20,7 @@ const alienTextures = {
 	"mosquito": preload("res://as8_sprites_png/mosquito.png"),
 	"cloaker": preload("res://as8_sprites_png/cloaker.png"),
 	"pirate": preload("res://as8_sprites_png/pirate.png"),
+	"mothership": preload("res://as8_sprites_png/mothership.png"),
 }
 
 var alien_names = alienTextures.keys()
@@ -45,6 +46,7 @@ var p2_selected_button = 0
 	%mosquito1,
 	%cloaker1,
 	%pirate1,
+	%mothership,
 ]
 
 var started = false

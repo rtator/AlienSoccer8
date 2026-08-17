@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dmanmuxs86dkc"]
+
+[ext_resource type="Script" uid="uid://bwqlsud3e7840" path="res://drone.gd" id="1_d5du7"]
+[ext_resource type="Texture2D" uid="uid://bsvtqwph4pjao" path="res://drone.png" id="2_puw62"]
+
+[sub_resource type="Gradient" id="Gradient_d5du7"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vt7g2"]
+gradient = SubResource("Gradient_d5du7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qgyb7"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 15.0
+spread = 180.0
+initial_velocity_min = 20.0
+initial_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+scale_min = 5.0
+scale_max = 10.0
+color_ramp = SubResource("GradientTexture1D_vt7g2")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qgyb7"]
+radius = 15.0
+
+[node name="drone" type="RigidBody2D" unique_id=1510182939]
+collision_layer = 4
+collision_mask = 2
+mass = 1000.0
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 2
+script = ExtResource("1_d5du7")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=683345203]
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_qgyb7")
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=700790869]
+unique_name_in_owner = true
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_puw62")
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1044490710]
+shape = SubResource("CircleShape2D_qgyb7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://creg83bharrqa"]
+
+[ext_resource type="Texture2D" uid="uid://u7liwt8lmbwg" path="res://ore.png" id="1_52qyt"]
+[ext_resource type="Script" uid="uid://b3a4okt0o4nst" path="res://ore.gd" id="1_r2ayp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vt7g2"]
+size = Vector2(50, 50)
+
+[node name="ore" type="Area2D" unique_id=973920899]
+script = ExtResource("1_r2ayp")
+
+[node name="Ore" type="Sprite2D" parent="." unique_id=1049319630]
+scale = Vector2(0.165, 0.165)
+texture = ExtResource("1_52qyt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2057890381]
+shape = SubResource("RectangleShape2D_vt7g2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

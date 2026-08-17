@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dict5dikp50ps"]
+
+[ext_resource type="Script" uid="uid://bw8weod7v70f1" path="res://twins_blast.gd" id="1_a8j8g"]
+[ext_resource type="Texture2D" uid="uid://cp4pdclkn1eem" path="res://twins_blast.png" id="2_ufhdk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8j8g"]
+atlas = ExtResource("2_ufhdk")
+region = Rect2(200, 0, 200, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufhdk"]
+atlas = ExtResource("2_ufhdk")
+region = Rect2(0, 280, 200, 280)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qgyb7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8j8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufhdk")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qgyb7"]
+size = Vector2(46, 64)
+
+[node name="twins_blast" type="RigidBody2D" unique_id=339175682]
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 5
+script = ExtResource("1_a8j8g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1828211691]
+position = Vector2(22.999998, 0.20000456)
+scale = Vector2(0.22999999, 0.23000002)
+sprite_frames = SubResource("SpriteFrames_qgyb7")
+autoplay = "default"
+frame_progress = 0.7559531
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1415284522]
+position = Vector2(22.999998, 0.20000458)
+shape = SubResource("RectangleShape2D_qgyb7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

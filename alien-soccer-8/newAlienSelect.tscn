@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://b0g4ufvqlab2o" path="res://as8_sprites_png/mosquito.png" id="17_xurhd"]
 [ext_resource type="Texture2D" uid="uid://cor4l4c6manrn" path="res://as8_sprites_png/cloaker.png" id="18_ltal5"]
 [ext_resource type="Texture2D" uid="uid://byw86dnujr2ih" path="res://as8_sprites_png/pirate.png" id="19_pjmf1"]
+[ext_resource type="Texture2D" uid="uid://ds2dsdsukimos" path="res://as8_sprites_png/mothership.png" id="21_78ltf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_semk5"]
 font_size = 80
@@ -367,10 +368,6 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Control" type="Control" parent="Control/GridContainer" unique_id=1426496862]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-
 [node name="target1" type="Button" parent="Control/GridContainer" unique_id=1214390069]
 unique_name_in_owner = true
 layout_mode = 2
@@ -442,6 +439,21 @@ theme_override_styles/hover = ExtResource("2_tj70t")
 theme_override_styles/focus = ExtResource("2_tj70t")
 text = "Pirate"
 icon = ExtResource("19_pjmf1")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="mothership" type="Button" parent="Control/GridContainer" unique_id=224416876]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = ExtResource("2_tj70t")
+theme_override_styles/pressed = ExtResource("2_tj70t")
+theme_override_styles/hover = ExtResource("2_tj70t")
+theme_override_styles/focus = ExtResource("2_tj70t")
+text = "Mothership"
+icon = ExtResource("21_78ltf")
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true

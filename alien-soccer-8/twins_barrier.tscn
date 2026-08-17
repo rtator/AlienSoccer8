@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://b3tpk2tpr0075"]
+
+[ext_resource type="Texture2D" uid="uid://bhyeasm1ybadl" path="res://laser_line.png" id="1_6iut8"]
+[ext_resource type="Script" uid="uid://cabuqx5ivvvln" path="res://twins_barrier.gd" id="1_buwsh"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_qgyb7"]
+a = Vector2(0, -70)
+b = Vector2(0, 70)
+
+[sub_resource type="Gradient" id="Gradient_buwsh"]
+colors = PackedColorArray(1.92523e-06, 0.4974575, 0.6806754, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vt7g2"]
+gradient = SubResource("Gradient_buwsh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qgyb7"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(2, 71, 1)
+spread = 180.0
+initial_velocity_min = 5.0
+initial_velocity_max = 12.0
+gravity = Vector3(0, 0, 0)
+damping_min = 3.0000002
+damping_max = 3.0000002
+color = Color(0.50256145, 0.82895076, 1, 1)
+color_initial_ramp = SubResource("GradientTexture1D_vt7g2")
+
+[node name="twins_barrier" type="Area2D" unique_id=658907910]
+visible = false
+monitoring = false
+script = ExtResource("1_buwsh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=690410578]
+shape = SubResource("SegmentShape2D_qgyb7")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=771598907]
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_qgyb7")
+
+[node name="LaserLine" type="Sprite2D" parent="." unique_id=1521412801]
+texture = ExtResource("1_6iut8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -9,6 +9,11 @@ var jump_cd = 0
 
 var ground_pounding = false
 
+var ult_hits = 0
+var slow_timer = 0
+
+var pipes_load = preload("res://jumper_pipes.tscn")
+
 func _ability():
 	if cooldown <= 0:
 		ground_pounding = true
@@ -18,22 +23,20 @@ func _ability():
 func _ultimate():
 	if ult_dur <= 0 and charge >= charge_max and not bluing:
 		charge = 0
-		if opponent.character != "jumper":
-			opponent.gravity_scale = opponent.move_speed/blue_strength
-		else:
-			print("grav")
-			opponent.gravity_scale *= 2
-		bluing = true
-		opponent.sprite.modulate  = Color.AQUA
+		
+		var pipes = pipes_load.instantiate()
+		pipes.position = position
+		pipes.user = self
+		add_sibling(pipes)
+		
 		camera.shake(10)
-		ult_dur = ult_length
 
 func _ability_cooldown(delta):
 	gravity_scale = move_speed/6.2
 	if charge < charge_max and not bluing:
 		charge += delta
 	
-	if ground_pounding and linear_velocity.y == 0:
+	if ground_pounding and linear_velocity.y < 40:
 		camera.shake(500)
 		ground_pounding = false
 	
@@ -59,6 +62,24 @@ func _ability_cooldown(delta):
 	if not ground_pounding and jump_cd <= 0 and ((Input.is_action_just_pressed("p1_up") and player == 1) or (Input.is_action_just_pressed("p2_up") and player == 2)):
 		linear_velocity.y = -move_speed * 42
 		jump_cd = 7
+	
+	if slow_timer > 1:
+		slow_timer -= 1
+	elif slow_timer > 0:
+		slow_timer -= 1
+		
+		opponent.update_move_speed(opponent.move_speed / 0.8)
+		update_move_speed(move_speed / 1.2)
+		if ult_hits > 1:
+			opponent.update_move_speed(opponent.move_speed / 0.8)
+			update_move_speed(move_speed / 1.2)
+		if ult_hits > 2:
+			opponent.update_move_speed(opponent.move_speed / 0.8)
+			update_move_speed(move_speed / 1.2)
+		
+		ult_hits = 0
+		
+		print("not_slow")
 
 func on_ready():
 	physics_material_override.friction = 0.1
@@ -70,6 +91,6 @@ func on_ready():
 	base_scale = 1.2
 	
 	
-	charge_max = 350
+	charge_max = 400
 	
 	update_move_speed(move_speed * 0.5, speed_damp * 0.5)

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://ches2k0ih7gsj"]
+
+[ext_resource type="Script" uid="uid://dl7cfd55udadn" path="res://basic_shield.gd" id="1_0a746"]
+[ext_resource type="Texture2D" uid="uid://brat75oq8gkie" path="res://plasmashield.png" id="1_5iksb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vt7g2"]
+radius = 64.0
+
+[node name="basic_shield" type="RigidBody2D" unique_id=1952039336]
+collision_layer = 2
+collision_mask = 2
+gravity_scale = 0.0
+can_sleep = false
+freeze = true
+freeze_mode = 1
+continuous_cd = 1
+contact_monitor = true
+max_contacts_reported = 2
+script = ExtResource("1_0a746")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1698400148]
+texture_filter = 1
+scale = Vector2(0.425, 0.425)
+texture = ExtResource("1_5iksb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=499117630]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_vt7g2")
+disabled = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

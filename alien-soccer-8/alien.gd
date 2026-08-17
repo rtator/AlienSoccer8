@@ -6,35 +6,54 @@ var damp_mult = 1.5
 var size_mult = 1.3 
 
 @onready var shockwave = %basic_shockwave
+@onready var shield_sprite = %shieldSprite
 
 func _ability():
-	if not shockwave.on and cooldown <= 0:
+	if not shockwave.on and cooldown <= 0 and not ult_mode:
 		shockwave.fire()
 
 func _ultimate():
-	if cooldown <= 0 and ult_dur <= 0 and charge >= charge_max:
+	if cooldown <= 0 and ult_dur <= 0 and not ult_mode and charge >= charge_max:
 		if not ult_mode:
-			update_move_speed(move_speed * speed_mult, speed_damp * damp_mult)
-			update_scale(base_scale * size_mult)
+			shield_sprite.visible = true
+			hitbox.scale = Vector2(2,2)
 			ult_mode = true
-			ult_dur = 200
 			
 			charge = 0
 	
 func _ability_cooldown(delta):
+	
 	#print(%AnimatedSprite2D.global_scale)
 	#print(base_scale)
-	if charge < charge_max and not ult_mode:
+	if charge < charge_max:
 		charge += delta
 	
-	if ult_dur > 0:
-		ult_dur -= 1 * delta
-	elif ult_mode:
-		update_move_speed(move_speed / speed_mult, speed_damp / damp_mult)
-		update_scale(base_scale / size_mult)
-		
-		ult_mode = false
-		cooldown == 100
+	#if ult_dur > 190:
+		#ult_dur -= 1
+	#elif ult_dur > 180:
+		#ult_dur -= 1
+		#modulate = Color(1,1,1)
+	#elif ult_dur > 170:
+		#ult_dur -= 1
+		#modulate = Color(2,2,2)
+	#elif ult_dur > 160:
+		#ult_dur -= 1
+		#modulate = Color(1,1,1)
+	#elif ult_dur > 160:
+		#ult_dur -= 1
+		#modulate = Color(2,2,2)
+	if ult_dur > 1:
+		#modulate = Color(1,1,1)
+		ult_dur -= 1
+	elif ult_dur > 0:
+		modulate = Color(1,1,1)
+		ult_dur -= 1
+		update_move_speed(move_speed / speed_mult, speed_damp /damp_mult)
+	
+	if ult_mode:
+		hitbox.scale = Vector2(2,2)
+		#ult_mode = false
+		#cooldown == 100
 	
 	if cooldown > 0:
 		cooldown -= 1 * delta
@@ -57,7 +76,19 @@ func on_ready():
 	base_scale = 1
 	
 	charge_max = 500
+	
 	#charge_bar = %p1Charge
 	
 	#set_player(1)
 	update_move_speed(move_speed, speed_damp)
+
+
+func _on_body_entered(body):
+	if body == ball and ult_mode:
+		print("hit")
+		hitbox.scale = Vector2(1,1)
+		ult_mode = false
+		shield_sprite.visible = false
+		ult_dur = 200
+		modulate = Color(1.3,1.3,1.5)
+		update_move_speed(move_speed * speed_mult, speed_damp * damp_mult)

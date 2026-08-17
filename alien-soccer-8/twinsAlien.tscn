@@ -1,15 +1,16 @@
-[gd_scene load_steps=15 format=3 uid="uid://11thqhapsrp7"]
+[gd_scene format=3 uid="uid://11thqhapsrp7"]
 
 [ext_resource type="Script" uid="uid://dm40gx2uggxf5" path="res://twins.gd" id="1_w6qly"]
-[ext_resource type="Texture2D" uid="uid://b0mbi5v51remh" path="res://as8_sprites_png/twins_orange.png" id="2_epd0s"]
-[ext_resource type="Texture2D" uid="uid://cvqt666oyu14c" path="res://as8_sprites_png/twins_blue_ult.png" id="3_1h2hp"]
-[ext_resource type="Texture2D" uid="uid://cg7krc8tf4qjm" path="res://AS8 skins/twins/twins_blue_1.png" id="3_ohy35"]
-[ext_resource type="Texture2D" uid="uid://c8i56obw3wbum" path="res://as8_sprites_png/twins_blue.png" id="3_tm61d"]
-[ext_resource type="Texture2D" uid="uid://dr7h8e5188co" path="res://as8_sprites_png/twins_orange_blue.png" id="5_iaob6"]
-[ext_resource type="Texture2D" uid="uid://bq6ermroqpcu5" path="res://AS8 skins/twins/twins_blue_1_ult.png" id="5_qtmj2"]
+[ext_resource type="Texture2D" uid="uid://di3qpepjl1cva" path="res://as8_sprites_png/twins_orange.png" id="2_epd0s"]
+[ext_resource type="Texture2D" uid="uid://mt0nywqh264p" path="res://as8_sprites_png/twins_blue_ult.png" id="3_1h2hp"]
+[ext_resource type="Texture2D" uid="uid://d2q4c464j5hsu" path="res://AS8 skins/twins/twins_blue_1.png" id="3_ohy35"]
+[ext_resource type="Texture2D" uid="uid://dcup8xwuweju5" path="res://as8_sprites_png/twins_blue.png" id="3_tm61d"]
+[ext_resource type="Texture2D" uid="uid://l7dihe1w28e0" path="res://as8_sprites_png/twins_orange_blue.png" id="5_iaob6"]
+[ext_resource type="Texture2D" uid="uid://bjwwtbgoeglff" path="res://AS8 skins/twins/twins_blue_1_ult.png" id="5_qtmj2"]
 [ext_resource type="Shape2D" uid="uid://fkc16h4w2hcp" path="res://twin_collision.tres" id="6_1h2hp"]
-[ext_resource type="Texture2D" uid="uid://dw3jfbyolt4sg" path="res://AS8 skins/twins/twins_orange_1.png" id="7_a4a03"]
-[ext_resource type="Texture2D" uid="uid://cgiap8x5v8toq" path="res://AS8 skins/twins/twins_orange_1_ult.png" id="9_us6n6"]
+[ext_resource type="Texture2D" uid="uid://cx1ptyubq3fge" path="res://AS8 skins/twins/twins_orange_1.png" id="7_a4a03"]
+[ext_resource type="Texture2D" uid="uid://bx7hv1iyb0k18" path="res://AS8 skins/twins/twins_orange_1_ult.png" id="9_us6n6"]
+[ext_resource type="PackedScene" uid="uid://b3tpk2tpr0075" path="res://twins_barrier.tscn" id="11_qtmj2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w6qly"]
 friction = 0.5
@@ -22,7 +23,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_tm61d")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -30,7 +31,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_ohy35")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default_1",
 "speed": 5.0
 }, {
@@ -38,7 +39,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_1h2hp")
 }],
-"loop": true,
+"loop": 1,
 "name": &"ult",
 "speed": 5.0
 }, {
@@ -46,7 +47,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_qtmj2")
 }],
-"loop": true,
+"loop": 1,
 "name": &"ult_1",
 "speed": 5.0
 }]
@@ -57,7 +58,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_epd0s")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -65,7 +66,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("7_a4a03")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default_1",
 "speed": 5.0
 }, {
@@ -73,7 +74,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_iaob6")
 }],
-"loop": true,
+"loop": 1,
 "name": &"ult",
 "speed": 5.0
 }, {
@@ -81,12 +82,12 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("9_us6n6")
 }],
-"loop": true,
+"loop": 1,
 "name": &"ult_1",
 "speed": 5.0
 }]
 
-[node name="twins" type="RigidBody2D"]
+[node name="twins" type="RigidBody2D" unique_id=1108184003]
 physics_material_override = SubResource("PhysicsMaterial_w6qly")
 gravity_scale = 0.0
 lock_rotation = true
@@ -95,18 +96,21 @@ max_contacts_reported = 3
 script = ExtResource("1_w6qly")
 metadata/_custom_type_script = "uid://e41xdpe4oqa2"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="twins_barrier" parent="." unique_id=658907910 instance=ExtResource("11_qtmj2")]
+unique_name_in_owner = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=373159725]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_w6qly")
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="AnimatedSprite2D" unique_id=1745300610]
 unique_name_in_owner = true
 position = Vector2(0, 16)
 scale = Vector2(0.26, 0.26)
 sprite_frames = SubResource("SpriteFrames_0w7xj")
 autoplay = "default"
 
-[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="AnimatedSprite2D" unique_id=2028448188]
 unique_name_in_owner = true
 position = Vector2(0, -16)
 rotation = 3.14159
@@ -115,13 +119,13 @@ sprite_frames = SubResource("SpriteFrames_1h2hp")
 animation = &"ult_1"
 autoplay = "default"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1480882974]
 unique_name_in_owner = true
 position = Vector2(0, 16)
 rotation = -1.5708
 shape = ExtResource("6_1h2hp")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1358782521]
 unique_name_in_owner = true
 position = Vector2(0, -16)
 rotation = 1.5708

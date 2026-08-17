@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://by5878itkx1op" path="res://AS8 skins/basic/basic_1.png" id="3_hbrgl"]
 [ext_resource type="Texture2D" uid="uid://wgorn6u2ulhx" path="res://AS8 skins/basic/basic_2.png" id="4_i2sul"]
 [ext_resource type="PackedScene" uid="uid://csd6wy3qfun7s" path="res://basic_shockwave.tscn" id="5_i2sul"]
+[ext_resource type="Texture2D" uid="uid://brat75oq8gkie" path="res://plasmashield.png" id="6_nwc0w"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_oy142"]
 friction = 0.5
@@ -66,6 +67,9 @@ properties/6/replication_mode = 1
 physics_material_override = SubResource("PhysicsMaterial_oy142")
 gravity_scale = 0.0
 lock_rotation = true
+continuous_cd = 1
+contact_monitor = true
+max_contacts_reported = 5
 script = ExtResource("1_oy142")
 metadata/_custom_type_script = "uid://e41xdpe4oqa2"
 
@@ -85,3 +89,11 @@ replication_config = SubResource("SceneReplicationConfig_oy142")
 
 [node name="basic_shockwave" parent="." unique_id=741530269 instance=ExtResource("5_i2sul")]
 unique_name_in_owner = true
+
+[node name="shieldSprite" type="Sprite2D" parent="." unique_id=1085072999]
+unique_name_in_owner = true
+visible = false
+scale = Vector2(0.425, 0.425)
+texture = ExtResource("6_nwc0w")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

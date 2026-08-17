@@ -19,12 +19,17 @@
 [ext_resource type="Texture2D" uid="uid://cor4l4c6manrn" path="res://as8_sprites_png/cloaker.png" id="17_yvhr3"]
 [ext_resource type="Texture2D" uid="uid://byw86dnujr2ih" path="res://as8_sprites_png/pirate.png" id="18_05o6d"]
 [ext_resource type="Theme" uid="uid://cerrqasbkbfyc" path="res://menu_screen_theme.tres" id="19_05o6d"]
+[ext_resource type="Texture2D" uid="uid://ds2dsdsukimos" path="res://as8_sprites_png/mothership.png" id="19_chvc8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_05o6d"]
 font_size = 12
 
 [sub_resource type="LabelSettings" id="LabelSettings_yvhr3"]
 font_size = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_hgol0"]
+line_spacing = -8.0
+font_size = 14
 
 [node name="baseAlienInfo" type="Control" unique_id=1356736747]
 layout_mode = 3
@@ -925,6 +930,60 @@ grow_vertical = 2
 mouse_filter = 1
 text = "Pirate"
 
+[node name="Mothership" type="Button" parent="HBoxContainer" unique_id=817261535]
+custom_minimum_size = Vector2(54, 106)
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+autowrap_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Mothership" unique_id=1716565509]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 53.0
+grow_horizontal = 2
+texture = ExtResource("19_chvc8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="HBoxContainer/Mothership" unique_id=839181862]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -53.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/Mothership/Control" unique_id=1127250922]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -11.5
+offset_right = 23.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Mother
+-ship"
+label_settings = SubResource("LabelSettings_hgol0")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1331172476]
 
 [node name="backButton" type="Button" parent="CanvasLayer" unique_id=1998869047]
@@ -955,4 +1014,5 @@ text = "Back"
 [connection signal="pressed" from="HBoxContainer/mosquito" to="." method="_on_mosquito_pressed"]
 [connection signal="pressed" from="HBoxContainer/cloaker" to="." method="_on_cloaker_pressed"]
 [connection signal="pressed" from="HBoxContainer/pirate" to="." method="_on_pirate_pressed"]
+[connection signal="pressed" from="HBoxContainer/Mothership" to="." method="_on_mothership_pressed"]
 [connection signal="pressed" from="CanvasLayer/backButton" to="." method="_on_back_button_pressed"]

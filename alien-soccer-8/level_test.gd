@@ -18,6 +18,7 @@ const player_objects = {
 	"spectre": preload("res://spectreAlien.tscn"),
 	"cloaker": preload("res://cloakerAlien.tscn"),
 	"pirate": preload("res://pirateAlien.tscn"),
+	"mothership": preload("res://mothershipAlien.tscn"),
 }
 
 var p1

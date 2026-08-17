@@ -18,7 +18,7 @@ func _ability():
 		%CollisionShape2D2.scale.x *= -1
 		spin_speed *= -1
 		spin_dir *= -1
-		cooldown = 100
+		cooldown = 75
 
 func _ultimate():
 	if charge >= charge_max and not ulting:
@@ -26,7 +26,7 @@ func _ultimate():
 		%CollisionShape2D2.visible = true
 		
 		ulting = false 
-		ult_dur = 150
+		ult_dur = 200
 		ulting = true
 		modulate = Color(2,2,2)
 		charge = 0
