@@ -71,7 +71,8 @@ var banner_out = false
 
 func _ready():
 	started = true
-	
+	GlobalSave.p1Char = "basic"
+	GlobalSave.p2Char = "basic"
 	if p1_selected_button == p2_selected_button:
 		alien_buttons[p1_selected_button].add_theme_stylebox_override("normal", bothStyle)
 	else:

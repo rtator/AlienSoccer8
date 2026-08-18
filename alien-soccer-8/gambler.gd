@@ -4,7 +4,7 @@ var changes = []
 
 var ulting = false
 func _ability():
-	if (cooldown <= 0 and len(changes) <= 0) or ulting:
+	if cooldown <= 0 and (len(changes) <= 0 or ulting):
 		var roll = randf_range(0,4)
 		
 		if roll > 3:
@@ -28,6 +28,9 @@ func _ability():
 		
 		var change = [roll, 100]
 		changes.push_front(change)
+		
+		if ulting:
+			cooldown = 10
 
 func _ultimate():
 	if charge >= charge_max and not ulting and ult_dur <= 0:
@@ -35,6 +38,7 @@ func _ultimate():
 		ult_dur = 200
 		charge = 0
 		sprite.animation = "ult"
+		cooldown = 0
 		if skin != 0:
 			%AnimatedSprite2D.animation = "ult_" + str(skin)
 			%AnimatedSprite2D.play()
