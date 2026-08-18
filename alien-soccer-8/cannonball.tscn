@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4jgrmspparuc"]
+[gd_scene format=3 uid="uid://c4jgrmspparuc"]
 
 [ext_resource type="Script" uid="uid://bmvaj10w6l56l" path="res://cannon_ball.gd" id="1_246s8"]
-[ext_resource type="Texture2D" uid="uid://cptpqux4eld5p" path="res://as8_sprites_png/cannon_ball.png" id="2_bdwag"]
+[ext_resource type="Texture2D" uid="uid://cfvur3vrub81q" path="res://as8_sprites_png/cannon_ball.png" id="2_bdwag"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dix7p"]
 friction = 0.0
@@ -16,12 +16,12 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_bdwag")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
 
-[node name="cannonball" type="RigidBody2D"]
+[node name="cannonball" type="RigidBody2D" unique_id=368620893]
 collision_layer = 3
 collision_mask = 3
 mass = 0.1
@@ -32,20 +32,20 @@ contact_monitor = true
 max_contacts_reported = 10
 script = ExtResource("1_246s8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=112371360]
 shape = SubResource("CircleShape2D_288xo")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1673543826]
 texture_filter = 2
 scale = Vector2(0.13, 0.13)
 sprite_frames = SubResource("SpriteFrames_dfjte")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1714268741]
 unique_name_in_owner = true
 wait_time = 3.3
 one_shot = true
 
-[node name="tint" type="Sprite2D" parent="."]
+[node name="tint" type="Sprite2D" parent="." unique_id=1039026742]
 unique_name_in_owner = true
 visible = false
 self_modulate = Color(1, 1, 1, 0.686275)
@@ -54,7 +54,7 @@ scale = Vector2(0.13, 0.13)
 texture = ExtResource("2_bdwag")
 region_rect = Rect2(0, 0, 300, 300)
 
-[node name="tintChild" type="Sprite2D" parent="tint"]
+[node name="tintChild" type="Sprite2D" parent="tint" unique_id=38680388]
 modulate = Color(1, 0.952941, 0, 1)
 position = Vector2(-7.62939e-06, 15.3846)
 scale = Vector2(10, 10)

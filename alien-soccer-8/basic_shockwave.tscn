@@ -86,7 +86,13 @@ unique_name_in_owner = true
 shape = SubResource("CircleShape2D_4jrri")
 disabled = true
 
+[node name="Timer" type="Timer" parent="." unique_id=1411075991]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="finished" from="GPUParticles2D2" to="." method="_on_gpu_particles_2d_2_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

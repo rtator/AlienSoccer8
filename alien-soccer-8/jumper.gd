@@ -14,8 +14,13 @@ var slow_timer = 0
 
 var pipes_load = preload("res://jumper_pipes.tscn")
 
+var shake_strength = 500
+
 func _ability():
 	if cooldown <= 0:
+		shake_strength = (648 - position.y) * 2
+		shake_strength = max(shake_strength, 300)
+		
 		ground_pounding = true
 		linear_velocity.y = 5000
 		cooldown = 150
@@ -37,7 +42,7 @@ func _ability_cooldown(delta):
 		charge += delta
 	
 	if ground_pounding and linear_velocity.y < 40:
-		camera.shake(500)
+		camera.shake(shake_strength)
 		ground_pounding = false
 	
 	if ult_dur > 0:

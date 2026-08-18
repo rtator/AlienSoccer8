@@ -13,13 +13,12 @@ func _ability():
 		shockwave.fire()
 
 func _ultimate():
-	if cooldown <= 0 and ult_dur <= 0 and not ult_mode and charge >= charge_max:
-		if not ult_mode:
-			shield_sprite.visible = true
-			hitbox.scale = Vector2(2,2)
-			ult_mode = true
-			
-			charge = 0
+	if ult_dur <= 0 and charge >= charge_max and not ult_mode:
+		shield_sprite.visible = true
+		hitbox.scale = Vector2(2,2)
+		ult_mode = true
+		
+		charge = 0
 	
 func _ability_cooldown(delta):
 	

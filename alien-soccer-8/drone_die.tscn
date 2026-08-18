@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cmis2abjufn1"]
+
+[sub_resource type="Gradient" id="Gradient_d5du7"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vt7g2"]
+gradient = SubResource("Gradient_d5du7")
+
+[sub_resource type="Curve" id="Curve_olx3j"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.91194963, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_qgyb7"]
+curve = SubResource("Curve_olx3j")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lhfyu"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 15.0
+spread = 180.0
+initial_velocity_min = 250.0
+initial_velocity_max = 300.0
+gravity = Vector3(0, 0, 0)
+damping_min = 300.0
+damping_max = 300.0
+scale_min = 5.0
+scale_max = 10.0
+scale_curve = SubResource("CurveTexture_qgyb7")
+color_ramp = SubResource("GradientTexture1D_vt7g2")
+
+[node name="drone_die" type="GPUParticles2D" unique_id=543838949]
+emitting = false
+amount = 50
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_lhfyu")

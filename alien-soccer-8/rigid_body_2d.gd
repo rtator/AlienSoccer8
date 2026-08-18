@@ -4,6 +4,11 @@ var delete = false
 
 var shooter
 var skin = 0
+func _physics_process(delta):
+	if shooter.ball.linear_velocity.length() == 0:
+		add_collision_exception_with(shooter.ball)
+	else:
+		remove_collision_exception_with(shooter.ball)
 
 func _on_body_entered(body):
 	if body != shooter:

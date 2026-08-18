@@ -8,13 +8,15 @@ var on = false
 var user
 
 func fire():
+	%Timer.start()
 	on = true
 	particles1.emitting = true
 	particles2.emitting = true
 	collision_shape.disabled = false
 
-func _on_gpu_particles_2d_2_finished():
-	user.cooldown = 100
+func _on_timer_timeout():
+	print("done")
+	user.cooldown = 300
 	on = false
 	collision_shape.disabled = true
 

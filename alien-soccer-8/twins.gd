@@ -29,15 +29,16 @@ func _ultimate():
 			ulting = true
 			%twins_barrier.monitoring = true
 			%twins_barrier.visible = true
-			ult_dur = 300
+			ult_dur = 200
 		else:
 			together = false
 			blast = blast_load.instantiate()
+			blast.user = self
 			if player == 2:
 				blast.new_scale *= -1
 			
-			#blast.position = position
-			add_child(blast)
+			blast.position = position
+			add_sibling(blast)
 		
 		charge = 0
 		#twin_sprite1.animation = "ult"
@@ -49,7 +50,7 @@ func _ultimate():
 
 func _ability_cooldown(delta):
 	if blast != null and blast.alpha > 0:
-		blast.position = Vector2(0,0)
+		#blast.position = Vector2(0,0)
 		blast.rotation = 0
 	
 	if cooldown > 0:
@@ -106,7 +107,7 @@ func on_ready():
 	stretch = 1000
 	squish = 1000
 	
-	charge_max = 3
+	charge_max = 600
 	#charge_max = 300
 	update_move_speed(move_speed, speed_damp)
 

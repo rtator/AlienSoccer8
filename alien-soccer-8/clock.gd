@@ -50,8 +50,7 @@ func _ability_cooldown(delta):
 		ball_slowed = false
 		ball.ball_speed = ball_speed
 		ball.speed_add = 10
-		cooldown = 300
-		
+		cooldown = 400
 	if ult_dur > 0:
 		ult_dur -= 1 * delta
 	elif all_slowed:
@@ -75,6 +74,6 @@ func on_ready():
 	squish *= 1.5
 	stretch *= 1.5
 	
-	charge_max = 500
+	charge_max = 700
 	
 	update_move_speed(move_speed * 0.8, speed_damp)

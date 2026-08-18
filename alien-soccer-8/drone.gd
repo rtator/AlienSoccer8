@@ -5,6 +5,8 @@ var ball
 var life = 3
 var dir = 1
 
+var death_load = preload("res://drone_die.tscn")
+
 func _ready():
 	linear_velocity.y = 300
 
@@ -14,6 +16,10 @@ func _physics_process(delta):
 	
 	if life <= 0:
 		queue_free()
+		var deadvfx = death_load.instantiate()
+		deadvfx.position = position
+		deadvfx.emitting = true 
+		add_sibling(deadvfx)
 
 func _on_body_entered(body):
 	if body == ball:
@@ -23,3 +29,7 @@ func _on_body_entered(body):
 		%sprite.flip_v = not %sprite.flip_v
 		dir *= -1
 		linear_velocity.y = dir * 300
+
+
+func _on_timer_timeout():
+	life = -5

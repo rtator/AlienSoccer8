@@ -10,6 +10,7 @@ var ult = false
 var duration = 400
 
 func _ready():
+	add_collision_exception_with(user.ball)
 	if ult:
 		duration = 500
 		%tint.visible = true
