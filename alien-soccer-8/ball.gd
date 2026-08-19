@@ -14,12 +14,19 @@ var score_fx_load = preload("res://scorefx.tscn")
 
 var speed_add = 10
 
+var side = 0
+
 func _physics_process(delta):
 	linear_velocity = linear_velocity.normalized() * (ball_speed + temp_speed)
 	ball_speed += delta
 	if reseting:
 		print(%AnimatedSprite2D.global_position)
 		position = new_pos
+		if position.x > 576:
+			side = 1
+		else:
+			side = 0
+		%Timer.start()
 		reseting = false
 
 func set_ball_scale(new_scale):
@@ -56,3 +63,11 @@ func _on_body_entered(body):
 		ball_speed = ball_base_speed
 	else:
 		effect_spawn()
+
+
+func _on_timer_timeout():
+	var vel_x = randf_range(0.1, 1)
+	var vel_y = randf_range(-1, 1)
+	if side == 1:
+		vel_x *= -1
+	linear_velocity = Vector2(vel_x, vel_y)

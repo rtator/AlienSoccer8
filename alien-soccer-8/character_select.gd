@@ -139,16 +139,16 @@ func _unhandled_input(event):
 			elif event.is_action("p1_left"):
 				p1_selected_button -= 1
 			elif event.is_action("p1_up"):
-				if ceil((p1_selected_button + 1) / 6) == 2:
-					p1_selected_button -= 5
-				else:
-					p1_selected_button -= 6
+				#if ceil((p1_selected_button + 1) / 6) == 2:
+					#p1_selected_button -= 5
+				#else:
+				p1_selected_button -= 6
 				p1_selected_button = clamp(p1_selected_button, 0, len(alien_buttons) - 1)
 			elif event.is_action("p1_down"):
-				if ceil(p1_selected_button / 6) == 1 and p1_selected_button != 6:
-					p1_selected_button += 5
-				else:
-					p1_selected_button += 6
+				#if ceil(p1_selected_button / 6) == 1 and p1_selected_button != 6:
+					#p1_selected_button += 5
+				#else:
+				p1_selected_button += 6
 				p1_selected_button = clamp(p1_selected_button, 0, len(alien_buttons) - 1)
 			elif event.is_action("p1_ability"):
 				p1Selected = true
@@ -163,16 +163,16 @@ func _unhandled_input(event):
 			elif event.is_action("p2_left"):
 				p2_selected_button -= 1
 			elif event.is_action("p2_up"):
-				if ceil((p2_selected_button + 1) / 6) == 2:
-					p2_selected_button -= 5
-				else:
-					p2_selected_button -= 6
+				#if ceil((p2_selected_button + 1) / 6) == 2:
+					#p2_selected_button -= 5
+				#else:
+				p2_selected_button -= 6
 				p2_selected_button = clamp(p2_selected_button, 0, len(alien_buttons) - 1)
 			elif event.is_action("p2_down"):
-				if ceil(p2_selected_button / 6) == 1 and p2_selected_button != 6:
-					p2_selected_button += 5
-				else:
-					p2_selected_button += 6
+				#if ceil(p2_selected_button / 6) == 1 and p2_selected_button != 6:
+					#p2_selected_button += 5
+				#else:
+				p2_selected_button += 6
 				p2_selected_button = clamp(p2_selected_button, 0, len(alien_buttons) - 1)
 			elif event.is_action("p2_ability"):
 				p2Selected = true

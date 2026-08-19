@@ -16,8 +16,8 @@ var down_arrow
 
 func _ability():
 	if not balls_out and not ult_balls_out and cooldown <= 0:
-		cannons.fire()
-		balls_out = true
+		cannons.fire(false, opponent.position)
+		balls_out = true 
 
 func _ultimate():
 	if not balls_out and not ult_balls_out and charge >= charge_max:

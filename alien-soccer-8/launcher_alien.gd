@@ -49,7 +49,7 @@ func _ability_cooldown(delta):
 		if big_shot.delete:
 			big_shot.queue_free()
 			if opp_slowed_big:
-				ult_dur = 75
+				ult_dur = 120
 			big_shotting = false
 	elif ult_dur > 0:
 		ult_dur -= 1
@@ -63,7 +63,7 @@ func _ability_cooldown(delta):
 		if (bullet.delete):
 			bullet.queue_free()
 			if opp_slowed:
-				duration = 75
+				duration = 120
 			else:
 				cooldown = 200 
 			shooting = false
@@ -80,7 +80,7 @@ func _ability_cooldown(delta):
 
 func on_ready():
 	#physics_material_override.friction = 0.1
-	
+	 
 	base_scale = 0.9
 	
 	if skin != 0:

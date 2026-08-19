@@ -15,7 +15,7 @@ func _physics_process(delta):
 func _on_body_entered(body):
 	if body != shooter:
 		delete = true
-		if body.has_method("update_move_speed"):
+		if body.has_method("update_move_speed") and not shooter.opp_slowed and not shooter.opp_slowed_big:
 			print("hit")
 			delete = true
 			body.update_move_speed(body.move_speed / 4)

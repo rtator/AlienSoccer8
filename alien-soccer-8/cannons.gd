@@ -12,8 +12,8 @@ var cannonball_load = preload("res://cannonball.tscn")
 var opp_pos : Vector2
 
 func fire(ult = false, target = Vector2(0,0)):
-	if not ult:
-		target = Vector2(576, randf_range(30, 618))
+	#if not ult:
+		#target = Vector2(576, randf_range(30, 618))
 	
 	var fire_vec1 = (target - cannon_1.global_position).normalized()
 	var fire_vec2 = (target - cannon_2.global_position).normalized()
