@@ -52,6 +52,8 @@ func effect_spawn(score = false):
 		camera.shake(GlobalSave.screenShake)
 
 func _on_body_entered(body):
+	%Timer.stop()
+	
 	ball_speed += speed_add
 	temp_speed = 0
 	#print(ball_speed)

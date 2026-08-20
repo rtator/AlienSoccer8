@@ -1,7 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://onq7tpusmoep"]
+[gd_scene format=3 uid="uid://onq7tpusmoep"]
 
 [ext_resource type="PackedScene" uid="uid://bmr8vq1g5v5p3" path="res://alien_info_buttons.tscn" id="1_1smjf"]
-[ext_resource type="Texture2D" uid="uid://utme0k1xjpqp" path="res://as8_sprites_png/pirate.png" id="2_5t70p"]
+[ext_resource type="Texture2D" uid="uid://byw86dnujr2ih" path="res://as8_sprites_png/pirate.png" id="2_5t70p"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1smjf"]
+font_size = 18
+font_color = Color(0.796078, 0.796078, 0.345098, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_goo81"]
 line_spacing = 0.0
@@ -18,7 +22,7 @@ font_color = Color(0.424601, 0.423626, 0.139985, 1)
 font_size = 13
 font_color = Color(0.796078, 0.796078, 0.345098, 1)
 
-[node name="pirateAlienInfo" type="Control"]
+[node name="pirateAlienInfo" type="Control" unique_id=1244608782]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,10 +30,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="baseAlienInfo" parent="." instance=ExtResource("1_1smjf")]
+[node name="baseAlienInfo" parent="." unique_id=1877440477 instance=ExtResource("1_1smjf")]
 layout_mode = 1
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=314521169]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -42,7 +46,20 @@ offset_right = 576.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+[node name="Label4" type="Label" parent="Control" unique_id=1525648776]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -96.0
+offset_bottom = 84.0
+grow_horizontal = 0
+text = "Speed = 1
+Friction = 1
+Size = 1"
+label_settings = SubResource("LabelSettings_1smjf")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=1240580839]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -53,11 +70,11 @@ offset_bottom = 200.0
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="Control" type="Control" parent="Control/HBoxContainer"]
+[node name="Control" type="Control" parent="Control/HBoxContainer" unique_id=1842825860]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control"]
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control" unique_id=35909149]
 custom_minimum_size = Vector2(400, 400)
 layout_mode = 1
 anchors_preset = 4
@@ -72,17 +89,17 @@ texture = ExtResource("2_5t70p")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer" unique_id=862895324]
 custom_minimum_size = Vector2(752, 400)
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer" unique_id=885969394]
 custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Control"]
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Control" unique_id=1050932571]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -99,13 +116,13 @@ label_settings = SubResource("LabelSettings_goo81")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=1299258637]
 layout_mode = 2
-text = "no skill, no problem"
+text = "X marks the spot"
 label_settings = SubResource("LabelSettings_y3372")
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=169909353]
 layout_mode = 2
 text = "A sluggish, ranged offensive alien with cannons in the corner of its side to send the enemy reeling from its attacks. Pirate has the same slowing balls that Trickster had in Alien Soccer 4, but with high burst potential and the longest cooldowns of any alien in-game. 
 
@@ -121,20 +138,3 @@ Pirate fires 2 cannonballs from each corner of its side of the field (4 cannonba
 "
 label_settings = SubResource("LabelSettings_t1yno")
 autowrap_mode = 2
-
-[node name="Label4" type="Label" parent="Control/HBoxContainer/VBoxContainer/Label2"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -96.0
-offset_top = -148.0
-offset_bottom = -64.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "Speed = 1
-Friction = 1
-Size = 1"
-label_settings = SubResource("LabelSettings_t1yno")

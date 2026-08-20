@@ -1,7 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b34cm7lgw41r6"]
+[gd_scene format=3 uid="uid://b34cm7lgw41r6"]
 
 [ext_resource type="PackedScene" uid="uid://bmr8vq1g5v5p3" path="res://alien_info_buttons.tscn" id="1_8lhjx"]
-[ext_resource type="Texture2D" uid="uid://r7itoo3ld2gq" path="res://as8_sprites_png/twin_both.png" id="2_dgdbi"]
+[ext_resource type="Texture2D" uid="uid://ddlte3ropep0n" path="res://as8_sprites_png/twin_both.png" id="2_dgdbi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p32oa"]
+font_size = 18
+font_color = Color(1, 0.4, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_dismq"]
 line_spacing = 0.0
@@ -17,11 +21,7 @@ font_color = Color(1, 0.4, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_o5i3p"]
 font_color = Color(0.427451, 0.619608, 0.921569, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_p32oa"]
-font_size = 18
-font_color = Color(1, 0.4, 0, 1)
-
-[node name="twinsAlienInfo" type="Control"]
+[node name="twinsAlienInfo" type="Control" unique_id=1833305635]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,10 +29,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="baseAlienInfo" parent="." instance=ExtResource("1_8lhjx")]
+[node name="baseAlienInfo" parent="." unique_id=1217988733 instance=ExtResource("1_8lhjx")]
 layout_mode = 1
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=1777485205]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -45,7 +45,20 @@ offset_right = 576.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+[node name="Label4" type="Label" parent="Control" unique_id=577667942]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -109.0
+offset_bottom = 84.0
+grow_horizontal = 0
+text = "Speed = 1
+Friction = 1
+Size = 0.5 x 2"
+label_settings = SubResource("LabelSettings_p32oa")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=793322219]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -56,11 +69,11 @@ offset_bottom = 200.0
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="Control" type="Control" parent="Control/HBoxContainer"]
+[node name="Control" type="Control" parent="Control/HBoxContainer" unique_id=1662913067]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control"]
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control" unique_id=515948790]
 custom_minimum_size = Vector2(400, 400)
 layout_mode = 1
 anchors_preset = 4
@@ -75,17 +88,17 @@ texture = ExtResource("2_dgdbi")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer" unique_id=1803188179]
 custom_minimum_size = Vector2(752, 400)
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer" unique_id=2031994179]
 custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Control"]
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Control" unique_id=1911824757]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -102,42 +115,24 @@ label_settings = SubResource("LabelSettings_dismq")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=473612641]
 layout_mode = 2
 text = "two-in-one package"
 label_settings = SubResource("LabelSettings_6opc6")
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=2126246036]
 layout_mode = 2
-text = "The Twins are two shorter than average aliens with the unique defense strategy of splitting in half or snapping back together, keeping control over the field. Additionally, the Twins can juggle the ball around the field, taking it from one side to the next using their ultimate.
+text = "The Twins are two shorter than average aliens with the unique defense strategy of splitting in half or snapping back together, keeping control over the field. Additionally, the Twins have two ultimates depending on what mode they're in, giving them a wide range of options in their kit.
 
 Default - Snap / Split
 Cooldown: 100
 Duration: ∞
 The Twins snap together or split in half depending on which mode they are currently in.
 
-Ultimate - Twin Tactics
-Charge: 300
-Duration: 500
-For a few seconds, if the ball hits one of the Twins, it keeps its momentum and fires out from the other Twin instead.
-"
+Ultimate - XBlast / Dual Barrier
+Charge: 600
+Duration: ∞ / 200
+If snapped together, the Twins instantly split apart and fire a shot forwards that pushes the opponent backwards. If split apart, the Twins form a reflective barrier between them that shoots the ball forwards when hit. "
 label_settings = SubResource("LabelSettings_o5i3p")
 autowrap_mode = 2
-
-[node name="Label4" type="Label" parent="Control/HBoxContainer/VBoxContainer/Label2"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -109.0
-offset_top = -169.0
-offset_bottom = -85.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "Speed = 1
-Friction = 1
-Size = 0.5 x 2"
-label_settings = SubResource("LabelSettings_p32oa")

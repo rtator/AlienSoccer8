@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8ppbkeo0ocx8"]
+[gd_scene format=3 uid="uid://c8ppbkeo0ocx8"]
 
 [ext_resource type="PackedScene" uid="uid://bmr8vq1g5v5p3" path="res://alien_info_buttons.tscn" id="1_8gyf8"]
-[ext_resource type="Texture2D" uid="uid://boyid07gy8tc7" path="res://as8_sprites_png/launcher.png" id="2_nene5"]
+[ext_resource type="Texture2D" uid="uid://7scjrlv7iua" path="res://as8_sprites_png/launcher.png" id="2_nene5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lkke2"]
 line_spacing = 0.0
@@ -21,7 +21,7 @@ font_color = Color(0.556863, 0.486275, 0.764706, 1)
 font_size = 18
 font_color = Color(0.556863, 0.486275, 0.764706, 1)
 
-[node name="launcherAlienInfo" type="Control"]
+[node name="launcherAlienInfo" type="Control" unique_id=1620112020]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,10 +29,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="baseAlienInfo" parent="." instance=ExtResource("1_8gyf8")]
+[node name="baseAlienInfo" parent="." unique_id=274392774 instance=ExtResource("1_8gyf8")]
 layout_mode = 1
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=118029556]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -45,7 +45,7 @@ offset_right = 576.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=1007862559]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -56,11 +56,11 @@ offset_bottom = 200.0
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="Control" type="Control" parent="Control/HBoxContainer"]
+[node name="Control" type="Control" parent="Control/HBoxContainer" unique_id=749646378]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control"]
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control" unique_id=1948728961]
 custom_minimum_size = Vector2(400, 400)
 layout_mode = 1
 anchors_preset = 4
@@ -75,17 +75,17 @@ texture = ExtResource("2_nene5")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer" unique_id=849451405]
 custom_minimum_size = Vector2(752, 400)
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer" unique_id=1275335165]
 custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Control"]
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Control" unique_id=1113528346]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -102,40 +102,37 @@ label_settings = SubResource("LabelSettings_lkke2")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=1474757329]
 layout_mode = 2
 text = "practice your second amendment rights "
 label_settings = SubResource("LabelSettings_r6erp")
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=203318381]
 layout_mode = 2
 text = "Launcher is a simple example of an \"offensive alien\", meeting all the marks. It can fire lasers forwards that will either stun the opponent, slowing them down for a brief moment, or hit the ball, pushing it backwards. As a tradeoff, Launcher is slower than average, and might struggle with defending the goal if the ball were to ever reach its side of the field. 
 
 Default - Laser Shot
-Cooldown: 100
+Cooldown: 200
 Duration: 60
 Launcher fires a laser forwards, stunning the opponent or pushing the ball.
 
 Ultimate - Charge Shot
-Charge: 300
+Charge: 500
 Duration: 60
 Launcher fires a huge bullet forwards, slowing the opponent and pushing the ball.
 "
 label_settings = SubResource("LabelSettings_h4va3")
 autowrap_mode = 2
 
-[node name="Label4" type="Label" parent="Control/HBoxContainer/VBoxContainer/Label2"]
+[node name="Label4" type="Label" parent="Control" unique_id=1883725725]
 layout_mode = 1
-anchors_preset = 3
+anchors_preset = 1
 anchor_left = 1.0
-anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -96.0
-offset_top = -84.0
+offset_left = -99.0
+offset_bottom = 84.0
 grow_horizontal = 0
-grow_vertical = 0
 text = "Speed = 0.9
 Friction = 1
 Size = 0.9"

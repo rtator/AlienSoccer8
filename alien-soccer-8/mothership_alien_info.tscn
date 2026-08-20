@@ -54,9 +54,9 @@ anchor_right = 1.0
 offset_left = -96.0
 offset_bottom = 84.0
 grow_horizontal = 0
-text = "Speed = 1
+text = "Speed = 0.5
 Friction = 1
-Size = 1"
+Size = 0.6"
 label_settings = SubResource("LabelSettings_nv12w")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=917881946]
@@ -75,13 +75,13 @@ custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control" unique_id=1366090467]
-custom_minimum_size = Vector2(400, 400)
+custom_minimum_size = Vector2(380, 400)
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_top = -200.0
-offset_right = 400.0
+offset_right = 380.0
 offset_bottom = 200.0
 grow_vertical = 2
 size_flags_horizontal = 0
@@ -134,6 +134,6 @@ If Mothership is touching the deposit, it fills up its ult meter by 5. This can 
 Ultimate - Deploy
 Meter: 150
 Duration: ∞
-Mothership deploys a small drone that moves up and down the screen and can hit the ball 3 times before breaking."
+Mothership deploys a small drone that moves up and down the screen and breaks after 1 minute or hitting the ball 3 times."
 label_settings = SubResource("LabelSettings_htjv7")
 autowrap_mode = 2

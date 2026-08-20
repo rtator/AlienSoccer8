@@ -19,7 +19,7 @@ var arrows_load = preload("res://scaler_arrows.tscn")
 var arrows
 
 func _ability():
-	if cooldown <= 0 and duration <= 0 and charge >= charge_max and not grown:
+	if cooldown <= 0 and duration <= 0 and ult_dur <= 0 and not grown:
 		#charges += 1
 		update_move_speed(move_speed * slow_mult)
 		update_scale(original_size * small_growth_mult)
@@ -32,6 +32,7 @@ func _ultimate():
 		grown = true
 		ult_dur = ult_length
 		camera.shake(15)
+		charge = 0
 		charges = 0
 
 func _ability_cooldown(delta):

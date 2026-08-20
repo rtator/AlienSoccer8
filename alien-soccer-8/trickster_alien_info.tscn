@@ -61,13 +61,13 @@ custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control" unique_id=2055379288]
-custom_minimum_size = Vector2(400, 400)
+custom_minimum_size = Vector2(380, 400)
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_top = -200.0
-offset_right = 400.0
+offset_right = 380.0
 offset_bottom = 200.0
 grow_vertical = 2
 size_flags_horizontal = 0
@@ -114,12 +114,12 @@ text = "Trickster is a very strong alien offensively and a rather fragile alien 
 
 Default - Banana Peel
 Cooldown: 400
-Duration: 450
+Duration: 160
 Trickster launches a banana peel forwards onto the opponent's field.
 
 Ultimate - Banana Shotgun
 Charge: 600
-Duration: 450
+Duration: 160
 Trickster throws three banana peels in different directions onto the opponent's field.
 "
 label_settings = SubResource("LabelSettings_qvgve")

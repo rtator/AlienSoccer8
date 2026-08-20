@@ -123,17 +123,17 @@ horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=1330867789]
 layout_mode = 2
-text = "Scaler is the tank of the game, being one of if not the slowest alien to hit the field. Don't let that fool you, though, because Scaler is one of the best defensive options available. It's naturally larger, and has two defensive abilities that both greatly increase Scaler's chances of returning the ball, either by making the ball or itself larger. 
+text = "Scaler is the tank of the game, being one of if not the slowest alien to hit the field. Don't let that fool you, though, because Scaler is one of the best defensive options available. It's naturally larger and has two size-increasing abilities.. By using its default, Scaler can fill up a meter that makes the ultimate's size buff increase depending on how filled it is!
 
-Default - Enlarge
-Cooldown: 200
-Duration: 200
-Scaler makes the ball expand in size temporarily.
+Default - Collision Fuel
+Cooldown: 300
+Duration: 50
+Scaler expands in size and slows down temporarily. If it makes contact with the ball, adds +1 to ULT Meter.
 
 Ultimate - Bulking Phase
-Charge: 600
+Charge: 400
 Duration: 300
-Scaler grows enormously and slowly shrinks back down to normal after.
+Scaler has a meter that caps out at 4 charges. Depending on how many charges there are, Scaler will grow in size and then slowly return to normal.
 "
 label_settings = SubResource("LabelSettings_l5h64")
 autowrap_mode = 2

@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cx7elg8l8s2ql"]
+[gd_scene format=3 uid="uid://cx7elg8l8s2ql"]
 
 [ext_resource type="PackedScene" uid="uid://bmr8vq1g5v5p3" path="res://alien_info_buttons.tscn" id="1_fy708"]
-[ext_resource type="Texture2D" uid="uid://dsf4nbpunupkc" path="res://as8_sprites_png/cloaker.png" id="2_yhvt8"]
+[ext_resource type="Texture2D" uid="uid://cor4l4c6manrn" path="res://as8_sprites_png/cloaker.png" id="2_yhvt8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fo68x"]
 line_spacing = 0.0
@@ -22,7 +22,7 @@ font_color = Color(0.513726, 0.576471, 0.501961, 1)
 font_size = 18
 font_color = Color(0.513726, 0.576471, 0.501961, 1)
 
-[node name="cloakerAlienInfo" type="Control"]
+[node name="cloakerAlienInfo" type="Control" unique_id=1281683089]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,10 +30,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="baseAlienInfo" parent="." instance=ExtResource("1_fy708")]
+[node name="baseAlienInfo" parent="." unique_id=2070153117 instance=ExtResource("1_fy708")]
 layout_mode = 1
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=271763656]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -46,7 +46,7 @@ offset_right = 576.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=1479707688]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -57,11 +57,11 @@ offset_bottom = 200.0
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="Control" type="Control" parent="Control/HBoxContainer"]
+[node name="Control" type="Control" parent="Control/HBoxContainer" unique_id=1557556061]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control"]
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control" unique_id=1790723357]
 custom_minimum_size = Vector2(400, 400)
 layout_mode = 1
 anchors_preset = 4
@@ -76,17 +76,17 @@ texture = ExtResource("2_yhvt8")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer" unique_id=1025571653]
 custom_minimum_size = Vector2(752, 400)
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer" unique_id=1126035466]
 custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Control"]
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Control" unique_id=736453365]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -103,13 +103,13 @@ label_settings = SubResource("LabelSettings_fo68x")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=711918196]
 layout_mode = 2
 text = "does this count as ragebait"
 label_settings = SubResource("LabelSettings_rll4r")
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=1647029341]
 layout_mode = 2
 text = "Cloaker is similar to Trickster and Flashbang from AS4, a visual manipulator that can throw smoke grenades to cover the opponent's side and stats. To fit a diversity quota, it is also larger and slower.
 
@@ -126,18 +126,14 @@ Cloaker tosses a large smoke grenade forwards that explodes on contact or after 
 label_settings = SubResource("LabelSettings_5ok6k")
 autowrap_mode = 2
 
-[node name="Label4" type="Label" parent="Control/HBoxContainer/VBoxContainer/Label2"]
+[node name="Label4" type="Label" parent="Control" unique_id=840220718]
 layout_mode = 1
-anchors_preset = 3
+anchors_preset = 1
 anchor_left = 1.0
-anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -96.0
-offset_top = -169.0
-offset_bottom = -85.0
+offset_left = -99.0
+offset_bottom = 84.0
 grow_horizontal = 0
-grow_vertical = 0
 text = "Speed = 0.8
 Friction = 1
 Size = 1.2"

@@ -18,7 +18,7 @@ font_size = 30
 font_color = Color(0.229614, 0.562408, 1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_lkr61"]
-font_size = 18
+font_size = 15
 font_color = Color(0.427451, 0.619608, 0.921569, 1)
 
 [node name="basicAlienInfo" type="Control" unique_id=1762595133]
@@ -123,14 +123,17 @@ horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=13146904]
 layout_mode = 2
-text = "Basic is the premiere starting alien, lacking a default ability but becoming much easier to play and master. This makes Basic a perfect middle ground, with decent stats all around. It also makes Basic exceptional at performing various techs or tricks because of its lack of jank hitboxes or inconsistent factors. As a bonus, Basic also has a simple and easy to use ultimate ability.
+text = "Basic is the premiere starting alien, lacking versatile abilities but becoming much easier to play and master. This makes Basic a perfect middle ground, with decent stats all around. It also makes Basic exceptional at performing various techs or tricks because of its lack of jank hitboxes or inconsistent factors. While it might not have the strongest abilities, it dominates in any normal matchup.
 
-Default - N/A
+Default - Pulse
+Charge: 300
+Duration: 12
+Basic releases a small shockwave (around the same size as Scaler's normal hitbox) that can knock the ball back at a temporarily faster speed than usual.
 
-Ultimate - Boost
-Charge: 500
-Duration: 200
-Basic gets 30% larger and 50% faster.
+Ultimate - Plasma Shield
+Charge: 600
+Duration: Whenever Hit (∞), then 200
+Basic generates a shield of plasma around it that shatters after being hit by the ball. This shield gives Basic a 50% speed buff for a bit upon shattering.
 "
 label_settings = SubResource("LabelSettings_lkr61")
 autowrap_mode = 2

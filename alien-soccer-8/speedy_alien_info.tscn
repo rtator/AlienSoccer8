@@ -19,6 +19,7 @@ font_size = 30
 font_color = Color(0.850908, 0.685917, 5.77569e-06, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_x55oy"]
+font_size = 17
 font_color = Color(1, 0.898039, 0.6, 1)
 
 [node name="speedyAlienInfo" type="Control" unique_id=469189139]
@@ -133,7 +134,7 @@ Speedy dashes forwards, hitting the ball along its dash if possible.
 Ultimate - Accelerated Motors
 Charge: 500
 Duration: 200
-Speedy gains a small speed boost and its friction is increased drastically, giving it much more control and power.
+Speedy's friction is increased drastically, giving it much more control and power.
 "
 label_settings = SubResource("LabelSettings_x55oy")
 autowrap_mode = 2

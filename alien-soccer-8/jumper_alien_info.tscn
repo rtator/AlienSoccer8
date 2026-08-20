@@ -75,18 +75,17 @@ custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control" unique_id=664750947]
-custom_minimum_size = Vector2(400, 400)
+custom_minimum_size = Vector2(380, 400)
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_top = -200.0
-offset_right = 400.0
+offset_right = 350.0
 offset_bottom = 200.0
 grow_vertical = 2
 size_flags_horizontal = 0
 texture = ExtResource("2_yi5q3")
-expand_mode = 1
 stretch_mode = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer" unique_id=1475054386]

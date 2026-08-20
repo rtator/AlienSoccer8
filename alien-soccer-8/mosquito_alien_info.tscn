@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://t5fnjvvm73f0"]
+[gd_scene format=3 uid="uid://t5fnjvvm73f0"]
 
 [ext_resource type="PackedScene" uid="uid://bmr8vq1g5v5p3" path="res://alien_info_buttons.tscn" id="1_ne4li"]
-[ext_resource type="Texture2D" uid="uid://cd72i3j4o355c" path="res://as8_sprites_png/mosquito.png" id="2_gxp4e"]
+[ext_resource type="Texture2D" uid="uid://b0g4ufvqlab2o" path="res://as8_sprites_png/mosquito.png" id="2_gxp4e"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_g38qu"]
 line_spacing = 0.0
@@ -22,7 +22,7 @@ font_color = Color(0.788235, 0.992157, 1, 1)
 font_size = 18
 font_color = Color(1, 0, 0, 1)
 
-[node name="mosquitoAlienInfo" type="Control"]
+[node name="mosquitoAlienInfo" type="Control" unique_id=542219601]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,10 +30,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="baseAlienInfo" parent="." instance=ExtResource("1_ne4li")]
+[node name="baseAlienInfo" parent="." unique_id=88229420 instance=ExtResource("1_ne4li")]
 layout_mode = 1
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=1621099858]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -46,7 +46,7 @@ offset_right = 576.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=1984026513]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -57,36 +57,40 @@ offset_bottom = 200.0
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="Control" type="Control" parent="Control/HBoxContainer"]
+[node name="Control" type="Control" parent="Control/HBoxContainer" unique_id=1508564424]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control"]
-custom_minimum_size = Vector2(400, 400)
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control" unique_id=1181317483]
+custom_minimum_size = Vector2(200, 400)
 layout_mode = 1
-anchors_preset = 4
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -100.0
 offset_top = -200.0
-offset_right = 400.0
+offset_right = 100.0
 offset_bottom = 200.0
+grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 texture = ExtResource("2_gxp4e")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer" unique_id=1232627858]
 custom_minimum_size = Vector2(752, 400)
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer" unique_id=35560360]
 custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Control"]
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Control" unique_id=295216816]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -103,13 +107,13 @@ label_settings = SubResource("LabelSettings_g38qu")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=17141451]
 layout_mode = 2
 text = "trickster's ragebaiting disciple"
 label_settings = SubResource("LabelSettings_dgev4")
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=1705950108]
 layout_mode = 2
 text = "A small, fast, annoying pest that launches projectile after projectile with the objective to make gameplay as unfun as possible. By speeding up the ball passively whenever it makes contact and increasing the ball's speed further using its abilities, Mosquito is one of the most disruptive aliens in the game.
 
@@ -126,18 +130,14 @@ Mosquito fires a huge swarm forwards, taking up a lot of the screen and scatteri
 label_settings = SubResource("LabelSettings_t015t")
 autowrap_mode = 2
 
-[node name="Label4" type="Label" parent="Control/HBoxContainer/VBoxContainer/Label2"]
+[node name="Label4" type="Label" parent="Control" unique_id=1036187338]
 layout_mode = 1
-anchors_preset = 3
+anchors_preset = 1
 anchor_left = 1.0
-anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
 offset_left = -99.0
-offset_top = -164.0
-offset_bottom = -80.0
+offset_bottom = 84.0
 grow_horizontal = 0
-grow_vertical = 0
 text = "Speed = 1.2
 Friction = 1
 Size = 0.3"

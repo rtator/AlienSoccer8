@@ -1,7 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://ccchitq5w5brd"]
+[gd_scene format=3 uid="uid://ccchitq5w5brd"]
 
 [ext_resource type="PackedScene" uid="uid://bmr8vq1g5v5p3" path="res://alien_info_buttons.tscn" id="1_1k374"]
-[ext_resource type="Texture2D" uid="uid://ui3muvxxr410" path="res://as8_sprites_png/clock.png" id="2_ou1mg"]
+[ext_resource type="Texture2D" uid="uid://p40n8jlluwup" path="res://as8_sprites_png/clock.png" id="2_ou1mg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5hgv1"]
+font_size = 18
+font_color = Color(0.517647, 0.701961, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ohw7s"]
 line_spacing = 0.0
@@ -18,11 +22,7 @@ font_color = Color(0.521569, 0.368627, 0.258824, 1)
 font_size = 17
 font_color = Color(0.517647, 0.701961, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_5hgv1"]
-font_size = 18
-font_color = Color(0.517647, 0.701961, 0, 1)
-
-[node name="clockAlienInfo" type="Control"]
+[node name="clockAlienInfo" type="Control" unique_id=375519722]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,10 +30,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="baseAlienInfo" parent="." instance=ExtResource("1_1k374")]
+[node name="baseAlienInfo" parent="." unique_id=968175071 instance=ExtResource("1_1k374")]
 layout_mode = 1
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=970073543]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -46,7 +46,20 @@ offset_right = 576.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+[node name="Label4" type="Label" parent="Control" unique_id=1776649398]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -99.0
+offset_bottom = 84.0
+grow_horizontal = 0
+text = "Speed = 0.8
+Friction = 1
+Size = 1"
+label_settings = SubResource("LabelSettings_5hgv1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=1383929797]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -57,11 +70,11 @@ offset_bottom = 200.0
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="Control" type="Control" parent="Control/HBoxContainer"]
+[node name="Control" type="Control" parent="Control/HBoxContainer" unique_id=895283169]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control"]
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control" unique_id=1658561821]
 custom_minimum_size = Vector2(400, 400)
 layout_mode = 1
 anchors_preset = 4
@@ -76,17 +89,17 @@ texture = ExtResource("2_ou1mg")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer" unique_id=1835105667]
 custom_minimum_size = Vector2(752, 400)
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer" unique_id=406132521]
 custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Control"]
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Control" unique_id=1118248029]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -103,13 +116,13 @@ label_settings = SubResource("LabelSettings_ohw7s")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=956318905]
 layout_mode = 2
 text = "stop right there criminal scum"
 label_settings = SubResource("LabelSettings_lsq8a")
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=396269349]
 layout_mode = 2
 text = "Clock is a slow, reliable alien that performs well in both offense and defense due to its ability. By slowing the ball and enemy down, Clock can set up mean ballsits or trickshots, speeding up the ball exponentially.
 
@@ -125,19 +138,3 @@ Clock slows down the enemy and the ball for a few seconds.
 "
 label_settings = SubResource("LabelSettings_6o8pd")
 autowrap_mode = 2
-
-[node name="Label4" type="Label" parent="Control/HBoxContainer/VBoxContainer/Label2"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -96.0
-offset_top = -84.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "Speed = 0.8
-Friction = 1
-Size = 1"
-label_settings = SubResource("LabelSettings_5hgv1")

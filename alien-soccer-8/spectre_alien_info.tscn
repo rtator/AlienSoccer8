@@ -58,13 +58,13 @@ custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control" unique_id=668151818]
-custom_minimum_size = Vector2(400, 400)
+custom_minimum_size = Vector2(380, 400)
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_top = -200.0
-offset_right = 400.0
+offset_right = 380.0
 offset_bottom = 200.0
 grow_vertical = 2
 size_flags_horizontal = 0
@@ -117,7 +117,7 @@ Spectre changes the direction of its scythe rotation, maintaining the same spin 
 Ultimate - Deathly Reap
 Charge: 500
 Duration: 200
-Spectre gains another scythe boosts it's spin speed and makes both sides immediately make the ball disappear.
+Spectre gains another scythe, boosts it's spin speed, and makes both sides immediately make the ball disappear.
 "
 label_settings = SubResource("LabelSettings_jkvo6")
 autowrap_mode = 2

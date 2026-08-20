@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dw84607whfmhc"]
+[gd_scene format=3 uid="uid://dw84607whfmhc"]
 
 [ext_resource type="PackedScene" uid="uid://bmr8vq1g5v5p3" path="res://alien_info_buttons.tscn" id="1_omwe7"]
-[ext_resource type="Texture2D" uid="uid://b7nwl08awofg1" path="res://as8_sprites_png/gambler.png" id="2_xeqbh"]
+[ext_resource type="Texture2D" uid="uid://dfsubiikoyqdq" path="res://as8_sprites_png/gambler.png" id="2_xeqbh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_67502"]
 line_spacing = 0.0
@@ -22,7 +22,7 @@ font_color = Color(0.6, 0.6, 0.6, 1)
 font_size = 18
 font_color = Color(0.6, 0.6, 0.6, 1)
 
-[node name="gamblerAlienInfo" type="Control"]
+[node name="gamblerAlienInfo" type="Control" unique_id=702163898]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,10 +30,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="baseAlienInfo" parent="." instance=ExtResource("1_omwe7")]
+[node name="baseAlienInfo" parent="." unique_id=2052564445 instance=ExtResource("1_omwe7")]
 layout_mode = 1
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=2030463206]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -46,7 +46,7 @@ offset_right = 576.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=512636794]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -57,18 +57,18 @@ offset_bottom = 200.0
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="Control" type="Control" parent="Control/HBoxContainer"]
+[node name="Control" type="Control" parent="Control/HBoxContainer" unique_id=454419604]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control"]
-custom_minimum_size = Vector2(400, 400)
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control" unique_id=937693485]
+custom_minimum_size = Vector2(380, 400)
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_top = -200.0
-offset_right = 400.0
+offset_right = 380.0
 offset_bottom = 200.0
 grow_vertical = 2
 size_flags_horizontal = 0
@@ -76,17 +76,17 @@ texture = ExtResource("2_xeqbh")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer" unique_id=1567444250]
 custom_minimum_size = Vector2(752, 400)
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer" unique_id=44236496]
 custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Control"]
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Control" unique_id=554106529]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -103,13 +103,13 @@ label_settings = SubResource("LabelSettings_67502")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=129672440]
 layout_mode = 2
 text = "let's go gambling!"
 label_settings = SubResource("LabelSettings_nbtpa")
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=2105819660]
 layout_mode = 2
 text = "Gambler is the luck-based alien of the roster, with performance depending on how lucky you get with your rolls. Spam those abilities and pray for the best!
 
@@ -126,18 +126,14 @@ Gambler bets all of its chips, removing its default cooldown for a short period 
 label_settings = SubResource("LabelSettings_3mb2x")
 autowrap_mode = 2
 
-[node name="Label4" type="Label" parent="Control/HBoxContainer/VBoxContainer/Label2"]
+[node name="Label4" type="Label" parent="Control" unique_id=1731274433]
 layout_mode = 1
-anchors_preset = 3
+anchors_preset = 1
 anchor_left = 1.0
-anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
 offset_left = -99.0
-offset_top = -133.0
-offset_bottom = -49.0
+offset_bottom = 84.0
 grow_horizontal = 0
-grow_vertical = 0
 text = "Speed = 0.9
 Friction = 1
 Size = 0.9"
