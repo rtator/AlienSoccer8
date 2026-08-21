@@ -58,6 +58,9 @@ func _ability_cooldown(delta):
 	if chain_dead:
 		chain_dead = false
 		bolt_out = false
+		
+		if not opp_pause_ult:
+			cooldown = max_cd
 	
 	if chain_hit:
 		chain_hit = false
@@ -75,9 +78,6 @@ func _ability_cooldown(delta):
 		opp_charge = opponent.charge
 		
 		opponent.modulate = Color(0.8,0.8,0.8)
-		
-		if not opp_pause_ult:
-			cooldown = max_cd
 	
 	
 	if opp_paused and opp_pause_length > 0:
