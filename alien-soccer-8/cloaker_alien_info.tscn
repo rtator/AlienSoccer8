@@ -134,7 +134,7 @@ anchor_right = 1.0
 offset_left = -99.0
 offset_bottom = 84.0
 grow_horizontal = 0
-text = "Speed = 0.8
+text = "Speed = 1
 Friction = 1
-Size = 1.2"
+Size = 1"
 label_settings = SubResource("LabelSettings_a0mg0")

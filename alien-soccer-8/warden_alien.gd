@@ -1,0 +1,119 @@
+extends alien
+
+var max_cd = 200
+var full_default_dur = 90
+var full_ult_dur = 200
+
+var opp_paused = false
+var opp_pause_length = 0
+var opp_pause_ult = false
+var opp_cd = 0
+var opp_charge = 0
+
+var chain_load = preload("res://chainbolt.tscn")
+var chainbolt
+var bolt_out = false
+var chain_hit = false
+var chain_dead = false
+
+var wall_load = preload("res://chain_wall.tscn")
+var wall
+var wall_out = false
+var wall_hit = false
+var wall_dead = false
+
+func _ability():
+	if cooldown <= 0 and duration <= 0 and not bolt_out and not wall_out:
+		opp_pause_ult = false
+		bolt_out = true
+		
+		chainbolt = chain_load.instantiate()
+		chainbolt.user = self
+		chainbolt.position = position
+		
+		if player == 1:
+			chainbolt.dir = 1
+		else:
+			chainbolt.dir = -1
+		
+		add_sibling(chainbolt)
+
+func _ultimate():
+	if charge >= charge_max and not wall_out:
+		wall_out = true
+		
+		wall = wall_load.instantiate()
+		wall.user = self
+		if player == 1:
+			wall.position = Vector2(864, 0)
+		else:
+			wall.position = Vector2(288, 0)
+		
+		add_sibling(wall)
+		
+		
+		charge = 0
+
+func _ability_cooldown(delta):
+	if chain_dead:
+		chain_dead = false
+		bolt_out = false
+	
+	if chain_hit:
+		chain_hit = false
+		opp_paused = true
+		
+		if opp_pause_ult:
+			opp_pause_length = 100
+		else:
+			opp_pause_length = 75
+		
+		opponent.cooldown += 5
+		opponent.charge -= 5
+		
+		opp_cd = opponent.cooldown
+		opp_charge = opponent.charge
+		
+		opponent.modulate = Color(0.8,0.8,0.8)
+		
+		if not opp_pause_ult:
+			cooldown = max_cd
+	
+	
+	if opp_paused and opp_pause_length > 0:
+		opp_pause_length -= 1
+		opponent.cooldown = opp_cd
+		opponent.charge = opp_charge
+	elif opp_paused:
+		opp_paused = false
+		opponent.modulate = Color(1,1,1)
+	
+	
+	if cooldown > 0:
+		cooldown -= 1 * delta
+	
+	if duration > 0:
+		duration -= 1 * delta
+	
+	if charge <= charge_max and not wall_out:
+		charge += delta
+
+func on_ready():
+	#ore = ore_load.instantiate()
+	#if player == 1:
+		#ore.position = Vector2(288, 324)
+	#else:
+		#ore.position = Vector2(864, 324)
+	#add_sibling(ore)
+	#print("z ",z_index)
+	#ore.z_index = -1
+		
+	
+	
+	#if skin != 0:
+		#%AnimatedSprite2D.animation = "default_" + str(skin)
+	base_scale = 1.15
+	
+	charge_max = 650
+	
+	update_move_speed(move_speed * 0.85, speed_damp)

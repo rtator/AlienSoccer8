@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://be80eqsskxwim"]
+
+[ext_resource type="Texture2D" uid="uid://dg2nowlsfw4li" path="res://chainbolt_big.png" id="1_aedji"]
+[ext_resource type="Script" uid="uid://40ypbeeg8b2f" path="res://chainbolt.gd" id="1_vi5bd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qgyb7"]
+size = Vector2(75, 13.25)
+
+[node name="chainbolt" type="Area2D" unique_id=961582628]
+script = ExtResource("1_vi5bd")
+
+[node name="ChainboltBig" type="Sprite2D" parent="." unique_id=1345920985]
+texture_filter = 1
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_aedji")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=371404255]
+shape = SubResource("RectangleShape2D_qgyb7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

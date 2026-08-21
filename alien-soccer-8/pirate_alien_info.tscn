@@ -54,9 +54,9 @@ anchor_right = 1.0
 offset_left = -96.0
 offset_bottom = 84.0
 grow_horizontal = 0
-text = "Speed = 1
-Friction = 1
-Size = 1"
+text = "Speed = 0.9
+Friction = 2
+Size = 1.1"
 label_settings = SubResource("LabelSettings_1smjf")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=1240580839]

@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://b30tno3ipuao3"]
+
+[ext_resource type="Script" uid="uid://cncuh5c2y7f0l" path="res://warden_alien.gd" id="1_yjck6"]
+[ext_resource type="Texture2D" uid="uid://cp1bs0i4vna1w" path="res://as8_sprites_png/warden.png" id="2_rhaon"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fy708"]
+friction = 0.5
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qgyb7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rhaon")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vt7g2"]
+radius = 32.0
+
+[node name="wardenAlien" type="RigidBody2D" unique_id=917583077]
+physics_material_override = SubResource("PhysicsMaterial_fy708")
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_yjck6")
+metadata/_custom_type_script = "uid://e41xdpe4oqa2"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=763880295]
+unique_name_in_owner = true
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_qgyb7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1657655872]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_vt7g2")

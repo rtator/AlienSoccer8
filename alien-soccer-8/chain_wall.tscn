@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://b5tn6jb6heka"]
+
+[ext_resource type="Script" uid="uid://bmh12li4j1bx0" path="res://chain_wall.gd" id="1_wju0h"]
+[ext_resource type="Texture2D" uid="uid://blwhpwadcwnmk" path="res://chainwall_big.png" id="2_mfn88"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qgyb7"]
+size = Vector2(31, 648)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wju0h"]
+size = Vector2(31.6, 648)
+
+[node name="chain_wall" type="StaticBody2D" unique_id=1901450054]
+collision_layer = 136
+collision_mask = 136
+script = ExtResource("1_wju0h")
+
+[node name="ChainwallBig" type="Sprite2D" parent="." unique_id=1189416042]
+texture_filter = 1
+position = Vector2(0, 167)
+scale = Vector2(1.12, 1.12)
+texture = ExtResource("2_mfn88")
+
+[node name="ChainwallBig2" type="Sprite2D" parent="." unique_id=2127703052]
+texture_filter = 1
+position = Vector2(0, 481.00006)
+scale = Vector2(1.12, 1.12)
+texture = ExtResource("2_mfn88")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1788883153]
+position = Vector2(0, 324)
+shape = SubResource("RectangleShape2D_qgyb7")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=613963836]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=653041003]
+position = Vector2(0, 324)
+shape = SubResource("RectangleShape2D_wju0h")
+
+[node name="Timer" type="Timer" parent="." unique_id=1263372900]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
