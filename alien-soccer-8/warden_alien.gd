@@ -44,10 +44,13 @@ func _ultimate():
 		
 		wall = wall_load.instantiate()
 		wall.user = self
+		wall.position = position
 		if player == 1:
-			wall.position = Vector2(864, 0)
+			wall.dir = 1
+			#wall.position = Vector2(864, 0)
 		else:
-			wall.position = Vector2(288, 0)
+			wall.dir = -1
+			#wall.position = Vector2(288, 0)
 		
 		add_sibling(wall)
 		

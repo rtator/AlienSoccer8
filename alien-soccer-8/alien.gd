@@ -1,9 +1,9 @@
 extends alien
 
 var ult_mode = false
-var speed_mult = 2
-var damp_mult = 1.5
-var size_mult = 1.7
+var speed_mult = 2.5
+var damp_mult = 1.7
+var size_mult = 1
 
 @onready var shockwave = %basic_shockwave
 @onready var shield_sprite = %shieldSprite
@@ -27,22 +27,7 @@ func _ability_cooldown(delta):
 	if charge < charge_max and not ult_mode and ult_dur <= 0:
 		charge += delta
 	
-	#if ult_dur > 190:
-		#ult_dur -= 1
-	#elif ult_dur > 180:
-		#ult_dur -= 1
-		#modulate = Color(1,1,1)
-	#elif ult_dur > 170:
-		#ult_dur -= 1
-		#modulate = Color(2,2,2)
-	#elif ult_dur > 160:
-		#ult_dur -= 1
-		#modulate = Color(1,1,1)
-	#elif ult_dur > 160:
-		#ult_dur -= 1
-		#modulate = Color(2,2,2)
 	if ult_dur > 1:
-		#modulate = Color(1,1,1)
 		ult_dur -= 1
 	elif ult_dur > 0:
 		modulate = Color(1,1,1)
@@ -88,6 +73,6 @@ func _on_body_entered(body):
 		hitbox.scale = Vector2(1,1)
 		ult_mode = false
 		shield_sprite.visible = false
-		ult_dur = 150
+		ult_dur = 100
 		modulate = Color(1.3,1.3,1.5)
 		update_move_speed(move_speed * speed_mult, speed_damp * damp_mult)

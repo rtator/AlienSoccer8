@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://l7q4hopvi05c"]
+
+[ext_resource type="Texture2D" uid="uid://btlmku5knq8al" path="res://ice_block.png" id="1_y218w"]
+
+[node name="IceBlockOverlay" type="Sprite2D" unique_id=397004314]
+modulate = Color(1, 1, 1, 0.38039216)
+self_modulate = Color(0.73333335, 1, 1, 1)
+texture_filter = 1
+scale = Vector2(1.1999999, 1.2)
+texture = ExtResource("1_y218w")

@@ -7,6 +7,9 @@ var bomb_speed = 1000
 
 var ult_bomb_out = false
 
+var cover_load = preload("res://cloaker_cover.tscn")
+var cover
+
 func _ability():
 	if cooldown <= 0 and not bomb_out:
 		bomb_out = true
@@ -17,6 +20,9 @@ func _ability():
 		bomb.position = position + throw_vec * 50
 		bomb.linear_velocity = throw_vec * bomb_speed
 		bomb.user = self
+		
+		bomb.z_index = opponent.z_index + 1
+		
 		add_sibling(bomb)
 
 
@@ -31,6 +37,9 @@ func _ultimate():
 		bomb.linear_velocity = throw_vec * bomb_speed
 		bomb.user = self
 		bomb.is_ult = true
+		
+		bomb.z_index = opponent.z_index + 1
+		
 		add_sibling(bomb)
 		charge = 0
 
@@ -48,6 +57,9 @@ func _ability_cooldown(delta):
 		print(cooldown)
 
 func on_ready():
+	cover = cover_load.instantiate()
+	add_sibling(cover)
+	
 	base_scale = 1
 	
 	charge_max = 600

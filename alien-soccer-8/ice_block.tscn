@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgt3pm6s6t52y"]
+[gd_scene format=3 uid="uid://cgt3pm6s6t52y"]
 
 [ext_resource type="Script" uid="uid://chrkrrw1cjjxa" path="res://ice_block.gd" id="1_2prkr"]
-[ext_resource type="Texture2D" uid="uid://76dlri2nimpj" path="res://Imported piskel (12).png" id="2_75cto"]
-[ext_resource type="Texture2D" uid="uid://bavctcfkrpnlc" path="res://AS8 skins/freezer/ice_block_2.png" id="3_75cto"]
+[ext_resource type="Texture2D" uid="uid://btlmku5knq8al" path="res://ice_block.png" id="2_75cto"]
+[ext_resource type="Texture2D" uid="uid://07jkqxije4vq" path="res://AS8 skins/freezer/ice_block_2.png" id="3_75cto"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_js4tf"]
 size = Vector2(50, 50)
@@ -13,7 +13,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_75cto")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -21,12 +21,12 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_75cto")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default_2",
 "speed": 5.0
 }]
 
-[node name="iceBlock" type="RigidBody2D"]
+[node name="iceBlock" type="RigidBody2D" unique_id=431107800]
 collision_layer = 2
 collision_mask = 2
 gravity_scale = 0.0
@@ -37,10 +37,10 @@ contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_2prkr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1316176099]
 shape = SubResource("RectangleShape2D_js4tf")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=271885502]
 unique_name_in_owner = true
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_js4tf")

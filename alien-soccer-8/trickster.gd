@@ -2,7 +2,7 @@ extends alien
 
 var banana_load = preload("res://banana.tscn")
 var banana
-var bullet_speed = 1000
+var bullet_speed = 500
 var opp_slipping = false
 var slip_timer = 0
 var ult_length = 300
@@ -66,7 +66,7 @@ func _ability_cooldown(delta):
 			camera.shake(1)
 	elif opp_slipping:
 		opp_slipping = false
-		opponent.update_move_speed(abs(opponent.move_speed))
+		opponent.update_move_speed(abs(opponent.move_speed * 2))
 
 func on_ready():
 	base_scale = 0.8

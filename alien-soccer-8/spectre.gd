@@ -65,7 +65,7 @@ func _ability_cooldown(delta):
 	if invis_timer > 50:
 		invis_timer -= delta
 		
-		spin_speed = 15 * spin_dir
+		#spin_speed = 15 * spin_dir
 		
 		var h = 60
 		var a =  ((invis_timer - h) / h) - 0.3
@@ -74,7 +74,7 @@ func _ability_cooldown(delta):
 	elif invis_timer > 0:
 		invis_timer -= delta
 		
-		spin_speed = 15 * spin_dir
+		#spin_speed = 15 * spin_dir
 		
 		var h = 60
 		var a = (1 - (invis_timer / h)) - 0.3
