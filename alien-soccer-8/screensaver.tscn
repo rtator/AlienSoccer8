@@ -56,5 +56,5 @@ script = ExtResource("3_4biwj")
 [node name="StaticBody2D5" type="StaticBody2D" parent="." unique_id=887391051]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5" unique_id=1655348223]
-position = Vector2(576, 324)
+position = Vector2(1416, 386)
 shape = SubResource("RectangleShape2D_4biwj")

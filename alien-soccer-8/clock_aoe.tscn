@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ddsfkukmi1li5"]
+
+[ext_resource type="Texture2D" uid="uid://c6m2o55vh16fq" path="res://clock_aoe.png" id="1_7ksnc"]
+[ext_resource type="Script" uid="uid://e10ul64ywf7" path="res://clock_aoe.gd" id="1_jb6dr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qgyb7"]
+radius = 150.0
+
+[node name="clock_aoe" type="Area2D" unique_id=1374281429]
+modulate = Color(1, 1, 1, 0)
+monitoring = false
+script = ExtResource("1_jb6dr")
+
+[node name="ClockAoe" type="Sprite2D" parent="." unique_id=1294491335]
+texture_filter = 1
+scale = Vector2(9, 9)
+texture = ExtResource("1_7ksnc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1417183173]
+shape = SubResource("CircleShape2D_qgyb7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

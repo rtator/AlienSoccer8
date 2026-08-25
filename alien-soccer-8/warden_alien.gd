@@ -1,6 +1,6 @@
 extends alien
 
-var max_cd = 200
+var max_cd = 400
 var full_default_dur = 90
 var full_ult_dur = 200
 
@@ -72,7 +72,7 @@ func _ability_cooldown(delta):
 		if opp_pause_ult:
 			opp_pause_length = 100
 		else:
-			opp_pause_length = 75
+			opp_pause_length = 150
 		
 		opponent.cooldown += 5
 		opponent.charge -= 5

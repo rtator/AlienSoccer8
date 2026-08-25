@@ -14,7 +14,11 @@ var ball_slow = 2.5
 var all_slow = 3
 
 func _ability():
-	if cooldown <= 0 and not ball_slowed and not all_slowed and duration <= 0:
+	if cooldown <= 0 and not ball_slowed and not all_slowed and duration <= 0 and not %clock_aoe.firing:
+		%clock_aoe.fire()
+		%clock_aoe.firing = true
+
+func hit_ball():
 		sprite.animation = "slowed"
 		if skin != 0:
 			%AnimatedSprite2D.animation = "slowed_" + str(skin)
@@ -51,6 +55,9 @@ func _ability_cooldown(delta):
 		ball.ball_speed = ball_speed
 		ball.speed_add = 10
 		cooldown = 400
+		%clock_aoe.firing = false
+	
+	
 	if ult_dur > 0:
 		ult_dur -= 1 * delta
 	elif all_slowed:
@@ -66,6 +73,8 @@ func _ability_cooldown(delta):
 		cooldown -= 1 * delta
 
 func on_ready():
+	%clock_aoe.user = self
+	
 	base_scale = 0.8
 	
 	if skin != 0:

@@ -58,7 +58,7 @@ func _on_body_entered(body):
 			elif ult and user.opp_slowed:
 				body.update_move_speed(body.move_speed / default_slow)
 				body.update_move_speed(body.move_speed * slow_amount)
-				user.opp_slowed = true
+				user.ult_slowed = true
 				user.slow_timer = slow_timer_add
 				user.opp_slowed = false
 			else:
