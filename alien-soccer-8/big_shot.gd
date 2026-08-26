@@ -7,10 +7,7 @@ var skin = 0
 
 
 func _physics_process(delta):
-	if shooter.ball.linear_velocity.length() == 0:
-		add_collision_exception_with(shooter.ball)
-	else:
-		remove_collision_exception_with(shooter.ball)
+	add_collision_exception_with(shooter.ball)
 
 func _on_body_entered(body):
 	if body != shooter:
@@ -18,7 +15,11 @@ func _on_body_entered(body):
 		if body.has_method("update_move_speed") and not shooter.opp_slowed and not shooter.opp_slowed_big:
 			print("hit")
 			delete = true
-			body.update_move_speed(body.move_speed / 4)
+			body.update_move_speed(body.move_speed / 10)
+			body.charge -= 200 
+			
+			body.charge = max(0, body.charge)
+			
 			shooter.opp_slowed_big = true
 	if "temp_speed" in body:
 		body.temp_speed = -100

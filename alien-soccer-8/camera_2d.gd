@@ -10,33 +10,34 @@ var won = false
 func shake(strength):
 	shake_amount = strength
 
-func _process(delta):
-	offset = get_shake_vec(shake_amount)
-	
-	shake_amount *= shake_fade
-	
-	if zoom.length() > Vector2(1,1).length():
-		if zoomed_left:
-			zoom.x -= 0.001
-			zoom.y -= 0.001
-			position.x += 1152*0.0005
-			if not won:
-				Engine.time_scale += 0.01
-		else:
-			zoom.x -= 0.001
-			zoom.y -= 0.001
-			position.x -= 1152*0.0005
-			if not won:
-				Engine.time_scale += 0.01
-	elif Engine.time_scale > 1:
-		Engine.time_scale = 1
-		print(Engine.time_scale)
-	elif won:
-		if %ColorRect.color.a > 1:
-			print("win")
-			get_tree().change_scene_to_file("res://winscreen.tscn")
-		else:
-			%ColorRect.color.a += 0.01
+func _physics_process(delta):
+	if Engine.time_scale > 0:
+		offset = get_shake_vec(shake_amount)
+		
+		shake_amount *= shake_fade
+		
+		if zoom.length() > Vector2(1,1).length():
+			if zoomed_left:
+				zoom.x -= 0.001
+				zoom.y -= 0.001
+				position.x += 1152*0.0005
+				if not won:
+					Engine.time_scale += 0.01
+			else:
+				zoom.x -= 0.001
+				zoom.y -= 0.001
+				position.x -= 1152*0.0005
+				if not won:
+					Engine.time_scale += 0.01
+		elif Engine.time_scale > 1:
+			Engine.time_scale = 1
+			print(Engine.time_scale)
+		elif won:
+			if %ColorRect.color.a > 1:
+				print("win")
+				get_tree().change_scene_to_file("res://winscreen.tscn")
+			else:
+				%ColorRect.color.a += 0.01
 
 func zoom_left():
 	zoomed_left = true

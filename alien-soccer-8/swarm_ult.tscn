@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cue2upmnkb7mw"]
+
+[ext_resource type="Script" uid="uid://bxcejrg43nk5x" path="res://swarm_ult.gd" id="1_pbnd4"]
+[ext_resource type="Texture2D" uid="uid://85ucr3qs7g2o" path="res://swarm.png" id="1_wdckj"]
+[ext_resource type="Texture2D" uid="uid://b0g4ufvqlab2o" path="res://as8_sprites_png/mosquito.png" id="3_j5e1a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qgyb7"]
+radius = 5.0
+
+[node name="swarm_ult" type="Node2D" unique_id=516579404]
+position = Vector2(511, 294)
+script = ExtResource("1_pbnd4")
+
+[node name="body" type="RigidBody2D" parent="." unique_id=2024860455]
+unique_name_in_owner = true
+position = Vector2(37, 80)
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="body" unique_id=175481979]
+shape = SubResource("CircleShape2D_qgyb7")
+
+[node name="Swarm" type="Sprite2D" parent="body" unique_id=1703286958]
+texture_filter = 1
+scale = Vector2(3.552155, 3.552155)
+texture = ExtResource("1_wdckj")
+
+[node name="Mosquito" type="Sprite2D" parent="." unique_id=533239705]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("3_j5e1a")

@@ -11,6 +11,11 @@ var opp_slowed = false
 var opp_slowed_big = false
 var ult_length = 300
 
+@onready var vfx = %big_shot_vfx
+
+var charging = false
+
+
 func _ability():
 	if cooldown <= 0 and duration <= 0 and not shooting:
 		bullet = bullet_load.instantiate()
@@ -24,24 +29,34 @@ func _ability():
 		bullet.skin = skin
 		get_parent().add_child(bullet)
 
+
 func _ultimate():
-	if ult_dur <= 0 and charge >= charge_max and not big_shotting:
-		big_shot = big_shot_load.instantiate()
-		charge = 0
-		if player == 1:
-			big_shot.scale.x = -1
-		var offsetX = 576 - position.x
-		var offsetVec = Vector2(offsetX, 0).normalized()
-		big_shot.position = position + (offsetVec * 50)
-		big_shot.linear_velocity = offsetVec * bullet_speed
-		big_shotting = true
-		big_shot.shooter = self
-		big_shot.skin = skin
-		get_parent().add_child(big_shot)
-		camera.shake(20)
+	if ult_dur <= 0 and charge >= charge_max and not big_shotting and not charging:
+		vfx.restart()
+		%AnimationPlayer.current_animation = "flash"
+		charging = true
+
+
+func shoot():
+	charging = false
+	
+	big_shot = big_shot_load.instantiate()
+	charge = 0
+	if player == 1:
+		big_shot.scale.x = -1
+	var offsetX = 576 - position.x
+	var offsetVec = Vector2(offsetX, 0).normalized()
+	big_shot.position = position + (offsetVec * 50)
+	big_shot.linear_velocity = offsetVec * bullet_speed
+	big_shotting = true
+	big_shot.shooter = self
+	big_shot.skin = skin
+	get_parent().add_child(big_shot)
+	camera.shake(20)
+
 
 func _ability_cooldown(delta):
-	if charge < charge_max and not big_shotting:
+	if charge < charge_max and not big_shotting and not charging:
 		charge += delta
 	
 	
@@ -55,8 +70,7 @@ func _ability_cooldown(delta):
 		ult_dur -= 1
 	elif opp_slowed_big:
 		opp_slowed_big = false
-		opponent.update_move_speed(opponent.move_speed * 4)
-		charge = 0
+		opponent.update_move_speed(opponent.move_speed * 10)
 	
 	
 	if shooting:
@@ -90,3 +104,6 @@ func on_ready():
 	charge_max = 500
 	
 	update_move_speed(move_speed * 0.85, speed_damp)
+
+func _on_animation_player_animation_finished(anim_name):
+	shoot()
