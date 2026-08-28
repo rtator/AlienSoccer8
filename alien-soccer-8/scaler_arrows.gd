@@ -9,10 +9,5 @@ func _ready():
 func _physics_process(delta):
 	user.charges = min(4, user.charges)
 	
-	for i in range(4):
-		arrows[i].visible = false
-	
-	for charge in range(user.charges):
-		arrows[charge].visible = true
-	
+	%AnimatedSprite2D.animation = str(user.charges)
 	

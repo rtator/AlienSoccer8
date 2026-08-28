@@ -15,4 +15,4 @@ var screenShake = 3
 
 var vfxEnabled = true
 
-var winMax = 30
+var winMax = 15

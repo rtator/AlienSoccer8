@@ -88,9 +88,9 @@ func on_ready():
 	arrows = arrows_load.instantiate()
 	arrows.user = self
 	if player == 1:
-		arrows.position = Vector2(288, 525)
+		arrows.position = Vector2(308, 520)
 	else:
-		arrows.position = Vector2(864, 525)
+		arrows.position = Vector2(834, 520)
 	add_sibling(arrows)
 	
 	base_scale = original_size

@@ -75,6 +75,8 @@ func _ready():
 	started = true
 	GlobalSave.p1Char = "basic"
 	GlobalSave.p2Char = "basic"
+	GlobalSave.p1IsBot = false
+	GlobalSave.p2IsBot = false
 	if p1_selected_button == p2_selected_button:
 		alien_buttons[p1_selected_button].add_theme_stylebox_override("normal", bothStyle)
 	else:
@@ -245,7 +247,6 @@ func _on_p_2_bot_pressed():
 	else:
 		GlobalSave.p2IsBot = true
 		%p2Bot.text = "Bot"
-
 
 func _on_back_button_pressed():
 	get_tree().change_scene_to_file("res://startScreen.tscn")

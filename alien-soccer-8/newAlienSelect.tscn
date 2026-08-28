@@ -4,6 +4,7 @@
 [ext_resource type="Theme" uid="uid://cerrqasbkbfyc" path="res://menu_screen_theme.tres" id="1_tj70t"]
 [ext_resource type="StyleBox" uid="uid://bhwb56kpdliu" path="res://buttonText.tres" id="2_tj70t"]
 [ext_resource type="Texture2D" uid="uid://br2hsa7xxgrei" path="res://as8_sprites_png/basic.png" id="3_78ltf"]
+[ext_resource type="Texture2D" uid="uid://o4ijamddtxcf" path="res://bent_arrow.png" id="4_eg3r7"]
 [ext_resource type="Texture2D" uid="uid://6ageq0ptq4y4" path="res://as8_sprites_png/speedy.png" id="4_m0xsj"]
 [ext_resource type="Texture2D" uid="uid://8asayyvoykoc" path="res://as8_sprites_png/scaler.png" id="5_eg3r7"]
 [ext_resource type="Texture2D" uid="uid://dny64miwbnadi" path="res://as8_sprites_png/jumper.png" id="6_4l77l"]
@@ -27,9 +28,98 @@
 font_size = 80
 font_color = Color(0.414146, 0.711646, 1, 1)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eg3r7"]
+load_path = "res://.godot/imported/as8buttons3.png-3b0c4725db56ac6e1279e6010eebecbe.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4l77l"]
+texture = SubResource("CompressedTexture2D_eg3r7")
+texture_margin_left = 21.0
+texture_margin_top = 21.0
+texture_margin_right = 21.0
+texture_margin_bottom = 21.0
+modulate_color = Color(0.21176471, 0.92156863, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w0itm"]
+texture = SubResource("CompressedTexture2D_eg3r7")
+texture_margin_left = 21.0
+texture_margin_top = 21.0
+texture_margin_right = 21.0
+texture_margin_bottom = 21.0
+modulate_color = Color(0.21176471, 0.92156863, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fgo3k"]
+texture = SubResource("CompressedTexture2D_eg3r7")
+texture_margin_left = 21.0
+texture_margin_top = 21.0
+texture_margin_right = 21.0
+texture_margin_bottom = 21.0
+modulate_color = Color(0.21176471, 0.92156863, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h73ow"]
+texture = SubResource("CompressedTexture2D_eg3r7")
+texture_margin_left = 21.0
+texture_margin_top = 21.0
+texture_margin_right = 21.0
+texture_margin_bottom = 21.0
+modulate_color = Color(0.21176471, 0.92156863, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_326gj"]
+texture = SubResource("CompressedTexture2D_eg3r7")
+texture_margin_left = 21.0
+texture_margin_top = 21.0
+texture_margin_right = 21.0
+texture_margin_bottom = 21.0
+modulate_color = Color(0.21176471, 0.92156863, 1, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ksvsa"]
+load_path = "res://.godot/imported/as8buttons3.png-3b0c4725db56ac6e1279e6010eebecbe.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0motc"]
+texture = SubResource("CompressedTexture2D_ksvsa")
+texture_margin_left = 21.0
+texture_margin_top = 21.0
+texture_margin_right = 21.0
+texture_margin_bottom = 21.0
+modulate_color = Color(1, 0.3019608, 0.29411766, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mdleo"]
+texture = SubResource("CompressedTexture2D_ksvsa")
+texture_margin_left = 21.0
+texture_margin_top = 21.0
+texture_margin_right = 21.0
+texture_margin_bottom = 21.0
+modulate_color = Color(1, 0.3019608, 0.29411766, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lpvob"]
+texture = SubResource("CompressedTexture2D_ksvsa")
+texture_margin_left = 21.0
+texture_margin_top = 21.0
+texture_margin_right = 21.0
+texture_margin_bottom = 21.0
+modulate_color = Color(1, 0.3019608, 0.29411766, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_68cxk"]
+texture = SubResource("CompressedTexture2D_ksvsa")
+texture_margin_left = 21.0
+texture_margin_top = 21.0
+texture_margin_right = 21.0
+texture_margin_bottom = 21.0
+modulate_color = Color(1, 0.3019608, 0.29411766, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ir1x8"]
+texture = SubResource("CompressedTexture2D_ksvsa")
+texture_margin_left = 21.0
+texture_margin_top = 21.0
+texture_margin_right = 21.0
+texture_margin_bottom = 21.0
+modulate_color = Color(1, 0.3019608, 0.29411766, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_kjjwk"]
 font_size = 50
 font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qgyb7"]
+font_color = Color(0.5529412, 1, 1, 1)
 
 [node name="Control" type="Control" unique_id=1402323646]
 layout_mode = 3
@@ -80,6 +170,11 @@ offset_right = 224.0
 offset_bottom = -1.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_4l77l")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_w0itm")
+theme_override_styles/hover = SubResource("StyleBoxTexture_fgo3k")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_h73ow")
+theme_override_styles/focus = SubResource("StyleBoxTexture_326gj")
 text = "Player"
 
 [node name="p2Bot" type="Button" parent="Control2" unique_id=591733210]
@@ -97,6 +192,11 @@ offset_bottom = -1.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_0motc")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mdleo")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lpvob")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_68cxk")
+theme_override_styles/focus = SubResource("StyleBoxTexture_ir1x8")
 text = "Player"
 
 [node name="Control" type="Control" parent="." unique_id=1490181190]
@@ -145,6 +245,17 @@ grow_vertical = 2
 text = "Selected"
 label_settings = SubResource("LabelSettings_kjjwk")
 
+[node name="Label2" type="Label" parent="Control/p1Rect" unique_id=36801273]
+custom_maximum_size = Vector2(101, 135)
+layout_mode = 1
+offset_left = -100.0
+offset_right = 1.0
+offset_bottom = 66.0
+text = "Move with 
+WASD. Select with E."
+label_settings = SubResource("LabelSettings_qgyb7")
+autowrap_mode = 2
+
 [node name="p2Rect" type="TextureRect" parent="Control" unique_id=1250898222]
 unique_name_in_owner = true
 layout_mode = 1
@@ -178,6 +289,40 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Selected"
 label_settings = SubResource("LabelSettings_kjjwk")
+
+[node name="Label3" type="Label" parent="Control/p2Rect" unique_id=450665195]
+custom_maximum_size = Vector2(101, 135)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_right = 101.0
+offset_bottom = 66.0
+grow_horizontal = 0
+text = "Move with IJKL. Select with O."
+label_settings = SubResource("LabelSettings_qgyb7")
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="Control/p2Rect" unique_id=287682580]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -44.0
+offset_top = 89.0
+offset_right = 99.0
+offset_bottom = 109.0
+grow_horizontal = 0
+text = "Click to Play a Bot!"
+label_settings = SubResource("LabelSettings_qgyb7")
+autowrap_mode = 2
+
+[node name="BentArrow" type="Sprite2D" parent="Control/p2Rect" unique_id=217096172]
+modulate = Color(0.22745098, 1, 1, 1)
+texture_filter = 1
+position = Vector2(274, 175)
+scale = Vector2(0.44642857, 0.44642857)
+texture = ExtResource("4_eg3r7")
 
 [node name="GridContainer" type="GridContainer" parent="Control" unique_id=514004744]
 layout_mode = 1

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b3m6xkrm18rpv"]
 
 [ext_resource type="Script" uid="uid://5qmjw0wrextr" path="res://level_test.gd" id="1_u52ul"]
+[ext_resource type="Theme" uid="uid://cerrqasbkbfyc" path="res://menu_screen_theme.tres" id="2_i2t4f"]
 [ext_resource type="Texture2D" uid="uid://cwxmd71ouvs8q" path="res://as8BG.png" id="2_km5ld"]
 [ext_resource type="PackedScene" uid="uid://c1gl0hvam08pm" path="res://ball.tscn" id="2_vonw3"]
 [ext_resource type="Script" uid="uid://6ddf1jx7j5bu" path="res://p_1_wall.gd" id="3_0b4ue"]
@@ -34,6 +35,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
+theme = ExtResource("2_i2t4f")
 
 [node name="TextureRect" type="TextureRect" parent="Control" unique_id=358817453]
 z_index = -1000
@@ -113,6 +115,7 @@ offset_left = -200.0
 offset_right = 200.0
 offset_bottom = 100.0
 grow_horizontal = 2
+theme = ExtResource("2_i2t4f")
 
 [node name="p1Score" type="Label" parent="CanvasLayer/Control2" unique_id=1048649515]
 unique_name_in_owner = true
@@ -145,6 +148,7 @@ offset_top = -100.0
 offset_right = 515.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("2_i2t4f")
 theme_override_constants/h_separation = 30
 theme_override_constants/v_separation = 0
 columns = 2

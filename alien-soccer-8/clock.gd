@@ -13,6 +13,9 @@ var ball_speed = 200
 var ball_slow = 2.5
 var all_slow = 3
 
+var flash_load = preload("res://clock_flash.tscn")
+var flash
+
 func _ability():
 	if cooldown <= 0 and not ball_slowed and not all_slowed and duration <= 0 and not %clock_aoe.firing:
 		%clock_aoe.fire()
@@ -40,6 +43,8 @@ func _ultimate():
 			opponent.update_move_speed(opponent.move_speed / all_slow, opponent.speed_damp)
 		all_slowed = true
 		ult_dur = 100
+		
+		flash.flash()
 
 func _ability_cooldown(delta):
 	if charge < charge_max and not all_slowed:
@@ -73,6 +78,9 @@ func _ability_cooldown(delta):
 		cooldown -= 1 * delta
 
 func on_ready():
+	flash = flash_load.instantiate()
+	add_sibling(flash)
+	
 	%clock_aoe.user = self
 	
 	base_scale = 0.8

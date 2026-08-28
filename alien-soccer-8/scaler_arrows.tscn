@@ -2,12 +2,61 @@
 
 [ext_resource type="Script" uid="uid://bm52rwhhbtmsy" path="res://scaler_arrows.gd" id="1_ryd36"]
 [ext_resource type="Texture2D" uid="uid://dg8rxmiwntgfc" path="res://AS8 skins/target/scaler_arrow.png" id="2_ryd36"]
+[ext_resource type="Texture2D" uid="uid://cppgy7hl2tfqv" path="res://scaler_0_charge.png" id="3_scyqt"]
+[ext_resource type="Texture2D" uid="uid://cfdllgcotpnee" path="res://scaler_1_charge.png" id="4_vcanm"]
+[ext_resource type="Texture2D" uid="uid://5ll47210h4fe" path="res://scaler_2_charge.png" id="5_3attd"]
+[ext_resource type="Texture2D" uid="uid://bvbldqrt70up" path="res://scaler_3_charge.png" id="6_ymxb4"]
+[ext_resource type="Texture2D" uid="uid://brsw4cqd2ugqf" path="res://scaler_4_charge.png" id="7_k2dbs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qgyb7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_scyqt")
+}],
+"loop": 1,
+"name": &"0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_vcanm")
+}],
+"loop": 1,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_3attd")
+}],
+"loop": 1,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ymxb4")
+}],
+"loop": 1,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_k2dbs")
+}],
+"loop": 1,
+"name": &"4",
+"speed": 5.0
+}]
 
 [node name="scaler_arrows" type="Node2D" unique_id=1511049769]
 script = ExtResource("1_ryd36")
 
 [node name="1" type="Sprite2D" parent="." unique_id=534028726]
 unique_name_in_owner = true
+visible = false
 texture_filter = 1
 position = Vector2(30, 3)
 rotation = 3.1415927
@@ -15,6 +64,7 @@ texture = ExtResource("2_ryd36")
 
 [node name="2" type="Sprite2D" parent="." unique_id=72492051]
 unique_name_in_owner = true
+visible = false
 texture_filter = 1
 position = Vector2(90, 3)
 rotation = 3.1415927
@@ -22,6 +72,7 @@ texture = ExtResource("2_ryd36")
 
 [node name="3" type="Sprite2D" parent="." unique_id=1377855213]
 unique_name_in_owner = true
+visible = false
 texture_filter = 1
 position = Vector2(-90, 3)
 rotation = 3.1415927
@@ -29,7 +80,16 @@ texture = ExtResource("2_ryd36")
 
 [node name="4" type="Sprite2D" parent="." unique_id=966646329]
 unique_name_in_owner = true
+visible = false
 texture_filter = 1
 position = Vector2(-30, 3)
 rotation = 3.1415927
 texture = ExtResource("2_ryd36")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=667043760]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.6666667)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_qgyb7")
+animation = &"4"
+autoplay = "0"
