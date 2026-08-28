@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://civmjarw4b5sl"]
+
+[ext_resource type="Texture2D" uid="uid://blwhpwadcwnmk" path="res://chainwall_big.png" id="1_hamo6"]
+[ext_resource type="Texture2D" uid="uid://dts2qfyspf3tx" path="res://warden_lock.png" id="2_chov6"]
+
+[node name="warden_lock" type="Node2D" unique_id=1311677905]
+
+[node name="ChainwallBig" type="Sprite2D" parent="." unique_id=1019911792]
+visible = false
+texture_filter = 1
+rotation = 0.7853982
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_hamo6")
+
+[node name="ChainwallBig2" type="Sprite2D" parent="." unique_id=33647331]
+visible = false
+texture_filter = 1
+rotation = -0.7853982
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_hamo6")
+
+[node name="WardenLock" type="Sprite2D" parent="." unique_id=1863241820]
+texture_filter = 1
+position = Vector2(0, 7)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_chov6")

@@ -28,49 +28,6 @@
 font_size = 80
 font_color = Color(0.414146, 0.711646, 1, 1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eg3r7"]
-load_path = "res://.godot/imported/as8buttons3.png-3b0c4725db56ac6e1279e6010eebecbe.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4l77l"]
-texture = SubResource("CompressedTexture2D_eg3r7")
-texture_margin_left = 21.0
-texture_margin_top = 21.0
-texture_margin_right = 21.0
-texture_margin_bottom = 21.0
-modulate_color = Color(0.21176471, 0.92156863, 1, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w0itm"]
-texture = SubResource("CompressedTexture2D_eg3r7")
-texture_margin_left = 21.0
-texture_margin_top = 21.0
-texture_margin_right = 21.0
-texture_margin_bottom = 21.0
-modulate_color = Color(0.21176471, 0.92156863, 1, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fgo3k"]
-texture = SubResource("CompressedTexture2D_eg3r7")
-texture_margin_left = 21.0
-texture_margin_top = 21.0
-texture_margin_right = 21.0
-texture_margin_bottom = 21.0
-modulate_color = Color(0.21176471, 0.92156863, 1, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h73ow"]
-texture = SubResource("CompressedTexture2D_eg3r7")
-texture_margin_left = 21.0
-texture_margin_top = 21.0
-texture_margin_right = 21.0
-texture_margin_bottom = 21.0
-modulate_color = Color(0.21176471, 0.92156863, 1, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_326gj"]
-texture = SubResource("CompressedTexture2D_eg3r7")
-texture_margin_left = 21.0
-texture_margin_top = 21.0
-texture_margin_right = 21.0
-texture_margin_bottom = 21.0
-modulate_color = Color(0.21176471, 0.92156863, 1, 1)
-
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ksvsa"]
 load_path = "res://.godot/imported/as8buttons3.png-3b0c4725db56ac6e1279e6010eebecbe.ctex"
 
@@ -82,37 +39,16 @@ texture_margin_right = 21.0
 texture_margin_bottom = 21.0
 modulate_color = Color(1, 0.3019608, 0.29411766, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mdleo"]
-texture = SubResource("CompressedTexture2D_ksvsa")
-texture_margin_left = 21.0
-texture_margin_top = 21.0
-texture_margin_right = 21.0
-texture_margin_bottom = 21.0
-modulate_color = Color(1, 0.3019608, 0.29411766, 1)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eg3r7"]
+load_path = "res://.godot/imported/as8buttons3.png-3b0c4725db56ac6e1279e6010eebecbe.ctex"
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lpvob"]
-texture = SubResource("CompressedTexture2D_ksvsa")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4l77l"]
+texture = SubResource("CompressedTexture2D_eg3r7")
 texture_margin_left = 21.0
 texture_margin_top = 21.0
 texture_margin_right = 21.0
 texture_margin_bottom = 21.0
-modulate_color = Color(1, 0.3019608, 0.29411766, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_68cxk"]
-texture = SubResource("CompressedTexture2D_ksvsa")
-texture_margin_left = 21.0
-texture_margin_top = 21.0
-texture_margin_right = 21.0
-texture_margin_bottom = 21.0
-modulate_color = Color(1, 0.3019608, 0.29411766, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ir1x8"]
-texture = SubResource("CompressedTexture2D_ksvsa")
-texture_margin_left = 21.0
-texture_margin_top = 21.0
-texture_margin_right = 21.0
-texture_margin_bottom = 21.0
-modulate_color = Color(1, 0.3019608, 0.29411766, 1)
+modulate_color = Color(0.21176471, 0.92156863, 1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_kjjwk"]
 font_size = 50
@@ -170,11 +106,11 @@ offset_right = 224.0
 offset_bottom = -1.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxTexture_4l77l")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_w0itm")
-theme_override_styles/hover = SubResource("StyleBoxTexture_fgo3k")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_h73ow")
-theme_override_styles/focus = SubResource("StyleBoxTexture_326gj")
+theme_override_styles/normal = SubResource("StyleBoxTexture_0motc")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0motc")
+theme_override_styles/hover = SubResource("StyleBoxTexture_0motc")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_0motc")
+theme_override_styles/focus = SubResource("StyleBoxTexture_0motc")
 text = "Player"
 
 [node name="p2Bot" type="Button" parent="Control2" unique_id=591733210]
@@ -192,11 +128,11 @@ offset_bottom = -1.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxTexture_0motc")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_mdleo")
-theme_override_styles/hover = SubResource("StyleBoxTexture_lpvob")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_68cxk")
-theme_override_styles/focus = SubResource("StyleBoxTexture_ir1x8")
+theme_override_styles/normal = SubResource("StyleBoxTexture_4l77l")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_4l77l")
+theme_override_styles/hover = SubResource("StyleBoxTexture_4l77l")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_4l77l")
+theme_override_styles/focus = SubResource("StyleBoxTexture_4l77l")
 text = "Player"
 
 [node name="Control" type="Control" parent="." unique_id=1490181190]

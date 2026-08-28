@@ -22,6 +22,9 @@ var wall_out = false
 var wall_hit = false
 var wall_dead = false
 
+var lock_load = preload("res://warden_lock.tscn")
+var lock
+
 func _ability():
 	if cooldown <= 0 and duration <= 0 and not bolt_out and not wall_out:
 		opp_pause_ult = false
@@ -81,6 +84,7 @@ func _ability_cooldown(delta):
 		opp_charge = opponent.charge
 		
 		opponent.modulate = Color(0.8,0.8,0.8)
+		lock.visible = true
 	
 	
 	if opp_paused and opp_pause_length > 0:
@@ -90,6 +94,7 @@ func _ability_cooldown(delta):
 	elif opp_paused:
 		opp_paused = false
 		opponent.modulate = Color(1,1,1)
+		lock.visible = false
 	
 	
 	if cooldown > 0:
@@ -102,19 +107,12 @@ func _ability_cooldown(delta):
 		charge += delta
 
 func on_ready():
-	#ore = ore_load.instantiate()
-	#if player == 1:
-		#ore.position = Vector2(288, 324)
-	#else:
-		#ore.position = Vector2(864, 324)
-	#add_sibling(ore)
-	#print("z ",z_index)
-	#ore.z_index = -1
-		
+	lock = lock_load.instantiate()
+	lock.visible = false
+	opponent.add_child(lock)
 	
 	
-	#if skin != 0:
-		#%AnimatedSprite2D.animation = "default_" + str(skin)
+	
 	base_scale = 1.15
 	
 	charge_max = 650

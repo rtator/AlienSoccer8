@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cv2anvuqggdhc" path="res://camera_2d.gd" id="6_1ainy"]
 [ext_resource type="Script" uid="uid://cjmgxivawdsf4" path="res://cooldown.gd" id="6_n6hdu"]
 [ext_resource type="Script" uid="uid://d1i3xv63534pq" path="res://charge.gd" id="7_km5ld"]
+[ext_resource type="FontFile" uid="uid://cd01nxashwd12" path="res://Tiny5/Tiny5-Regular.ttf" id="9_8cye3"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_oi3di"]
 normal = Vector2(0, 1)
@@ -26,6 +27,12 @@ normal = Vector2(1, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_km5ld"]
 font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_qgyb7"]
+font = ExtResource("9_8cye3")
+font_size = 20
+font_color = Color(0, 0, 0, 1)
+outline_size = 10
 
 [node name="Node2D" type="Node2D" unique_id=1360616762]
 script = ExtResource("1_u52ul")
@@ -208,6 +215,21 @@ unique_name_in_owner = true
 offset_right = 1153.0
 offset_bottom = 648.0
 color = Color(0, 0, 0, 0)
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1847453876]
+modulate = Color(1, 1, 1, 0.63529414)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -79.0
+offset_right = 54.0
+offset_bottom = -4.0
+grow_vertical = 0
+text = "press
+m to
+pause"
+label_settings = SubResource("LabelSettings_qgyb7")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=633352477]
 unique_name_in_owner = true
