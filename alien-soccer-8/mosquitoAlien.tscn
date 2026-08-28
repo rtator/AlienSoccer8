@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwbx3ilov3ap1"]
+[gd_scene format=3 uid="uid://cwbx3ilov3ap1"]
 
 [ext_resource type="Script" uid="uid://b7s0mio1ggxh0" path="res://mosquito.gd" id="1_q0i2c"]
-[ext_resource type="Texture2D" uid="uid://cd72i3j4o355c" path="res://as8_sprites_png/mosquito.png" id="2_pvg3q"]
-[ext_resource type="Texture2D" uid="uid://d272vu0tmdxdl" path="res://AS8 skins/mosquito/mosquito_1.png" id="3_lulee"]
-[ext_resource type="Texture2D" uid="uid://dqro2hh1fnhgk" path="res://AS8 skins/mosquito/mosquito_2.png" id="4_fdha5"]
+[ext_resource type="Texture2D" uid="uid://b0g4ufvqlab2o" path="res://as8_sprites_png/mosquito.png" id="2_pvg3q"]
+[ext_resource type="Texture2D" uid="uid://cjqddjuggmhyy" path="res://AS8 skins/mosquito/mosquito_1.png" id="3_lulee"]
+[ext_resource type="Texture2D" uid="uid://cyk8y1ikknsle" path="res://AS8 skins/mosquito/mosquito_2.png" id="4_fdha5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q0i2c"]
 friction = 0.5
@@ -14,7 +14,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_pvg3q")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -22,7 +22,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_lulee")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default_1",
 "speed": 5.0
 }, {
@@ -30,7 +30,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_fdha5")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default_2",
 "speed": 5.0
 }]
@@ -38,19 +38,19 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_fdha5"]
 radius = 32.0
 
-[node name="mosquito" type="RigidBody2D"]
+[node name="mosquito" type="RigidBody2D" unique_id=355697278]
 physics_material_override = SubResource("PhysicsMaterial_q0i2c")
 gravity_scale = 0.0
 lock_rotation = true
 script = ExtResource("1_q0i2c")
 metadata/_custom_type_script = "uid://e41xdpe4oqa2"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1592273540]
 unique_name_in_owner = true
 scale = Vector2(0.16, 0.16)
 sprite_frames = SubResource("SpriteFrames_lulee")
 autoplay = "default"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2126971776]
 unique_name_in_owner = true
 shape = SubResource("CircleShape2D_fdha5")
