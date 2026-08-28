@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://cerrqasbkbfyc" path="res://menu_screen_theme.tres" id="1_tj70t"]
 [ext_resource type="StyleBox" uid="uid://bhwb56kpdliu" path="res://buttonText.tres" id="2_tj70t"]
 [ext_resource type="Texture2D" uid="uid://br2hsa7xxgrei" path="res://as8_sprites_png/basic.png" id="3_78ltf"]
-[ext_resource type="Texture2D" uid="uid://o4ijamddtxcf" path="res://bent_arrow.png" id="4_eg3r7"]
+[ext_resource type="Texture2D" uid="uid://cwhyw81hilj1e" path="res://bent_arrow.png" id="4_eg3r7"]
 [ext_resource type="Texture2D" uid="uid://6ageq0ptq4y4" path="res://as8_sprites_png/speedy.png" id="4_m0xsj"]
 [ext_resource type="Texture2D" uid="uid://8asayyvoykoc" path="res://as8_sprites_png/scaler.png" id="5_eg3r7"]
 [ext_resource type="Texture2D" uid="uid://dny64miwbnadi" path="res://as8_sprites_png/jumper.png" id="6_4l77l"]
@@ -318,7 +318,6 @@ label_settings = SubResource("LabelSettings_qgyb7")
 autowrap_mode = 2
 
 [node name="BentArrow" type="Sprite2D" parent="Control/p2Rect" unique_id=217096172]
-modulate = Color(0.22745098, 1, 1, 1)
 texture_filter = 1
 position = Vector2(274, 175)
 scale = Vector2(0.44642857, 0.44642857)
