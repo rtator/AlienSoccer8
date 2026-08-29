@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://p6padjusrhcu" path="res://Imported piskel/sprite_0.png" id="1_41u45"]
 [ext_resource type="Script" uid="uid://16fxsmq003is" path="res://ball.gd" id="1_ktgx5"]
 [ext_resource type="Texture2D" uid="uid://cngw3wi7qr7rf" path="res://Imported piskel/sprite_1.png" id="2_ktgx5"]
+[ext_resource type="PackedScene" uid="uid://b5iu47d73k8u" path="res://ball_hit_sfx.tscn" id="4_hgol0"]
+[ext_resource type="PackedScene" uid="uid://dxas31251sqol" path="res://score_sfx.tscn" id="5_n5601"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hgol0"]
 friction = 0.0
@@ -87,6 +89,12 @@ replication_config = SubResource("SceneReplicationConfig_ktgx5")
 unique_name_in_owner = true
 wait_time = 3.0
 one_shot = true
+
+[node name="ball_hit_sfx" parent="." unique_id=155730042 instance=ExtResource("4_hgol0")]
+unique_name_in_owner = true
+
+[node name="score_sfx" parent="." unique_id=1345312649 instance=ExtResource("5_n5601")]
+unique_name_in_owner = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

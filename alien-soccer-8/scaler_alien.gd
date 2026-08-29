@@ -1,7 +1,8 @@
 extends alien
 
 var grown = false
-var ult_length = 300
+var ult_length = 260
+var bas_ult_length = 260
 var ball_grown = false
 var growth_mult = 1.5
 var small_growth_mult = 1.2
@@ -20,16 +21,18 @@ var arrows
 
 func _ability():
 	if cooldown <= 0 and duration <= 0 and ult_dur <= 0 and not grown:
+		modulate = Color(2,2,2)
 		#charges += 1
 		update_move_speed(move_speed * slow_mult)
 		update_scale(original_size * small_growth_mult)
 		duration = 50
 
 func _ultimate():
-	if ult_dur <= 0 and charge >= charge_max and not grown:
-		growth_mult = 1 + (charges * 0.2)
+	if ult_dur <= 0 and charge >= charge_max and not grown and charges > 0:
+		growth_mult = 1 + (charges * 0.5)
 		update_scale(original_size * growth_mult)
 		grown = true
+		ult_length = bas_ult_length + (40 * charges)
 		ult_dur = ult_length
 		camera.shake(15)
 		charge = 0
@@ -66,6 +69,7 @@ func _ability_cooldown(delta):
 	if duration > 1:
 		duration -= 1
 	elif duration > 0:
+		modulate = Color(1,1,1)
 		duration -= 1
 		update_move_speed(move_speed / slow_mult)
 		update_scale(original_size)
@@ -107,3 +111,4 @@ func on_ready():
 func _on_body_entered(body):
 	if body == ball and duration > 0:
 		charges += 1
+		duration = 1

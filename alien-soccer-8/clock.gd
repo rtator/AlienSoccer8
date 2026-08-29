@@ -50,7 +50,9 @@ func _ability_cooldown(delta):
 	if charge < charge_max and not all_slowed:
 		charge += delta
 	
-	if duration > 0:
+	if ball.linear_velocity.length() == 0:
+		duration = 0
+	elif duration > 0:
 		duration -= delta
 	elif ball_slowed:
 		sprite.animation = "default"
@@ -62,8 +64,9 @@ func _ability_cooldown(delta):
 		cooldown = 400
 		%clock_aoe.firing = false
 	
-	
-	if ult_dur > 0:
+	if ball.linear_velocity.length() == 0:
+		ult_dur = 0
+	elif ult_dur > 0:
 		ult_dur -= 1 * delta
 	elif all_slowed:
 		sprite.animation = "default"

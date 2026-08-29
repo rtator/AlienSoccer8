@@ -24,6 +24,9 @@ var p2
 
 
 func _ready():
+	GlobalSave.p1_bot_lv = 0
+	GlobalSave.p2_bot_lv = 0
+	
 	var charKeys = player_objects.keys()
 	p1 = player_objects[charKeys[randi_range(0, len(charKeys) - 1)]].instantiate()
 	p1.ball = %ball

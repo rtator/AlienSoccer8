@@ -1,6 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfoeijcqpbl4o"]
+[gd_scene format=3 uid="uid://bfoeijcqpbl4o"]
 
 [ext_resource type="Script" uid="uid://d0bhh2l7aluvu" path="res://hitfx.gd" id="1_u63tn"]
+
+[sub_resource type="Gradient" id="Gradient_u63tn"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ci2on"]
+gradient = SubResource("Gradient_u63tn")
 
 [sub_resource type="Curve" id="Curve_y6q6w"]
 _data = [Vector2(0.0474684, 1), 0.0, 0.0, 0, 0, Vector2(0.990506, 0), 0.0, 0.0, 0, 0]
@@ -18,8 +25,9 @@ gravity = Vector3(0, 1000, 0)
 scale_min = 2.0
 scale_max = 3.0
 scale_curve = SubResource("CurveTexture_u63tn")
+color_initial_ramp = SubResource("GradientTexture1D_ci2on")
 
-[node name="hitfx" type="GPUParticles2D"]
+[node name="hitfx" type="GPUParticles2D" unique_id=418815372]
 emitting = false
 amount = 10
 lifetime = 0.4
@@ -29,7 +37,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_67god")
 script = ExtResource("1_u63tn")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1772511467]
 wait_time = 0.5
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

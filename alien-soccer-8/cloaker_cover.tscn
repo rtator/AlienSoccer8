@@ -29,24 +29,28 @@ script = ExtResource("1_xufsy")
 
 [node name="p1" parent="Node2D" unique_id=2018000070 instance=ExtResource("1_4522h")]
 unique_name_in_owner = true
-position = Vector2(300, 585)
+position = Vector2(299.99997, 580.99994)
+scale = Vector2(1.075, 1.075)
 process_material = SubResource("ParticleProcessMaterial_rv0vf")
 script = null
 
 [node name="p3" parent="Node2D" unique_id=303743726 instance=ExtResource("1_4522h")]
 unique_name_in_owner = true
-position = Vector2(300, 635)
+position = Vector2(299.99997, 622.99994)
+scale = Vector2(1.08, 1.08)
 process_material = SubResource("ParticleProcessMaterial_rv0vf")
 script = null
 
 [node name="p2" parent="Node2D" unique_id=1364840626 instance=ExtResource("1_4522h")]
 unique_name_in_owner = true
-position = Vector2(860, 585)
+position = Vector2(845.00006, 579.99994)
+scale = Vector2(1.075, 1.075)
 process_material = SubResource("ParticleProcessMaterial_rv0vf")
 script = null
 
 [node name="p4" parent="Node2D" unique_id=884817162 instance=ExtResource("1_4522h")]
 unique_name_in_owner = true
-position = Vector2(859, 635)
+position = Vector2(844, 622.99994)
+scale = Vector2(1.08, 1.08)
 process_material = SubResource("ParticleProcessMaterial_rv0vf")
 script = null

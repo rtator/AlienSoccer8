@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://qxvert3ui0m"]
+
+[ext_resource type="Theme" uid="uid://cerrqasbkbfyc" path="res://menu_screen_theme.tres" id="1_ep8tu"]
+[ext_resource type="Script" uid="uid://b3cty1gnlbtmn" path="res://countdown.gd" id="2_scgq4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qgyb7"]
+font_size = 300
+outline_size = 25
+outline_color = Color(1, 0.33333334, 0.53333336, 1)
+
+[node name="countdown" type="Control" unique_id=1711931207]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ep8tu")
+script = ExtResource("2_scgq4")
+
+[node name="Label" type="Label" parent="." unique_id=1049045354]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -204.5
+offset_right = 86.0
+offset_bottom = 204.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "3"
+label_settings = SubResource("LabelSettings_qgyb7")
+horizontal_alignment = 1

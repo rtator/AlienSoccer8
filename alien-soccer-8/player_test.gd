@@ -33,7 +33,7 @@ var character
 var camera
 
 var is_bot = false
-var bot_offset = 10
+var bot_offset = 50
 
 var skin 
 
@@ -60,10 +60,21 @@ func _physics_process(delta_milliseconds):
 		if initialized:
 			if character == "spectre":
 				var offset = abs(player - 1.5)/(player - 1.5)
-				input = ((ball.position + Vector2(offset * bot_offset, 0)) - position) + Vector2(0, -32 * self.spin_dir)
+				
+				var ball_offset
+				if ball.linear_velocity.length() == 0:
+					ball_offset = 0
+				else:
+					ball_offset = bot_offset
+				input = ((ball.position + Vector2(offset * ball_offset, 0)) - position) + Vector2(0, -32 * self.spin_dir)
 			else:
+				var ball_offset
+				if ball.linear_velocity.length() == 0:
+					ball_offset = 0
+				else:
+					ball_offset = bot_offset
 				var offset = abs(player - 1.5)/(player - 1.5)
-				input = ((ball.position + Vector2(offset * bot_offset, 0)) - position)
+				input = ((ball.position + Vector2(offset * ball_offset, 0)) - position)
 			
 			if input.length() > 25:
 				if (player == 1 and GlobalSave.p1_bot_lv != 1):
@@ -77,10 +88,8 @@ func _physics_process(delta_milliseconds):
 					elif ball.linear_velocity.length() > 0:
 						input.x = 0
 				
-				if position.x >= 576 - (50) and position.x <= 576 + (50):
+				if (position.x >= 576 - (50) and position.x <= 576 + (50)) and ((player == 2 and GlobalSave.p2_bot_lv != 1) or (player == 1 and GlobalSave.p1_bot_lv != 1)):
 					input.x = 0
-				#if :
-					#input.x = 0
 				
 				input = input.normalized()
 			else:

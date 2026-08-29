@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b5iu47d73k8u"]
+
+[ext_resource type="AudioStream" uid="uid://8lvyaqcut1pn" path="res://sfx-2026-08-29T1739.wav" id="1_lalnx"]
+
+[node name="ball_hit_sfx" type="AudioStreamPlayer2D" unique_id=155730042]
+stream = ExtResource("1_lalnx")
