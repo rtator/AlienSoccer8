@@ -37,7 +37,6 @@ texture_margin_left = 21.0
 texture_margin_top = 21.0
 texture_margin_right = 21.0
 texture_margin_bottom = 21.0
-modulate_color = Color(1, 0.3019608, 0.29411766, 1)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eg3r7"]
 load_path = "res://.godot/imported/as8buttons3.png-3b0c4725db56ac6e1279e6010eebecbe.ctex"
@@ -48,7 +47,6 @@ texture_margin_left = 21.0
 texture_margin_top = 21.0
 texture_margin_right = 21.0
 texture_margin_bottom = 21.0
-modulate_color = Color(0.21176471, 0.92156863, 1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_kjjwk"]
 font_size = 50
@@ -96,6 +94,7 @@ grow_vertical = 2
 
 [node name="p1Bot" type="Button" parent="Control2" unique_id=1265207272]
 unique_name_in_owner = true
+modulate = Color(1, 0.3019608, 0.29411766, 1)
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -115,6 +114,7 @@ text = "Player"
 
 [node name="p2Bot" type="Button" parent="Control2" unique_id=591733210]
 unique_name_in_owner = true
+modulate = Color(0.21176471, 0.92156863, 1, 1)
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0

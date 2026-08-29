@@ -1,7 +1,9 @@
 extends RigidBody2D
 
 var ball_base_speed = 200
+var max_ball_base_speed = 350
 var ball_speed = ball_base_speed
+
 var temp_speed = 0
 
 var new_pos = Vector2(200,200)
@@ -58,6 +60,8 @@ func _on_body_entered(body):
 	temp_speed = 0
 	#print(ball_speed)
 	if body.has_method("add_score"):
+		if ball_base_speed <= max_ball_base_speed:
+			ball_base_speed += 10
 		effect_spawn(true)
 		reseting = true
 		new_pos = body.add_score()

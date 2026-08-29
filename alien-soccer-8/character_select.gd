@@ -71,6 +71,10 @@ var banner_loaded = preload("res://startBanner.tscn")
 var banner
 var banner_out = false
 
+var p1_mod = Color("ff4d4b")
+var p2_mod = Color("36ebff")
+var bot_mod = Color(0.855, 4.476, 0.855)
+
 func _ready():
 	started = true
 	GlobalSave.p1Char = "basic"
@@ -233,20 +237,38 @@ func _unhandled_input(event):
 		update_texture()
 
 func _on_p_1_bot_pressed():
-	if GlobalSave.p1IsBot:
+	if GlobalSave.p1IsBot and GlobalSave.p1_bot_lv >= 1:
+		GlobalSave.p1_bot_lv = 1
 		GlobalSave.p1IsBot = false
 		%p1Bot.text = "Player"
-	else:
+		%p1Bot.modulate = p1_mod
+	elif GlobalSave.p1_bot_lv <= 0:
+		GlobalSave.p1_bot_lv = 1
 		GlobalSave.p1IsBot = true
-		%p1Bot.text = "Bot"
+		%p1Bot.text = "Hard"
+		%p1Bot.modulate = bot_mod
+	else:
+		GlobalSave.p1_bot_lv = 0
+		GlobalSave.p1IsBot = true
+		%p1Bot.text = "Easy"
+		%p1Bot.modulate = bot_mod
  
 func _on_p_2_bot_pressed():
-	if GlobalSave.p2IsBot:
+	if GlobalSave.p2IsBot and GlobalSave.p2_bot_lv >= 1:
+		GlobalSave.p2_bot_lv = 1
 		GlobalSave.p2IsBot = false
 		%p2Bot.text = "Player"
-	else:
+		%p2Bot.modulate = p2_mod
+	elif GlobalSave.p2_bot_lv <= 0:
+		GlobalSave.p2_bot_lv = 1
 		GlobalSave.p2IsBot = true
-		%p2Bot.text = "Bot"
+		%p2Bot.text = "Hard"
+		%p2Bot.modulate = bot_mod
+	else:
+		GlobalSave.p2_bot_lv = 0
+		GlobalSave.p2IsBot = true
+		%p2Bot.text = "Easy"
+		%p2Bot.modulate = bot_mod
 
 func _on_back_button_pressed():
 	get_tree().change_scene_to_file("res://startScreen.tscn")

@@ -33,8 +33,9 @@ var character
 var camera
 
 var is_bot = false
+var bot_offset = 10
 
-var skin
+var skin 
 
 var online = false:
 	set(value):
@@ -58,20 +59,29 @@ func _physics_process(delta_milliseconds):
 	else:
 		if initialized:
 			if character == "spectre":
-				input = (ball.position - position) + Vector2(32, -32 * self.spin_dir)
+				var offset = abs(player - 1.5)/(player - 1.5)
+				input = ((ball.position + Vector2(offset * bot_offset, 0)) - position) + Vector2(0, -32 * self.spin_dir)
 			else:
-				input = (ball.position - position)
+				var offset = abs(player - 1.5)/(player - 1.5)
+				input = ((ball.position + Vector2(offset * bot_offset, 0)) - position)
+			
 			if input.length() > 25:
-				if (player == 1):
+				if (player == 1 and GlobalSave.p1_bot_lv != 1):
 					if (position.x >= 50 or (position.x >= 150 and character == "spectre")) and ball.linear_velocity.length() > 0:
 						input.x = -input.length()/2
 					elif ball.linear_velocity.length() > 0:
 						input.x = 0
-				else:
+				elif (player == 2 and GlobalSave.p2_bot_lv != 1):
 					if (position.x <= 1102 or (position.x <= 1002 and character == "spectre")) and ball.linear_velocity.length() > 0:
 						input.x = input.length()/2
 					elif ball.linear_velocity.length() > 0:
 						input.x = 0
+				
+				if position.x >= 576 - (50) and position.x <= 576 + (50):
+					input.x = 0
+				#if :
+					#input.x = 0
+				
 				input = input.normalized()
 			else:
 				input = Vector2(0,0)
@@ -157,6 +167,8 @@ func on_ready():
 
 func _ready():
 	on_ready()
+	
+	physics_material_override.friction = 0
 	
 	hitbox = %CollisionShape2D
 	sprite = %AnimatedSprite2D
