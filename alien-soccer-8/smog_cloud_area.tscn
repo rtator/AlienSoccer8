@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bw47cki2a1yhg"]
+
+[ext_resource type="Script" uid="uid://4o4uy6ft4uk" path="res://smog_cloud_area.gd" id="1_kh2tr"]
+[ext_resource type="Texture2D" uid="uid://lt4kxkiiaa8o" path="res://icon.svg" id="1_onoam"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vt7g2"]
+size = Vector2(40, 40)
+
+[node name="smog_cloud_area" type="Area2D" unique_id=696512901]
+modulate = Color(1, 1, 1, 0.2627451)
+script = ExtResource("1_kh2tr")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1124884381]
+visible = false
+scale = Vector2(0.3125, 0.3125)
+texture = ExtResource("1_onoam")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1919006106]
+shape = SubResource("RectangleShape2D_vt7g2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

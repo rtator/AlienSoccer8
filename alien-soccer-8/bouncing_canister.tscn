@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://kpfkicjvy3nl"]
+
+[ext_resource type="Script" uid="uid://c8ydx2hjfbcxb" path="res://bouncing_canister.gd" id="1_8qkjj"]
+[ext_resource type="Texture2D" uid="uid://cpqq3cjv3dfoh" path="res://as8_sprites_png/Imported piskel (20).png" id="1_exqxw"]
+[ext_resource type="PackedScene" uid="uid://bsq6flap3q8gg" path="res://smoke_cloud.tscn" id="3_ex7uv"]
+[ext_resource type="PackedScene" uid="uid://d2mompamdhuq1" path="res://smog_cloud.tscn" id="4_s4e2o"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lalnx"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="Gradient" id="Gradient_ex7uv"]
+colors = PackedColorArray(0.316785, 0.316785, 0.316785, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_s4e2o"]
+gradient = SubResource("Gradient_ex7uv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m7utd"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 20.0
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.19999999
+scale_max = 5.0
+color = Color(0.36802348, 0.0015355635, 0.80676615, 1)
+color_initial_ramp = SubResource("GradientTexture1D_s4e2o")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qgyb7"]
+radius = 20.0
+
+[node name="bouncing_canister" type="RigidBody2D" unique_id=845565191]
+collision_layer = 32
+collision_mask = 32
+physics_material_override = SubResource("PhysicsMaterial_lalnx")
+gravity_scale = 0.0
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 2
+script = ExtResource("1_8qkjj")
+
+[node name="smoke_cloud" parent="." unique_id=182617308 instance=ExtResource("3_ex7uv")]
+unique_name_in_owner = true
+emitting = true
+lifetime = 2.0
+one_shot = false
+explosiveness = 0.0
+process_material = SubResource("ParticleProcessMaterial_m7utd")
+
+[node name="canister_sprite" type="Sprite2D" parent="." unique_id=2031855934]
+unique_name_in_owner = true
+modulate = Color(0.77627075, 0.41538218, 0.9999996, 1)
+position = Vector2(0, 1)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_exqxw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=127782948]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_qgyb7")
+
+[node name="smog_cloud" parent="." unique_id=453671251 instance=ExtResource("4_s4e2o")]
+unique_name_in_owner = true
+script = null
+
+[node name="Timer" type="Timer" parent="." unique_id=1631117123]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="smog_cloud" to="." method="_on_smog_cloud_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

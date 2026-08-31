@@ -4,3 +4,4 @@
 
 [node name="ball_hit_sfx" type="AudioStreamPlayer2D" unique_id=155730042]
 stream = ExtResource("1_lalnx")
+volume_db = 15.0

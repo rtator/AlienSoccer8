@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bsq6flap3q8gg"]
+[gd_scene format=3 uid="uid://bsq6flap3q8gg"]
 
-[ext_resource type="Texture2D" uid="uid://c704oa0wcbqxn" path="res://as8_sprites_png/Imported piskel (19).png" id="1_h7pxj"]
+[ext_resource type="Texture2D" uid="uid://b0rlveyuqrxc1" path="res://as8_sprites_png/Imported piskel (19).png" id="1_h7pxj"]
 [ext_resource type="Script" uid="uid://b6c5u87aau4m6" path="res://smoke_cloud.gd" id="2_jiaov"]
 
 [sub_resource type="Gradient" id="Gradient_jiaov"]
@@ -19,10 +19,11 @@ spread = 180.0
 initial_velocity_min = 1.0
 initial_velocity_max = 5.0
 gravity = Vector3(0, 0, 0)
+scale_min = 0.19999999
 scale_max = 5.0
 color_initial_ramp = SubResource("GradientTexture1D_2v4el")
 
-[node name="smoke_cloud" type="GPUParticles2D"]
+[node name="smoke_cloud" type="GPUParticles2D" unique_id=453671251]
 texture_filter = 1
 emitting = false
 amount = 1000

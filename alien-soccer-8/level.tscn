@@ -68,8 +68,8 @@ unique_name_in_owner = true
 position = Vector2(575, 324)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=279606441]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 35
+collision_mask = 35
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1506955700]
 position = Vector2(575, 0)
@@ -82,6 +82,8 @@ shape = SubResource("WorldBoundaryShape2D_0b4ue")
 [node name="p1Wall" type="StaticBody2D" parent="." unique_id=2095525044]
 unique_name_in_owner = true
 position = Vector2(0, 324)
+collision_layer = 35
+collision_mask = 35
 script = ExtResource("3_0b4ue")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="p1Wall" unique_id=1450264476]
@@ -90,6 +92,8 @@ shape = SubResource("WorldBoundaryShape2D_f2txt")
 [node name="p2Wall" type="StaticBody2D" parent="." unique_id=117678425]
 unique_name_in_owner = true
 position = Vector2(1152, 324)
+collision_layer = 35
+collision_mask = 35
 script = ExtResource("4_f2txt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="p2Wall" unique_id=618115824]

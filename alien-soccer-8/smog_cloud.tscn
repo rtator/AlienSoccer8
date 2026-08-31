@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://d2mompamdhuq1"]
+
+[ext_resource type="PackedScene" uid="uid://bsq6flap3q8gg" path="res://smoke_cloud.tscn" id="1_pt64k"]
+
+[sub_resource type="Gradient" id="Gradient_fl1dm"]
+colors = PackedColorArray(0.316785, 0.316785, 0.316785, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_j86fy"]
+gradient = SubResource("Gradient_fl1dm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bxovl"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(125, 125, 100)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.19999999
+scale_max = 5.0
+color = Color(0.36802348, 0.0015355635, 0.80676615, 1)
+color_initial_ramp = SubResource("GradientTexture1D_j86fy")
+
+[node name="smog_cloud" unique_id=453671251 instance=ExtResource("1_pt64k")]
+amount = 2500
+process_material = SubResource("ParticleProcessMaterial_bxovl")
