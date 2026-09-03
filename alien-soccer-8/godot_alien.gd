@@ -20,7 +20,7 @@ func _ability():
 		duration = 10
 
 func _ultimate():
-	if cooldown <= 0 and ult_dur <= 0 and charge >= charge_max and not sped_up:
+	if ult_dur <= 0 and charge >= charge_max and not sped_up:
 		sprite.animation = "blue"
 		
 		if skin != 0:

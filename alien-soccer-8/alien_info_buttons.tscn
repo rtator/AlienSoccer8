@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://byw86dnujr2ih" path="res://as8_sprites_png/pirate.png" id="18_05o6d"]
 [ext_resource type="Theme" uid="uid://cerrqasbkbfyc" path="res://menu_screen_theme.tres" id="19_05o6d"]
 [ext_resource type="Texture2D" uid="uid://ds2dsdsukimos" path="res://as8_sprites_png/mothership.png" id="19_chvc8"]
+[ext_resource type="Texture2D" uid="uid://cp1bs0i4vna1w" path="res://as8_sprites_png/warden.png" id="20_u5y6w"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_05o6d"]
 font_size = 12
@@ -984,6 +985,59 @@ text = "Mother
 -ship"
 label_settings = SubResource("LabelSettings_hgol0")
 
+[node name="warden" type="Button" parent="HBoxContainer" unique_id=490671980]
+custom_minimum_size = Vector2(54, 106)
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+autowrap_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/warden" unique_id=79405537]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 53.0
+grow_horizontal = 2
+texture = ExtResource("20_u5y6w")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="HBoxContainer/warden" unique_id=1945119323]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -53.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/warden/Control" unique_id=1955172057]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -11.5
+offset_right = 23.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Warden"
+label_settings = SubResource("LabelSettings_hgol0")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1331172476]
 
 [node name="backButton" type="Button" parent="CanvasLayer" unique_id=1998869047]
@@ -1015,4 +1069,5 @@ text = "Back"
 [connection signal="pressed" from="HBoxContainer/cloaker" to="." method="_on_cloaker_pressed"]
 [connection signal="pressed" from="HBoxContainer/pirate" to="." method="_on_pirate_pressed"]
 [connection signal="pressed" from="HBoxContainer/Mothership" to="." method="_on_mothership_pressed"]
+[connection signal="pressed" from="HBoxContainer/warden" to="." method="_on_warden_pressed"]
 [connection signal="pressed" from="CanvasLayer/backButton" to="." method="_on_back_button_pressed"]

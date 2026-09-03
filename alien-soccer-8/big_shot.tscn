@@ -1,13 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddsb0dr4baw22"]
+[gd_scene format=3 uid="uid://ddsb0dr4baw22"]
 
 [ext_resource type="Script" uid="uid://5dus7xxb7j4x" path="res://big_shot.gd" id="1_tje6p"]
-[ext_resource type="Texture2D" uid="uid://dcfoex7p4jxxj" path="res://Imported piskel (9).png" id="2_4h2f1"]
-[ext_resource type="Texture2D" uid="uid://c1eokycowp5fg" path="res://AS8 skins/launcher/big_shot_2/big_shot_2_0.png" id="3_1kyo6"]
-[ext_resource type="Texture2D" uid="uid://bqrhef7e3wauo" path="res://AS8 skins/launcher/big_shot_2/big_shot_2_1.png" id="4_abb37"]
-[ext_resource type="Texture2D" uid="uid://bgsm08muqhquo" path="res://AS8 skins/launcher/big_shot_3.png" id="5_wg0xw"]
+[ext_resource type="Texture2D" uid="uid://bvutgfjuc6l0b" path="res://Imported piskel (9).png" id="2_4h2f1"]
+[ext_resource type="Texture2D" uid="uid://5gmke0ddpde3" path="res://AS8 skins/launcher/big_shot_2/big_shot_2_0.png" id="3_1kyo6"]
+[ext_resource type="Texture2D" uid="uid://drmpl0eb45itw" path="res://AS8 skins/launcher/big_shot_2/big_shot_2_1.png" id="4_abb37"]
+[ext_resource type="Texture2D" uid="uid://brfue5wklpqey" path="res://AS8 skins/launcher/big_shot_3.png" id="5_wg0xw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tje6p"]
-size = Vector2(60, 39)
+size = Vector2(90, 58.5)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4h2f1"]
 animations = [{
@@ -15,7 +15,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_4h2f1")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -26,7 +26,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_abb37")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default_2",
 "speed": 5.0
 }, {
@@ -34,30 +34,30 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_wg0xw")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default_3",
 "speed": 5.0
 }]
 
-[node name="big_shot" type="RigidBody2D"]
+[node name="big_shot" type="RigidBody2D" unique_id=1262963817]
 gravity_scale = 0.0
 lock_rotation = true
 contact_monitor = true
 max_contacts_reported = 100
 script = ExtResource("1_tje6p")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=295145600]
 shape = SubResource("RectangleShape2D_tje6p")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1838661824]
 unique_name_in_owner = true
 texture_filter = 1
-scale = Vector2(3, 3)
+scale = Vector2(4.5, 4.5)
 sprite_frames = SubResource("SpriteFrames_4h2f1")
 autoplay = "default"
 frame_progress = 0.769317
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1586186040]
 one_shot = true
 autostart = true
 

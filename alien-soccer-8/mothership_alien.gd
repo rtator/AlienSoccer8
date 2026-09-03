@@ -26,7 +26,7 @@ func _ability_cooldown(delta):
 		#_ability()
 		#print("pressed")
 	
-	if cooldown > 0:
+	if cooldown > 0 and ball.linear_velocity.length() > 0 :
 		cooldown -= 1 * delta
 	
 	if duration > 0:

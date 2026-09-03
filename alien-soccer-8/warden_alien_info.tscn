@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://xvn24uvybpyx"]
+
+[ext_resource type="PackedScene" uid="uid://bmr8vq1g5v5p3" path="res://alien_info_buttons.tscn" id="1_egsum"]
+[ext_resource type="Texture2D" uid="uid://cp1bs0i4vna1w" path="res://as8_sprites_png/warden.png" id="2_8rulh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7ti2d"]
+font_size = 18
+font_color = Color(0.24705882, 0.654902, 0.87058824, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ptco7"]
+line_spacing = 0.0
+font_size = 75
+font_color = Color(0.2483725, 0.654233, 0.8700747, 1)
+outline_size = 8
+outline_color = Color(0.10980392, 0.43137255, 0.5921569, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0iu8f"]
+font_size = 30
+font_color = Color(0.1741769, 0.43239096, 0.5171182, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pas4f"]
+font_size = 15
+font_color = Color(0.2483725, 0.654233, 0.8700747, 1)
+
+[node name="wardenAlienInfo" type="Control" unique_id=1762595133]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="baseAlienInfo" parent="." unique_id=1295750602 instance=ExtResource("1_egsum")]
+layout_mode = 1
+
+[node name="Control" type="Control" parent="." unique_id=1376991761]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -538.0
+offset_right = 576.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label4" type="Label" parent="Control" unique_id=1782122460]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -96.0
+offset_bottom = 84.0
+grow_horizontal = 0
+text = "Speed = 0.85
+Friction = 1
+Size = 1.15"
+label_settings = SubResource("LabelSettings_7ti2d")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=917881946]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -200.0
+offset_right = 404.0
+offset_bottom = 200.0
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="Control/HBoxContainer" unique_id=829243447]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control" unique_id=1366090467]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_vertical = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_8rulh")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer" unique_id=1426033514]
+custom_minimum_size = Vector2(752, 400)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer" unique_id=1543124011]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/Control" unique_id=631145412]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -94.0
+offset_top = -103.0
+offset_right = 94.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Warden"
+label_settings = SubResource("LabelSettings_ptco7")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=66498017]
+layout_mode = 2
+text = "put em behind bars"
+label_settings = SubResource("LabelSettings_0iu8f")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=13146904]
+layout_mode = 2
+text = "Basic is the premiere starting alien, lacking versatile abilities but becoming much easier to play and master. This makes Basic a perfect middle ground, with decent stats all around. It also makes Basic exceptional at performing various techs or tricks because of its lack of jank hitboxes or inconsistent factors. While it might not have the strongest abilities, it dominates in any normal matchup.
+
+Default - Pulse
+Charge: 300
+Duration: 12
+Basic releases a small shockwave (around the same size as Scaler's normal hitbox) that can knock the ball back at a temporarily faster speed than usual.
+
+Ultimate - Plasma Shield
+Charge: 600
+Duration: Whenever Hit (∞), then 200
+Basic generates a shield of plasma around it that shatters after being hit by the ball. This shield gives Basic a 50% speed buff for a bit upon shattering.
+"
+label_settings = SubResource("LabelSettings_pas4f")
+autowrap_mode = 2

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dpkc5bjxe8f00"]
+
+[ext_resource type="PackedScene" uid="uid://b3m6xkrm18rpv" path="res://level.tscn" id="1_hvtio"]
+[ext_resource type="PackedScene" uid="uid://dry6st8j00djh" path="res://moving_block.tscn" id="2_mw2c7"]
+
+[node name="moving_level_version" type="Node2D" unique_id=129032349]
+
+[node name="Node2D" parent="." unique_id=1360616762 instance=ExtResource("1_hvtio")]
+
+[node name="moving_block" parent="." unique_id=1884627514 instance=ExtResource("2_mw2c7")]
+position = Vector2(288, 149)
+
+[node name="moving_block2" parent="." unique_id=2030326049 instance=ExtResource("2_mw2c7")]
+position = Vector2(864, 499)
+scale = Vector2(-1, -1)

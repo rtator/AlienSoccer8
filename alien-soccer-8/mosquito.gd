@@ -32,7 +32,7 @@ var ulting = false
 func _ability():
 	if cooldown <= 0:
 		spawning_swarm_ability = true
-		cooldown = 200
+		cooldown = 250
 
 func _ultimate():
 	if charge >= charge_max:

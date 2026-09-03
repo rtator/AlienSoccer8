@@ -47,7 +47,7 @@ flip_v = true
 shape = SubResource("CircleShape2D_qgyb7")
 
 [node name="Timer" type="Timer" parent="." unique_id=313629756]
-wait_time = 60.0
+wait_time = 120.0
 autostart = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

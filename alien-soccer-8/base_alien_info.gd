@@ -19,6 +19,7 @@ const alien_screens = {
 	"cloaker": "res://cloaker_alien_info.tscn",
 	"pirate": "res://pirate_alien_info.tscn",
 	"mothership": "res://mothership_alien_info.tscn",
+	"warden": "res://warden_alien_info.tscn",
 }
 
 func set_screen(alien):
@@ -77,6 +78,9 @@ func _on_pirate_pressed():
 
 func _on_mothership_pressed():
 	set_screen("mothership")
+
+func _on_warden_pressed():
+	set_screen("warden")
 
 func _on_back_button_pressed():
 	get_tree().change_scene_to_file("res://startScreen.tscn")

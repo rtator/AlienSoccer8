@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dry6st8j00djh"]
+
+[ext_resource type="Script" uid="uid://18n28p3ji23d" path="res://moving_block.gd" id="1_4fih0"]
+[ext_resource type="Texture2D" uid="uid://cl4twax2q2bgp" path="res://grey_tile.png" id="2_5d3qs"]
+
+[sub_resource type="Curve2D" id="Curve2D_y23ww"]
+bake_interval = 10.0
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 350)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qgyb7"]
+size = Vector2(150, 150)
+
+[node name="moving_block" type="Path2D" unique_id=1884627514]
+position = Vector2(0, 149)
+curve = SubResource("Curve2D_y23ww")
+script = ExtResource("1_4fih0")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=28473299]
+unique_name_in_owner = true
+rotation = 1.5707964
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PathFollow2D" unique_id=669485943]
+
+[node name="GreyTile" type="Sprite2D" parent="PathFollow2D/StaticBody2D" unique_id=1830720074]
+texture_filter = 1
+scale = Vector2(4.65, 4.65)
+texture = ExtResource("2_5d3qs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/StaticBody2D" unique_id=1537892463]
+shape = SubResource("RectangleShape2D_qgyb7")
+
+[node name="Timer" type="Timer" parent="." unique_id=305111578]
+wait_time = 6.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -13,7 +13,7 @@ func _physics_process(delta):
 	print(scale)
 	
 	modulate = Color(1,1,1,alpha)
-	alpha -= 0.02
+	alpha -= 0.05
 	if alpha <= 0:
 		queue_free()
 
@@ -23,7 +23,7 @@ func _on_body_entered(body):
 		if body.linear_velocity.length() == 0:
 			body.temp_speed = -100
 		else:
-			body.temp_speed = 200
+			body.temp_speed = 150
 		queue_free()
 	elif body.has_method("update_move_speed") and not body == user:
 		body.linear_velocity.x = new_scale.normalized().x * 3000

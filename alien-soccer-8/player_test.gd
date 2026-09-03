@@ -138,7 +138,8 @@ func update_move_speed(new_speed = move_speed, new_damp = speed_damp):
 func update_scale(new_scale):
 	print(new_scale)
 	base_scale = new_scale
-	hitbox.scale = Vector2(base_scale, base_scale) 
+	if character != "spectre":
+		hitbox.scale = Vector2(base_scale, base_scale) 
 	#sprite_scale = Vector2(base_scale, base_scale)
 
 func _ability():
