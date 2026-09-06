@@ -21,6 +21,7 @@ script = ExtResource("1_oweog")
 
 [node name="Panel1" type="Panel" parent="." unique_id=741984187]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -79,6 +80,7 @@ stretch_mode = 4
 
 [node name="Panel2" type="Panel" parent="." unique_id=642193689]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
