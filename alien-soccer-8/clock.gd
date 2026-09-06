@@ -69,6 +69,8 @@ func _ability_cooldown(delta):
 	elif ult_dur > 0:
 		ult_dur -= 1 * delta
 	elif all_slowed:
+		flash.finish()
+		
 		sprite.animation = "default"
 		if skin != 0:
 			%AnimatedSprite2D.animation = "default_" + str(skin)

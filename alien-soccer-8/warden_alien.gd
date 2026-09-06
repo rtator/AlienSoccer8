@@ -25,6 +25,9 @@ var wall_dead = false
 var lock_load = preload("res://warden_lock.tscn")
 var lock
 
+var cover_load = preload("res://warden_cover.tscn")
+var cover
+
 func _ability():
 	if cooldown <= 0 and duration <= 0 and not bolt_out and not wall_out:
 		opp_pause_ult = false
@@ -85,6 +88,11 @@ func _ability_cooldown(delta):
 		
 		opponent.modulate = Color(0.8,0.8,0.8)
 		lock.visible = true
+		
+		if player == 1:
+			cover.p1()
+		else:
+			cover.p2()
 	
 	
 	if opp_paused and opp_pause_length > 0:
@@ -95,6 +103,11 @@ func _ability_cooldown(delta):
 		opp_paused = false
 		opponent.modulate = Color(1,1,1)
 		lock.visible = false
+		
+		if player == 1:
+			cover.p1_done()
+		else:
+			cover.p2_done()
 	
 	
 	if cooldown > 0:
@@ -111,7 +124,8 @@ func on_ready():
 	lock.visible = false
 	opponent.add_child(lock)
 	
-	
+	cover = cover_load.instantiate()
+	add_sibling(cover)
 	
 	base_scale = 1.15
 	

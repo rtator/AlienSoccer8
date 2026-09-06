@@ -15,7 +15,7 @@ var cover
 var opp_in_smogs = 0
 var opp_slow_max = 100
 var opp_slow_timer = 0
-var opp_slow_factor = 0.6
+var opp_slow_factor = 0.8
 
 func _ability():
 	if cooldown <= 0 and not bomb_out:

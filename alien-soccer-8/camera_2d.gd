@@ -7,6 +7,9 @@ var zoomed_left = false
 
 var won = false
 
+var paused = true
+var pause_timer = 0
+
 func shake(strength):
 	shake_amount = strength
 

@@ -8,6 +8,8 @@ var spin_dir = 1
 var base_move_speed = 70 * 0.8
 
 var invis_timer = 0
+var invis_timer_max = 100
+var full_invis_max = 20
 var invising = false
 
 var ulting
@@ -59,15 +61,17 @@ func _ability_cooldown(delta):
 		%CollisionShape2D2.disabled = true
 		%CollisionShape2D2.visible = false
 	
+	
 	if cooldown > 0:
 		cooldown -= 1 * delta
 	
-	if invis_timer > 50:
+	
+	if invis_timer_max > (invis_timer_max/2) - (full_invis_max/2):
 		invis_timer -= delta
 		
 		#spin_speed = 15 * spin_dir
 		
-		var h = 60
+		var h = invis_timer_max/2
 		var a =  ((invis_timer - h) / h) - 0.3
 		print(a)
 		ball.modulate = Color(1,1,1,a)
@@ -76,7 +80,7 @@ func _ability_cooldown(delta):
 		
 		#spin_speed = 15 * spin_dir
 		
-		var h = 60
+		var h = invis_timer_max/2
 		var a = (1 - (invis_timer / h)) - 0.3
 		print(a)
 		ball.modulate = Color(1,1,1,a)
@@ -90,7 +94,7 @@ func _on_body_entered(body):
 			update_move_speed(base_move_speed)
 		else:
 			invising = true
-			invis_timer = 120
+			invis_timer = invis_timer_max
 
 func _on_area_2d_body_entered(body):
 	if body == ball:
@@ -98,10 +102,10 @@ func _on_area_2d_body_entered(body):
 			spin_speed = base_spin_speed * spin_dir
 			update_move_speed(base_move_speed)
 			invising = true
-			invis_timer = 120
+			invis_timer = invis_timer_max
 		else:
 			invising = true
-			invis_timer = 120
+			invis_timer = invis_timer_max
 
 
 func on_ready():

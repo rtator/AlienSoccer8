@@ -129,7 +129,7 @@ text = "Spawns with a deposit of an uknown alien substance in the center that ca
 Default - Extract
 Cooldown: 10
 Duration: N/A
-If Mothership is touching the deposit, it fills up its ult meter by 5. This can be held instead of mashed.
+If Mothership is touching the deposit, it fills up its ult meter by 5. 
 
 Ultimate - Deploy
 Meter: 150

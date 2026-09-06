@@ -43,4 +43,8 @@ texture = ExtResource("1_g0dls")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="goal" unique_id=2121087836]
 shape = SubResource("RectangleShape2D_ph85e")
 
+[node name="score_timer" type="Timer" parent="." unique_id=77568601]
+unique_name_in_owner = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="score_timer" to="." method="_on_score_timer_timeout"]
