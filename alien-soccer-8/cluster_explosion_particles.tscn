@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://rpbf60t1yjip"]
+
+[ext_resource type="Script" uid="uid://cge8db5xywrcc" path="res://cluster_explosion_particles.gd" id="1_pbr0a"]
+
+[sub_resource type="Gradient" id="Gradient_t41dr"]
+offsets = PackedFloat32Array(0, 0.5, 0.5, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_og7ul"]
+gradient = SubResource("Gradient_t41dr")
+
+[sub_resource type="Curve" id="Curve_ds1e3"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 8.17121), 0.0, 0.0, 0, 0, Vector2(0.110759, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_dq6ko"]
+curve = SubResource("Curve_ds1e3")
+
+[sub_resource type="Curve" id="Curve_tejp4"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 1.261194, 0, 1, Vector2(0.79289937, 2), 0.0, 0.0, 0, 0, Vector2(0.8, 0), -281.66467, 0.0, 1, 0, Vector2(0.8, 0), nan, 0.0, 1, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_s4jxg"]
+curve = SubResource("Curve_tejp4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dvroc"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(5, 5, 5)
+emission_shape = 1
+emission_sphere_radius = 20.0
+gravity = Vector3(0, 0, 0)
+damping_min = 50.0
+damping_max = 60.0
+damping_curve = SubResource("CurveTexture_dq6ko")
+scale_min = 4.0
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_s4jxg")
+color_initial_ramp = SubResource("GradientTexture1D_og7ul")
+
+[node name="cluster_explosion_particles" type="GPUParticles2D" unique_id=1770698054]
+scale = Vector2(0.4, 0.4)
+emitting = false
+amount = 500
+lifetime = 0.2
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_dvroc")
+script = ExtResource("1_pbr0a")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

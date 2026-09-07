@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://hpanj0pv8byu"]
 
+[ext_resource type="Script" uid="uid://cqerf6dn20vje" path="res://small_cluster_bomb.gd" id="1_0vkfe"]
 [ext_resource type="Texture2D" uid="uid://cq5eil27akllk" path="res://as8_sprites_png/cluster_bomb.png" id="1_522mv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5fojl"]
@@ -25,53 +26,17 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0vkfe"]
-radius = 16.0
-
-[sub_resource type="Gradient" id="Gradient_08lw8"]
-colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_jnas0"]
-gradient = SubResource("Gradient_08lw8")
-
-[sub_resource type="Curve" id="Curve_4xhhv"]
-_limits = [0.0, 100.0, 0.0, 1.0]
-_data = [Vector2(0, 8.17121), 0.0, 0.0, 0, 0, Vector2(0.110759, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_wsid4"]
-curve = SubResource("Curve_4xhhv")
-
-[sub_resource type="Curve" id="Curve_8vsaq"]
-_limits = [0.0, 2.0, 0.0, 1.0]
-_data = [Vector2(0, 1), 0.0, 1.25, 0, 1, Vector2(0.8, 2), 1.25, 0.0, 1, 0, Vector2(0.8, 0), inf_neg, 0.0, 1, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_2xf3l"]
-curve = SubResource("Curve_8vsaq")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2ipyb"]
-lifetime_randomness = 1.0
-particle_flag_disable_z = true
-emission_shape_scale = Vector3(5, 5, 5)
-emission_shape = 1
-emission_sphere_radius = 20.0
-gravity = Vector3(0, 0, 0)
-damping_min = 50.0
-damping_max = 60.0
-damping_curve = SubResource("CurveTexture_wsid4")
-scale_min = 2.0
-scale_max = 2.0
-scale_curve = SubResource("CurveTexture_2xf3l")
-color_initial_ramp = SubResource("GradientTexture1D_jnas0")
+radius = 22.0
 
 [node name="small_cluster_bomb" type="RigidBody2D" unique_id=1661431410]
 gravity_scale = 0.0
 linear_damp = 1.5
+script = ExtResource("1_0vkfe")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=366180712]
 texture_filter = 2
-position = Vector2(0, -2)
-scale = Vector2(0.1, 0.1)
+position = Vector2(0, -3)
+scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_qgyb7")
 autoplay = "default"
 frame_progress = 0.79344845
@@ -80,17 +45,9 @@ frame_progress = 0.79344845
 shape = SubResource("CircleShape2D_0vkfe")
 disabled = true
 
-[node name="Timer" type="Timer" parent="." unique_id=1287087785]
+[node name="Timer" type="Timer" parent="." unique_id=1227478927]
+wait_time = 0.5
 one_shot = true
 autostart = true
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=44838445]
-unique_name_in_owner = true
-scale = Vector2(0.2, 0.2)
-emitting = false
-amount = 200
-lifetime = 0.2
-one_shot = true
-process_material = SubResource("ParticleProcessMaterial_2ipyb")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

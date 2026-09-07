@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://djgx7wart4mt3"]
+
+[ext_resource type="Script" uid="uid://dkw7nxsavk4d7" path="res://cluster_explosion_area.gd" id="1_pjmoe"]
+[ext_resource type="PackedScene" uid="uid://rpbf60t1yjip" path="res://cluster_explosion_particles.tscn" id="2_7qila"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qgyb7"]
+radius = 40.0
+
+[node name="cluster_explosion_area" type="Area2D" unique_id=56445042]
+scale = Vector2(2, 2)
+script = ExtResource("1_pjmoe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1905076155]
+shape = SubResource("CircleShape2D_qgyb7")
+
+[node name="cluster_explosion_particles" parent="." unique_id=1770698054 instance=ExtResource("2_7qila")]
+unique_name_in_owner = true
+script = null
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="cluster_explosion_particles" to="." method="_on_cluster_explosion_particles_finished"]

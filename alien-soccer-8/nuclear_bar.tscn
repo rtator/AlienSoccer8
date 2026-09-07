@@ -1,0 +1,170 @@
+[gd_scene format=3 uid="uid://bsd60ej22qs8"]
+
+[ext_resource type="Texture2D" uid="uid://dysdmr4rc6c5d" path="res://as8_sprites_png/battery.png" id="1_gquj1"]
+[ext_resource type="Script" uid="uid://co8i17xcv41a8" path="res://nuclear_bar.gd" id="1_w8rhw"]
+
+[node name="nuclear_bar" type="CanvasLayer" unique_id=1824227850]
+script = ExtResource("1_w8rhw")
+
+[node name="hidden" type="Control" parent="." unique_id=687084225]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 0
+
+[node name="1" type="TextureRect" parent="hidden" unique_id=2131089199]
+unique_name_in_owner = true
+texture_filter = 1
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = 263.0
+offset_top = 500.0
+offset_right = 288.0
+offset_bottom = 525.0
+texture = ExtResource("1_gquj1")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="hidden" unique_id=1761134060]
+unique_name_in_owner = true
+texture_filter = 1
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = 74.0
+offset_top = 500.0
+offset_right = 99.0
+offset_bottom = 525.0
+texture = ExtResource("1_gquj1")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="hidden" unique_id=1927310572]
+unique_name_in_owner = true
+texture_filter = 1
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = 128.0
+offset_top = 500.0
+offset_right = 153.0
+offset_bottom = 525.0
+texture = ExtResource("1_gquj1")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="hidden" unique_id=1874072514]
+unique_name_in_owner = true
+texture_filter = 1
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = 182.0
+offset_top = 500.0
+offset_right = 207.0
+offset_bottom = 525.0
+texture = ExtResource("1_gquj1")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="hidden" unique_id=287935435]
+unique_name_in_owner = true
+texture_filter = 1
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = 236.0
+offset_top = 500.0
+offset_right = 261.0
+offset_bottom = 525.0
+texture = ExtResource("1_gquj1")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="hidden" unique_id=1336168518]
+unique_name_in_owner = true
+texture_filter = 1
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = 290.0
+offset_top = 500.0
+offset_right = 315.0
+offset_bottom = 525.0
+texture = ExtResource("1_gquj1")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="hidden" unique_id=672975643]
+unique_name_in_owner = true
+texture_filter = 1
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = 344.0
+offset_top = 500.0
+offset_right = 369.0
+offset_bottom = 525.0
+texture = ExtResource("1_gquj1")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="hidden" unique_id=1663389478]
+unique_name_in_owner = true
+texture_filter = 1
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = 398.0
+offset_top = 500.0
+offset_right = 423.0
+offset_bottom = 525.0
+texture = ExtResource("1_gquj1")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="9" type="TextureRect" parent="hidden" unique_id=349878766]
+unique_name_in_owner = true
+texture_filter = 1
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = 452.0
+offset_top = 500.0
+offset_right = 477.0
+offset_bottom = 525.0
+texture = ExtResource("1_gquj1")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="10" type="TextureRect" parent="hidden" unique_id=495489433]
+unique_name_in_owner = true
+texture_filter = 1
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = 506.0
+offset_top = 500.0
+offset_right = 531.0
+offset_bottom = 525.0
+texture = ExtResource("1_gquj1")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="bar1" type="HBoxContainer" parent="." unique_id=1870838917]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.44313726)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -148.0
+offset_right = 576.0
+offset_bottom = -98.0
+grow_vertical = 0
+alignment = 1
+
+[node name="bar2" type="HBoxContainer" parent="." unique_id=1384639580]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.44313726)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -148.0
+offset_bottom = -98.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 1

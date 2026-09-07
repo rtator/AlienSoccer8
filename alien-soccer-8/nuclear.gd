@@ -1,6 +1,7 @@
 extends alien
 
 var batteries = 0
+var battery_max = 10
 var ability_cost = 3
 var ult_cost = 7
 
@@ -12,7 +13,14 @@ var screen_bounds = [576, 648]
 var cluster_bomb_load = preload("res://big_cluster_bomb.tscn")
 var cluster_bomb
 var cluster_bomb_speed = 1200
-var small_cluster_bomb_load = preload("res://big_cluster_bomb.tscn")
+
+var small_cluster_bomb_load = preload("res://small_cluster_bomb.tscn")
+var small_cluster_bomb_speed = 300
+var push_back_strength = 2000
+
+var opp_slowed = false
+var opp_slow_factor = 0.6
+var slow_dur_max = 100
 
 var nuke_hit = false
 var max_nuke_dur = 120
@@ -21,20 +29,23 @@ var nuke_speed = 350
 var nuke_load = preload("res://nuke.tscn")
 var nuke
 
+var bar_load = preload("res://nuclear_bar.tscn")
+var bar
+
 func _ability():
 	if batteries >= ability_cost:
 		batteries -= ability_cost
 		
-	cluster_bomb = cluster_bomb_load.instantiate()
-	cluster_bomb.position = position
-	if player == 1:
-		cluster_bomb.linear_velocity.x = cluster_bomb_speed
-	else:
-		cluster_bomb.linear_velocity.x = cluster_bomb_speed * -1
-	
-	cluster_bomb.user = self
-	
-	add_sibling(cluster_bomb)
+		cluster_bomb = cluster_bomb_load.instantiate()
+		cluster_bomb.position = position
+		if player == 1:
+			cluster_bomb.linear_velocity.x = cluster_bomb_speed
+		else:
+			cluster_bomb.linear_velocity.x = cluster_bomb_speed * -1
+		
+		cluster_bomb.user = self
+		
+		add_sibling(cluster_bomb)
 
 func _ultimate():
 	if batteries >= ult_cost:
@@ -55,6 +66,13 @@ func hit_opp_nuke():
 	nuke_hit = true
 	ult_dur = max_nuke_dur
 
+func hit_opp_cluster(bomb_pos):
+	opponent.linear_velocity = ((opponent.position - bomb_pos).normalized() * push_back_strength)
+	
+	if not opp_slowed:
+		opp_slowed = true
+		duration = slow_dur_max
+		opponent.update_move_speed(opponent.move_speed * opp_slow_factor)
 
 func _ability_cooldown(delta):
 	if battery_timer > 0:
@@ -65,6 +83,12 @@ func _ability_cooldown(delta):
 	cooldown = max(3 - batteries, 0)
 	
 	charge = min(batteries, 7)
+	
+	if duration > 0:
+		duration -= delta
+	elif opp_slowed:
+		opp_slowed = false
+		opponent.update_move_speed(opponent.move_speed / opp_slow_factor)
 	
 	if ult_dur > 0:
 		ult_dur -= 1 * delta
@@ -86,6 +110,10 @@ func spawn_battery():
 	add_sibling(battery)
 
 func on_ready(): 
+	bar = bar_load.instantiate()
+	bar.user = self
+	add_sibling(bar)
+	
 	cooldown = 3
 	
 	if player == 2:
