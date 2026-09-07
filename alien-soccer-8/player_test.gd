@@ -7,6 +7,8 @@ class_name alien
 @export var squish = 80
 @export var stretch = 60
 
+var stunned = false
+
 var player = 1
 
 var last_input = Vector2(-1, 0)
@@ -51,72 +53,74 @@ func set_online():
 func _physics_process(delta_milliseconds):
 	var delta = delta_milliseconds*60
 	
-	if not is_bot:
-		if player == 1:
-			input = Input.get_vector("p1_left", "p1_right","p1_up","p1_down")
-		else:
-			input = Input.get_vector("p2_left", "p2_right","p2_up","p2_down")
-	else:
-		if initialized:
-			if character == "spectre":
-				var offset = abs(player - 1.5)/(player - 1.5)
-				
-				var ball_offset
-				if ball.linear_velocity.length() == 0:
-					ball_offset = 0
-				else:
-					ball_offset = bot_offset
-				input = ((ball.position + Vector2(offset * ball_offset, 0)) - position) + Vector2(0, -32 * self.spin_dir)
+	if not stunned:
+		if not is_bot:
+			if player == 1:
+				input = Input.get_vector("p1_left", "p1_right","p1_up","p1_down")
 			else:
-				var ball_offset
-				if ball.linear_velocity.length() == 0:
-					ball_offset = 0
+				input = Input.get_vector("p2_left", "p2_right","p2_up","p2_down")
+		else:
+			if initialized:
+				if character == "spectre":
+					var offset = abs(player - 1.5)/(player - 1.5)
+					
+					var ball_offset
+					if ball.linear_velocity.length() == 0:
+						ball_offset = 0
+					else:
+						ball_offset = bot_offset
+					input = ((ball.position + Vector2(offset * ball_offset, 0)) - position) + Vector2(0, -32 * self.spin_dir)
 				else:
-					ball_offset = bot_offset
-				var offset = abs(player - 1.5)/(player - 1.5)
-				input = ((ball.position + Vector2(offset * ball_offset, 0)) - position)
-			
-			if input.length() > 25:
-				if (player == 1 and GlobalSave.p1_bot_lv != 1):
-					if (position.x >= 50 or (position.x >= 150 and character == "spectre")) and ball.linear_velocity.length() > 0:
-						input.x = -input.length()/2
-					elif ball.linear_velocity.length() > 0:
-						input.x = 0
-				elif (player == 2 and GlobalSave.p2_bot_lv != 1):
-					if (position.x <= 1102 or (position.x <= 1002 and character == "spectre")) and ball.linear_velocity.length() > 0:
-						input.x = input.length()/2
-					elif ball.linear_velocity.length() > 0:
-						input.x = 0
+					var ball_offset
+					if ball.linear_velocity.length() == 0:
+						ball_offset = 0
+					else:
+						ball_offset = bot_offset
+					var offset = abs(player - 1.5)/(player - 1.5)
+					input = ((ball.position + Vector2(offset * ball_offset, 0)) - position)
 				
-				if (position.x >= 576 - (50) and position.x <= 576 + (50)) and ((player == 2 and GlobalSave.p2_bot_lv != 1) or (player == 1 and GlobalSave.p1_bot_lv != 1)):
-					input.x = 0
-				
-				input = input.normalized()
+				if input.length() > 25:
+					if (player == 1 and GlobalSave.p1_bot_lv != 1):
+						if (position.x >= 50 or (position.x >= 150 and character == "spectre")) and ball.linear_velocity.length() > 0:
+							input.x = -input.length()/2
+						elif ball.linear_velocity.length() > 0:
+							input.x = 0
+					elif (player == 2 and GlobalSave.p2_bot_lv != 1):
+						if (position.x <= 1102 or (position.x <= 1002 and character == "spectre")) and ball.linear_velocity.length() > 0:
+							input.x = input.length()/2
+						elif ball.linear_velocity.length() > 0:
+							input.x = 0
+					
+					if (position.x >= 576 - (50) and position.x <= 576 + (50)) and ((player == 2 and GlobalSave.p2_bot_lv != 1) or (player == 1 and GlobalSave.p1_bot_lv != 1)):
+						input.x = 0
+					
+					input = input.normalized()
+				else:
+					input = Vector2(0,0)
+					if (player == 1):
+						if position.x >= 50 and ball.linear_velocity.length() > 0:
+							input.x = -1
+						elif ball.linear_velocity.length() <= 0:
+							input.x = 1
+					else:
+						if position.x <= 1102 and ball.linear_velocity.length() > 0:
+							input.x = 1
+						elif ball.linear_velocity.length() <= 0:
+							input.x = -1
 			else:
 				input = Vector2(0,0)
-				if (player == 1):
-					if position.x >= 50 and ball.linear_velocity.length() > 0:
-						input.x = -1
-					elif ball.linear_velocity.length() <= 0:
-						input.x = 1
-				else:
-					if position.x <= 1102 and ball.linear_velocity.length() > 0:
-						input.x = 1
-					elif ball.linear_velocity.length() <= 0:
-						input.x = -1
-		else:
-			input = Vector2(0,0)
-		_ultimate()
-		_ability()
-	
-	input *= move_speed * delta
-	if is_multiplayer_authority():
-		linear_velocity += input
-	
-	if input.length() > 0:
-		last_input = input.normalized()
+			_ultimate()
+			_ability()
+		
+		input *= move_speed * delta
+		if is_multiplayer_authority():
+			linear_velocity += input
+		
+		if input.length() > 0:
+			last_input = input.normalized()
 	
 	_ability_cooldown(delta)
+	
 	if (initialized):
 		sprite.skew = linear_velocity.x/(move_speed*stretch)
 		#print(sprite.scale)

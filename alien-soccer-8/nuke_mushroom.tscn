@@ -1,0 +1,273 @@
+[gd_scene format=3 uid="uid://b2dwkx5dc6ri3"]
+
+[ext_resource type="Script" uid="uid://bk6tkytkrxd6o" path="res://node_2d.gd" id="1_68ecb"]
+[ext_resource type="Texture2D" uid="uid://2h44nrq1o76f" path="res://circle_03_a.png" id="2_gpe7d"]
+[ext_resource type="Texture2D" uid="uid://bioo6s1jedxuo" path="res://hollow_circle.png" id="3_qubhl"]
+[ext_resource type="Texture2D" uid="uid://nrh3m3834vdq" path="res://as8_sprites_png/circle.png" id="4_i73rx"]
+
+[sub_resource type="Animation" id="Animation_fedht"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Circle:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles2D:process_material:linear_accel_curve:curve:point_1/position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, -200)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Circle:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.27058825, 0, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Circle2:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Circle2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.5181291, 0.12187612, 4.813075e-08, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("GPUParticles2D:process_material:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.14999999, 0.29999998)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("HollowCircle:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_bu4yp"]
+resource_name = "nuke"
+length = 3.8333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Circle:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.9666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(0.5, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles2D:process_material:linear_accel_curve:curve:point_1/position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 3.8333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, -200), Vector2(1, -200), Vector2(1e-05, -200)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Circle:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.2033333, 1.9666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.7647059, 0.7176471, 0.7254902, 1), Color(0.5176471, 0.42352942, 0.43529412, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Circle2:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.9766667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(0.5, 0.5)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Circle2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.2033333, 1.9766667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.7647059, 0.7176471, 0.7254902, 1), Color(0.5176471, 0.42352942, 0.43529412, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("GPUParticles2D:process_material:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.8, 3, 3.8333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.2, 0.2), Vector2(0.3, 0.3), Vector2(0.6, 0.6), Vector2(0.3, 0.3)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("HollowCircle:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 2.9446821),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hl5m4"]
+_data = {
+&"RESET": SubResource("Animation_fedht"),
+&"nuke": SubResource("Animation_bu4yp")
+}
+
+[sub_resource type="Gradient" id="Gradient_48k73"]
+colors = PackedColorArray(0.6378432, 0.6378432, 0.63784313, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_i750w"]
+gradient = SubResource("Gradient_48k73")
+
+[sub_resource type="Curve" id="Curve_8p57i"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 200), 0.0, 0.0, 0, 0, Vector2(1e-05, -200), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_mg5fq"]
+curve = SubResource("Curve_8p57i")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qgyb7"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 130.0
+initial_velocity_max = 130.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 2.9999976
+linear_accel_max = 2.9999976
+linear_accel_curve = SubResource("CurveTexture_mg5fq")
+damping_min = 20.0
+damping_max = 50.000004
+scale_min = 0.14999999
+scale_max = 0.29999998
+color_initial_ramp = SubResource("GradientTexture1D_i750w")
+
+[node name="nuke_mushroom" type="Node2D" unique_id=560171248]
+scale = Vector2(2.75, 2.75)
+script = ExtResource("1_68ecb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1168380172]
+libraries/ = SubResource("AnimationLibrary_hl5m4")
+
+[node name="Circle" type="Sprite2D" parent="." unique_id=721824521]
+modulate = Color(1, 0.27058825, 0, 1)
+texture_filter = 1
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("2_gpe7d")
+
+[node name="Circle2" type="Sprite2D" parent="." unique_id=1725114600]
+modulate = Color(0.5181291, 0.12187612, 4.813075e-08, 0)
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_gpe7d")
+
+[node name="HollowCircle" type="Sprite2D" parent="." unique_id=1541594354]
+visible = false
+modulate = Color(1, 0, 0, 0.38039216)
+texture_filter = 1
+scale = Vector2(1.5400001, 1.5400001)
+texture = ExtResource("3_qubhl")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1619190297]
+emitting = false
+amount = 2000
+texture = ExtResource("4_i73rx")
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_qgyb7")

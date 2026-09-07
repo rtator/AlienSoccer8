@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://bc7oistmoge2e"]
+
+[ext_resource type="Script" uid="uid://brksmuiyfe7q7" path="res://area_2d.gd" id="1_4g5sj"]
+[ext_resource type="Texture2D" uid="uid://nrh3m3834vdq" path="res://as8_sprites_png/circle.png" id="2_oj1na"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qgyb7"]
+radius = 216.0
+
+[sub_resource type="Animation" id="Animation_8ncp7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_o7b50"]
+resource_name = "nuke"
+length = 0.19999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1a2nx"]
+_data = {
+&"RESET": SubResource("Animation_8ncp7"),
+&"nuke": SubResource("Animation_o7b50")
+}
+
+[node name="nuke_explosion" type="Area2D" unique_id=181758687]
+scale = Vector2(1e-05, 1e-05)
+script = ExtResource("1_4g5sj")
+
+[node name="Circle" type="Sprite2D" parent="." unique_id=1940920026]
+texture_filter = 1
+scale = Vector2(4.2999997, 4.2999997)
+texture = ExtResource("2_oj1na")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=793516631]
+shape = SubResource("CircleShape2D_qgyb7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1258456872]
+libraries/ = SubResource("AnimationLibrary_1a2nx")
+autoplay = &"nuke"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

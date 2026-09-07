@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://byw86dnujr2ih" path="res://as8_sprites_png/pirate.png" id="19_pjmf1"]
 [ext_resource type="Texture2D" uid="uid://ds2dsdsukimos" path="res://as8_sprites_png/mothership.png" id="21_78ltf"]
 [ext_resource type="Texture2D" uid="uid://cp1bs0i4vna1w" path="res://as8_sprites_png/warden.png" id="22_m0xsj"]
+[ext_resource type="Texture2D" uid="uid://kjxi2ss7pm2a" path="res://as8_sprites_png/nuclear.png" id="24_4l77l"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_semk5"]
 font_size = 80
@@ -547,15 +548,10 @@ layout_mode = 2
 [node name="Control2" type="Control" parent="Control/GridContainer" unique_id=1383744430]
 layout_mode = 2
 
-[node name="Control3" type="Control" parent="Control/GridContainer" unique_id=447265937]
-layout_mode = 2
-
-[node name="warden" type="Button" parent="Control/GridContainer/Control3" unique_id=882567225]
+[node name="warden" type="Button" parent="Control/GridContainer" unique_id=882567225]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 65.5
-offset_right = 195.5
-offset_bottom = 78.0
+custom_minimum_size = Vector2(130, 78)
+layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/font_size = 22
 theme_override_styles/normal = ExtResource("2_tj70t")
@@ -564,6 +560,22 @@ theme_override_styles/hover = ExtResource("2_tj70t")
 theme_override_styles/focus = ExtResource("2_tj70t")
 text = "Warden"
 icon = ExtResource("22_m0xsj")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="nuclear" type="Button" parent="Control/GridContainer" unique_id=1075411259]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 78)
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = ExtResource("2_tj70t")
+theme_override_styles/pressed = ExtResource("2_tj70t")
+theme_override_styles/hover = ExtResource("2_tj70t")
+theme_override_styles/focus = ExtResource("2_tj70t")
+text = "Nuclear"
+icon = ExtResource("24_4l77l")
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true

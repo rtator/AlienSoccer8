@@ -47,7 +47,6 @@ one_shot = true
 
 [node name="tint" type="Sprite2D" parent="." unique_id=1039026742]
 unique_name_in_owner = true
-visible = false
 self_modulate = Color(1, 1, 1, 0.686275)
 clip_children = 2
 scale = Vector2(0.13, 0.13)

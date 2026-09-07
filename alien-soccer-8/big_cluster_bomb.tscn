@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://oihn0jn3hx7s"]
+
+[ext_resource type="Script" uid="uid://cyxt3fmjhni6w" path="res://big_cluster_bomb.gd" id="1_5fojl"]
+[ext_resource type="Texture2D" uid="uid://cq5eil27akllk" path="res://as8_sprites_png/cluster_bomb.png" id="1_pat8u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fojl"]
+atlas = ExtResource("1_pat8u")
+region = Rect2(0, 337, 300, 337)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rilgl"]
+atlas = ExtResource("1_pat8u")
+region = Rect2(0, 0, 300, 337)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qgyb7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fojl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rilgl")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qgyb7"]
+radius = 32.0
+
+[node name="big_cluster_bomb" type="RigidBody2D" unique_id=1661431410]
+gravity_scale = 0.0
+linear_damp = 1.5
+script = ExtResource("1_5fojl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=538773851]
+texture_filter = 1
+position = Vector2(0, -3.9999998)
+scale = Vector2(0.20666666, 0.20666665)
+sprite_frames = SubResource("SpriteFrames_qgyb7")
+autoplay = "default"
+frame_progress = 0.49656093
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1622885706]
+shape = SubResource("CircleShape2D_qgyb7")
+disabled = true
+
+[node name="Timer" type="Timer" parent="." unique_id=1287087785]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
