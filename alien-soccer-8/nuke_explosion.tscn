@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://nrh3m3834vdq" path="res://as8_sprites_png/circle.png" id="2_oj1na"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qgyb7"]
-radius = 216.0
+radius = 243.0
 
 [sub_resource type="Animation" id="Animation_8ncp7"]
 length = 0.001
@@ -35,7 +35,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_o7b50"]
 resource_name = "nuke"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -73,7 +73,7 @@ script = ExtResource("1_4g5sj")
 
 [node name="Circle" type="Sprite2D" parent="." unique_id=1940920026]
 texture_filter = 1
-scale = Vector2(4.2999997, 4.2999997)
+scale = Vector2(4.838, 4.838)
 texture = ExtResource("2_oj1na")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=793516631]

@@ -245,6 +245,7 @@ script = ExtResource("1_68ecb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1168380172]
 libraries/ = SubResource("AnimationLibrary_hl5m4")
+autoplay = &"nuke"
 
 [node name="Circle" type="Sprite2D" parent="." unique_id=721824521]
 modulate = Color(1, 0.27058825, 0, 1)
@@ -253,6 +254,7 @@ scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("2_gpe7d")
 
 [node name="Circle2" type="Sprite2D" parent="." unique_id=1725114600]
+visible = false
 modulate = Color(0.5181291, 0.12187612, 4.813075e-08, 0)
 texture_filter = 1
 scale = Vector2(0.5, 0.5)
@@ -271,3 +273,5 @@ amount = 2000
 texture = ExtResource("4_i73rx")
 lifetime = 0.5
 process_material = SubResource("ParticleProcessMaterial_qgyb7")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

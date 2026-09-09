@@ -22,7 +22,7 @@ texture = ExtResource("2_og4ry")
 
 [node name="Circle" type="Sprite2D" parent="NukeCrosshair" unique_id=1405745196]
 texture_filter = 1
-scale = Vector2(0.5733333, 0.5733333)
+scale = Vector2(0.6450667, 0.6450667)
 texture = ExtResource("3_q5itk")
 
 [node name="Nuke" type="Sprite2D" parent="." unique_id=995349485]
