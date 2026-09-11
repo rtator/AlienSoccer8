@@ -105,7 +105,7 @@ func spawn_battery():
 	battery_timer = battery_timer_max
 	
 	var battery = battery_load.instantiate()
-	var position_x = randf_range(screen_bounds[0] - 556, screen_bounds[0])
+	var position_x = randf_range(screen_bounds[0] - 536, screen_bounds[0])
 	var position_y = randf_range(20, screen_bounds[1])
 	
 	battery.position = Vector2(position_x, position_y)
