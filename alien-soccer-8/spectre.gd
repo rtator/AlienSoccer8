@@ -66,14 +66,14 @@ func _ability_cooldown(delta):
 		cooldown -= 1 * delta
 	
 	
-	if invis_timer_max > (invis_timer_max/2) - (full_invis_max/2):
+	if invis_timer > (invis_timer_max/2) - (full_invis_max/2):
 		invis_timer -= delta
 		
 		#spin_speed = 15 * spin_dir
 		
 		var h = invis_timer_max/2
 		var a =  ((invis_timer - h) / h) - 0.3
-		print(a)
+		print("alpha: ", a, " timer: ", invis_timer)
 		ball.modulate = Color(1,1,1,a)
 	elif invis_timer > 0:
 		invis_timer -= delta
@@ -82,10 +82,10 @@ func _ability_cooldown(delta):
 		
 		var h = invis_timer_max/2
 		var a = (1 - (invis_timer / h)) - 0.3
-		print(a)
+		print("alpha: ", a, " timer: ", invis_timer)
 		ball.modulate = Color(1,1,1,a)
 	elif invising:
-		ball.modulate = Color(1,1,1)
+		ball.modulate = Color(1,1,1,1)
 
 func _on_body_entered(body):
 	if body == ball:

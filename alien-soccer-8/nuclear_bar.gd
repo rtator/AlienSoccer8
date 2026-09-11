@@ -10,15 +10,23 @@ var bar
 @onready var bar2 = %bar2
 @onready var hidden = %hidden
 
+@onready var p1 = %p1
+@onready var p2 = %p2
+var icon
+
 func _ready():
 	if user.player == 1:
+		icon = p1
 		bar = bar1
 	else:
+		icon = p2
 		bar = bar2
 
 func _physics_process(delta):
-	for battery in batteries:
-		battery.reparent(hidden)
+	icon.frame = user.batteries
 	
-	for battery in range(user.batteries):
-		batteries[battery].reparent(bar)
+	#for battery in batteries:
+		#battery.reparent(hidden)
+	#
+	#for battery in range(user.batteries):
+		#batteries[battery].reparent(bar)

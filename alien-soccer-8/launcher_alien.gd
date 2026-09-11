@@ -17,7 +17,7 @@ var charging = false
 
 
 func _ability():
-	if cooldown <= 0 and duration <= 0 and not shooting:
+	if cooldown <= 0 and duration <= 0 and not shooting and not big_shotting and not charging and ult_dur <= 0:
 		bullet = bullet_load.instantiate()
 		var offsetX = 576 - position.x
 		print(position.x)
@@ -83,6 +83,7 @@ func _ability_cooldown(delta):
 			shooting = false
 	elif duration > 0:
 		duration -= 1
+		cooldown = 200
 	elif opp_slowed:
 		opp_slowed = false
 		opponent.update_move_speed(opponent.move_speed * 3)

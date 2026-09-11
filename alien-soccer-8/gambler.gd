@@ -3,9 +3,16 @@ extends alien
 var changes = []
 
 var ulting = false
+
+var max_scale = 8
+
 func _ability():
-	if cooldown <= 0 and (len(changes) <= 0 or ulting):
-		var roll = randf_range(0,4)
+	if cooldown <= 0 and (len(changes) <= 0 or ulting) and Engine.time_scale > 0:
+		var roll
+		if base_scale <= 7:
+			roll = randf_range(0,4)
+		else:
+			roll = randf_range(0,3)
 		
 		if roll > 3:
 			update_scale(base_scale * 2)
@@ -33,7 +40,7 @@ func _ability():
 			cooldown = 10
 
 func _ultimate():
-	if charge >= charge_max and not ulting and ult_dur <= 0:
+	if charge >= charge_max and not ulting and ult_dur <= 0 and Engine.time_scale > 0:
 		ulting = true
 		ult_dur = 200
 		charge = 0

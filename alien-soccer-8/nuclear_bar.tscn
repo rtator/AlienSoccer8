@@ -2,6 +2,92 @@
 
 [ext_resource type="Texture2D" uid="uid://dysdmr4rc6c5d" path="res://as8_sprites_png/battery.png" id="1_gquj1"]
 [ext_resource type="Script" uid="uid://co8i17xcv41a8" path="res://nuclear_bar.gd" id="1_w8rhw"]
+[ext_resource type="Texture2D" uid="uid://do47flfh0o62w" path="res://New Piskel.png" id="3_of4ui"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cw2an"]
+atlas = ExtResource("3_of4ui")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibfnw"]
+atlas = ExtResource("3_of4ui")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8oth"]
+atlas = ExtResource("3_of4ui")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o21r3"]
+atlas = ExtResource("3_of4ui")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7f13"]
+atlas = ExtResource("3_of4ui")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gt36w"]
+atlas = ExtResource("3_of4ui")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qa1lp"]
+atlas = ExtResource("3_of4ui")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_br8sq"]
+atlas = ExtResource("3_of4ui")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftaar"]
+atlas = ExtResource("3_of4ui")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6b5b"]
+atlas = ExtResource("3_of4ui")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfmn4"]
+atlas = ExtResource("3_of4ui")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qgyb7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cw2an")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibfnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8oth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o21r3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7f13")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gt36w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qa1lp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_br8sq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftaar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6b5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfmn4")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="nuclear_bar" type="CanvasLayer" unique_id=1824227850]
 script = ExtResource("1_w8rhw")
@@ -129,19 +215,6 @@ texture = ExtResource("1_gquj1")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="10" type="TextureRect" parent="hidden" unique_id=495489433]
-unique_name_in_owner = true
-texture_filter = 1
-custom_maximum_size = Vector2(50, 50)
-layout_mode = 0
-offset_left = 506.0
-offset_top = 500.0
-offset_right = 531.0
-offset_bottom = 525.0
-texture = ExtResource("1_gquj1")
-expand_mode = 3
-stretch_mode = 5
-
 [node name="bar1" type="HBoxContainer" parent="." unique_id=1870838917]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.44313726)
@@ -168,3 +241,19 @@ offset_bottom = -98.0
 grow_horizontal = 0
 grow_vertical = 0
 alignment = 1
+
+[node name="p1" type="AnimatedSprite2D" parent="." unique_id=644171493]
+unique_name_in_owner = true
+visible = false
+texture_filter = 1
+position = Vector2(288, 520)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_qgyb7")
+
+[node name="p2" type="AnimatedSprite2D" parent="." unique_id=1345167500]
+unique_name_in_owner = true
+visible = false
+texture_filter = 1
+position = Vector2(864, 520)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_qgyb7")

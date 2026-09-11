@@ -39,6 +39,9 @@ var bot_offset = 50
 
 var skin 
 
+var last_pos = Vector2(0,0)
+var last_scale = Vector2(0,0)
+
 var online = false:
 	set(value):
 		online = value
@@ -51,75 +54,92 @@ func set_online():
 		print("name is " + name + ". authority is " + str(is_multiplayer_authority()))
 
 func _physics_process(delta_milliseconds):
-	var delta = delta_milliseconds*60
+	if position == Vector2(NAN, NAN):
+		position = last_pos
+	else:
+		last_pos = position
+	print("scale: ", scale)
+	if is_nan(scale.x):
+		print("fixed scale: ", last_scale)
+		scale = last_scale
+	else:
+		last_scale = scale
 	
-	if not stunned:
-		if not is_bot:
-			if player == 1:
-				input = Input.get_vector("p1_left", "p1_right","p1_up","p1_down")
-			else:
-				input = Input.get_vector("p2_left", "p2_right","p2_up","p2_down")
-		else:
-			if initialized:
-				if character == "spectre":
-					var offset = abs(player - 1.5)/(player - 1.5)
-					
-					var ball_offset
-					if ball.linear_velocity.length() == 0:
-						ball_offset = 0
-					else:
-						ball_offset = bot_offset
-					input = ((ball.position + Vector2(offset * ball_offset, 0)) - position) + Vector2(0, -32 * self.spin_dir)
+	if Engine.time_scale > 0:
+		var delta = delta_milliseconds*60
+		
+		if not stunned:
+			if not is_bot:
+				if player == 1:
+					input = Input.get_vector("p1_left", "p1_right","p1_up","p1_down")
 				else:
-					var ball_offset
-					if ball.linear_velocity.length() == 0:
-						ball_offset = 0
+					input = Input.get_vector("p2_left", "p2_right","p2_up","p2_down")
+			else:
+				if initialized:
+					if character == "spectre":
+						var offset = abs(player - 1.5)/(player - 1.5)
+						
+						var ball_offset
+						if ball.linear_velocity.length() == 0:
+							ball_offset = 0
+						else:
+							ball_offset = bot_offset
+						input = ((ball.position + Vector2(offset * ball_offset, 0)) - position) + Vector2(0, -32 * self.spin_dir)
 					else:
-						ball_offset = bot_offset
-					var offset = abs(player - 1.5)/(player - 1.5)
-					input = ((ball.position + Vector2(offset * ball_offset, 0)) - position)
-				
-				if input.length() > 25:
-					if (player == 1 and GlobalSave.p1_bot_lv != 1):
-						if (position.x >= 50 or (position.x >= 150 and character == "spectre")) and ball.linear_velocity.length() > 0:
-							input.x = -input.length()/2
-						elif ball.linear_velocity.length() > 0:
-							input.x = 0
-					elif (player == 2 and GlobalSave.p2_bot_lv != 1):
-						if (position.x <= 1102 or (position.x <= 1002 and character == "spectre")) and ball.linear_velocity.length() > 0:
-							input.x = input.length()/2
-						elif ball.linear_velocity.length() > 0:
-							input.x = 0
+						var ball_offset
+						if ball.linear_velocity.length() == 0:
+							ball_offset = 0
+						else:
+							ball_offset = bot_offset
+						var offset = abs(player - 1.5)/(player - 1.5)
+						input = ((ball.position + Vector2(offset * ball_offset, 0)) - position)
 					
-					if (position.x >= 576 - (50) and position.x <= 576 + (50)) and ((player == 2 and GlobalSave.p2_bot_lv != 1) or (player == 1 and GlobalSave.p1_bot_lv != 1)):
-						input.x = 0
-					
-					input = input.normalized()
+					if input.length() > 25:
+						if (player == 1 and GlobalSave.p1_bot_lv != 1):
+							if (position.x >= 50 or (position.x >= 150 and character == "spectre")) and ball.linear_velocity.length() > 0:
+								input.x = -input.length()/2
+							elif ball.linear_velocity.length() > 0:
+								input.x = 0
+						elif (player == 2 and GlobalSave.p2_bot_lv != 1):
+							if (position.x <= 1102 or (position.x <= 1002 and character == "spectre")) and ball.linear_velocity.length() > 0:
+								input.x = input.length()/2
+							elif ball.linear_velocity.length() > 0:
+								input.x = 0
+						
+						if (position.x >= 576 - (50) and position.x <= 576 + (50)) and ((player == 2 and GlobalSave.p2_bot_lv != 1) or (player == 1 and GlobalSave.p1_bot_lv != 1)):
+							input.x = 0
+						
+						
+						if input != Vector2(NAN, NAN):
+							input = input.normalized()
+					else:
+						input = Vector2(0,0)
+						if (player == 1):
+							if position.x >= 50 and ball.linear_velocity.length() > 0:
+								input.x = -1
+							elif ball.linear_velocity.length() <= 0:
+								input.x = 1
+						else:
+							if position.x <= 1102 and ball.linear_velocity.length() > 0:
+								input.x = 1
+							elif ball.linear_velocity.length() <= 0:
+								input.x = -1
 				else:
 					input = Vector2(0,0)
-					if (player == 1):
-						if position.x >= 50 and ball.linear_velocity.length() > 0:
-							input.x = -1
-						elif ball.linear_velocity.length() <= 0:
-							input.x = 1
-					else:
-						if position.x <= 1102 and ball.linear_velocity.length() > 0:
-							input.x = 1
-						elif ball.linear_velocity.length() <= 0:
-							input.x = -1
-			else:
-				input = Vector2(0,0)
-			_ultimate()
-			_ability()
+				
+				if Engine.time_scale > 0:
+					_ultimate()
+					_ability()
+			
+			input *= move_speed * delta
+			if is_multiplayer_authority():
+				linear_velocity += input
+			
+			if input.length() > 0 and input != Vector2(NAN, NAN):
+				input = input.normalized()
+				last_input = input.normalized()
 		
-		input *= move_speed * delta
-		if is_multiplayer_authority():
-			linear_velocity += input
-		
-		if input.length() > 0:
-			last_input = input.normalized()
-	
-	_ability_cooldown(delta)
+		_ability_cooldown(delta)
 	
 	if (initialized):
 		sprite.skew = linear_velocity.x/(move_speed*stretch)
@@ -157,16 +177,17 @@ func _ability_cooldown(delta):
 
 func _unhandled_input(event):
 	if not is_bot and is_multiplayer_authority():
-		if event.is_action_pressed("p1_ability") and player == 1:
-			_ability()
-		elif event.is_action_pressed("p2_ability") and player == 2:
-			_ability()
-		
-		if event.is_action_pressed("p1_ult") and player == 1:
-			_ultimate()
-		elif event.is_action_pressed("p2_ult") and player == 2:
-			_ultimate()
-
+		if Engine.time_scale > 0:
+			if event.is_action_pressed("p1_ability") and player == 1:
+				_ability()
+			elif event.is_action_pressed("p2_ability") and player == 2:
+				_ability()
+			
+			if event.is_action_pressed("p1_ult") and player == 1:
+				_ultimate()
+			elif event.is_action_pressed("p2_ult") and player == 2:
+				_ultimate()
+	
 func set_player(playerNumb):
 	player = playerNumb
 	if player == 1:
