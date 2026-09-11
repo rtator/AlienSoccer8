@@ -41,6 +41,7 @@ func stop_ball():
 func effect_spawn(score = false):
 	if GlobalSave.vfxEnabled:
 		if score:
+			%score_sfx.stop()
 			%score_sfx.play()
 			
 			var score_fx = score_fx_load.instantiate()
@@ -48,6 +49,7 @@ func effect_spawn(score = false):
 			score_fx.emitting = true
 			add_sibling(score_fx)
 		else:
+			%ball_hit_sfx.stop()
 			%ball_hit_sfx.play()
 			
 			var hit_fx = hit_fx_load.instantiate()

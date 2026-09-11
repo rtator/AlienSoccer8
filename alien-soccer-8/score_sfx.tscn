@@ -9,3 +9,4 @@ tags = {
 
 [node name="score_sfx" type="AudioStreamPlayer2D" unique_id=1345312649]
 stream = SubResource("AudioStreamWAV_ci2on")
+volume_db = 10.0
