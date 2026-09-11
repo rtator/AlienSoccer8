@@ -16,6 +16,7 @@ func _physics_process(delta):
 	alpha -= 0.05
 	if alpha <= 0:
 		queue_free()
+		user.reset_skin()
 
 
 func _on_body_entered(body):
@@ -24,7 +25,13 @@ func _on_body_entered(body):
 			body.temp_speed = -100
 		else:
 			body.temp_speed = 150
+		
+		user.reset_skin()
+		
 		queue_free()
 	elif body.has_method("update_move_speed") and not body == user:
 		body.linear_velocity.x = new_scale.normalized().x * 3000
+		
+		user.reset_skin()
+		
 		queue_free()

@@ -1,24 +1,24 @@
 [gd_scene format=3 uid="uid://hpanj0pv8byu"]
 
 [ext_resource type="Script" uid="uid://cqerf6dn20vje" path="res://small_cluster_bomb.gd" id="1_0vkfe"]
-[ext_resource type="Texture2D" uid="uid://cq5eil27akllk" path="res://as8_sprites_png/cluster_bomb.png" id="1_522mv"]
+[ext_resource type="Texture2D" uid="uid://f87lguj0abdu" path="res://New Piskel (1) (2).png" id="2_0vkfe"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5fojl"]
-atlas = ExtResource("1_522mv")
-region = Rect2(0, 337, 300, 337)
+[sub_resource type="AtlasTexture" id="AtlasTexture_08lw8"]
+atlas = ExtResource("2_0vkfe")
+region = Rect2(0, 0, 3300, 3707)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rilgl"]
-atlas = ExtResource("1_522mv")
-region = Rect2(0, 0, 300, 337)
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnas0"]
+atlas = ExtResource("2_0vkfe")
+region = Rect2(0, 3707, 3300, 3707)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qgyb7"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5fojl")
+"texture": SubResource("AtlasTexture_08lw8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rilgl")
+"texture": SubResource("AtlasTexture_jnas0")
 }],
 "loop": 1,
 "name": &"default",
@@ -36,7 +36,7 @@ script = ExtResource("1_0vkfe")
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=366180712]
 texture_filter = 2
 position = Vector2(0, -3)
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.013, 0.013)
 sprite_frames = SubResource("SpriteFrames_qgyb7")
 autoplay = "default"
 frame_progress = 0.79344845

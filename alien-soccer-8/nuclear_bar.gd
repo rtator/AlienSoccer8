@@ -21,6 +21,8 @@ func _ready():
 	else:
 		icon = p2
 		bar = bar2
+	
+	icon.visible = true
 
 func _physics_process(delta):
 	icon.frame = user.batteries

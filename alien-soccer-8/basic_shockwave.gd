@@ -22,8 +22,8 @@ func _on_timer_timeout():
 
 func _on_body_entered(body):
 	if "temp_speed" in body:
-		body.temp_speed = 50
+		body.temp_speed = body.ball_speed / 4
 
 func _on_body_exited(body):
 	if "temp_speed" in body:
-		body.temp_speed = 50
+		body.temp_speed = body.ball_speed / 4

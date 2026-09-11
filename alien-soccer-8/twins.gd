@@ -41,12 +41,20 @@ func _ultimate():
 			add_sibling(blast)
 		
 		charge = 0
-		#twin_sprite1.animation = "ult"
-		#twin_sprite2.animation = "ult"
-		#
-		#if skin != 0:
-			#%AnimatedSprite2D2.animation = "ult_" + str(skin)
-			#%AnimatedSprite2D3.animation = "ult_" + str(skin)
+		twin_sprite1.animation = "ult"
+		twin_sprite2.animation = "ult"
+		
+		if skin != 0:
+			%AnimatedSprite2D2.animation = "ult_" + str(skin)
+			%AnimatedSprite2D3.animation = "ult_" + str(skin)
+
+func reset_skin():
+		twin_sprite1.animation = "default"
+		twin_sprite2.animation = "default"
+		
+		if skin != 0:
+			%AnimatedSprite2D2.animation = "default_" + str(skin)
+			%AnimatedSprite2D3.animation = "default_" + str(skin)
 
 func _ability_cooldown(delta):
 	if blast != null and blast.alpha > 0:
@@ -62,12 +70,7 @@ func _ability_cooldown(delta):
 		%twins_barrier.monitoring = false
 		%twins_barrier.visible = false
 		ulting = false
-		#twin_sprite1.animation = "default"
-		#twin_sprite2.animation = "default"
-		#
-		#if skin != 0:
-			#%AnimatedSprite2D2.animation = "default_" + str(skin)
-			#%AnimatedSprite2D3.animation = "default_" + str(skin)
+		reset_skin()
 	
 	if charge < charge_max and not ulting:
 		charge += delta
