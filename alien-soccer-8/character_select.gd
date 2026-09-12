@@ -273,4 +273,4 @@ func _on_p_2_bot_pressed():
 		%p2Bot.modulate = bot_mod
 
 func _on_back_button_pressed():
-	get_tree().change_scene_to_file("res://startScreen.tscn")
+	get_tree().change_scene_to_file("res://stage_select_screen.tscn")

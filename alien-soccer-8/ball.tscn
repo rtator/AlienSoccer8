@@ -92,6 +92,7 @@ one_shot = true
 
 [node name="ball_hit_sfx" parent="." unique_id=155730042 instance=ExtResource("4_hgol0")]
 unique_name_in_owner = true
+volume_db = 10.0
 
 [node name="score_sfx" parent="." unique_id=1345312649 instance=ExtResource("5_n5601")]
 unique_name_in_owner = true

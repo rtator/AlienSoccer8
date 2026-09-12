@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dry6st8j00djh"]
 
 [ext_resource type="Script" uid="uid://18n28p3ji23d" path="res://moving_block.gd" id="1_4fih0"]
-[ext_resource type="Texture2D" uid="uid://cl4twax2q2bgp" path="res://grey_tile.png" id="2_5d3qs"]
+[ext_resource type="Texture2D" uid="uid://dex4tv5kuvthm" path="res://jungle_tile.png" id="2_4fih0"]
 
 [sub_resource type="Curve2D" id="Curve2D_y23ww"]
 bake_interval = 10.0
@@ -24,10 +24,11 @@ rotation = 1.5707964
 
 [node name="StaticBody2D" type="StaticBody2D" parent="PathFollow2D" unique_id=669485943]
 
-[node name="GreyTile" type="Sprite2D" parent="PathFollow2D/StaticBody2D" unique_id=1830720074]
+[node name="JungleTile" type="Sprite2D" parent="PathFollow2D/StaticBody2D" unique_id=1235501423]
 texture_filter = 1
+rotation = -1.5707964
 scale = Vector2(4.65, 4.65)
-texture = ExtResource("2_5d3qs")
+texture = ExtResource("2_4fih0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/StaticBody2D" unique_id=1537892463]
 shape = SubResource("RectangleShape2D_qgyb7")

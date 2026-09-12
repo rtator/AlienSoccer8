@@ -45,7 +45,8 @@ offset_right = 1152.0
 offset_bottom = 648.0
 theme = ExtResource("2_i2t4f")
 
-[node name="TextureRect" type="TextureRect" parent="Control" unique_id=358817453]
+[node name="BG" type="TextureRect" parent="Control" unique_id=358817453]
+unique_name_in_owner = true
 z_index = -1000
 z_as_relative = false
 texture_filter = 1
@@ -99,20 +100,22 @@ script = ExtResource("4_f2txt")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="p2Wall" unique_id=618115824]
 shape = SubResource("WorldBoundaryShape2D_1ainy")
 
-[node name="StaticBody2D5" type="StaticBody2D" parent="." unique_id=1545676143]
+[node name="p1MiddleWall" type="StaticBody2D" parent="." unique_id=1545676143]
+unique_name_in_owner = true
 position = Vector2(575, 322)
 collision_layer = 8
 collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5" unique_id=641536169]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="p1MiddleWall" unique_id=641536169]
 shape = SubResource("WorldBoundaryShape2D_1ainy")
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1755205269]
+[node name="p2MiddleWall" type="StaticBody2D" parent="." unique_id=1755205269]
+unique_name_in_owner = true
 position = Vector2(575, 324)
 collision_layer = 128
 collision_mask = 128
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1001154684]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="p2MiddleWall" unique_id=1001154684]
 shape = SubResource("WorldBoundaryShape2D_n6hdu")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1107436358]

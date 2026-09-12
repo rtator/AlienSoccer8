@@ -2,7 +2,7 @@ extends Control
 
 
 func _on_button_pressed():
-	get_tree().change_scene_to_file("res://newAlienSelect.tscn")
+	get_tree().change_scene_to_file("res://stage_select_screen.tscn")
 
 
 func _on_button_2_pressed():

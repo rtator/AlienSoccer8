@@ -23,6 +23,16 @@ const player_objects = {
 	"nuclear": preload("res://nuclearAlien.tscn"),
 }
 
+var backgrounds = {
+	"classic": preload("res://as8BG.png"),
+	"realSoccer": preload("res://othersiderBG.png"),
+	"jungle": preload("res://jungleBG.png"),
+}
+
+var map_obstacles = {
+	"jungle": preload("res://moving_level_version.tscn"),
+}
+
 var p1
 var p2
 
@@ -34,6 +44,18 @@ var pause_screen
 @onready var canvas_layer = %CanvasLayer
 
 func _ready():
+	if backgrounds.has(GlobalSave.stage):
+		%BG.texture = backgrounds[GlobalSave.stage]
+	
+	if map_obstacles.has(GlobalSave.stage):
+		var obstacles = map_obstacles[GlobalSave.stage].instantiate()
+		add_child(obstacles)
+	
+	
+	if GlobalSave.stage == "realSoccer":
+		%p1MiddleWall.set_collision_layer_value(4, false)
+		%p2MiddleWall.set_collision_layer_value(8, false)
+	
 	p1 = player_objects[GlobalSave.p1Char].instantiate()
 	p1.ball = %ball
 	p1.camera = %Camera2D
@@ -86,7 +108,7 @@ func unpause():
 	pause_screen.visible = false
 
 func _unhandled_input(event):
-	if event.is_action_pressed("pause") :
+	if event.is_action_pressed("pause"):
 		if not paused:
 			Engine.time_scale = 0
 			paused = true
