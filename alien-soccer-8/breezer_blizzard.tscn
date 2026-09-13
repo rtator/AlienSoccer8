@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b7ax63kyu8px2"]
+
+[ext_resource type="Script" uid="uid://bw2k1aflkepap" path="res://breezer_blizzard.gd" id="1_br1ko"]
+
+[node name="breezer_blizzard" type="CanvasLayer" unique_id=1972900002]
+script = ExtResource("1_br1ko")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2060315437]
+unique_name_in_owner = true
+offset_left = 1152.0
+offset_right = 2304.0
+offset_bottom = 648.0
+color = Color(0.8666667, 0.9098039, 1, 0.34117648)

@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://b82gj1lnbavsa"]
+
+[ext_resource type="Texture2D" uid="uid://c1wi7tadek2gl" path="res://as8_sprites_png/breezer_wind.png" id="1_hvydi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5nss"]
+atlas = ExtResource("1_hvydi")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ge1ve"]
+atlas = ExtResource("1_hvydi")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnd58"]
+atlas = ExtResource("1_hvydi")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8uu8"]
+atlas = ExtResource("1_hvydi")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qgyb7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5nss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ge1ve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nnd58")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8uu8")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vt7g2"]
+radius = 88.0
+
+[node name="breezer_area" type="Area2D" unique_id=1354829125]
+modulate = Color(1, 1, 1, 0.31764707)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1661497792]
+texture_filter = 1
+scale = Vector2(5.375, 5.375)
+sprite_frames = SubResource("SpriteFrames_qgyb7")
+autoplay = "default"
+frame_progress = 0.7227195
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1653708807]
+shape = SubResource("CircleShape2D_vt7g2")

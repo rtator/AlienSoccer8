@@ -21,6 +21,7 @@ const player_objects = {
 	"mothership": preload("res://mothershipAlien.tscn"),
 	"warden": preload("res://wardenAlien.tscn"),
 	"nuclear": preload("res://nuclearAlien.tscn"),
+	"breezer": preload("res://breezerAlien.tscn"),
 }
 
 var backgrounds = {

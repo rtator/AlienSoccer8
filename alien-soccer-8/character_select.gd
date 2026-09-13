@@ -23,6 +23,7 @@ const alienTextures = {
 	"mothership": preload("res://as8_sprites_png/mothership.png"),
 	"warden": preload("res://as8_sprites_png/warden.png"),
 	"nuclear": preload("res://as8_sprites_png/nuclear.png"),
+	"breezer": preload("res://as8_sprites_png/breezer.png"),
 }
 
 var alien_names = alienTextures.keys()
@@ -51,6 +52,7 @@ var p2_selected_button = 0
 	%mothership,
 	%warden,
 	%nuclear,
+	%breezer,
 ]
 
 var started = false
@@ -76,6 +78,8 @@ var banner_out = false
 var p1_mod = Color("ff4d4b")
 var p2_mod = Color("36ebff")
 var bot_mod = Color(0.855, 4.476, 0.855)
+
+var row_size = 7
 
 func _ready():
 	started = true
@@ -152,13 +156,13 @@ func _unhandled_input(event):
 				#if ceil((p1_selected_button + 1) / 6) == 2:
 					#p1_selected_button -= 5
 				#else:
-				p1_selected_button -= 6
+				p1_selected_button -= row_size
 				p1_selected_button = clamp(p1_selected_button, 0, len(alien_buttons) - 1)
 			elif event.is_action("p1_down"):
 				#if ceil(p1_selected_button / 6) == 1 and p1_selected_button != 6:
 					#p1_selected_button += 5
 				#else:
-				p1_selected_button += 6
+				p1_selected_button += row_size
 				p1_selected_button = clamp(p1_selected_button, 0, len(alien_buttons) - 1)
 			elif event.is_action("p1_ability"):
 				p1Selected = true
@@ -176,13 +180,13 @@ func _unhandled_input(event):
 				#if ceil((p2_selected_button + 1) / 6) == 2:
 					#p2_selected_button -= 5
 				#else:
-				p2_selected_button -= 6
+				p2_selected_button -= row_size
 				p2_selected_button = clamp(p2_selected_button, 0, len(alien_buttons) - 1)
 			elif event.is_action("p2_down"):
 				#if ceil(p2_selected_button / 6) == 1 and p2_selected_button != 6:
 					#p2_selected_button += 5
 				#else:
-				p2_selected_button += 6
+				p2_selected_button += row_size
 				p2_selected_button = clamp(p2_selected_button, 0, len(alien_buttons) - 1)
 			elif event.is_action("p2_ability"):
 				p2Selected = true
