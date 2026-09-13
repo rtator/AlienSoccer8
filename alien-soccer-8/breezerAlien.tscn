@@ -39,7 +39,6 @@ sprite_frames = SubResource("SpriteFrames_qgyb7")
 
 [node name="breezer_area" parent="." unique_id=1354829125 instance=ExtResource("3_j7ekg")]
 unique_name_in_owner = true
-visible = false
 
 [connection signal="body_entered" from="breezer_area" to="." method="_on_breezer_area_body_entered"]
 [connection signal="body_exited" from="breezer_area" to="." method="_on_breezer_area_body_exited"]
