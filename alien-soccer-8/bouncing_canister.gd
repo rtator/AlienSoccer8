@@ -26,7 +26,8 @@ var bounces_max = 5
 var dead = false
 
 func _ready():
-	add_collision_exception_with(user.opponent)
+	for opp in user.opponent:
+		add_collision_exception_with(opp)
 	
 	bounce_vec = position
 	areas.append([area_load.instantiate(), bounce_vec, Vector2(0,0), bounce_vec, 0])

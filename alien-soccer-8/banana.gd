@@ -7,13 +7,12 @@ var ball
 
 func _on_body_entered(body):
 	if body != shooter:
-		if body.has_method("update_move_speed"):
-			print("hit")
+		if body.has_method("add_speed_mult"):
 			if not shooter.opp_slipping:
-				body.update_move_speed(body.move_speed * -0.5)
+				body.add_speed_mult(-0.5, 50)
+				shooter.slip_timer = 50.0
 			
 			shooter.opp_slipping = true
-			shooter.slip_timer = 50
 			queue_free()
 
 func _on_timer_timeout():

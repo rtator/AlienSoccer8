@@ -6,20 +6,18 @@ var a1_dead = false
 var a2_dead = false
 
 func _on_area_2d_body_entered(body):
-	if body.has_method("update_move_speed") and body != user:
+	if body.has_method("add_speed_mult") and body != user:
 		user.ult_hits += 1
-		user.slow_timer = 200
-		user.update_move_speed(user.move_speed * 1.2)
-		body.update_move_speed(body.move_speed * 0.8)
+		user.add_speed_mult(1.2, 200.0)
+		body.add_speed_mult(0.8, 200.0)
 		a1_dead = true
 		#%Area2D.queue_free()
 
 func _on_area_2d_2_body_entered(body):
-	if body.has_method("update_move_speed") and body != user:
+	if body.has_method("add_speed_mult") and body != user:
 		user.ult_hits += 1
-		user.slow_timer = 200
-		user.update_move_speed(user.move_speed * 1.2)
-		body.update_move_speed(body.move_speed * 0.8)
+		user.add_speed_mult(1.2, 200.0)
+		body.add_speed_mult(0.8, 200.0)
 		a2_dead = true
 		#%Area2D2.queue_free()
 

@@ -89,9 +89,9 @@ func _ready():
 		%p1Wall.collision_mask = 0
 		p2.score_board = %p2Score
 	
-	p1.opponent = p2
+	p1.opponent = [p2]
 	p1.character = GlobalSave.p1Char
-	p2.opponent = p1
+	p2.opponent = [p1]
 	p2.character = GlobalSave.p2Char
 	
 	

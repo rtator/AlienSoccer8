@@ -70,7 +70,6 @@ func _ability_cooldown(delta):
 		ult_dur -= 1
 	elif opp_slowed_big:
 		opp_slowed_big = false
-		opponent.update_move_speed(opponent.move_speed * 10)
 	
 	
 	if shooting:
@@ -86,7 +85,6 @@ func _ability_cooldown(delta):
 		cooldown = 200
 	elif opp_slowed:
 		opp_slowed = false
-		opponent.update_move_speed(opponent.move_speed * 3)
 		cooldown = 200
 	
 	if cooldown > 0:
@@ -94,8 +92,6 @@ func _ability_cooldown(delta):
 		print(cooldown)
 
 func on_ready():
-	#physics_material_override.friction = 0.1
-	 
 	base_scale = 0.9
 	
 	if skin != 0:

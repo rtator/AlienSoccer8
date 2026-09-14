@@ -12,16 +12,16 @@ var cannons_load = preload("res://cannons.tscn")
 var cannons
 
 var down_arrow_load = preload("res://down_arrow.tscn")
-var down_arrow
+var down_arrows = []
 
 func _ability():
 	if not balls_out and not ult_balls_out and cooldown <= 0:
-		cannons.fire(false, opponent.position)
+		cannons.fire(false, opponent[randi_range(0, len(opponent) - 1)].position)
 		balls_out = true 
 
 func _ultimate():
 	if not balls_out and not ult_balls_out and charge >= charge_max:
-		cannons.fire_ult(opponent.position)
+		cannons.fire_ult(opponent[randi_range(0, len(opponent) - 1)].position)
 		ult_balls_out = true
 		charge = 0
 
@@ -34,29 +34,36 @@ func _ability_cooldown(delta):
 	
 	if slow_timer > 0:
 		slow_timer -= delta
-		down_arrow.visible = true
-		down_arrow.position = opponent.position
-		down_arrow.position.y += (opponent.base_scale * -32) - 12
+		#
+		#down_arrow.visible = true
+		#down_arrow.position = opponent.position
+		#down_arrow.position.y += (opponent.base_scale * -32) - 12
 	elif ult_slowed:
 		slow_timer = 0
 		ult_slowed = false
 		opp_slowed = false
-		opponent.update_move_speed(opponent.move_speed / 0.5)
-		down_arrow.visible = false
+		#opponent.update_move_speed(opponent.move_speed / 0.5)
+		for down_arrow in down_arrows:
+			down_arrow.visible = false
 	elif opp_slowed:
 		slow_timer = 0
 		ult_slowed = false
 		opp_slowed = false
-		opponent.update_move_speed(opponent.move_speed / 0.7)
-		down_arrow.visible = false
+		#opponent.update_move_speed(opponent.move_speed / 0.7)
+		for down_arrow in down_arrows:
+			down_arrow.visible = false
 
 func on_ready():
 	if skin != 0:
 		%AnimatedSprite2D.animation = "default_" + str(skin)
 	
-	down_arrow = down_arrow_load.instantiate()
-	down_arrow.visible = false
-	add_sibling(down_arrow)
+	for opp in opponent:
+		var down_arrow = down_arrow_load.instantiate()
+		down_arrow.name = "pirate_arrow"
+		down_arrow.visible = false
+		opp.add_child(down_arrow, true)
+		down_arrow.position.y = (opp.base_scale * -32) - 12
+		down_arrows.append(down_arrow)
 	
 	cannons = cannons_load.instantiate()
 	if player == 2:

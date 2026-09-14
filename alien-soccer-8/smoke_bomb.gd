@@ -14,7 +14,7 @@ func _on_timer_timeout():
 	smoke_cloud.is_ult = is_ult
 	smoke_cloud.user = user
 	
-	smoke_cloud.z_index = user.opponent.z_index + 1
+	smoke_cloud.z_index = user.opponent.back().z_index + 1
 	
 	if is_ult:
 		smoke_cloud.amount *= 2.5

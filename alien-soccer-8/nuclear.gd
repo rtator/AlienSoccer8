@@ -56,26 +56,26 @@ func _ultimate():
 		
 		nuke = nuke_load.instantiate()
 		
-		nuke.z_index = opponent.z_index + 1
+		nuke.z_index = opponent.back().z_index + 1
 		
 		nuke.position = position
-		nuke.target = opponent.position
+		nuke.target = opponent[randi_range(0, len(opponent) - 1)].position
 		nuke.user = self
 		
 		add_sibling(nuke)
 
-func hit_opp_nuke():
-	opponent.stunned = true
+func hit_opp_nuke(body):
+	body.stunned = true
 	nuke_hit = true
 	ult_dur = max_nuke_dur
 
-func hit_opp_cluster(bomb_pos):
-	opponent.linear_velocity = ((opponent.position - bomb_pos).normalized() * push_back_strength)
+func hit_opp_cluster(body,bomb_pos):
+	body.linear_velocity = ((body.position - bomb_pos).normalized() * push_back_strength)
 	
 	if not opp_slowed:
 		opp_slowed = true
 		duration = slow_dur_max
-		opponent.update_move_speed(opponent.move_speed * opp_slow_factor)
+		body.add_speed_mult(opp_slow_factor, slow_dur_max)
 
 func _ability_cooldown(delta):
 	if battery_timer > 0 and batteries_out < batteries_out_max:
@@ -91,13 +91,14 @@ func _ability_cooldown(delta):
 		duration -= delta
 	elif opp_slowed:
 		opp_slowed = false
-		opponent.update_move_speed(opponent.move_speed / opp_slow_factor)
+		#opponent.update_move_speed(opponent.move_speed / opp_slow_factor)
 	
 	if ult_dur > 0:
 		ult_dur -= 1 * delta
 	elif nuke_hit:
 		nuke_hit = false
-		opponent.stunned = false
+		for opp in opponent:
+			opp.stunned = false
 
 func spawn_battery():
 	batteries_out += 1

@@ -50,13 +50,15 @@ func _ability_cooldown(delta):
 		if ult_dur <= 60:
 			camera.shake(1)
 	elif bluing:
-		if opponent.character != "jumper":
-			opponent.gravity_scale = 0
-		else:
-			opponent.gravity_scale /= 2
-		opponent.sprite.modulate  = Color.WHITE
+		for opp in opponent:
+			if opp.character != "jumper":
+				opp.gravity_scale = 0
+			else:
+				opp.gravity_scale /= 2
+			opp.sprite.modulate  = Color.WHITE
+		
 		bluing = false
-		cooldown == 100
+		cooldown = 100
 	
 	if cooldown > 0:
 		cooldown -= 1 * delta
@@ -72,15 +74,6 @@ func _ability_cooldown(delta):
 		slow_timer -= 1
 	elif slow_timer > 0:
 		slow_timer -= 1
-		
-		opponent.update_move_speed(opponent.move_speed / 0.8)
-		update_move_speed(move_speed / 1.2)
-		if ult_hits > 1:
-			opponent.update_move_speed(opponent.move_speed / 0.8)
-			update_move_speed(move_speed / 1.2)
-		if ult_hits > 2:
-			opponent.update_move_speed(opponent.move_speed / 0.8)
-			update_move_speed(move_speed / 1.2)
 		
 		ult_hits = 0
 		

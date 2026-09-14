@@ -4,6 +4,9 @@ var max_cd = 400
 var full_default_dur = 90
 var full_ult_dur = 200
 
+var hit_opps = []
+var hit_body
+
 var opp_paused = false
 var opp_pause_length = 0
 var opp_pause_ult = false
@@ -80,35 +83,46 @@ func _ability_cooldown(delta):
 		else:
 			opp_pause_length = 150
 		
-		opponent.cooldown += 5
-		opponent.charge -= 5
+		hit_body.cooldown += 5
+		hit_body.charge -= 5
 		
-		opp_cd = opponent.cooldown
-		opp_charge = opponent.charge
+		opp_cd = hit_body.cooldown
+		opp_charge = hit_body.charge
 		
-		opponent.modulate = Color(0.8,0.8,0.8)
+		hit_body.modulate = Color(0.8,0.8,0.8)
 		lock.visible = true
+		
+		hit_opps.append([hit_body, opp_pause_length, opp_cd, opp_charge, false])
 		
 		if player == 1:
 			cover.p1()
 		else:
 			cover.p2()
 	
-	
-	if opp_paused and opp_pause_length > 0:
-		opp_pause_length -= 1
-		opponent.cooldown = opp_cd
-		opponent.charge = opp_charge
-	elif opp_paused:
-		opp_paused = false
-		opponent.modulate = Color(1,1,1)
-		lock.visible = false
-		
-		if player == 1:
-			cover.p1_done()
+	for hit in hit_opps:
+		var opp = hit[0]
+		if hit[1] > 0:
+			hit[1] -= 1
+			opp.cooldown = hit[2]
+			opp.charge = hit[3]
+			opp.modulate = Color(0.8,0.8,0.8)
+			opp.get_node("lock").visible = true
+			if player == 1:
+				cover.p1()
+			else:
+				cover.p2()
+			
 		else:
-			cover.p2_done()
+			hit[4] = true
+			opp.modulate = Color(1,1,1)
+			opp.get_node("lock").visible = false
+			
+			if player == 1:
+				cover.p1_done()
+			else:
+				cover.p2_done()
 	
+	hit_opps = hit_opps.filter(func(hit): return not hit[4])
 	
 	if cooldown > 0:
 		cooldown -= 1 * delta
@@ -120,9 +134,11 @@ func _ability_cooldown(delta):
 		charge += delta
 
 func on_ready():
-	lock = lock_load.instantiate()
-	lock.visible = false
-	opponent.add_child(lock)
+	for opp in opponent:
+		lock = lock_load.instantiate()
+		lock.name = "lock"
+		lock.visible = false
+		opp.add_child(lock, true)
 	
 	cover = cover_load.instantiate()
 	add_sibling(cover)

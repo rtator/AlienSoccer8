@@ -30,9 +30,11 @@ var sprite_scale = Vector2(1,1)
 var initialized = false
 
 var ball
-var opponent
+var opponent = []
 var character
 var camera
+
+var speed_changes = []
 
 var is_bot = false
 var bot_offset = 50
@@ -140,6 +142,8 @@ func _physics_process(delta_milliseconds):
 				last_input = input.normalized()
 		
 		_ability_cooldown(delta)
+		change_speed_mults(delta)
+		
 	
 	if (initialized):
 		sprite.skew = linear_velocity.x/(move_speed*stretch)
@@ -158,6 +162,24 @@ func update_move_speed(new_speed = move_speed, new_damp = speed_damp):
 	move_speed = new_speed
 	speed_damp = new_damp
 	linear_damp = speed_damp
+
+func add_speed_mult(speed_mult = 1,  time = 100, damp_mult = 1, indentifier = ""):
+	print("mult: ", speed_mult)
+	update_move_speed(move_speed * speed_mult, speed_damp * damp_mult)
+	speed_changes.append([time, speed_mult, damp_mult, indentifier])
+
+func remove_change(change):
+	return change[0] > 0
+
+func change_speed_mults(delta):
+	for change in speed_changes:
+		change[0] -= delta
+		if change[0] <= 0:
+			var speed_mult = change[1]
+			var damp_mult = change[2]
+			update_move_speed(move_speed / speed_mult, speed_damp / damp_mult)
+	
+	speed_changes = speed_changes.filter(remove_change)
 
 func update_scale(new_scale):
 	print(new_scale)

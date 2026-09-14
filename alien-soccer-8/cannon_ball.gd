@@ -37,7 +37,7 @@ func _on_body_entered(body):
 	ball_speed += 10
 	
 	if body != user:
-		if body.has_method("update_move_speed"):
+		if body.has_method("add_speed_mult"):
 			print("hit")
 			var default_slow = 0.7
 			var ult_slow = 0.5
@@ -49,20 +49,28 @@ func _on_body_entered(body):
 				slow_amount = ult_slow
 			
 			if not user.opp_slowed and not user.ult_slowed:
-				body.update_move_speed(body.move_speed * slow_amount)
+				body.add_speed_mult(slow_amount, slow_timer_add, 1, "pirate")
+				body.get_node("pirate_arrow").visible = true
 				if ult:
 					user.ult_slowed = true
 				else:
 					user.opp_slowed = true
 				user.slow_timer = slow_timer_add
 			elif ult and user.opp_slowed:
-				body.update_move_speed(body.move_speed / default_slow)
-				body.update_move_speed(body.move_speed * slow_amount)
-				user.ult_slowed = true
-				user.slow_timer = slow_timer_add
-				user.opp_slowed = false
+				for change in body.speed_changes:
+					if change[3] == "pirate":
+						change[0] = 0
+						body.add_speed_mult(slow_amount, slow_timer_add, 1, "pirate")
+						#body.update_move_speed(body.move_speed / default_slow)
+						#body.update_move_speed(body.move_speed * slow_amount)
+						user.ult_slowed = true
+						user.slow_timer = slow_timer_add
+						user.opp_slowed = false
 			else:
-				user.slow_timer += slow_timer_add
+				for change in body.speed_changes:
+					if change[3] == "pirate":
+						change[0] += slow_timer_add
+						user.slow_timer += slow_timer_add
 				if ult:
 					user.opp_slowed = false
 					user.ult_slowed = true

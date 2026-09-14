@@ -31,6 +31,8 @@ func _on_area_2d_body_entered(body):
 	if "cooldown" in body and body != user:
 		user.opp_pause_ult = true
 		user.chain_hit = true
+		
+		user.hit_body = body
 
 func _on_timer_timeout():
 	user.wall_out = false

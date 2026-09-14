@@ -44,8 +44,8 @@ func _ready():
 	p2.set_player(2)
 	p2.skin = GlobalSave.p2Skin
 	
-	p2.opponent = p1
-	p1.opponent = p2
+	p2.opponent = [p1]
+	p1.opponent = [p2]
 	
 	add_child(p1)
 	add_child(p2)

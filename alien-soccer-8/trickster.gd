@@ -66,7 +66,6 @@ func _ability_cooldown(delta):
 			camera.shake(1)
 	elif opp_slipping:
 		opp_slipping = false
-		opponent.update_move_speed(abs(opponent.move_speed * 2))
 
 func on_ready():
 	base_scale = 0.8

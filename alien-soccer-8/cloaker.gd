@@ -13,7 +13,7 @@ var cover_load = preload("res://cloaker_cover.tscn")
 var cover
 
 var opp_in_smogs = 0
-var opp_slow_max = 100
+var opp_slow_max = 1000
 var opp_slow_timer = 0
 var opp_slow_factor = 0.8
 
@@ -28,7 +28,7 @@ func _ability():
 		bomb.linear_velocity = throw_vec * bomb_speed
 		bomb.user = self
 		
-		bomb.z_index = opponent.z_index + 1
+		bomb.z_index = opponent.back().z_index + 1
 		
 		add_sibling(bomb)
 
@@ -60,7 +60,7 @@ func _ultimate():
 		
 		
 		ult_bomb.user = self
-		ult_bomb.z_index = opponent.z_index + 1
+		ult_bomb.z_index = opponent.back().z_index + 1
 		
 		add_sibling(ult_bomb)
 		

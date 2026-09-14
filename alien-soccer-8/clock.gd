@@ -11,7 +11,7 @@ var dash_speed = 1500
 var ball_speed = 200
 
 var ball_slow = 2.5
-var all_slow = 3
+var all_slow = 3.0
 
 var flash_load = preload("res://clock_flash.tscn")
 var flash
@@ -39,8 +39,8 @@ func _ultimate():
 		ball_speed = ball.ball_speed
 		ball.ball_speed /= all_slow
 		ball.speed_add /= all_slow
-		if opponent != null:
-			opponent.update_move_speed(opponent.move_speed / all_slow, opponent.speed_damp)
+		for opp in opponent:
+			opp.add_speed_mult(1.0/all_slow)
 		all_slowed = true
 		ult_dur = 100
 		
@@ -75,8 +75,6 @@ func _ability_cooldown(delta):
 		if skin != 0:
 			%AnimatedSprite2D.animation = "default_" + str(skin)
 		ball.ball_speed = ball_speed
-		if opponent != null:
-			opponent.update_move_speed(opponent.move_speed * all_slow, opponent.speed_damp)
 		all_slowed = false
 	
 	if cooldown > 0:
@@ -84,6 +82,7 @@ func _ability_cooldown(delta):
 
 func on_ready():
 	flash = flash_load.instantiate()
+	flash.z_index = max(opponent[0].z_index, z_index) + 1
 	add_sibling(flash)
 	
 	%clock_aoe.user = self

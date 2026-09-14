@@ -1,10 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://d6kkqt0qtrth"]
+[gd_scene format=3 uid="uid://d6kkqt0qtrth"]
 
 [ext_resource type="Script" uid="uid://c5p4fmdjye1n6" path="res://rigid_body_2d.gd" id="1_v8qja"]
-[ext_resource type="Texture2D" uid="uid://d1skcdxwd0bo4" path="res://Imported piskel (8).png" id="2_t4vbm"]
-[ext_resource type="Texture2D" uid="uid://cygw8ks36gcqs" path="res://AS8 skins/launcher/bullet_2/bullet_2_0.png" id="3_b7duk"]
-[ext_resource type="Texture2D" uid="uid://d23tgcjx5txkv" path="res://AS8 skins/launcher/bullet_2/bullet_2_1.png" id="4_t2bd8"]
-[ext_resource type="Texture2D" uid="uid://d0u16icq0ftqe" path="res://AS8 skins/launcher/bullet_3.png" id="5_h0pa3"]
+[ext_resource type="Texture2D" uid="uid://b3bev322ykjau" path="res://Imported piskel (8).png" id="2_t4vbm"]
+[ext_resource type="Texture2D" uid="uid://nj0u3vhs1y7b" path="res://AS8 skins/launcher/bullet_2/bullet_2_0.png" id="3_b7duk"]
+[ext_resource type="Texture2D" uid="uid://cqs6yte8e58gc" path="res://AS8 skins/launcher/bullet_2/bullet_2_1.png" id="4_t2bd8"]
+[ext_resource type="Texture2D" uid="uid://cpxlmd2ewgqxl" path="res://AS8 skins/launcher/bullet_3.png" id="5_h0pa3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2b2rl"]
 size = Vector2(20, 10)
@@ -15,7 +15,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_t4vbm")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -26,7 +26,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_t2bd8")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default_2",
 "speed": 5.0
 }, {
@@ -34,22 +34,22 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_h0pa3")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default_3",
 "speed": 5.0
 }]
 
-[node name="Bullet" type="RigidBody2D"]
+[node name="Bullet" type="RigidBody2D" unique_id=1217904986]
 gravity_scale = 0.0
 lock_rotation = true
 contact_monitor = true
 max_contacts_reported = 100
 script = ExtResource("1_v8qja")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1454482900]
 shape = SubResource("RectangleShape2D_2b2rl")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1733257574]
 unique_name_in_owner = true
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_b7duk")
@@ -57,7 +57,7 @@ animation = &"default_2"
 autoplay = "default"
 frame_progress = 0.510502
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1848363003]
 autostart = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
