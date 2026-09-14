@@ -28,6 +28,7 @@ var backgrounds = {
 	"classic": preload("res://as8BG.png"),
 	"realSoccer": preload("res://othersiderBG.png"),
 	"jungle": preload("res://jungleBG.png"),
+	"clones": preload("res://2Pas8BG.png"),
 }
 
 var map_obstacles = {
@@ -63,6 +64,9 @@ func _ready():
 	if GlobalSave.p1IsBot:
 		p1.is_bot = true
 	p1.position = Vector2(288, 342)
+	if "clones" == GlobalSave.stage:
+		p1.position = Vector2(288, 384)
+	
 	p1.set_player(1)
 	p1.charge_bar = %p1Charge
 	p1.cooldown_bar = %p1Cooldown
@@ -73,12 +77,28 @@ func _ready():
 		%p2Wall.collision_mask = 0
 		p1.score_board = %p1Score
 	
+	var p1_clone
+	if "clones" == GlobalSave.stage:
+		p1_clone = player_objects[GlobalSave.p1Char].instantiate()
+		p1_clone.ball = %ball
+		p1_clone.camera = %Camera2D
+		if GlobalSave.p1IsBot:
+			p1_clone.is_bot = true
+		p1_clone.position = Vector2(288, 264)
+		
+		p1_clone.set_player(1)
+		p1_clone.charge_bar = %p1Charge
+		p1_clone.cooldown_bar = %p1Cooldown
+		p1_clone.skin = GlobalSave.p1Skin
+	
 	p2 = player_objects[GlobalSave.p2Char].instantiate()
 	p2.ball = %ball
 	p2.camera = %Camera2D
 	if GlobalSave.p2IsBot:
 		p2.is_bot = true
 	p2.position = Vector2(864, 342)
+	if "clones" == GlobalSave.stage:
+		p2.position = Vector2(864, 384)
 	p2.set_player(2)
 	p2.charge_bar = %p2Charge
 	p2.cooldown_bar = %p2Cooldown
@@ -89,14 +109,43 @@ func _ready():
 		%p1Wall.collision_mask = 0
 		p2.score_board = %p2Score
 	
+	var p2_clone
+	if "clones" == GlobalSave.stage:
+		p2_clone = player_objects[GlobalSave.p2Char].instantiate()
+		p2_clone.ball = %ball
+		p2_clone.camera = %Camera2D
+		if GlobalSave.p2IsBot:
+			p2_clone.is_bot = true
+		p2_clone.position = Vector2(864, 264)
+		p2_clone.set_player(2)
+		p2_clone.charge_bar = %p2Charge
+		p2_clone.cooldown_bar = %p2Cooldown
+		p2_clone.skin = GlobalSave.p2Skin
+	
+	
+	
 	p1.opponent = [p2]
 	p1.character = GlobalSave.p1Char
 	p2.opponent = [p1]
 	p2.character = GlobalSave.p2Char
 	
+	if "clones" == GlobalSave.stage:
+		p1.opponent = [p2, p2_clone]
+		p1_clone.opponent = [p2, p2_clone]
+		
+		p1_clone.character = GlobalSave.p1Char
+		
+		p2.opponent = [p1, p1_clone]
+		p2_clone.opponent = [p1, p1_clone]
+		
+		p2_clone.character = GlobalSave.p2Char
 	
 	add_child(p1)
 	add_child(p2)
+	
+	if "clones" == GlobalSave.stage:
+		add_child(p1_clone)
+		add_child(p2_clone)
 	
 	pause_screen = pause_screen_load.instantiate()
 	pause_screen.visible = false

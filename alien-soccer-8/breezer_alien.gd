@@ -1,7 +1,7 @@
 extends alien
 
-var slow_amount_base = 0.3
-var slow_amount_default = 0.4
+var slow_amount_base = 0.15	
+var slow_amount_default = 0.2
 var slow_amount = slow_amount_base
 
 var ball_in_area = false
@@ -15,8 +15,8 @@ var burst_modulate = Color(1.5,1.5,1.5,0.318)
 var blizzard_vfx_load = preload("res://breezer_blizzard.tscn")
 var blizzard_vfx 
 var blizzarding = false
-var ult_slow = 0.5
-var ult_speed = 0.3
+var ult_slow = 0.25
+var ult_speed = 0.15
 
 func _ability():
 	if cooldown <= 0 and duration <= 0 and not bursting:

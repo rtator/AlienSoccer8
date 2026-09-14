@@ -5,7 +5,11 @@
 [ext_resource type="Script" uid="uid://jiquq8amxdrw" path="res://stage_select_screen.gd" id="2_k0c6c"]
 [ext_resource type="Texture2D" uid="uid://b5b7lnudfkib" path="res://jungle_level_preview.png" id="3_4wx5a"]
 [ext_resource type="Texture2D" uid="uid://cs8jon4qf1t0t" path="res://othersiderBG.png" id="4_4wx5a"]
+[ext_resource type="Texture2D" uid="uid://blgwrs6swas8h" path="res://2Pas8BG.png" id="6_1gljs"]
 [ext_resource type="StyleBox" uid="uid://bhwb56kpdliu" path="res://buttonText.tres" id="6_8a7vt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qgyb7"]
+font_size = 20
 
 [sub_resource type="LabelSettings" id="LabelSettings_aqxun"]
 font_size = 100
@@ -70,6 +74,32 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
+[node name="clones" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1951341594]
+custom_minimum_size = Vector2(226, 187.5)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Clones"
+icon = ExtResource("6_1gljs")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/clones" unique_id=182019534]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.5
+offset_top = -34.0
+offset_right = 32.5
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "(beta)"
+label_settings = SubResource("LabelSettings_qgyb7")
+
 [node name="Label" type="Label" parent="." unique_id=1972100503]
 layout_mode = 1
 anchors_preset = 5
@@ -101,5 +131,5 @@ text = "Back"
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/jungle" to="." method="_on_jungle_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/classic" to="." method="_on_classic_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/realSoccer" to="." method="_on_real_soccer_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/realSoccer" to="." method="_on_other_sider_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/clones" to="." method="_on_clones_pressed"]
 [connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]
