@@ -20,6 +20,12 @@ var speed_add = 10
 
 var side = 0
 
+var glued = false
+var glue_modulate = Color(1.4, 0.6, 0.0)
+var glue_mult = 0.35
+
+var glue_user
+
 func _physics_process(delta):
 	linear_velocity = linear_velocity.normalized() * (ball_speed + temp_speed)
 	ball_speed += delta
@@ -39,6 +45,16 @@ func set_ball_scale(new_scale):
 
 func stop_ball():
 	linear_velocity = Vector2(0,0)
+
+func set_glued(user = glue_user):
+	%glue_timer.start()
+	glued = true
+	modulate = glue_modulate
+	glue_user = user
+
+func end_glue():
+	glued = false
+	modulate = Color(1,1,1)
 
 func effect_spawn(score = false):
 	if GlobalSave.vfxEnabled:
@@ -76,6 +92,9 @@ func _on_body_entered(body):
 		new_pos = body.add_score()
 		linear_velocity = Vector2(0,0)
 		ball_speed = ball_base_speed
+	elif glued and body.has_method("add_speed_mult") and body != glue_user:
+		body.add_speed_mult(glue_mult, 150.0)
+		end_glue()
 	else:
 		effect_spawn()
 
@@ -86,3 +105,7 @@ func _on_timer_timeout():
 	if side == 1:
 		vel_x *= -1
 	linear_velocity = Vector2(vel_x, vel_y)
+
+
+func _on_glue_timer_timeout():
+	end_glue()

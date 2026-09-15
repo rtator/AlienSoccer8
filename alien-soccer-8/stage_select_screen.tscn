@@ -44,22 +44,22 @@ layout_mode = 2
 theme_override_constants/separation = 4
 alignment = 1
 
-[node name="jungle" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=2126862420]
-custom_minimum_size = Vector2(226, 187.5)
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Jungle Ruins"
-icon = ExtResource("3_4wx5a")
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
-
 [node name="classic" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1965797490]
 custom_minimum_size = Vector2(226, 187.5)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Classic"
 icon = ExtResource("2_4wx5a")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="jungle" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=2126862420]
+custom_minimum_size = Vector2(226, 187.5)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Jungle Ruins"
+icon = ExtResource("3_4wx5a")
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
@@ -128,8 +128,8 @@ theme_override_font_sizes/font_size = 20
 theme_override_styles/hover_pressed = ExtResource("6_8a7vt")
 text = "Back"
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/jungle" to="." method="_on_jungle_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/classic" to="." method="_on_classic_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/jungle" to="." method="_on_jungle_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/realSoccer" to="." method="_on_real_soccer_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/clones" to="." method="_on_clones_pressed"]
 [connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]

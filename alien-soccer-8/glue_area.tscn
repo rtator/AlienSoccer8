@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://dnopro7onsi8v"]
+
+[ext_resource type="Texture2D" uid="uid://nrh3m3834vdq" path="res://as8_sprites_png/circle.png" id="1_dwmkm"]
+[ext_resource type="Script" uid="uid://dd4b4tdlkq5bq" path="res://glue_area.gd" id="1_yn0rd"]
+
+[sub_resource type="Animation" id="Animation_xxvam"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Circle:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_g6tcx"]
+resource_name = "splat"
+length = 0.39999999999999997
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Circle:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.2, 1.2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r1bif"]
+_data = {
+&"RESET": SubResource("Animation_xxvam"),
+&"splat": SubResource("Animation_g6tcx")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yn0rd"]
+radius = 60.0
+
+[node name="glue_area" type="Area2D" unique_id=1007334276]
+script = ExtResource("1_yn0rd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1554006858]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_r1bif")
+
+[node name="Circle" type="Sprite2D" parent="." unique_id=483416777]
+modulate = Color(1, 0.5372549, 0, 1)
+texture_filter = 1
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("1_dwmkm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1451197948]
+shape = SubResource("CircleShape2D_yn0rd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

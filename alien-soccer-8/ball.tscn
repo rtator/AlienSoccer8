@@ -80,6 +80,7 @@ frame_progress = 0.738969
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=859181924]
 unique_name_in_owner = true
+visible = false
 shape = SubResource("CircleShape2D_gchj4")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=48153069]
@@ -97,6 +98,12 @@ volume_db = 10.0
 [node name="score_sfx" parent="." unique_id=1345312649 instance=ExtResource("5_n5601")]
 unique_name_in_owner = true
 
+[node name="glue_timer" type="Timer" parent="." unique_id=2072397883]
+unique_name_in_owner = true
+wait_time = 2.0
+one_shot = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="glue_timer" to="." method="_on_glue_timer_timeout"]
