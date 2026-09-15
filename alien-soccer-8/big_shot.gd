@@ -11,7 +11,8 @@ func _physics_process(delta):
 
 func _on_body_entered(body):
 	if body != shooter:
-		delete = true
+		if body.has_method("add_score"):
+			delete = true
 		
 		if body.has_method("add_speed_mult") and not shooter.opp_slowed and not shooter.opp_slowed_big:
 			print("hit")
@@ -21,9 +22,7 @@ func _on_body_entered(body):
 			body.charge = max(0, body.charge)
 			
 			shooter.opp_slowed_big = true
-
-	if "temp_speed" in body:
-		body.temp_speed = -100
+			delete = true
 
 
 func _on_timer_timeout():
