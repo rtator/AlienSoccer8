@@ -101,7 +101,7 @@ func on_ready():
 	blizzard_vfx = blizzard_vfx_load.instantiate()
 	add_sibling(blizzard_vfx)
 	
-	base_scale = 1.1
+	base_scale = 0.8
 	
 	if skin != 0:
 		%AnimatedSprite2D.animation = "default_" + str(skin)
@@ -112,4 +112,4 @@ func on_ready():
 	
 	charge_max = 800
 	
-	update_move_speed(move_speed * 0.8, speed_damp * 0.9)
+	update_move_speed(move_speed * 0.75, speed_damp * 1.0)
