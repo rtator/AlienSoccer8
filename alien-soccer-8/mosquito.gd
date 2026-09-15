@@ -80,7 +80,12 @@ func _ability_cooldown(delta):
 			for i in range(randf_range(1,5)):
 				if swarm_size_ability < max_swarm_ability_size:
 					var swarm = swarm_load.instantiate()
-					var offset = 576 - position.x
+					var offset
+					if player == 1:
+						offset = 1
+					elif player == 2:
+						offset = -1
+					
 					var offsetVec = Vector2(offset, -abs(offset) * randf_range(0.5,0.7)).normalized()
 					swarm.position = position + (offsetVec * 10)
 					swarm.call_deferred("set_linear_velocity", offsetVec * swarm_speed)

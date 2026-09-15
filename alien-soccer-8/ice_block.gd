@@ -6,7 +6,7 @@ var is_block = true
 
 func _on_body_entered(body):
 	print("hit")
-	if not "is_block" in body:
+	if not "is_block" in body and "is_ball" in body:
 		print("not block")
 		user.block_amount -= 1
 		queue_free()

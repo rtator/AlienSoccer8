@@ -11,6 +11,7 @@ var default_size_mult = 1.5
 var bursting = false
 var default_modulate = Color(1,1,1,0.318)
 var burst_modulate = Color(1.5,1.5,1.5,0.318)
+var max_cooldown = 200
 
 var blizzard_vfx_load = preload("res://breezer_blizzard.tscn")
 var blizzard_vfx 
@@ -25,6 +26,7 @@ func _ability():
 		slow_amount = slow_amount_default
 		bursting = true
 		duration = 50
+		cooldown = max_cooldown
 
 func _ultimate():
 	if charge >= charge_max and ult_dur <= 0:

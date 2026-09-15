@@ -19,7 +19,11 @@ var charging = false
 func _ability():
 	if cooldown <= 0 and duration <= 0 and not shooting and not big_shotting and not charging and ult_dur <= 0:
 		bullet = bullet_load.instantiate()
-		var offsetX = 576 - position.x
+		var offsetX
+		if player == 1:
+			offsetX = 1
+		elif player == 2:
+			offsetX = -1
 		print(position.x)
 		var offsetVec = Vector2(offsetX, 0).normalized()
 		bullet.position = position + (offsetVec * 50)
@@ -37,14 +41,18 @@ func _ultimate():
 		charging = true
 
 
-func shoot():
+func big_shoot():
 	charging = false
 	
 	big_shot = big_shot_load.instantiate()
 	charge = 0
 	if player == 1:
 		big_shot.scale.x = -1
-	var offsetX = 576 - position.x
+	var offsetX
+	if player == 1:
+		offsetX = 1
+	elif player == 2:
+		offsetX = -1
 	var offsetVec = Vector2(offsetX, 0).normalized()
 	big_shot.position = position + (offsetVec * 50)
 	big_shot.linear_velocity = offsetVec * bullet_speed
@@ -103,4 +111,4 @@ func on_ready():
 	update_move_speed(move_speed * 0.85, speed_damp)
 
 func _on_animation_player_animation_finished(anim_name):
-	shoot()
+	big_shoot()

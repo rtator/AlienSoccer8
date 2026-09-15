@@ -21,7 +21,11 @@ func _ability():
 	if cooldown <= 0 and not bomb_out:
 		bomb_out = true
 		bomb = bomb_load.instantiate()
-		var offsetX = 576 - position.x
+		var offsetX
+		if player == 1:
+			offsetX = 1
+		elif player == 2:
+			offsetX = -1
 		print(position.x)
 		var throw_vec = Vector2(offsetX, 0).normalized()
 		bomb.position = position + throw_vec * 50

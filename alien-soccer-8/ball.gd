@@ -12,6 +12,8 @@ var reseting = false
 var hit_fx_load = preload("res://hitfx.tscn")
 var score_fx_load = preload("res://scorefx.tscn")
 
+var is_ball = true
+
 @onready var camera = %Camera2D
 
 var speed_add = 10
@@ -60,7 +62,8 @@ func effect_spawn(score = false):
 		camera.shake(GlobalSave.screenShake)
 
 func _on_body_entered(body):
-	%Timer.stop()
+	if linear_velocity.length():
+		%Timer.stop()
 	
 	ball_speed += speed_add
 	temp_speed = 0

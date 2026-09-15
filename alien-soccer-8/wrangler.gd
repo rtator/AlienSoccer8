@@ -17,7 +17,11 @@ func _ability():
 		lasso_out = true
 		duration = half_dur * 2
 		lasso = lasso_load.instantiate()
-		var offsetX = 576 - position.x
+		var offsetX
+		if player == 1:
+			offsetX = 1
+		elif player == 2:
+			offsetX = -1
 		var offsetVec = Vector2(offsetX, 0).normalized()
 		lasso.position = offsetVec * 30
 		if player == 2:
@@ -29,7 +33,11 @@ func _ability():
 func _ultimate():
 	if charge >= charge_max:
 		bomb = bomb_load.instantiate()
-		var offsetX = 576 - position.x
+		var offsetX
+		if player == 1:
+			offsetX = 1
+		elif player == 2:
+			offsetX = -1
 		print(position.x)
 		var throw_vec = Vector2(offsetX, 0).normalized()
 		bomb.position = position + throw_vec * 50

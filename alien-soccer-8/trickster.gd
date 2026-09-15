@@ -10,8 +10,11 @@ var ult_length = 300
 func _ability():
 	if cooldown <= 0:
 		banana = banana_load.instantiate()
-		var offsetX = 576 - position.x
-		print(position.x)
+		var offsetX
+		if player == 1:
+			offsetX = 1
+		elif player == 2:
+			offsetX = -1
 		var offsetVec = Vector2(offsetX, 0).normalized()
 		banana.position = position + (offsetVec * 50)
 		banana.call_deferred("set_linear_velocity", offsetVec * bullet_speed)
@@ -24,8 +27,11 @@ func _ultimate():
 	if charge >= charge_max:
 		charge = 0
 		banana = banana_load.instantiate()
-		var offsetX = 576 - position.x
-		print(position.x)
+		var offsetX
+		if player == 1:
+			offsetX = 1
+		elif player == 2:
+			offsetX = -1
 		var offsetVec = Vector2(offsetX, offsetX).normalized()
 		banana.position = position + (offsetVec * 50)
 		banana.call_deferred("set_linear_velocity", offsetVec * bullet_speed)
@@ -34,7 +40,6 @@ func _ultimate():
 		add_sibling(banana)
 		
 		banana = banana_load.instantiate()
-		offsetX = 576 - position.x
 		print(position.x)
 		offsetVec = Vector2(offsetX, -offsetX).normalized()
 		banana.position = position + (offsetVec * 50)
@@ -44,7 +49,6 @@ func _ultimate():
 		add_sibling(banana)
 		
 		banana = banana_load.instantiate()
-		offsetX = 576 - position.x
 		print(position.x)
 		offsetVec = Vector2(offsetX, 0).normalized()
 		banana.position = position + (offsetVec * 50)
