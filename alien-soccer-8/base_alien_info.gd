@@ -2,6 +2,8 @@
 
 extends Control
 
+static var scroll = 0
+
 @export var panel_color : Color = Color("701ba4"):
 	set(new_color):
 		panel_color = new_color
@@ -10,11 +12,16 @@ extends Control
 		panel_style.border_color = new_color
 		%Panel.add_theme_stylebox_override("panel", panel_style)
 
+func _physics_process(delta):
+	scroll = %ScrollContainer.scroll_horizontal
+
 func _ready():
 	var panel_style = %Panel.get_theme_stylebox("panel")
 	panel_style = panel_style.duplicate()
 	panel_style.border_color = panel_color
 	%Panel.add_theme_stylebox_override("panel", panel_style)
+	
+	%ScrollContainer.scroll_horizontal = scroll
 
 const alien_screens = {
 	"basic": "res://basic_alien_info.tscn",

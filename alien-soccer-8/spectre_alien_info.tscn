@@ -28,6 +28,7 @@ grow_vertical = 2
 
 [node name="baseAlienInfo" parent="." unique_id=1970346583 instance=ExtResource("1_0e0dk")]
 layout_mode = 1
+panel_color = Color(1, 1, 1, 1)
 
 [node name="Control" type="Control" parent="." unique_id=1208764937]
 layout_mode = 1
