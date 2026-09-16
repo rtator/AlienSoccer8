@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bmr8vq1g5v5p3"]
 
 [ext_resource type="Script" uid="uid://lirq2jm6638j" path="res://base_alien_info.gd" id="1_p8wsi"]
+[ext_resource type="FontFile" uid="uid://cd01nxashwd12" path="res://Tiny5/Tiny5-Regular.ttf" id="2_ahghl"]
 [ext_resource type="Texture2D" uid="uid://br2hsa7xxgrei" path="res://as8_sprites_png/basic.png" id="2_ch6ir"]
 [ext_resource type="Texture2D" uid="uid://6ageq0ptq4y4" path="res://as8_sprites_png/speedy.png" id="3_yvhr3"]
 [ext_resource type="Texture2D" uid="uid://8asayyvoykoc" path="res://as8_sprites_png/scaler.png" id="4_05o6d"]
@@ -21,16 +22,30 @@
 [ext_resource type="Theme" uid="uid://cerrqasbkbfyc" path="res://menu_screen_theme.tres" id="19_05o6d"]
 [ext_resource type="Texture2D" uid="uid://ds2dsdsukimos" path="res://as8_sprites_png/mothership.png" id="19_chvc8"]
 [ext_resource type="Texture2D" uid="uid://cp1bs0i4vna1w" path="res://as8_sprites_png/warden.png" id="20_u5y6w"]
+[ext_resource type="Texture2D" uid="uid://kjxi2ss7pm2a" path="res://as8_sprites_png/nuclear.png" id="22_jph20"]
+[ext_resource type="Texture2D" uid="uid://c6ebot5wmimhs" path="res://as8_sprites_png/breezer.png" id="23_y5ury"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_05o6d"]
-font_size = 12
+[sub_resource type="Theme" id="Theme_ahghl"]
+default_font = ExtResource("2_ahghl")
 
-[sub_resource type="LabelSettings" id="LabelSettings_yvhr3"]
-font_size = 15
+[sub_resource type="LabelSettings" id="LabelSettings_u5y6w"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_hgol0"]
-line_spacing = -8.0
-font_size = 14
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5y6w"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1319848, 0.1319848, 0.1319848, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4392157, 0.105882354, 0.6431373, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
 
 [node name="baseAlienInfo" type="Control" unique_id=1356736747]
 layout_mode = 3
@@ -50,26 +65,25 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0562916, 0.0562916, 0.0562915, 1)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1665614168]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -515.0
-offset_top = 11.5
-offset_right = 515.0
-offset_bottom = 117.5
-grow_horizontal = 2
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1661885148]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 1152.0
+offset_bottom = 118.0
+theme = SubResource("Theme_ahghl")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer" unique_id=1665614168]
+layout_mode = 2
 theme_override_constants/separation = 7
 
-[node name="basic" type="Button" parent="HBoxContainer" unique_id=782404724]
-custom_minimum_size = Vector2(54, 106)
+[node name="basic" type="Button" parent="ScrollContainer/HBoxContainer" unique_id=782404724]
+custom_minimum_size = Vector2(80, 106)
 layout_mode = 2
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/basic" unique_id=151355573]
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/basic" unique_id=151355573]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -82,7 +96,7 @@ texture = ExtResource("2_ch6ir")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Control" type="Control" parent="HBoxContainer/basic" unique_id=2021655170]
+[node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/basic" unique_id=2021655170]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -96,7 +110,7 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/basic/Control" unique_id=957150809]
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/basic/Control" unique_id=957150809]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -111,15 +125,16 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 text = "Basic"
+label_settings = SubResource("LabelSettings_u5y6w")
 
-[node name="speedy" type="Button" parent="HBoxContainer" unique_id=1828117529]
-custom_minimum_size = Vector2(54, 106)
+[node name="speedy" type="Button" parent="ScrollContainer/HBoxContainer" unique_id=1828117529]
+custom_minimum_size = Vector2(80, 106)
 layout_mode = 2
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/speedy" unique_id=1176780693]
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/speedy" unique_id=1176780693]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -132,7 +147,7 @@ texture = ExtResource("3_yvhr3")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Control" type="Control" parent="HBoxContainer/speedy" unique_id=1842783594]
+[node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/speedy" unique_id=1842783594]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -146,7 +161,7 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/speedy/Control" unique_id=1229135844]
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/speedy/Control" unique_id=1229135844]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -161,15 +176,16 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 text = "Speedy"
+label_settings = SubResource("LabelSettings_u5y6w")
 
-[node name="scaler" type="Button" parent="HBoxContainer" unique_id=1550715187]
-custom_minimum_size = Vector2(54, 106)
+[node name="scaler" type="Button" parent="ScrollContainer/HBoxContainer" unique_id=1550715187]
+custom_minimum_size = Vector2(80, 106)
 layout_mode = 2
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/scaler" unique_id=1246768265]
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/scaler" unique_id=1246768265]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -182,7 +198,7 @@ texture = ExtResource("4_05o6d")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Control" type="Control" parent="HBoxContainer/scaler" unique_id=1849104186]
+[node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/scaler" unique_id=1849104186]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -196,7 +212,7 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/scaler/Control" unique_id=1966471347]
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/scaler/Control" unique_id=1966471347]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -211,15 +227,16 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 text = "Scaler"
+label_settings = SubResource("LabelSettings_u5y6w")
 
-[node name="jumper" type="Button" parent="HBoxContainer" unique_id=1175504871]
-custom_minimum_size = Vector2(54, 106)
+[node name="jumper" type="Button" parent="ScrollContainer/HBoxContainer" unique_id=1175504871]
+custom_minimum_size = Vector2(80, 106)
 layout_mode = 2
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/jumper" unique_id=618299382]
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/jumper" unique_id=618299382]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -232,7 +249,7 @@ texture = ExtResource("5_chvc8")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Control" type="Control" parent="HBoxContainer/jumper" unique_id=2132414606]
+[node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/jumper" unique_id=2132414606]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -246,7 +263,7 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/jumper/Control" unique_id=589660166]
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/jumper/Control" unique_id=589660166]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -261,17 +278,17 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 text = "Jumper"
-label_settings = SubResource("LabelSettings_05o6d")
+label_settings = SubResource("LabelSettings_u5y6w")
 
-[node name="launcher" type="Button" parent="HBoxContainer" unique_id=733135624]
-custom_minimum_size = Vector2(54, 106)
+[node name="launcher" type="Button" parent="ScrollContainer/HBoxContainer" unique_id=733135624]
+custom_minimum_size = Vector2(80, 106)
 layout_mode = 2
 theme_override_font_sizes/font_size = 13
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/launcher" unique_id=1220404396]
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/launcher" unique_id=1220404396]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -284,7 +301,7 @@ texture = ExtResource("6_u5y6w")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Control" type="Control" parent="HBoxContainer/launcher" unique_id=792736700]
+[node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/launcher" unique_id=792736700]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -298,7 +315,7 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/launcher/Control" unique_id=1918330488]
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/launcher/Control" unique_id=1918330488]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -313,16 +330,16 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 text = "Launcher"
-label_settings = SubResource("LabelSettings_05o6d")
+label_settings = SubResource("LabelSettings_u5y6w")
 
-[node name="freezer" type="Button" parent="HBoxContainer" unique_id=1836162877]
-custom_minimum_size = Vector2(54, 106)
+[node name="freezer" type="Button" parent="ScrollContainer/HBoxContainer" unique_id=1836162877]
+custom_minimum_size = Vector2(80, 106)
 layout_mode = 2
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/freezer" unique_id=1009280033]
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/freezer" unique_id=1009280033]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -335,7 +352,7 @@ texture = ExtResource("7_ahghl")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Control" type="Control" parent="HBoxContainer/freezer" unique_id=292836768]
+[node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/freezer" unique_id=292836768]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -349,7 +366,7 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/freezer/Control" unique_id=1522637418]
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/freezer/Control" unique_id=1522637418]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -364,16 +381,16 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 text = "Freezer"
-label_settings = SubResource("LabelSettings_05o6d")
+label_settings = SubResource("LabelSettings_u5y6w")
 
-[node name="clock" type="Button" parent="HBoxContainer" unique_id=1908707394]
-custom_minimum_size = Vector2(54, 106)
+[node name="clock" type="Button" parent="ScrollContainer/HBoxContainer" unique_id=1908707394]
+custom_minimum_size = Vector2(80, 106)
 layout_mode = 2
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/clock" unique_id=1408104006]
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/clock" unique_id=1408104006]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -386,7 +403,7 @@ texture = ExtResource("8_jph20")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Control" type="Control" parent="HBoxContainer/clock" unique_id=1159184481]
+[node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/clock" unique_id=1159184481]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -400,7 +417,7 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/clock/Control" unique_id=173921141]
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/clock/Control" unique_id=173921141]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -415,16 +432,17 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 text = "Clock"
+label_settings = SubResource("LabelSettings_u5y6w")
 
-[node name="trickster" type="Button" parent="HBoxContainer" unique_id=1551195314]
-custom_minimum_size = Vector2(54, 106)
+[node name="trickster" type="Button" parent="ScrollContainer/HBoxContainer" unique_id=1551195314]
+custom_minimum_size = Vector2(80, 106)
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/trickster" unique_id=782402287]
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/trickster" unique_id=782402287]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -437,7 +455,7 @@ texture = ExtResource("9_y5ury")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Control" type="Control" parent="HBoxContainer/trickster" unique_id=1184420076]
+[node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/trickster" unique_id=1184420076]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -451,7 +469,7 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/trickster/Control" unique_id=1360125266]
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/trickster/Control" unique_id=1360125266]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -466,17 +484,17 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 text = "Trickster"
-label_settings = SubResource("LabelSettings_yvhr3")
+label_settings = SubResource("LabelSettings_u5y6w")
 
-[node name="gambler" type="Button" parent="HBoxContainer" unique_id=1822653043]
-custom_minimum_size = Vector2(54, 106)
+[node name="gambler" type="Button" parent="ScrollContainer/HBoxContainer" unique_id=1822653043]
+custom_minimum_size = Vector2(80, 106)
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/gambler" unique_id=1719355415]
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/gambler" unique_id=1719355415]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -489,7 +507,7 @@ texture = ExtResource("10_bde4n")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Control" type="Control" parent="HBoxContainer/gambler" unique_id=1213885987]
+[node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/gambler" unique_id=1213885987]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -503,7 +521,7 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/gambler/Control" unique_id=1581082120]
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/gambler/Control" unique_id=1581082120]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -518,17 +536,17 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 text = "Gambler"
-label_settings = SubResource("LabelSettings_05o6d")
+label_settings = SubResource("LabelSettings_u5y6w")
 
-[node name="wrangler" type="Button" parent="HBoxContainer" unique_id=1352405614]
-custom_minimum_size = Vector2(54, 106)
+[node name="wrangler" type="Button" parent="ScrollContainer/HBoxContainer" unique_id=1352405614]
+custom_minimum_size = Vector2(80, 106)
 layout_mode = 2
 theme_override_font_sizes/font_size = 13
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/wrangler" unique_id=1589964439]
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/wrangler" unique_id=1589964439]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -541,7 +559,7 @@ texture = ExtResource("11_m6wao")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Control" type="Control" parent="HBoxContainer/wrangler" unique_id=1649320475]
+[node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/wrangler" unique_id=1649320475]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -555,7 +573,7 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/wrangler/Control" unique_id=369242197]
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/wrangler/Control" unique_id=369242197]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -570,16 +588,16 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 text = "Wrangler"
-label_settings = SubResource("LabelSettings_05o6d")
+label_settings = SubResource("LabelSettings_u5y6w")
 
-[node name="twins" type="Button" parent="HBoxContainer" unique_id=503263012]
-custom_minimum_size = Vector2(54, 106)
+[node name="twins" type="Button" parent="ScrollContainer/HBoxContainer" unique_id=503263012]
+custom_minimum_size = Vector2(80, 106)
 layout_mode = 2
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/twins" unique_id=65080856]
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/twins" unique_id=65080856]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -592,7 +610,7 @@ texture = ExtResource("12_p8wsi")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Control" type="Control" parent="HBoxContainer/twins" unique_id=1149207115]
+[node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/twins" unique_id=1149207115]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -606,7 +624,7 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/twins/Control" unique_id=1041917392]
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/twins/Control" unique_id=1041917392]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -621,15 +639,16 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 text = "Twins"
+label_settings = SubResource("LabelSettings_u5y6w")
 
-[node name="warper" type="Button" parent="HBoxContainer" unique_id=2020423973]
-custom_minimum_size = Vector2(54, 106)
+[node name="warper" type="Button" parent="ScrollContainer/HBoxContainer" unique_id=2020423973]
+custom_minimum_size = Vector2(80, 106)
 layout_mode = 2
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/warper" unique_id=440549601]
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/warper" unique_id=440549601]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -642,7 +661,7 @@ texture = ExtResource("13_ysg5i")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Control" type="Control" parent="HBoxContainer/warper" unique_id=653573946]
+[node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/warper" unique_id=653573946]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -656,7 +675,7 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/warper/Control" unique_id=1869135024]
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/warper/Control" unique_id=1869135024]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -671,16 +690,16 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 text = "Warper"
-label_settings = SubResource("LabelSettings_05o6d")
+label_settings = SubResource("LabelSettings_u5y6w")
 
-[node name="target" type="Button" parent="HBoxContainer" unique_id=232799617]
-custom_minimum_size = Vector2(54, 106)
+[node name="target" type="Button" parent="ScrollContainer/HBoxContainer" unique_id=232799617]
+custom_minimum_size = Vector2(80, 106)
 layout_mode = 2
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/target" unique_id=775129541]
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/target" unique_id=775129541]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -693,7 +712,7 @@ texture = ExtResource("14_k8cye")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Control" type="Control" parent="HBoxContainer/target" unique_id=867664215]
+[node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/target" unique_id=867664215]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -707,7 +726,7 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/target/Control" unique_id=956366700]
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/target/Control" unique_id=956366700]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -722,15 +741,16 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 text = "Target"
+label_settings = SubResource("LabelSettings_u5y6w")
 
-[node name="spectre" type="Button" parent="HBoxContainer" unique_id=1498586354]
-custom_minimum_size = Vector2(54, 106)
+[node name="spectre" type="Button" parent="ScrollContainer/HBoxContainer" unique_id=1498586354]
+custom_minimum_size = Vector2(80, 106)
 layout_mode = 2
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/spectre" unique_id=1520311320]
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/spectre" unique_id=1520311320]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -743,7 +763,7 @@ texture = ExtResource("15_xs5h4")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Control" type="Control" parent="HBoxContainer/spectre" unique_id=1328727774]
+[node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/spectre" unique_id=1328727774]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -757,7 +777,7 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/spectre/Control" unique_id=1569201340]
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/spectre/Control" unique_id=1569201340]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -772,17 +792,17 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 text = "Spectre"
-label_settings = SubResource("LabelSettings_05o6d")
+label_settings = SubResource("LabelSettings_u5y6w")
 
-[node name="mosquito" type="Button" parent="HBoxContainer" unique_id=1259000414]
-custom_minimum_size = Vector2(54, 106)
+[node name="mosquito" type="Button" parent="ScrollContainer/HBoxContainer" unique_id=1259000414]
+custom_minimum_size = Vector2(80, 106)
 layout_mode = 2
 theme_override_font_sizes/font_size = 13
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/mosquito" unique_id=1593432256]
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/mosquito" unique_id=1593432256]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -795,7 +815,7 @@ texture = ExtResource("16_u2k71")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Control" type="Control" parent="HBoxContainer/mosquito" unique_id=1115299010]
+[node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/mosquito" unique_id=1115299010]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -809,7 +829,7 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/mosquito/Control" unique_id=710720597]
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/mosquito/Control" unique_id=710720597]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -824,10 +844,10 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 text = "Mosquito"
-label_settings = SubResource("LabelSettings_05o6d")
+label_settings = SubResource("LabelSettings_u5y6w")
 
-[node name="cloaker" type="Button" parent="HBoxContainer" unique_id=1134110306]
-custom_minimum_size = Vector2(54, 106)
+[node name="cloaker" type="Button" parent="ScrollContainer/HBoxContainer" unique_id=1134110306]
+custom_minimum_size = Vector2(80, 106)
 layout_mode = 2
 theme_override_font_sizes/font_size = 13
 autowrap_mode = 2
@@ -835,7 +855,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/cloaker" unique_id=1007379556]
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/cloaker" unique_id=1007379556]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -848,7 +868,7 @@ texture = ExtResource("17_yvhr3")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Control" type="Control" parent="HBoxContainer/cloaker" unique_id=1651600062]
+[node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/cloaker" unique_id=1651600062]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -862,7 +882,7 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/cloaker/Control" unique_id=1989717719]
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/cloaker/Control" unique_id=1989717719]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -877,10 +897,10 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 text = "Cloaker"
-label_settings = SubResource("LabelSettings_05o6d")
+label_settings = SubResource("LabelSettings_u5y6w")
 
-[node name="pirate" type="Button" parent="HBoxContainer" unique_id=836678017]
-custom_minimum_size = Vector2(54, 106)
+[node name="pirate" type="Button" parent="ScrollContainer/HBoxContainer" unique_id=836678017]
+custom_minimum_size = Vector2(80, 106)
 layout_mode = 2
 theme_override_font_sizes/font_size = 13
 autowrap_mode = 2
@@ -888,7 +908,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/pirate" unique_id=1323833473]
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/pirate" unique_id=1323833473]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -901,7 +921,7 @@ texture = ExtResource("18_05o6d")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Control" type="Control" parent="HBoxContainer/pirate" unique_id=825025248]
+[node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/pirate" unique_id=825025248]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -915,7 +935,7 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/pirate/Control" unique_id=436348663]
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/pirate/Control" unique_id=436348663]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -930,9 +950,10 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 text = "Pirate"
+label_settings = SubResource("LabelSettings_u5y6w")
 
-[node name="Mothership" type="Button" parent="HBoxContainer" unique_id=817261535]
-custom_minimum_size = Vector2(54, 106)
+[node name="Mothership" type="Button" parent="ScrollContainer/HBoxContainer" unique_id=817261535]
+custom_minimum_size = Vector2(80, 106)
 layout_mode = 2
 theme_override_font_sizes/font_size = 13
 autowrap_mode = 2
@@ -940,7 +961,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Mothership" unique_id=1716565509]
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/Mothership" unique_id=1716565509]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -953,7 +974,7 @@ texture = ExtResource("19_chvc8")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Control" type="Control" parent="HBoxContainer/Mothership" unique_id=839181862]
+[node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/Mothership" unique_id=839181862]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -967,7 +988,7 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/Mothership/Control" unique_id=1127250922]
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/Mothership/Control" unique_id=1127250922]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -983,10 +1004,10 @@ grow_vertical = 2
 mouse_filter = 1
 text = "Mother
 -ship"
-label_settings = SubResource("LabelSettings_hgol0")
+label_settings = SubResource("LabelSettings_u5y6w")
 
-[node name="warden" type="Button" parent="HBoxContainer" unique_id=490671980]
-custom_minimum_size = Vector2(54, 106)
+[node name="warden" type="Button" parent="ScrollContainer/HBoxContainer" unique_id=490671980]
+custom_minimum_size = Vector2(80, 106)
 layout_mode = 2
 theme_override_font_sizes/font_size = 13
 autowrap_mode = 2
@@ -994,7 +1015,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/warden" unique_id=79405537]
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/warden" unique_id=79405537]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -1007,7 +1028,7 @@ texture = ExtResource("20_u5y6w")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Control" type="Control" parent="HBoxContainer/warden" unique_id=1945119323]
+[node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/warden" unique_id=1945119323]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1021,7 +1042,7 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/warden/Control" unique_id=1955172057]
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/warden/Control" unique_id=1955172057]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1036,7 +1057,113 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 text = "Warden"
-label_settings = SubResource("LabelSettings_hgol0")
+label_settings = SubResource("LabelSettings_u5y6w")
+
+[node name="nuclear" type="Button" parent="ScrollContainer/HBoxContainer" unique_id=402774283]
+custom_minimum_size = Vector2(80, 106)
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+autowrap_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/nuclear" unique_id=1591882693]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 53.0
+grow_horizontal = 2
+texture = ExtResource("22_jph20")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/nuclear" unique_id=1546802770]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -53.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/nuclear/Control" unique_id=30685741]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -11.5
+offset_right = 23.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Nuclear"
+label_settings = SubResource("LabelSettings_u5y6w")
+
+[node name="breezer" type="Button" parent="ScrollContainer/HBoxContainer" unique_id=713102729]
+custom_minimum_size = Vector2(80, 106)
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+autowrap_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/breezer" unique_id=579764832]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 53.0
+grow_horizontal = 2
+texture = ExtResource("23_y5ury")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/breezer" unique_id=304120342]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -53.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/breezer/Control" unique_id=1017378070]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -11.5
+offset_right = 23.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Breezer"
+label_settings = SubResource("LabelSettings_u5y6w")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1331172476]
 
@@ -1051,23 +1178,39 @@ grow_vertical = 0
 theme = ExtResource("19_05o6d")
 text = "Back"
 
-[connection signal="pressed" from="HBoxContainer/basic" to="." method="_on_basic_pressed"]
-[connection signal="pressed" from="HBoxContainer/speedy" to="." method="_on_speedy_pressed"]
-[connection signal="pressed" from="HBoxContainer/scaler" to="." method="_on_scaler_pressed"]
-[connection signal="pressed" from="HBoxContainer/jumper" to="." method="_on_jumper_pressed"]
-[connection signal="pressed" from="HBoxContainer/launcher" to="." method="_on_launcher_pressed"]
-[connection signal="pressed" from="HBoxContainer/freezer" to="." method="_on_freezer_pressed"]
-[connection signal="pressed" from="HBoxContainer/clock" to="." method="_on_clock_pressed"]
-[connection signal="pressed" from="HBoxContainer/trickster" to="." method="_on_trickster_pressed"]
-[connection signal="pressed" from="HBoxContainer/gambler" to="." method="_on_gambler_pressed"]
-[connection signal="pressed" from="HBoxContainer/wrangler" to="." method="_on_wrangler_pressed"]
-[connection signal="pressed" from="HBoxContainer/twins" to="." method="_on_twins_pressed"]
-[connection signal="pressed" from="HBoxContainer/warper" to="." method="_on_warper_pressed"]
-[connection signal="pressed" from="HBoxContainer/target" to="." method="_on_target_pressed"]
-[connection signal="pressed" from="HBoxContainer/spectre" to="." method="_on_spectre_pressed"]
-[connection signal="pressed" from="HBoxContainer/mosquito" to="." method="_on_mosquito_pressed"]
-[connection signal="pressed" from="HBoxContainer/cloaker" to="." method="_on_cloaker_pressed"]
-[connection signal="pressed" from="HBoxContainer/pirate" to="." method="_on_pirate_pressed"]
-[connection signal="pressed" from="HBoxContainer/Mothership" to="." method="_on_mothership_pressed"]
-[connection signal="pressed" from="HBoxContainer/warden" to="." method="_on_warden_pressed"]
+[node name="Panel" type="Panel" parent="." unique_id=1939887389]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -758.0
+offset_top = -405.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_u5y6w")
+
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/basic" to="." method="_on_basic_pressed"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/speedy" to="." method="_on_speedy_pressed"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/scaler" to="." method="_on_scaler_pressed"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/jumper" to="." method="_on_jumper_pressed"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/launcher" to="." method="_on_launcher_pressed"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/freezer" to="." method="_on_freezer_pressed"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/clock" to="." method="_on_clock_pressed"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/trickster" to="." method="_on_trickster_pressed"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/gambler" to="." method="_on_gambler_pressed"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/wrangler" to="." method="_on_wrangler_pressed"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/twins" to="." method="_on_twins_pressed"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/warper" to="." method="_on_warper_pressed"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/target" to="." method="_on_target_pressed"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/spectre" to="." method="_on_spectre_pressed"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/mosquito" to="." method="_on_mosquito_pressed"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/cloaker" to="." method="_on_cloaker_pressed"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/pirate" to="." method="_on_pirate_pressed"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/Mothership" to="." method="_on_mothership_pressed"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/warden" to="." method="_on_warden_pressed"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/nuclear" to="." method="_on_nuclear_pressed"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/breezer" to="." method="_on_breezer_pressed"]
 [connection signal="pressed" from="CanvasLayer/backButton" to="." method="_on_back_button_pressed"]

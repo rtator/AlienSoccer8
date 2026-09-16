@@ -81,7 +81,7 @@ layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer" unique_id=64147596]
-custom_minimum_size = Vector2(0, 110)
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 size_flags_vertical = 4
 

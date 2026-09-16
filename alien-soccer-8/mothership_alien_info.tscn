@@ -32,6 +32,7 @@ grow_vertical = 2
 
 [node name="baseAlienInfo" parent="." unique_id=1295750602 instance=ExtResource("1_rjwmd")]
 layout_mode = 1
+panel_color = Color(0.3019608, 0.65882355, 0.44313726, 1)
 
 [node name="Control" type="Control" parent="." unique_id=1376991761]
 layout_mode = 1
@@ -95,7 +96,7 @@ layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer" unique_id=1543124011]
-custom_minimum_size = Vector2(0, 110)
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_vertical = 4
 

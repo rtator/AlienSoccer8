@@ -19,6 +19,7 @@ font_size = 30
 font_color = Color(0.52318, 0.147056, 0.0707686, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_l5h64"]
+font_size = 15
 font_color = Color(0.8, 0.254902, 0.145098, 1)
 
 [node name="scalerAlienInfo" type="Control" unique_id=2183100]
@@ -31,6 +32,7 @@ grow_vertical = 2
 
 [node name="baseAlienInfo" parent="." unique_id=1741122197 instance=ExtResource("1_isrex")]
 layout_mode = 1
+panel_color = Color(0.52156866, 0.14509805, 0.07058824, 1)
 
 [node name="Control" type="Control" parent="." unique_id=1248732702]
 layout_mode = 1

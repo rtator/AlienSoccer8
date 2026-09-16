@@ -42,3 +42,4 @@ shape = SubResource("CircleShape2D_ix4x5")
 [node name="glue_area" parent="." unique_id=1007334276 instance=ExtResource("3_1kyrv")]
 unique_name_in_owner = true
 show_behind_parent = true
+position = Vector2(79, 0)

@@ -89,6 +89,9 @@ func _ability_cooldown(delta):
 func on_ready():
 	%glue_area.user = self
 	
+	if player == 2:
+		%glue_area.position *= -1
+	
 	base_scale = 0.8
 	
 	if skin != 0:

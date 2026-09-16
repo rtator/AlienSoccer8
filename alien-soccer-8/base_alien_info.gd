@@ -1,4 +1,20 @@
+@tool
+
 extends Control
+
+@export var panel_color : Color = Color("701ba4"):
+	set(new_color):
+		panel_color = new_color
+		var panel_style = %Panel.get_theme_stylebox("panel")
+		panel_style = panel_style.duplicate()
+		panel_style.border_color = new_color
+		%Panel.add_theme_stylebox_override("panel", panel_style)
+
+func _ready():
+	var panel_style = %Panel.get_theme_stylebox("panel")
+	panel_style = panel_style.duplicate()
+	panel_style.border_color = panel_color
+	%Panel.add_theme_stylebox_override("panel", panel_style)
 
 const alien_screens = {
 	"basic": "res://basic_alien_info.tscn",
@@ -20,6 +36,8 @@ const alien_screens = {
 	"pirate": "res://pirate_alien_info.tscn",
 	"mothership": "res://mothership_alien_info.tscn",
 	"warden": "res://warden_alien_info.tscn",
+	"nuclear": "res://nuclear_alien_info.tscn",
+	"breezer": "res://breezer_alien_info.tscn",
 }
 
 func set_screen(alien):
@@ -81,6 +99,12 @@ func _on_mothership_pressed():
 
 func _on_warden_pressed():
 	set_screen("warden")
+
+func _on_nuclear_pressed():
+	set_screen("nuclear")
+
+func _on_breezer_pressed():
+	set_screen("breezer")
 
 func _on_back_button_pressed():
 	get_tree().change_scene_to_file("res://startScreen.tscn")

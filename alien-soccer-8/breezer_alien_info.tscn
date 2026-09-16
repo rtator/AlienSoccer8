@@ -1,28 +1,28 @@
-[gd_scene format=3 uid="uid://xvn24uvybpyx"]
+[gd_scene format=3 uid="uid://3yijswx774d1"]
 
-[ext_resource type="PackedScene" uid="uid://bmr8vq1g5v5p3" path="res://alien_info_buttons.tscn" id="1_egsum"]
-[ext_resource type="Texture2D" uid="uid://cp1bs0i4vna1w" path="res://as8_sprites_png/warden.png" id="2_8rulh"]
+[ext_resource type="PackedScene" uid="uid://bmr8vq1g5v5p3" path="res://alien_info_buttons.tscn" id="1_us8yq"]
+[ext_resource type="Texture2D" uid="uid://c6ebot5wmimhs" path="res://as8_sprites_png/breezer.png" id="2_gmbts"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_7ti2d"]
+[sub_resource type="LabelSettings" id="LabelSettings_w0y2g"]
 font_size = 18
-font_color = Color(0.24705882, 0.654902, 0.87058824, 1)
+font_color = Color(0.48235294, 0.2627451, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_ptco7"]
+[sub_resource type="LabelSettings" id="LabelSettings_20rpy"]
 line_spacing = 0.0
 font_size = 75
-font_color = Color(0.2483725, 0.654233, 0.8700747, 1)
-outline_size = 8
-outline_color = Color(0.10980392, 0.43137255, 0.5921569, 1)
+font_color = Color(0, 0.7764706, 1, 1)
+outline_size = 15
+outline_color = Color(0.48088473, 0.2637622, 1.92523e-07, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_0iu8f"]
+[sub_resource type="LabelSettings" id="LabelSettings_v66e3"]
 font_size = 30
-font_color = Color(0.1741769, 0.43239096, 0.5171182, 1)
+font_color = Color(0.48235294, 0.2627451, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_pas4f"]
-font_size = 15
-font_color = Color(0.2483725, 0.654233, 0.8700747, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_optd8"]
+font_size = 13
+font_color = Color(0, 0.7764706, 1, 1)
 
-[node name="wardenAlienInfo" type="Control" unique_id=1762595133]
+[node name="breezerAlienInfo" type="Control" unique_id=1762595133]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,9 +30,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="baseAlienInfo" parent="." unique_id=1295750602 instance=ExtResource("1_egsum")]
+[node name="baseAlienInfo" parent="." unique_id=1295750602 instance=ExtResource("1_us8yq")]
 layout_mode = 1
-panel_color = Color(0.17254902, 0.43137255, 0.5176471, 1)
+panel_color = Color(0.48235294, 0.2627451, 0, 1)
 
 [node name="Control" type="Control" parent="." unique_id=1376991761]
 layout_mode = 1
@@ -55,10 +55,10 @@ anchor_right = 1.0
 offset_left = -96.0
 offset_bottom = 84.0
 grow_horizontal = 0
-text = "Speed = 0.85
+text = "Speed = 0.75
 Friction = 1
-Size = 1.15"
-label_settings = SubResource("LabelSettings_7ti2d")
+Size = 0.8"
+label_settings = SubResource("LabelSettings_w0y2g")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=917881946]
 layout_mode = 1
@@ -76,17 +76,17 @@ custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control" unique_id=1366090467]
-custom_minimum_size = Vector2(400, 400)
+custom_minimum_size = Vector2(300, 400)
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_top = -200.0
-offset_right = 400.0
+offset_right = 384.0
 offset_bottom = 200.0
 grow_vertical = 2
 size_flags_horizontal = 0
-texture = ExtResource("2_8rulh")
+texture = ExtResource("2_gmbts")
 expand_mode = 1
 stretch_mode = 5
 
@@ -96,7 +96,7 @@ layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer" unique_id=1543124011]
-custom_minimum_size = Vector2(0, 110)
+custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 size_flags_vertical = 4
 
@@ -112,31 +112,35 @@ offset_top = -103.0
 offset_right = 94.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Warden"
-label_settings = SubResource("LabelSettings_ptco7")
+text = "Breezer"
+label_settings = SubResource("LabelSettings_20rpy")
 horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=66498017]
 layout_mode = 2
-text = "put em behind bars"
-label_settings = SubResource("LabelSettings_0iu8f")
+text = "ts was not the wind"
+label_settings = SubResource("LabelSettings_v66e3")
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=13146904]
 layout_mode = 2
-text = "An offensive alien with the goal of imprisoning all lawbreakers, criminals, and aliens that beat it in Alien Soccer. Warden fires out chain bullets that restrict the enemy's abilities and field!
+text = "An alien monk who has trained to control wind and uses it to win in video games.
 
-Default - Incarceration
-Cooldown: 200
-Duration: 90
-Warden launches a chain forwards that goes through the ball. Hitting the enemy pauses their ability cooldowns for 75 ticks, preventing both the default and ultimate abilities from recharging.
+Passive - Slow Zone
+Cooldown - N/A
+Duration - ∞
+Breezer creates a zone of wind around him that blows the ball, slowing it down or speeding it up by 15%, depending on the ball's direction on the x axis. It Charges the ultimate while the ball is inside it's radius. 
 
-Ultimate - Judgement
-Charge: 650
-Duration: 200
-Warden fires a vertical chain forwards that plants itself at the middle section of the opponent's field. The ball can pass through this chain, but if the opponent makes contact, their abilities are fully locked for 100 ticks and cannot be used. The opponent cannot pass through the chain.
+Default - Windburst
+Cooldown: 130
+Duration: 50
+Breezer increases the area of his passive by 50%, and increases the slow from 15% to 20%.
 
+Ultimate - Blizzard
+Cooldown: 400
+Duration: 100
+Breezer creates a screen-wide blizzard, with the wind strength going to 25% defensive and 15% offensive. The screen also has reduced visibility during the duration.
 "
-label_settings = SubResource("LabelSettings_pas4f")
+label_settings = SubResource("LabelSettings_optd8")
 autowrap_mode = 2

@@ -32,6 +32,7 @@ grow_vertical = 2
 
 [node name="baseAlienInfo" parent="." unique_id=2070153117 instance=ExtResource("1_fy708")]
 layout_mode = 1
+panel_color = Color(0.36078432, 0.41568628, 0.3529412, 1)
 
 [node name="Control" type="Control" parent="." unique_id=271763656]
 layout_mode = 1
@@ -82,7 +83,7 @@ layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer" unique_id=1126035466]
-custom_minimum_size = Vector2(0, 110)
+custom_minimum_size = Vector2(0, 65)
 layout_mode = 2
 size_flags_vertical = 4
 

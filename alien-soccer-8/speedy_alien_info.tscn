@@ -32,6 +32,7 @@ grow_vertical = 2
 
 [node name="baseAlienInfo" parent="." unique_id=1978540933 instance=ExtResource("1_fihaq")]
 layout_mode = 1
+panel_color = Color(0.8509804, 0.6862745, 0, 1)
 
 [node name="Control" type="Control" parent="." unique_id=1772124303]
 layout_mode = 1
@@ -116,8 +117,15 @@ label_settings = SubResource("LabelSettings_d1haj")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=1918015146]
+[node name="Control2" type="Control" parent="Control/HBoxContainer/VBoxContainer" unique_id=1017632139]
+custom_minimum_size = Vector2(752, 42)
 layout_mode = 2
+
+[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer/Control2" unique_id=1918015146]
+layout_mode = 0
+offset_top = -10.0
+offset_right = 752.0
+offset_bottom = 32.0
 text = "here comes the s-train "
 label_settings = SubResource("LabelSettings_70glg")
 horizontal_alignment = 1

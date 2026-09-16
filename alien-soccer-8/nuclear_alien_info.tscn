@@ -1,28 +1,28 @@
-[gd_scene format=3 uid="uid://xvn24uvybpyx"]
+[gd_scene format=3 uid="uid://cy4psim3e7uom"]
 
-[ext_resource type="PackedScene" uid="uid://bmr8vq1g5v5p3" path="res://alien_info_buttons.tscn" id="1_egsum"]
-[ext_resource type="Texture2D" uid="uid://cp1bs0i4vna1w" path="res://as8_sprites_png/warden.png" id="2_8rulh"]
+[ext_resource type="PackedScene" uid="uid://bmr8vq1g5v5p3" path="res://alien_info_buttons.tscn" id="1_ksuch"]
+[ext_resource type="Texture2D" uid="uid://kjxi2ss7pm2a" path="res://as8_sprites_png/nuclear.png" id="2_hghwq"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_7ti2d"]
+[sub_resource type="LabelSettings" id="LabelSettings_f8o8f"]
 font_size = 18
-font_color = Color(0.24705882, 0.654902, 0.87058824, 1)
+font_color = Color(0.83137256, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_ptco7"]
+[sub_resource type="LabelSettings" id="LabelSettings_bni4p"]
 line_spacing = 0.0
 font_size = 75
-font_color = Color(0.2483725, 0.654233, 0.8700747, 1)
-outline_size = 8
-outline_color = Color(0.10980392, 0.43137255, 0.5921569, 1)
+font_color = Color(1, 1, 0, 1)
+outline_size = 15
+outline_color = Color(1, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_0iu8f"]
+[sub_resource type="LabelSettings" id="LabelSettings_6yurn"]
 font_size = 30
-font_color = Color(0.1741769, 0.43239096, 0.5171182, 1)
+font_color = Color(1, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_pas4f"]
+[sub_resource type="LabelSettings" id="LabelSettings_ni80p"]
 font_size = 15
-font_color = Color(0.2483725, 0.654233, 0.8700747, 1)
+font_color = Color(1, 1, 0, 1)
 
-[node name="wardenAlienInfo" type="Control" unique_id=1762595133]
+[node name="nuclearAlienInfo" type="Control" unique_id=1762595133]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,9 +30,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="baseAlienInfo" parent="." unique_id=1295750602 instance=ExtResource("1_egsum")]
+[node name="baseAlienInfo" parent="." unique_id=1295750602 instance=ExtResource("1_ksuch")]
 layout_mode = 1
-panel_color = Color(0.17254902, 0.43137255, 0.5176471, 1)
+panel_color = Color(1, 0, 0, 1)
 
 [node name="Control" type="Control" parent="." unique_id=1376991761]
 layout_mode = 1
@@ -55,10 +55,10 @@ anchor_right = 1.0
 offset_left = -96.0
 offset_bottom = 84.0
 grow_horizontal = 0
-text = "Speed = 0.85
+text = "Speed = 0.8
 Friction = 1
-Size = 1.15"
-label_settings = SubResource("LabelSettings_7ti2d")
+Size = 1.1"
+label_settings = SubResource("LabelSettings_f8o8f")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=917881946]
 layout_mode = 1
@@ -76,17 +76,17 @@ custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/Control" unique_id=1366090467]
-custom_minimum_size = Vector2(400, 400)
+custom_minimum_size = Vector2(300, 400)
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_top = -200.0
-offset_right = 400.0
+offset_right = 384.0
 offset_bottom = 200.0
 grow_vertical = 2
 size_flags_horizontal = 0
-texture = ExtResource("2_8rulh")
+texture = ExtResource("2_hghwq")
 expand_mode = 1
 stretch_mode = 5
 
@@ -112,31 +112,31 @@ offset_top = -103.0
 offset_right = 94.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Warden"
-label_settings = SubResource("LabelSettings_ptco7")
+text = "Nuclear"
+label_settings = SubResource("LabelSettings_bni4p")
 horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=66498017]
 layout_mode = 2
-text = "put em behind bars"
-label_settings = SubResource("LabelSettings_0iu8f")
+text = "5 big booms"
+label_settings = SubResource("LabelSettings_6yurn")
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=13146904]
 layout_mode = 2
-text = "An offensive alien with the goal of imprisoning all lawbreakers, criminals, and aliens that beat it in Alien Soccer. Warden fires out chain bullets that restrict the enemy's abilities and field!
+text = "Nuclear is a resource managing alien, collecting batteries located around the map to enable his default or his ultimate for explosive damage.
 
-Default - Incarceration
-Cooldown: 200
-Duration: 90
-Warden launches a chain forwards that goes through the ball. Hitting the enemy pauses their ability cooldowns for 75 ticks, preventing both the default and ultimate abilities from recharging.
+Default - Cluster Blast
+Cost: 3 Batteries
+Duration: 100
+Fire a cluster bomb that explodes into four bombs, which then blow up and slow and knock the opponent around heavily if they get hit.
 
-Ultimate - Judgement
-Charge: 650
-Duration: 200
-Warden fires a vertical chain forwards that plants itself at the middle section of the opponent's field. The ball can pass through this chain, but if the opponent makes contact, their abilities are fully locked for 100 ticks and cannot be used. The opponent cannot pass through the chain.
+Ultimate - NUKE!!!
+Cost: 7 Batteries
+Duration: 400z
+Slow down for half a second to aim a nuke. After a second, fire a massive nuke forwards that explodes where the opponent was when you first used the ability. If it hits the opponent, stun for 3 seconds, otherwise it explodes and has a large radius that stuns for 1 second.
 
 "
-label_settings = SubResource("LabelSettings_pas4f")
+label_settings = SubResource("LabelSettings_ni80p")
 autowrap_mode = 2

@@ -81,7 +81,7 @@ layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer" unique_id=1275335165]
-custom_minimum_size = Vector2(0, 110)
+custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 size_flags_vertical = 4
 
@@ -107,6 +107,10 @@ layout_mode = 2
 text = "practice your second amendment rights "
 label_settings = SubResource("LabelSettings_r6erp")
 horizontal_alignment = 1
+
+[node name="Control2" type="Control" parent="Control/HBoxContainer/VBoxContainer" unique_id=651357951]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
 
 [node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=203318381]
 layout_mode = 2

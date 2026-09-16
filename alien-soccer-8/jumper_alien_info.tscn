@@ -32,6 +32,7 @@ grow_vertical = 2
 
 [node name="baseAlienInfo" parent="." unique_id=838399475 instance=ExtResource("1_jdhul")]
 layout_mode = 1
+panel_color = Color(0.50980395, 0.2784314, 0.40392157, 1)
 
 [node name="Control" type="Control" parent="." unique_id=503137134]
 layout_mode = 1
@@ -94,7 +95,7 @@ layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer" unique_id=2057958720]
-custom_minimum_size = Vector2(0, 110)
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_vertical = 4
 
@@ -105,9 +106,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -94.0
+offset_left = -141.5
 offset_top = -103.0
-offset_right = 94.0
+offset_right = 141.5
 grow_horizontal = 2
 grow_vertical = 0
 text = "JUMPER"

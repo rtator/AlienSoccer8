@@ -19,7 +19,7 @@ font_size = 30
 font_color = Color(0.424601, 0.423626, 0.139985, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_t1yno"]
-font_size = 13
+font_size = 14
 font_color = Color(0.796078, 0.796078, 0.345098, 1)
 
 [node name="pirateAlienInfo" type="Control" unique_id=1244608782]
@@ -32,6 +32,7 @@ grow_vertical = 2
 
 [node name="baseAlienInfo" parent="." unique_id=1877440477 instance=ExtResource("1_1smjf")]
 layout_mode = 1
+panel_color = Color(0.42352942, 0.42352942, 0.14117648, 1)
 
 [node name="Control" type="Control" parent="." unique_id=314521169]
 layout_mode = 1
@@ -95,7 +96,7 @@ layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="Control" type="Control" parent="Control/HBoxContainer/VBoxContainer" unique_id=885969394]
-custom_minimum_size = Vector2(0, 110)
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 4
 
