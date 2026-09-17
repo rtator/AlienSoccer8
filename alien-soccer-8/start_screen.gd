@@ -15,16 +15,18 @@ func _on_button_3_pressed():
 func _on_button_5_pressed():
 	get_tree().change_scene_to_file("res://how_to_play.tscn")
 
-
-
-
-
-
-
-
-
-
 func _on_button_4_pressed():
+	get_tree().change_scene_to_file("res://credits.tscn")
+
+
+
+
+
+
+
+
+
+func _on_button_unused_pressed():
 	get_tree().change_scene_to_file("res://webrtc_lobby.tscn")
 
 func _ready():
