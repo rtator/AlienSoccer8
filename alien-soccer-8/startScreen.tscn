@@ -4,10 +4,13 @@
 [ext_resource type="Theme" uid="uid://cerrqasbkbfyc" path="res://menu_screen_theme.tres" id="1_ev681"]
 [ext_resource type="StyleBox" uid="uid://bhwb56kpdliu" path="res://buttonText.tres" id="2_ev681"]
 [ext_resource type="PackedScene" uid="uid://mg8n0uslpsyb" path="res://screensaver.tscn" id="4_w8rx1"]
+[ext_resource type="PackedScene" uid="uid://bnrwq16iqdiby" path="res://splash_text.tscn" id="5_gxmh3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_w8rx1"]
 font_size = 100
-font_color = Color(0.989828, 0.14925, 1, 1)
+font_color = Color(0.9882353, 0.14901961, 1, 1)
+shadow_color = Color(0.25490198, 0.1882353, 0.34509805, 1)
+shadow_offset = Vector2(-4, 4)
 
 [node name="Control" type="Control" unique_id=1559331455]
 layout_mode = 3
@@ -94,6 +97,12 @@ theme_override_styles/pressed = ExtResource("2_ev681")
 theme_override_styles/hover = ExtResource("2_ev681")
 theme_override_styles/focus = ExtResource("2_ev681")
 text = "Multiplayer"
+
+[node name="splash_text" parent="CanvasLayer" unique_id=786739543 instance=ExtResource("5_gxmh3")]
+offset_left = 238.99997
+offset_top = 127.0
+offset_right = 238.99997
+offset_bottom = 127.0
 
 [connection signal="pressed" from="CanvasLayer/Control/GridContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/GridContainer/Button5" to="." method="_on_button_5_pressed"]

@@ -94,6 +94,7 @@ layout_mode = 2
 texture = ExtResource("3_5em78")
 expand_mode = 2
 stretch_mode = 5
+flip_h = true
 
 [node name="Control4" type="Control" parent="ScrollContainer/HBoxContainer/VBoxContainer3" unique_id=1195314102]
 custom_minimum_size = Vector2(0, 70)
