@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://cp1bs0i4vna1w" path="res://as8_sprites_png/warden.png" id="22_m0xsj"]
 [ext_resource type="Texture2D" uid="uid://kjxi2ss7pm2a" path="res://as8_sprites_png/nuclear.png" id="24_4l77l"]
 [ext_resource type="Texture2D" uid="uid://c6ebot5wmimhs" path="res://as8_sprites_png/breezer.png" id="25_w0itm"]
+[ext_resource type="Texture2D" uid="uid://choepffbeo2xu" path="res://as8_sprites_png/decayed.png" id="26_fgo3k"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_semk5"]
 font_size = 80
@@ -588,6 +589,31 @@ theme_override_styles/hover = ExtResource("2_tj70t")
 theme_override_styles/focus = ExtResource("2_tj70t")
 text = "Breezer"
 icon = ExtResource("25_w0itm")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Control" type="Control" parent="Control/GridContainer" unique_id=1031124712]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="Control/GridContainer" unique_id=1410124184]
+layout_mode = 2
+
+[node name="Control3" type="Control" parent="Control/GridContainer" unique_id=772778249]
+layout_mode = 2
+
+[node name="decayed" type="Button" parent="Control/GridContainer" unique_id=548000157]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 78)
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = ExtResource("2_tj70t")
+theme_override_styles/pressed = ExtResource("2_tj70t")
+theme_override_styles/hover = ExtResource("2_tj70t")
+theme_override_styles/focus = ExtResource("2_tj70t")
+text = "Decayed"
+icon = ExtResource("26_fgo3k")
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true

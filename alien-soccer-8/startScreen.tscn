@@ -22,9 +22,12 @@ grow_vertical = 2
 theme = ExtResource("1_ev681")
 script = ExtResource("1_3pj0e")
 
-[node name="screensaver" parent="." unique_id=312288511 instance=ExtResource("4_w8rx1")]
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1263154663]
+
+[node name="screensaver" parent="CanvasLayer2" unique_id=312288511 instance=ExtResource("4_w8rx1")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1005176135]
+layer = 5
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=2063381958]
 layout_mode = 3

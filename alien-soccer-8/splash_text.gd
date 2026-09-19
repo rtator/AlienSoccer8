@@ -14,7 +14,7 @@ var possibilities = [
 	"Alien Soccer 1 was better",
 	"Graded C in 8th grade!",
 	"Othersider coming soon! (lie)",
-	"Totaly not stolen from minecraft"
+	"Totally not stolen from Minecraft"
 ]
 
 func _ready():

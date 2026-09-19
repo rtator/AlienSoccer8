@@ -24,6 +24,7 @@ const alienTextures = {
 	"warden": preload("res://as8_sprites_png/warden.png"),
 	"nuclear": preload("res://as8_sprites_png/nuclear.png"),
 	"breezer": preload("res://as8_sprites_png/breezer.png"),
+	"decayed": preload("res://as8_sprites_png/decayed.png"),
 }
 
 var alien_names = alienTextures.keys()
@@ -53,6 +54,7 @@ var p2_selected_button = 0
 	%warden,
 	%nuclear,
 	%breezer,
+	%decayed,
 ]
 
 var started = false
@@ -153,11 +155,11 @@ func _unhandled_input(event):
 			elif event.is_action("p1_left"):
 				p1_selected_button -= 1
 			elif event.is_action("p1_up"):
-				#if ceil((p1_selected_button + 1) / 6) == 2:
-					#p1_selected_button -= 5
-				#else:
-				p1_selected_button -= row_size
-				p1_selected_button = clamp(p1_selected_button, 0, len(alien_buttons) - 1)
+				if p1_selected_button > 20:
+					p1_selected_button -= 4
+				else:
+					p1_selected_button -= row_size
+					p1_selected_button = clamp(p1_selected_button, 0, len(alien_buttons) - 1)
 			elif event.is_action("p1_down"):
 				#if ceil(p1_selected_button / 6) == 1 and p1_selected_button != 6:
 					#p1_selected_button += 5
@@ -177,11 +179,11 @@ func _unhandled_input(event):
 			elif event.is_action("p2_left"):
 				p2_selected_button -= 1
 			elif event.is_action("p2_up"):
-				#if ceil((p2_selected_button + 1) / 6) == 2:
-					#p2_selected_button -= 5
-				#else:
-				p2_selected_button -= row_size
-				p2_selected_button = clamp(p2_selected_button, 0, len(alien_buttons) - 1)
+				if p2_selected_button > 20:
+					p2_selected_button -= 4
+				else:
+					p2_selected_button -= row_size
+					p2_selected_button = clamp(p2_selected_button, 0, len(alien_buttons) - 1)
 			elif event.is_action("p2_down"):
 				#if ceil(p2_selected_button / 6) == 1 and p2_selected_button != 6:
 					#p2_selected_button += 5

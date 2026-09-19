@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://bfbj2kc42lpq6"]
+
+[ext_resource type="Script" uid="uid://g53gdnafb8i0" path="res://decayed_bar.gd" id="1_dosbi"]
+[ext_resource type="FontFile" uid="uid://cd01nxashwd12" path="res://Tiny5/Tiny5-Regular.ttf" id="1_x0u1n"]
+[ext_resource type="Texture2D" uid="uid://cswuuuvd8ry1k" path="res://decayed_bar.png" id="2_dosbi"]
+[ext_resource type="Texture2D" uid="uid://cb4esa0sor0bd" path="res://decayed_bar_fill.png" id="4_dosbi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_80ecw"]
+texture = ExtResource("2_dosbi")
+texture_margin_left = 21.0
+texture_margin_top = 20.0
+texture_margin_right = 21.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_thfim"]
+texture = ExtResource("4_dosbi")
+texture_margin_left = 21.0
+texture_margin_top = 20.0
+texture_margin_right = 21.0
+texture_margin_bottom = 20.0
+modulate_color = Color(1, 1, 1, 0.20392157)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o43pw"]
+texture = ExtResource("4_dosbi")
+texture_margin_left = 21.0
+texture_margin_top = 20.0
+texture_margin_right = 21.0
+texture_margin_bottom = 20.0
+modulate_color = Color(1, 1, 1, 0.11372549)
+
+[node name="decayed_bar" type="CanvasLayer" unique_id=473961336]
+script = ExtResource("1_dosbi")
+
+[node name="decayed_bar" type="Control" parent="." unique_id=597038849]
+modulate = Color(1, 1, 1, 0.76862746)
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="p1Charge" type="ProgressBar" parent="decayed_bar" unique_id=1959366584]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(500, 0)
+clip_contents = true
+layout_mode = 0
+offset_left = 64.0
+offset_top = 488.0
+offset_right = 564.0
+offset_bottom = 546.0
+theme_override_fonts/font = ExtResource("1_x0u1n")
+theme_override_styles/background = SubResource("StyleBoxTexture_80ecw")
+theme_override_styles/fill = SubResource("StyleBoxTexture_thfim")
+max_value = 1000.0
+
+[node name="p2Charge" type="ProgressBar" parent="decayed_bar" unique_id=1750883480]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(500, 0)
+clip_contents = true
+layout_mode = 0
+offset_left = 593.0
+offset_top = 488.0
+offset_right = 1093.0
+offset_bottom = 546.0
+theme_override_fonts/font = ExtResource("1_x0u1n")
+theme_override_styles/background = SubResource("StyleBoxTexture_80ecw")
+theme_override_styles/fill = SubResource("StyleBoxTexture_o43pw")
+max_value = 1000.0
