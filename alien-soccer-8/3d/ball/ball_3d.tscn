@@ -4,12 +4,12 @@
 bounce = 1.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_frvwx"]
-radius = 1.51
+radius = 3.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_qgyb7"]
 flip_faces = true
-radius = 1.5
-height = 3.0
+radius = 3.0
+height = 6.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vt7g2"]
 shading_mode = 0
@@ -17,13 +17,15 @@ albedo_color = Color(1, 0.18431373, 0.18431373, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_03k8r"]
 flip_faces = true
-radius = 1.0
-height = 2.0
+radius = 2.0
+height = 4.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dmk33"]
 shading_mode = 0
 
 [sub_resource type="SphereMesh" id="SphereMesh_ejuop"]
+radius = 1.0
+height = 2.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xewew"]
 shading_mode = 0
