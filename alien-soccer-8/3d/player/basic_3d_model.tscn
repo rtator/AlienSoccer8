@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bmr3ikowk8m2s"]
 
-[ext_resource type="Material" uid="uid://dvjuhsul6psvs" path="res://basic_skin.tres" id="1_35dgw"]
-[ext_resource type="Material" uid="uid://c577o6rqa7g5" path="res://basic_metal.tres" id="2_6uv45"]
+[ext_resource type="Material" uid="uid://dvjuhsul6psvs" path="res://basic_skin.tres" id="1_bkyrc"]
+[ext_resource type="Material" uid="uid://c577o6rqa7g5" path="res://basic_metal.tres" id="2_ws4m3"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_qgyb7"]
 height = 1.4389648
@@ -62,13 +62,13 @@ height = 0.2
 shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 
-[node name="basic_3D" type="Node3D" unique_id=1688466257]
+[node name="basic_3D_model" type="Node3D" unique_id=1688466257]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="body" type="MeshInstance3D" parent="." unique_id=207579596]
 transform = Transform3D(1.0000002, 2.9802322e-08, 0, -2.9802322e-08, 1.0000002, 0, 0, 0, 1, 2.9802322e-08, 0.7305908, 0)
 mesh = SubResource("CapsuleMesh_qgyb7")
-surface_material_override/0 = ExtResource("1_35dgw")
+surface_material_override/0 = ExtResource("1_bkyrc")
 
 [node name="outer_glass" type="MeshInstance3D" parent="." unique_id=1919739312]
 transform = Transform3D(1.1999723, 3.5761953e-08, 0, -3.5761953e-08, 1.1999723, 0, 0, 0, 1.2, 3.2176068e-08, 0.7666586, 0)
@@ -78,32 +78,32 @@ surface_material_override/0 = SubResource("StandardMaterial3D_jxktq")
 [node name="ufo_ring" type="MeshInstance3D" parent="." unique_id=1506529367]
 transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 0.6, 0, 0.2631402, 0)
 mesh = SubResource("TorusMesh_vt7g2")
-surface_material_override/0 = ExtResource("2_6uv45")
+surface_material_override/0 = ExtResource("2_ws4m3")
 
 [node name="ufo_botttom" type="MeshInstance3D" parent="." unique_id=1656432728]
 transform = Transform3D(0.6, 2.9802322e-08, 0, 0, 1.0000002, 0, 0, 0, 0.6, 0, 0.24709943, 0)
 mesh = SubResource("CylinderMesh_qgyb7")
-surface_material_override/0 = ExtResource("2_6uv45")
+surface_material_override/0 = ExtResource("2_ws4m3")
 
 [node name="leg" type="MeshInstance3D" parent="." unique_id=1725953005]
 transform = Transform3D(0.908106, -0.4187403, 0, 0.4187403, 0.908106, 0, 0, 0, 1, 0.4104025, -0.23970512, 0)
 mesh = SubResource("CapsuleMesh_vt7g2")
-surface_material_override/0 = ExtResource("1_35dgw")
+surface_material_override/0 = ExtResource("1_bkyrc")
 
 [node name="leg1" type="MeshInstance3D" parent="." unique_id=516130047]
 transform = Transform3D(0.9077775, 0.4194521, 0, -0.4194521, 0.9077775, 0, 0, 0, 1, -0.41, -0.24, 0)
 mesh = SubResource("CapsuleMesh_vt7g2")
-surface_material_override/0 = ExtResource("1_35dgw")
+surface_material_override/0 = ExtResource("1_bkyrc")
 
 [node name="leg2" type="MeshInstance3D" parent="." unique_id=448782729]
 transform = Transform3D(1, 0, 0, 0, 0.9077775, 0.4194521, 0, -0.4194521, 0.9077775, 0, -0.24, 0.41)
 mesh = SubResource("CapsuleMesh_vt7g2")
-surface_material_override/0 = ExtResource("1_35dgw")
+surface_material_override/0 = ExtResource("1_bkyrc")
 
 [node name="leg3" type="MeshInstance3D" parent="." unique_id=1700925701]
 transform = Transform3D(1, 0, 0, 0, 0.9077775, -0.4194521, 0, 0.4194521, 0.9077775, 0, -0.24, -0.41)
 mesh = SubResource("CapsuleMesh_vt7g2")
-surface_material_override/0 = ExtResource("1_35dgw")
+surface_material_override/0 = ExtResource("1_bkyrc")
 
 [node name="antenna_thing" type="MeshInstance3D" parent="." unique_id=150592216]
 transform = Transform3D(-4.3710937e-08, -0.99999243, 0, 0.99999243, -4.3710937e-08, 0, 0, 0, 1, 0, 0.98599976, 0)

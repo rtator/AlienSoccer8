@@ -42,6 +42,8 @@ enabled=PackedStringArray("res://addons/tube-2dfc5c1ef8432af121eee775b5cd4ca2edc
 [file_customization]
 
 folder_colors={
+"res://3d/": "orange",
+"res://3d_assets/": "blue",
 "res://as8_sprites_png/": "red"
 }
 

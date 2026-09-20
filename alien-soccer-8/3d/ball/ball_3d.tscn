@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dy0r5g6ckmoum"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lhxct"]
+bounce = 1.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_frvwx"]
+radius = 1.51
+
+[sub_resource type="SphereMesh" id="SphereMesh_qgyb7"]
+flip_faces = true
+radius = 1.5
+height = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vt7g2"]
+shading_mode = 0
+albedo_color = Color(1, 0.18431373, 0.18431373, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_03k8r"]
+flip_faces = true
+radius = 1.0
+height = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dmk33"]
+shading_mode = 0
+
+[sub_resource type="SphereMesh" id="SphereMesh_ejuop"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xewew"]
+shading_mode = 0
+albedo_color = Color(0.2, 0.7019608, 1, 1)
+
+[node name="ball_3d" type="RigidBody3D" unique_id=1171871450]
+physics_material_override = SubResource("PhysicsMaterial_lhxct")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1519149090]
+shape = SubResource("SphereShape3D_frvwx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1289920606]
+mesh = SubResource("SphereMesh_qgyb7")
+surface_material_override/0 = SubResource("StandardMaterial3D_vt7g2")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1755171107]
+mesh = SubResource("SphereMesh_03k8r")
+surface_material_override/0 = SubResource("StandardMaterial3D_dmk33")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=2122603778]
+mesh = SubResource("SphereMesh_ejuop")
+surface_material_override/0 = SubResource("StandardMaterial3D_xewew")

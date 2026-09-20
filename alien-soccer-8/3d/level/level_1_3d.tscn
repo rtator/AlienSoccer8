@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dvq3ftv8g8yb"]
+
+[ext_resource type="PackedScene" uid="uid://cht6g2qkky6ia" path="res://3d/level_assets/grass_ground_wide.tscn" id="1_a834h"]
+[ext_resource type="PackedScene" uid="uid://d3irmw4wgeo31" path="res://3d/player/basic_player_3d.tscn" id="2_0nhut"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nq3bg"]
+
+[sub_resource type="Sky" id="Sky_vt7g2"]
+sky_material = SubResource("ProceduralSkyMaterial_nq3bg")
+
+[sub_resource type="Environment" id="Environment_qgyb7"]
+background_mode = 2
+background_color = Color(0, 0.54901963, 1, 1)
+sky = SubResource("Sky_vt7g2")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+
+[node name="level_1_3d" type="Node3D" unique_id=1050404226]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2090652841]
+environment = SubResource("Environment_qgyb7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1578859688]
+transform = Transform3D(0.76942825, 0.58461857, -0.25729635, 0, 0.4028228, 0.91527796, 0.638733, -0.70424074, 0.30994326, 0, 0, 0)
+light_energy = 5.0
+
+[node name="grass_ground_wide" parent="." unique_id=1106398032 instance=ExtResource("1_a834h")]
+
+[node name="basic_player_3d" parent="." unique_id=1019964484 instance=ExtResource("2_0nhut")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.148916, 7.549592, -3.700687)
