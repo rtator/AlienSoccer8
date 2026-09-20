@@ -1,18 +1,28 @@
 [gd_scene format=3 uid="uid://d3irmw4wgeo31"]
 
 [ext_resource type="PackedScene" uid="uid://cllefwhgk3n5k" path="res://3d/player/player_camera_3d.tscn" id="1_3bcab"]
+[ext_resource type="Script" uid="uid://7ar5lh7fibuf" path="res://3d/player/basic_player_3d.gd" id="1_fkxyj"]
 [ext_resource type="PackedScene" uid="uid://bmr3ikowk8m2s" path="res://3d/player/basic_3d_model.tscn" id="1_m10f4"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1hxqm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qgyb7"]
 radius = 0.5834961
 height = 2.3242188
 
 [node name="basic_player_3d" type="RigidBody3D" unique_id=1019964484]
+physics_material_override = SubResource("PhysicsMaterial_1hxqm")
+script = ExtResource("1_fkxyj")
 
 [node name="player_camera" parent="." unique_id=949239429 instance=ExtResource("1_3bcab")]
+unique_name_in_owner = true
 
 [node name="basic_3D_model" parent="." unique_id=1688466257 instance=ExtResource("1_m10f4")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1378855039]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48926163, 0)
 shape = SubResource("CapsuleShape3D_qgyb7")
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1574686965]
+unique_name_in_owner = true
+target_position = Vector3(0, -2, 0)
