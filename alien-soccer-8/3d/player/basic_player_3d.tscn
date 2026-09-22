@@ -3,16 +3,35 @@
 [ext_resource type="PackedScene" uid="uid://cllefwhgk3n5k" path="res://3d/player/player_camera_3d.tscn" id="1_3bcab"]
 [ext_resource type="Script" uid="uid://7ar5lh7fibuf" path="res://3d/player/basic_player_3d.gd" id="1_fkxyj"]
 [ext_resource type="PackedScene" uid="uid://bmr3ikowk8m2s" path="res://3d/player/basic_3d_model.tscn" id="1_m10f4"]
+[ext_resource type="Texture2D" uid="uid://cudpwtasf35cx" path="res://basic_bar.png" id="4_xghlr"]
+[ext_resource type="Texture2D" uid="uid://dpnos1fbw8dot" path="res://basic_bar_fill.png" id="5_ljbpt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1hxqm"]
-friction = 0.5
+friction = 0.1
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qgyb7"]
 radius = 0.5834961
 height = 2.3242188
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1lvqb"]
+texture = ExtResource("4_xghlr")
+texture_margin_left = 21.0
+texture_margin_top = 21.0
+texture_margin_right = 21.0
+texture_margin_bottom = 21.0
+modulate_color = Color(1, 0.92156863, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fo6o2"]
+texture = ExtResource("5_ljbpt")
+texture_margin_left = 21.0
+texture_margin_top = 21.0
+texture_margin_right = 21.0
+texture_margin_bottom = 21.0
+modulate_color = Color(1, 0.92156863, 1, 1)
+
 [node name="basic_player_3d" type="RigidBody3D" unique_id=1019964484]
 physics_material_override = SubResource("PhysicsMaterial_1hxqm")
+gravity_scale = 4.0
 lock_rotation = true
 script = ExtResource("1_fkxyj")
 
@@ -28,4 +47,45 @@ shape = SubResource("CapsuleShape3D_qgyb7")
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=1574686965]
 unique_name_in_owner = true
-target_position = Vector3(0, -2, 0)
+target_position = Vector3(0, -5, 0)
+
+[node name="jump_timer" type="Timer" parent="." unique_id=1616993464]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1611175351]
+visible = false
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=498649520]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_behavior_recursive = 1
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control" unique_id=2078754234]
+modulate = Color(1, 1, 1, 0.43529412)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -222.5
+offset_top = -95.0
+offset_right = 222.5
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxTexture_1lvqb")
+theme_override_styles/fill = SubResource("StyleBoxTexture_fo6o2")
+value = 100.0
+show_percentage = false
+
+[connection signal="timeout" from="jump_timer" to="." method="_on_jump_timer_timeout"]

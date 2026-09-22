@@ -1,10 +1,8 @@
 [gd_scene format=3 uid="uid://dy0r5g6ckmoum"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lhxct"]
-bounce = 1.0
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_frvwx"]
-radius = 3.0
+friction = 0.3
+bounce = 0.5
 
 [sub_resource type="SphereMesh" id="SphereMesh_qgyb7"]
 flip_faces = true
@@ -31,11 +29,11 @@ height = 2.0
 shading_mode = 0
 albedo_color = Color(0.2, 0.7019608, 1, 1)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_8wjw2"]
+radius = 3.1
+
 [node name="ball_3d" type="RigidBody3D" unique_id=1171871450]
 physics_material_override = SubResource("PhysicsMaterial_lhxct")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1519149090]
-shape = SubResource("SphereShape3D_frvwx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1289920606]
 mesh = SubResource("SphereMesh_qgyb7")
@@ -48,3 +46,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_dmk33")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=2122603778]
 mesh = SubResource("SphereMesh_ejuop")
 surface_material_override/0 = SubResource("StandardMaterial3D_xewew")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1673119675]
+shape = SubResource("SphereShape3D_8wjw2")

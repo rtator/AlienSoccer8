@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c7xjld48kvowu"]
+
+[ext_resource type="Script" uid="uid://dpcjaifjaigsl" path="res://reset_plane.gd" id="1_po00g"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_qgyb7"]
+
+[node name="reset_plane" type="Area3D" unique_id=1349133728]
+script = ExtResource("1_po00g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1349549637]
+shape = SubResource("WorldBoundaryShape3D_qgyb7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
