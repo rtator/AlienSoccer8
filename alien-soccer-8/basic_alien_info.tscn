@@ -135,6 +135,7 @@ Ultimate - Plasma Shield
 Charge: 500
 Duration: Whenever Hit (∞), then 200
 Generates a shield of plasma around it that shatters after being hit by the ball. This shield gives Basic a speed boost after the shield shatters.
+
 "
 label_settings = SubResource("LabelSettings_lkr61")
 autowrap_mode = 2

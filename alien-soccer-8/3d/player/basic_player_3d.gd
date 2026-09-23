@@ -19,13 +19,15 @@ var push_strength = base_push_strength
 @export var move_speed = 100
 @export var damp_mult = 0.9
 @export var base_gravity = 4
+@export var hover_gravity = 0.5
+
 
 @export_category("Visuals")
 @export var turn_speed = 10.0
 
 @export_category("Jump")
 @export var push_dist_grounded_cancel = 2
-@export var push_strength_jump = 90.0
+@export var push_strength_jump = 130.0
 var jumping = false
 var grounded = false
 
@@ -84,13 +86,13 @@ func float_push(delta):
 			var dist = position.y - collision_point.y
 			grounded = true
 			if dist <= push_dist:
-				gravity_scale = 0
+				gravity_scale = hover_gravity
 				var strength = (push_dist - dist)
 				linear_velocity.y += strength * push_strength * delta
 				#linear_velocity.y *= push_slow_mult
 			elif dist <= push_buffer_dist:
 				grounded = true
-				gravity_scale = 0
+				gravity_scale = hover_gravity
 			elif dist <= push_dist_grounded_cancel:
 				grounded = false
 			else:
@@ -103,7 +105,7 @@ func float_push(delta):
 			gravity_scale = base_gravity
 	else:
 		grounded = false
-		gravity_scale = 0
+		gravity_scale = hover_gravity
 		linear_velocity.y += push_strength * delta
 		#linear_velocity.y *= push_slow_mult
 
