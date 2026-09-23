@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://dy0r5g6ckmoum"]
 
+[ext_resource type="Script" uid="uid://bs502wg0r77v3" path="res://3d/ball/ball_3d.gd" id="1_mw1tr"]
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lhxct"]
 friction = 0.3
 bounce = 0.5
@@ -34,6 +36,7 @@ radius = 3.1
 
 [node name="ball_3d" type="RigidBody3D" unique_id=1171871450]
 physics_material_override = SubResource("PhysicsMaterial_lhxct")
+script = ExtResource("1_mw1tr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1289920606]
 mesh = SubResource("SphereMesh_qgyb7")

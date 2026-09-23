@@ -5,3 +5,5 @@ extends Area3D
 func _on_body_entered(body):
 	if body is RigidBody3D:
 		body.position = vec_to_set_to
+		if "linear_velocity" in body:
+			body.linear_velocity = Vector3(0,0,0)

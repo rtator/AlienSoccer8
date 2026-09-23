@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://1i1exla4rlm2"]
+
+[ext_resource type="Theme" uid="uid://cerrqasbkbfyc" path="res://menu_screen_theme.tres" id="1_camx4"]
+[ext_resource type="Script" uid="uid://c6xd6l2kvlfxm" path="res://as_64_level_select.gd" id="2_cab3m"]
+[ext_resource type="Texture2D" uid="uid://dts2qfyspf3tx" path="res://warden_lock.png" id="2_kw7jm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qgyb7"]
+font_size = 100
+font_color = Color(0.44313726, 0.64705884, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kw7jm"]
+font_size = 50
+font_color = Color(0.44313726, 0.64705884, 1, 1)
+
+[node name="as64_level_select" type="Control" unique_id=480547849]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_camx4")
+script = ExtResource("2_cab3m")
+
+[node name="Label" type="Label" parent="." unique_id=1996109873]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -291.5
+offset_right = 291.5
+offset_bottom = 137.0
+grow_horizontal = 2
+text = "Level Select"
+label_settings = SubResource("LabelSettings_qgyb7")
+
+[node name="Label2" type="Label" parent="." unique_id=331705153]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -244.5
+offset_top = 112.0
+offset_right = 246.5
+offset_bottom = 235.0
+grow_horizontal = 2
+text = "Bring the ball to the
+goal to win	!"
+label_settings = SubResource("LabelSettings_kw7jm")
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1030268606]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="1" type="Button" parent="GridContainer" unique_id=1669620100]
+custom_minimum_size = Vector2(102, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "1"
+
+[node name="2" type="Button" parent="GridContainer" unique_id=1414275945]
+custom_minimum_size = Vector2(102, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+icon = ExtResource("2_kw7jm")
+icon_alignment = 1
+expand_icon = true
+
+[node name="3" type="Button" parent="GridContainer" unique_id=1346570406]
+custom_minimum_size = Vector2(102, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+icon = ExtResource("2_kw7jm")
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="GridContainer/1" to="." method="_on_1_pressed"]

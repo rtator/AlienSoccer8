@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bn57m814b2fkq" path="res://3d/level_assets/spawn_tube.tscn" id="7_pqk61"]
 [ext_resource type="PackedScene" uid="uid://dgi23av500j4i" path="res://3d/level_assets/gate.tscn" id="8_mld3c"]
 [ext_resource type="PackedScene" uid="uid://co2pdtanlkawk" path="res://3d/level_assets/switch.tscn" id="9_sqy43"]
+[ext_resource type="PackedScene" uid="uid://dayhr2jbo0ixe" path="res://3d/level_assets/goal.tscn" id="10_rnchy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nq3bg"]
 
@@ -465,6 +466,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 191.06236)
 [node name="grass_ground_wide14" parent="." unique_id=2132950077 instance=ExtResource("1_turaa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 191.06236)
 
+[node name="grass_ground_wide63" parent="." unique_id=427969 instance=ExtResource("1_turaa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 241.062)
+
+[node name="grass_ground_wide64" parent="." unique_id=141970603 instance=ExtResource("1_turaa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 241.062)
+
+[node name="grass_ground_wide65" parent="." unique_id=334179590 instance=ExtResource("1_turaa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, 241.062)
+
+[node name="grass_ground_wide66" parent="." unique_id=567921315 instance=ExtResource("1_turaa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 241.062)
+
+[node name="grass_ground_wide67" parent="." unique_id=659181885 instance=ExtResource("1_turaa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, 241.062)
+
+[node name="grass_ground_wide68" parent="." unique_id=1342166994 instance=ExtResource("1_turaa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 241.062)
+
+[node name="grass_ground_wide69" parent="." unique_id=1074869584 instance=ExtResource("1_turaa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 291.062)
+
+[node name="grass_ground_wide70" parent="." unique_id=1867116309 instance=ExtResource("1_turaa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 291.062)
+
+[node name="grass_ground_wide71" parent="." unique_id=977738725 instance=ExtResource("1_turaa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 291.062)
+
+[node name="grass_ground_wide72" parent="." unique_id=745129531 instance=ExtResource("1_turaa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, 291.062)
+
+[node name="grass_ground_wide73" parent="." unique_id=489477729 instance=ExtResource("1_turaa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 291.062)
+
 [node name="big_metal_block7" parent="." unique_id=657629864 instance=ExtResource("3_ym008")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, -20, 190.062)
 
@@ -533,7 +567,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 20, 0)
 
 [node name="reset_plane" parent="." unique_id=1349133728 instance=ExtResource("6_ym008")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, -25, 1)
-vec_to_set_to = Vector3(25, 10, 0)
+vec_to_set_to = Vector3(25, 25, 0)
 
 [node name="spawn_tube" parent="." unique_id=236268259 instance=ExtResource("7_pqk61")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 25, 0)
@@ -544,3 +578,6 @@ switch = NodePath("../switch")
 
 [node name="switch" parent="." unique_id=221662724 instance=ExtResource("9_sqy43")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52, 25.05, 45)
+
+[node name="goal" parent="." unique_id=874583701 instance=ExtResource("10_rnchy")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 16.841263, 10, 303)

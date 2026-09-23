@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://dayhr2jbo0ixe"]
+
+[ext_resource type="Script" uid="uid://ck61r4j8cp3rg" path="res://goal.gd" id="1_6k3qi"]
+[ext_resource type="Script" uid="uid://rty320rywyhs" path="res://3d/level_assets/goalcontrol.gd" id="2_lqa1p"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qgyb7"]
+size = Vector3(30, 20, 13)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qgyb7"]
+size = Vector3(1, 20, 13)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vt7g2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0qle8"]
+size = Vector3(31, 20, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_p20yd"]
+size = Vector3(31, 1, 13)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vt7g2"]
+size = Vector3(1, 20, 13)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ko1fi"]
+size = Vector3(31, 20, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qgyb7"]
+font_size = 270
+
+[node name="goal" type="Area3D" unique_id=874583701]
+script = ExtResource("1_6k3qi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1083048315]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+shape = SubResource("BoxShape3D_qgyb7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=709488566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -6)
+mesh = SubResource("BoxMesh_qgyb7")
+surface_material_override/0 = SubResource("StandardMaterial3D_vt7g2")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=477878304]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -6)
+mesh = SubResource("BoxMesh_qgyb7")
+surface_material_override/0 = SubResource("StandardMaterial3D_vt7g2")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1183579551]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11.5)
+mesh = SubResource("BoxMesh_0qle8")
+surface_material_override/0 = SubResource("StandardMaterial3D_vt7g2")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=1504509285]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.5, -6)
+mesh = SubResource("BoxMesh_p20yd")
+surface_material_override/0 = SubResource("StandardMaterial3D_vt7g2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=927363889]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=946827072]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -6)
+shape = SubResource("BoxShape3D_vt7g2")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=750565862]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -6)
+shape = SubResource("BoxShape3D_vt7g2")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" unique_id=1980961377]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+shape = SubResource("BoxShape3D_ko1fi")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=16148436]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1410848175]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_lqa1p")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=972028982]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -574.0
+offset_top = -184.5
+offset_right = 574.0
+offset_bottom = 184.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "You Win!"
+label_settings = SubResource("LabelSettings_qgyb7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control" unique_id=1162152957]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Timer" type="Timer" parent="." unique_id=729822946]
+unique_name_in_owner = true
+wait_time = 0.5
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

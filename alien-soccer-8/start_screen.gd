@@ -35,3 +35,7 @@ func _ready():
 	
 	if OS.has_environment("server") or OS.has_environment("FLY_PROCESS_GROUP"):
 		get_tree().change_scene_to_file("res://webrtc_lobby.tscn")
+
+
+func _on_button_6_pressed():
+	get_tree().change_scene_to_file("res://as_64_level_select.tscn")

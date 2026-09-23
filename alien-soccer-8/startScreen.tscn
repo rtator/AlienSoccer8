@@ -55,38 +55,43 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -104.0
-offset_top = -509.0
-offset_right = 104.0
-offset_bottom = -34.0
+offset_left = -68.0
+offset_top = -515.0
+offset_right = 68.0
+offset_bottom = -37.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/v_separation = 20
 
 [node name="Button" type="Button" parent="CanvasLayer/Control/GridContainer" unique_id=733109005]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 17
 text = "Start"
 
 [node name="Button5" type="Button" parent="CanvasLayer/Control/GridContainer" unique_id=2032091963]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 17
 text = "How to Play"
 
 [node name="Button2" type="Button" parent="CanvasLayer/Control/GridContainer" unique_id=2052714677]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 17
 text = "Settings"
 
 [node name="Button3" type="Button" parent="CanvasLayer/Control/GridContainer" unique_id=527612678]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 17
 text = "Alien Info"
 
 [node name="Button4" type="Button" parent="CanvasLayer/Control/GridContainer" unique_id=480793604]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 17
 text = "Credits"
+
+[node name="Button6" type="Button" parent="CanvasLayer/Control/GridContainer" unique_id=802409777]
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+text = "Alien Soccer 64"
 
 [node name="Button4" type="Button" parent="CanvasLayer/Control" unique_id=202351719]
 layout_mode = 0
@@ -112,3 +117,4 @@ offset_bottom = 127.0
 [connection signal="pressed" from="CanvasLayer/Control/GridContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/GridContainer/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/GridContainer/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/GridContainer/Button6" to="." method="_on_button_6_pressed"]
