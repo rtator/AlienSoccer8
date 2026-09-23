@@ -117,12 +117,12 @@ text = "Cloaker is similar to Trickster and Flashbang from AS4, a visual manipul
 Default - Chemical Cloud
 Cooldown: 200
 Duration: 300
-Cloaker tosses a smoke grenade forwards that explodes on contact or after a delay, leaving a lingering smoke cloud for 5s.
+Tosses a smoke grenade forwards that explodes after a delay, leaving a lingering smoke cloud. This covers the opponent's cooldown.
 
 Ultimate - Blot Out the Sun 
 Charge: 600
 Duration: 300
-Cloaker tosses a large smoke grenade forwards that explodes on contact or after a delay, leaving a large smoke cloud for 5s and also automatically spawning smoke to cover the opponent's cooldown.
+Tosses a large smoke grenade forwards that leaves a purple trail behind, covering the screen before exploding after a few bounces. The smoke slows down the opponent if they try to move through it.
 "
 label_settings = SubResource("LabelSettings_5ok6k")
 autowrap_mode = 2

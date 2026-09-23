@@ -130,12 +130,12 @@ text = "Clock is a slow, reliable alien that performs well in both offense and d
 Default - Pause
 Cooldown: 200
 Duration: 100
-Clock slows down the ball very slightly for a small moment.
+Clock has a small range of time stop that slows down the ball.
 
 Ultimate - Chronostop
 Charge: 500
 Duration: 100
-Clock slows down the enemy and the ball for a few seconds.
+Slows down the enemy and the ball for a few seconds.
 "
 label_settings = SubResource("LabelSettings_6o8pd")
 autowrap_mode = 2

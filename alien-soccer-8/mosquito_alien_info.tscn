@@ -116,17 +116,17 @@ horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=1705950108]
 layout_mode = 2
-text = "A small, fast, annoying pest that launches projectile after projectile with the objective to make gameplay as unfun as possible. By speeding up the ball passively whenever it makes contact and increasing the ball's speed further using its abilities, Mosquito is one of the most disruptive aliens in the game.
+text = "A small, fast, annoying pest that launches projectile after projectile with the objective to make gameplay as unfun as possible. By speeding up the ball passively whenever it makes contact and influencing the ball's further using its abilities, Mosquito is one of the most disruptive aliens in the game.
 
 Default - Flurry of Flies
 Cooldown: 200
 Duration: 120
 Mosquito fires a small swarm forwards with gravity. The swarm speeds up the ball and pushes the opponent around.
 
-Ultimate - Hivemind Scatter
+Ultimate - Hivemind Orbit
 Charge: 500
 Duration: 120
-Mosquito fires a huge swarm forwards, taking up a lot of the screen and scattering like a shotgun with the same effects as its default swarm.
+Mosquito is orbited by flies. Hitting the ball with these flies increases the number of flies, makes Mosquito bigger, and makes the ball smaller.
 "
 label_settings = SubResource("LabelSettings_t015t")
 autowrap_mode = 2

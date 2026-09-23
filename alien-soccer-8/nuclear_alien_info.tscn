@@ -125,7 +125,7 @@ horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=13146904]
 layout_mode = 2
-text = "Nuclear is a resource managing alien, collecting batteries located around the map to enable his default or his ultimate for explosive damage.
+text = "Nuclear is a resource managing alien, collecting batteries located around the map to enable its default or its ultimate for explosive damage.
 
 Default - Cluster Blast
 Cost: 3 Batteries
@@ -134,7 +134,7 @@ Fire a cluster bomb that explodes into four bombs, which then blow up and slow a
 
 Ultimate - NUKE!!!
 Cost: 7 Batteries
-Duration: 400z
+Duration: 400z	
 Slow down for half a second to aim a nuke. After a second, fire a massive nuke forwards that explodes where the opponent was when you first used the ability. If it hits the opponent, stun for 3 seconds, otherwise it explodes and has a large radius that stuns for 1 second.
 
 "

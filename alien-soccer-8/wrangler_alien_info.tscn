@@ -130,12 +130,12 @@ text = "Wrangler is the first of some new aliens being added to the Alien Soccer
 Default - Round 'em Up
 Cooldown: 200
 Duration: 50
-Wrangler throws a lasso diagonally upwards. Hitting the ball will reel it in and then throw it forwards.
+Throws a lasso diagonally upwards. Hitting the ball will reel it in and then throw it forwards.
 
 Ultimate - Clearing Land
 Charge: 400
 Duration: 300
-Wrangler tosses sticks of dynamite straight forwards that explode after a delay or whenever they make contact with the ball/opponent, exploding and slowing the opponent or moving the ball.
+Tosses sticks of dynamite straight forwards that explode after a delay or whenever they make contact with the ball/opponent, exploding and stunning the opponent or moving the ball.
 "
 label_settings = SubResource("LabelSettings_6j7qr")
 autowrap_mode = 2

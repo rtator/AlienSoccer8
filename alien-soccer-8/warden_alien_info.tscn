@@ -130,12 +130,12 @@ text = "An offensive alien with the goal of imprisoning all lawbreakers, crimina
 Default - Incarceration
 Cooldown: 200
 Duration: 90
-Warden launches a chain forwards that goes through the ball. Hitting the enemy pauses their ability cooldowns for 75 ticks, preventing both the default and ultimate abilities from recharging.
+Launches a chain forwards that goes through the ball. Hitting the enemy pauses their ability cooldowns, preventing both the default and ultimate abilities from recharging.
 
 Ultimate - Judgement
 Charge: 650
 Duration: 200
-Warden fires a vertical chain forwards that plants itself at the middle section of the opponent's field. The ball can pass through this chain, but if the opponent makes contact, their abilities are fully locked for 100 ticks and cannot be used. The opponent cannot pass through the chain.
+Fires a vertical chain forwards that plants itself at the middle section of the opponent's field. The ball can pass through this chain, but if the opponent makes contact, their abilities are fully locked and cannot be used. The opponent cannot pass through the chain.
 
 "
 label_settings = SubResource("LabelSettings_pas4f")

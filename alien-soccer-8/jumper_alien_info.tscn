@@ -124,16 +124,16 @@ horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=25187135]
 layout_mode = 2
-text = "Jumper is the only alien of its kind, constantly moving downwards due to gravity. Going upwards like bouncing in midair, and horizontal movement is slower… but sometimes a bounce is all you need. Jumper can slam using its default ability with strength scaling with height to shake the screen, disrupting the opponent visually. Its ultimate, Pipe Dreams, fires pipes forwards that affect the opponent's speed while increasing its own.
+text = "Jumper is the only alien of its kind, constantly moving downwards due to gravity. Moving up instead makes Jumper bounce in midair. Jumper can slam using its default ability with strength scaling with height to shake the screen, disrupting the opponent visually. Its ultimate, Pipe Dreams, fires pipes forwards that affect the opponent's speed while increasing its own.
 
 Default - Slamquake
 Cooldown: 150
 Duration: ∞
-Jumper slams into the ground instantly, shaking the screen. The strength of the shake scales with how high Jumper was in the air before slamming.
+Slams into the ground instantly, shaking the screen. The strength of the shake scales with how high Jumper was in the air before slamming.
 
 Ultimate - Pipe Dreams
 Charge: 400
 Duration: ∞
-Jumper sends 2 columns of pipes towards the opponent. If the opponent hits the pipes, it slows them down and speeds up Jumper's horizontal movement."
+Sends 2 columns of pipes towards the opponent. If the opponent hits the pipes, it slows them down and speeds up Jumper's horizontal movement."
 label_settings = SubResource("LabelSettings_vpfwc")
 autowrap_mode = 2

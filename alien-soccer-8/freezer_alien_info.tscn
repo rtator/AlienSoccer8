@@ -117,7 +117,7 @@ text = "Freezer is a new take on a defensive alien, having the speed potential o
 Default - Refrigerate
 Cooldown: 400
 Duration: ∞
-Freezer places an ice block that disappears after being hit by the ball, with a max of four ice blocks.
+Places an ice block that disappears after being hit by the ball, with a max of four ice blocks.
 
 Ultimate - Slip n' Slide
 Charge: 500

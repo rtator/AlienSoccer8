@@ -132,7 +132,7 @@ horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=1768697848]
 layout_mode = 2
-text = "Speedy is an alien built for high skill and little mistakes. Despite its small size, Speedy is very good at both defense and offense due to having the single highest speed stat in the game, outclassing every other alien in speed. However, Speedy is also very slippery, and can be hard to control at times, making it a difficult alien to both play and master.
+text = "Speedy is an alien built for high skill and little mistakes. Despite its small size, Speedy is very good at both defense and offense due to having the single highest mobility in the game, outclassing every other alien in movement. However, Speedy is also very slippery, and can be hard to control at times, making it a difficult alien to both play and master.
 
 Default - Dash
 Cooldown: 200

@@ -129,12 +129,12 @@ text = "Basic is the premiere starting alien, lacking versatile abilities but be
 Default - Pulse
 Charge: 300
 Duration: 12
-Basic releases a small shockwave (around the same size as Scaler's normal hitbox) that can knock the ball back at a temporarily faster speed than usual.
+Releases a small shockwave around it that can hit the ball and makes it move faster temporarily.
 
 Ultimate - Plasma Shield
-Charge: 600
+Charge: 500
 Duration: Whenever Hit (∞), then 200
-Basic generates a shield of plasma around it that shatters after being hit by the ball. This shield gives Basic a 50% speed buff for a bit upon shattering.
+Generates a shield of plasma around it that shatters after being hit by the ball. This shield gives Basic a speed boost after the shield shatters.
 "
 label_settings = SubResource("LabelSettings_lkr61")
 autowrap_mode = 2

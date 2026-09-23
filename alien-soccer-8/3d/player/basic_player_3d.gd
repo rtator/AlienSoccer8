@@ -37,6 +37,7 @@ func _physics_process(delta):
 	float_push(delta)
 	control(delta)
 	rot_to_target(delta)
+	print("")
 
 func _unhandled_input(event):
 	if event is InputEventKey and event.is_pressed() and event.is_action_pressed("3d_jump"):

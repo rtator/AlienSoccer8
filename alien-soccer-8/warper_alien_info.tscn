@@ -129,13 +129,13 @@ text = "Warper is a defensive and technical alien, with low speed but the abilit
 Default - Place / Teleport
 Cooldown: 100 / 200
 Duration: ∞ / N/A
-Warper places a waypoint where it is standing, with a max of one waypoint at a time.
-Warper teleports to the waypoint, destroying the waypoint in the process and causing an explosion that can hit the ball back.
+Places a waypoint where it is standing, with a max of one waypoint at a time.
+Warper teleports to the waypoint, destroying the waypoint in the process and causing an explosion that can hit the ball back. This gives Warper a speed boost temporarily.
+
 
 Ultimate - Transmission Swap
 Charge: 700
 Duration: N/A
-Warper causes the ball to teleport to its waypoint and the ball moves toward the opponent.
-"
+Warper causes the ball to teleport to its waypoint and the ball moves toward the opponent."
 label_settings = SubResource("LabelSettings_d236w")
 autowrap_mode = 2

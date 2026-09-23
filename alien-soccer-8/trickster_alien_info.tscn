@@ -111,18 +111,17 @@ horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=237833094]
 layout_mode = 2
-text = "Trickster is a very strong alien offensively and a rather fragile alien defensively, as fast, slippery, and small alien that throws banana peels onto the opponent's field to make their controls reverse momentarily. Its ultimate ability triples the fun, making Trickster a great pick for area denial.
+text = "Trickster is a very strong alien offensively and a rather fragile alien defensively, as fast, slippery, and small alien that throws banana peels onto the opponent's field to make their controls reverse momentarily. Its ultimate ability puts glue on the ball, forcing the opponent to delay their hit.
 
-Default - Banana Peel
+Default - Banana Blast
 Cooldown: 400
-Duration: 160
-Trickster launches a banana peel forwards onto the opponent's field.
+Duration: 450
+Launches two banana peels diagonally forwards onto the opponent's field.
 
-Ultimate - Banana Shotgun
-Charge: 600
-Duration: 160
-Trickster throws three banana peels in different directions onto the opponent's field.
-"
+Ultimate - Glue Trap
+Charge: 400
+Duration: 450
+If the ball is in front of it, Trickster places glue on the ball that slows the opponent upon making contact."
 label_settings = SubResource("LabelSettings_qvgve")
 autowrap_mode = 2
 

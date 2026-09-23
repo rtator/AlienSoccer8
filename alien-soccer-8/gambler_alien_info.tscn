@@ -117,12 +117,13 @@ text = "Gambler is the luck-based alien of the roster, with performance dependin
 Default - Coin Toss
 Cooldown: 100
 Duration: 100
-Gambler rolls for a stat change, with the potential to have speed or size modified temporarily.
+Rolls for a stat change, with the potential to have speed or size modified temporarily.
 
 Ultimate - Jackpot
 Charge: 300
 Duration: 200
 Gambler bets all of its chips, removing its default cooldown for a short period of time.
+
 "
 label_settings = SubResource("LabelSettings_3mb2x")
 autowrap_mode = 2
