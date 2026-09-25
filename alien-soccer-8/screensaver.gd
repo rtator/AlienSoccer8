@@ -29,7 +29,7 @@ func _ready():
 	
 	var charKeys = player_objects.keys()
 	p1 = player_objects[charKeys[randi_range(0, len(charKeys) - 1)]].instantiate()
-	p1.ball = %ball
+	p1.balls = [%ball]
 	p1.camera = %Camera2D
 	p1.is_bot = true
 	p1.position = Vector2(0, 342)
@@ -37,7 +37,7 @@ func _ready():
 	p1.skin = GlobalSave.p2Skin
 	
 	p2 = player_objects[charKeys[randi_range(0, len(charKeys) - 1)]].instantiate()
-	p2.ball = %ball
+	p2.balls = [%ball]
 	p2.camera = %Camera2D
 	p2.is_bot = true
 	p2.position = Vector2(1152, 342)

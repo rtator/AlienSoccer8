@@ -5,6 +5,7 @@ var slow_amount_default = 0.2
 var slow_amount = slow_amount_base
 
 var ball_in_area = false
+var slowed_balls = []
 
 @onready var area = %breezer_area
 var default_size_mult = 1.5
@@ -52,50 +53,56 @@ func _ability_cooldown(delta):
 		ult_dur -= delta
 	elif blizzarding:
 		blizzarding = false
-		ball.temp_speed = 0
+		for ball in balls:
+			ball.temp_speed = 0
 		blizzard_vfx.end()
 	
 	if blizzarding:
 		slow_ball_ult()
 	
-	if charge < charge_max and ball_in_area and ball.linear_velocity.length() > 0 and not blizzarding:
+	if charge < charge_max and ball_in_area and balls[0].linear_velocity.length() > 0 and not blizzarding:
 		charge += delta
 	
 	if ball_in_area and not blizzarding:
 		slow_ball()
 
 func slow_ball():
-	if ball.linear_velocity.x > 0:
-		if player == 1:
-			ball.temp_speed = ball.ball_speed * slow_amount
-		else:
-			ball.temp_speed = -ball.ball_speed * slow_amount
-	elif ball.linear_velocity.x < 0:
-		if player == 2:
-			ball.temp_speed = ball.ball_speed * slow_amount
-		else:
-			ball.temp_speed = -ball.ball_speed * slow_amount
+	for ball in slowed_balls:
+		if ball.linear_velocity.x > 0:
+			if player == 1:
+				ball.temp_speed = ball.ball_speed * slow_amount
+			else:
+				ball.temp_speed = -ball.ball_speed * slow_amount
+		elif ball.linear_velocity.x < 0:
+			if player == 2:
+				ball.temp_speed = ball.ball_speed * slow_amount
+			else:
+				ball.temp_speed = -ball.ball_speed * slow_amount
 
 func slow_ball_ult():
-	if ball.linear_velocity.x > 0:
-		if player == 1:
-			ball.temp_speed = ball.ball_speed * ult_speed
-		else:
-			ball.temp_speed = -ball.ball_speed * ult_slow
-	elif ball.linear_velocity.x < 0:
-		if player == 2:
-			ball.temp_speed = ball.ball_speed * ult_speed
-		else:
-			ball.temp_speed = -ball.ball_speed * ult_slow
+	for ball in balls:
+		if ball.linear_velocity.x > 0:
+			if player == 1:
+				ball.temp_speed = ball.ball_speed * ult_speed
+			else:
+				ball.temp_speed = -ball.ball_speed * ult_slow
+		elif ball.linear_velocity.x < 0:
+			if player == 2:
+				ball.temp_speed = ball.ball_speed * ult_speed
+			else:
+				ball.temp_speed = -ball.ball_speed * ult_slow
 
 func _on_breezer_area_body_entered(body):
-	if body == ball:
+	if "ball_speed" in body:
+		slowed_balls.append(body)
 		ball_in_area = true
 
 func _on_breezer_area_body_exited(body):
-	if body == ball:
-		ball_in_area = false
-		ball.temp_speed = 0
+	if "ball_speed" in body:
+		slowed_balls.erase(body)
+		if len(slowed_balls) <= 0:
+			ball_in_area = false
+		body.temp_speed = 0
 
 func on_ready():
 	blizzard_vfx = blizzard_vfx_load.instantiate()

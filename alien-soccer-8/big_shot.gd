@@ -7,7 +7,8 @@ var skin = 0
 
 
 func _physics_process(delta):
-	add_collision_exception_with(shooter.ball)
+	for ball in shooter.balls:
+		add_collision_exception_with(ball)
 
 func _on_body_entered(body):
 	if body != shooter:

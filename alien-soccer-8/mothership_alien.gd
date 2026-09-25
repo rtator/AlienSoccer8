@@ -14,7 +14,7 @@ func _ability():
 func _ultimate():
 	if charge >= charge_max:
 		var drone = drone_load.instantiate()
-		drone.ball = ball
+		drone.balls = balls
 		drone.position = position
 		drone.z_index = -0.5
 		add_sibling(drone)
@@ -26,7 +26,7 @@ func _ability_cooldown(delta):
 		#_ability()
 		#print("pressed")
 	
-	if cooldown > 0 and ball.linear_velocity.length() > 0 :
+	if cooldown > 0 and balls[0].linear_velocity.length() > 0 :
 		cooldown -= 1 * delta
 	
 	if duration > 0:

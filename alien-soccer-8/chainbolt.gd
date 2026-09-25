@@ -13,6 +13,6 @@ func _on_body_entered(body):
 		user.chain_hit = true
 		user.hit_body = body
 	
-	if body != user.ball and body != user:
+	if not "ball_speed" in body and body != user:
 		user.chain_dead = true
 		queue_free()

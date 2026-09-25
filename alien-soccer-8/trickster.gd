@@ -21,7 +21,7 @@ func _ability():
 		banana.position = position + (offsetVec * 50)
 		banana.call_deferred("set_linear_velocity", offsetVec * bullet_speed)
 		banana.shooter = self
-		banana.ball = ball
+		banana.balls = balls
 		add_sibling(banana)
 		
 		banana = banana_load.instantiate()
@@ -29,7 +29,7 @@ func _ability():
 		banana.position = position + (offsetVec * 50)
 		banana.call_deferred("set_linear_velocity", offsetVec * bullet_speed)
 		banana.shooter = self
-		banana.ball = ball
+		banana.balls = balls
 		add_sibling(banana)
 		
 		cooldown = 400

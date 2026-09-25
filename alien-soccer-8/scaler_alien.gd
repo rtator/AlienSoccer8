@@ -42,30 +42,6 @@ func _ability_cooldown(delta):
 	if charge < charge_max and not grown:
 		charge += delta
 	
-	if ball_grow_timer > 1 and not ball_grown:
-		ball_grow_timer -= 0.5
-		ball.set_ball_scale(ball_growth_mult / max(0.73 , ((ball_grow_timer / 5) + 0.73)))
-		camera.shake(2)
-		
-	elif ball_grow_timer > 1 and ball_grown:
-		ball_grow_timer -= 0.5
-		ball.set_ball_scale(ball_growth_mult * (ball_grow_timer / 5))
-		camera.shake(2)
-		print(ball_grow_timer)
-		
-	elif ball_grow_timer > 0 and not ball_grown:
-		ball_grow_timer -= 1
-		ball.set_ball_scale(ball_growth_mult)
-		ball_grown = true
-		duration = 200
-		camera.shake(9)
-	elif ball_grow_timer > 0 and ball_grown:
-		ball_grow_timer -= 1
-		ball_grown = false
-		ball.set_ball_scale(1)
-		cooldown = 200
-		
-	
 	if duration > 1:
 		duration -= 1
 	elif duration > 0:
@@ -109,6 +85,6 @@ func on_ready():
 
 
 func _on_body_entered(body):
-	if body == ball and duration > 0:
+	if "temp_speed" in body and duration > 0:
 		charges += 1
 		duration = 1

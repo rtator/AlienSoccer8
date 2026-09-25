@@ -7,8 +7,8 @@ var hit = false
 var firing = false
 
 func _physics_process(delta):
-	if ball == null and user != null:
-		ball = user.ball
+	#if ball == null and user != null:
+		#ball = user.ball
 	
 	modulate = modulate.lerp(Color(1,1,1,0), 0.1)
 	
@@ -33,6 +33,6 @@ func fire():
 	modulate = Color(4,4,4,1)
 
 func _on_body_entered(body):
-	if body == ball:
+	if "temp_speed" in body and not hit:
 		hit = true
-		user.hit_ball()
+		user.hit_ball(body)

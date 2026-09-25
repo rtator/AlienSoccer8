@@ -3,7 +3,7 @@ extends RigidBody2D
 var delete = false
 
 var shooter
-var ball
+var balls
 
 func _on_body_entered(body):
 	if body != shooter:
@@ -20,4 +20,5 @@ func _on_timer_timeout():
 
 
 func _ready():
-	add_collision_exception_with(ball)
+	for ball in balls:
+		add_collision_exception_with(ball)

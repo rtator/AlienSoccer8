@@ -1,15 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://cdpc7j5ykimxq"]
+[gd_scene format=3 uid="uid://cdpc7j5ykimxq"]
 
 [ext_resource type="Script" uid="uid://c5kqnkhvcnf7b" path="res://lasso.gd" id="1_vxaso"]
-[ext_resource type="Texture2D" uid="uid://bjnogbqy5d5or" path="res://as8_sprites_png/72a58bc6-14df-4103-a1a2-35056d984780-0.png" id="2_6tico"]
-[ext_resource type="Texture2D" uid="uid://c0tqcjmcwht2v" path="res://as8_sprites_png/72a58bc6-14df-4103-a1a2-35056d984780-1.png" id="3_2qh1b"]
-[ext_resource type="Texture2D" uid="uid://d0shym0h0bk05" path="res://as8_sprites_png/72a58bc6-14df-4103-a1a2-35056d984780-2.png" id="4_k035g"]
-[ext_resource type="Texture2D" uid="uid://bb6pwdv5ao7l0" path="res://as8_sprites_png/72a58bc6-14df-4103-a1a2-35056d984780-3.png" id="5_a1gj4"]
-[ext_resource type="Texture2D" uid="uid://cg0xvrqspkp07" path="res://as8_sprites_png/72a58bc6-14df-4103-a1a2-35056d984780-4.png" id="6_1xh3s"]
-[ext_resource type="Texture2D" uid="uid://be4ubr7kb35p7" path="res://as8_sprites_png/72a58bc6-14df-4103-a1a2-35056d984780-5.png" id="7_6xfgc"]
-[ext_resource type="Texture2D" uid="uid://d24xxpfgxxiaf" path="res://as8_sprites_png/72a58bc6-14df-4103-a1a2-35056d984780-6.png" id="8_51xt6"]
-[ext_resource type="Texture2D" uid="uid://oyhaeitiy08j" path="res://Imported piskel/sprite_0.png" id="9_2qh1b"]
-[ext_resource type="Texture2D" uid="uid://cccbkoxw13ya3" path="res://Imported piskel/sprite_1.png" id="10_k035g"]
+[ext_resource type="Texture2D" uid="uid://bloefdroh38vc" path="res://as8_sprites_png/72a58bc6-14df-4103-a1a2-35056d984780-0.png" id="2_6tico"]
+[ext_resource type="Texture2D" uid="uid://bgjpfgntwhxyl" path="res://as8_sprites_png/72a58bc6-14df-4103-a1a2-35056d984780-1.png" id="3_2qh1b"]
+[ext_resource type="Texture2D" uid="uid://bb2qcjwlftlcm" path="res://as8_sprites_png/72a58bc6-14df-4103-a1a2-35056d984780-2.png" id="4_k035g"]
+[ext_resource type="Texture2D" uid="uid://1do20oym5k5h" path="res://as8_sprites_png/72a58bc6-14df-4103-a1a2-35056d984780-3.png" id="5_a1gj4"]
+[ext_resource type="Texture2D" uid="uid://dcuf21lx6fua6" path="res://as8_sprites_png/72a58bc6-14df-4103-a1a2-35056d984780-4.png" id="6_1xh3s"]
+[ext_resource type="Texture2D" uid="uid://bm32s3ifnk36g" path="res://as8_sprites_png/72a58bc6-14df-4103-a1a2-35056d984780-5.png" id="7_6xfgc"]
+[ext_resource type="Texture2D" uid="uid://dse84wqih1t4j" path="res://as8_sprites_png/72a58bc6-14df-4103-a1a2-35056d984780-6.png" id="8_51xt6"]
+[ext_resource type="Texture2D" uid="uid://p6padjusrhcu" path="res://Imported piskel/sprite_0.png" id="9_2qh1b"]
+[ext_resource type="Texture2D" uid="uid://cngw3wi7qr7rf" path="res://Imported piskel/sprite_1.png" id="10_k035g"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ywx0r"]
 radius = 30.0
@@ -24,7 +24,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("10_k035g")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -53,19 +53,19 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("8_51xt6")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 20.0
 }]
 
-[node name="lasso" type="Area2D"]
+[node name="lasso" type="Area2D" unique_id=431280484]
 script = ExtResource("1_vxaso")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=331110123]
 position = Vector2(30, -45)
 shape = SubResource("CapsuleShape2D_ywx0r")
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CollisionShape2D"]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CollisionShape2D" unique_id=1092045165]
 unique_name_in_owner = true
 visible = false
 position = Vector2(6, -31)
@@ -74,7 +74,7 @@ sprite_frames = SubResource("SpriteFrames_a1gj4")
 autoplay = "default"
 frame_progress = 0.236126
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D" unique_id=1029493064]
 scale = Vector2(0.21, 0.21)
 sprite_frames = SubResource("SpriteFrames_oodx0")
 autoplay = "default"

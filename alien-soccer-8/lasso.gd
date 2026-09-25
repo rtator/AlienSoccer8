@@ -6,7 +6,8 @@ var user
 var ball_grabbed = false
 
 func _on_body_entered(body):
-	if body == ball:
+	if "ball_speed" in body and not ball_grabbed:
+		ball = body
 		add_child(body)
 		ball_grabbed = true
 		ball.reseting = true

@@ -120,6 +120,7 @@ shape = SubResource("WorldBoundaryShape2D_n6hdu")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1107436358]
 unique_name_in_owner = true
+layer = 100
 
 [node name="Control2" type="Control" parent="CanvasLayer" unique_id=1921019055]
 layout_mode = 3

@@ -8,7 +8,8 @@ var damp_mult = 1.5
 var dash_vec = Vector2(0,0)
 var dash_speed = 1500
 
-var ball_speed = 200
+var ball_hit
+var clock_ball_speed = [200]
 
 var ball_slow = 2.5
 var all_slow = 3.0
@@ -21,11 +22,13 @@ func _ability():
 		%clock_aoe.fire()
 		%clock_aoe.firing = true
 
-func hit_ball():
+func hit_ball(ball):
 		sprite.animation = "slowed"
 		if skin != 0:
 			%AnimatedSprite2D.animation = "slowed_" + str(skin)
-		ball_speed = ball.ball_speed
+		
+		ball_hit = ball
+		clock_ball_speed = [ball.ball_speed]
 		ball.ball_speed /= ball_slow
 		ball_slowed = true
 		duration = 100
@@ -36,9 +39,11 @@ func _ultimate():
 		if skin != 0:
 			%AnimatedSprite2D.animation = "slowed_" + str(skin)
 		charge = 0
-		ball_speed = ball.ball_speed
-		ball.ball_speed /= all_slow
-		ball.speed_add /= all_slow
+		for ball in balls:
+			clock_ball_speed.push_back(ball.ball_speed)
+			ball.ball_speed /= all_slow
+			ball.speed_add /= all_slow
+		
 		for opp in opponent:
 			opp.add_speed_mult(1.0/all_slow)
 		all_slowed = true
@@ -50,21 +55,19 @@ func _ability_cooldown(delta):
 	if charge < charge_max and not all_slowed:
 		charge += delta
 	
-	if ball.linear_velocity.length() == 0:
-		duration = 0
-	elif duration > 0:
+	if duration > 0:
 		duration -= delta
 	elif ball_slowed:
 		sprite.animation = "default"
 		if skin != 0:
 			%AnimatedSprite2D.animation = "default_" + str(skin)
 		ball_slowed = false
-		ball.ball_speed = ball_speed
-		ball.speed_add = 10
+		ball_hit.ball_speed = clock_ball_speed[0]
+		ball_hit.speed_add = 10
 		cooldown = 400
 		%clock_aoe.firing = false
 	
-	if ball.linear_velocity.length() == 0:
+	if balls[0].linear_velocity.length() == 0:
 		ult_dur = 0
 	elif ult_dur > 0:
 		ult_dur -= 1 * delta
@@ -74,8 +77,10 @@ func _ability_cooldown(delta):
 		sprite.animation = "default"
 		if skin != 0:
 			%AnimatedSprite2D.animation = "default_" + str(skin)
-		ball.ball_speed = ball_speed
-		all_slowed = false
+		
+		for ball_i in range(clock_ball_speed):
+			balls[ball_i].ball_speed = clock_ball_speed[ball_i]
+			all_slowed = false
 	
 	if cooldown > 0:
 		cooldown -= 1 * delta

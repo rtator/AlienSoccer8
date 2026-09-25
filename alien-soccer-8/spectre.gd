@@ -11,6 +11,7 @@ var invis_timer = 0
 var invis_timer_max = 100
 var full_invis_max = 20
 var invising = false
+var invised_ball
 
 var ulting
 
@@ -74,7 +75,7 @@ func _ability_cooldown(delta):
 		var h = invis_timer_max/2
 		var a =  ((invis_timer - h) / h) - 0.3
 		print("alpha: ", a, " timer: ", invis_timer)
-		ball.modulate = Color(1,1,1,a)
+		invised_ball.modulate = Color(1,1,1,a)
 	elif invis_timer > 0:
 		invis_timer -= delta
 		
@@ -83,27 +84,36 @@ func _ability_cooldown(delta):
 		var h = invis_timer_max/2
 		var a = (1 - (invis_timer / h)) - 0.3
 		print("alpha: ", a, " timer: ", invis_timer)
-		ball.modulate = Color(1,1,1,a)
+		invised_ball.modulate = Color(1,1,1,a)
 	elif invising:
+		uninvis_balls()
+
+func uninvis_balls():
+	for ball in balls:
 		ball.modulate = Color(1,1,1,1)
 
 func _on_body_entered(body):
-	if body == ball:
+	if "ball_speed" in body:
 		if ult_dur <= 0:
 			spin_speed = base_spin_speed * spin_dir
 			update_move_speed(base_move_speed)
 		else:
+			uninvis_balls()
+			invised_ball = body
 			invising = true
 			invis_timer = invis_timer_max
 
 func _on_area_2d_body_entered(body):
-	if body == ball:
+	if "ball_speed" in body:
 		if ult_dur <= 0:
+			uninvis_balls()
+			invised_ball = body
 			spin_speed = base_spin_speed * spin_dir
 			update_move_speed(base_move_speed)
 			invising = true
 			invis_timer = invis_timer_max
 		else:
+			uninvis_balls()
 			invising = true
 			invis_timer = invis_timer_max
 

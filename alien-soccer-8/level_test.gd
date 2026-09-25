@@ -60,7 +60,7 @@ func _ready():
 		%p2MiddleWall.set_collision_layer_value(8, false)
 	
 	p1 = player_objects[GlobalSave.p1Char].instantiate()
-	p1.ball = %ball
+	p1.balls = [%ball]
 	p1.camera = %Camera2D
 	if GlobalSave.p1IsBot:
 		p1.is_bot = true
@@ -81,7 +81,7 @@ func _ready():
 	var p1_clone
 	if "clones" == GlobalSave.stage:
 		p1_clone = player_objects[GlobalSave.p1Char].instantiate()
-		p1_clone.ball = %ball
+		p1_clone.balls = [%ball]
 		p1_clone.camera = %Camera2D
 		if GlobalSave.p1IsBot:
 			p1_clone.is_bot = true
@@ -93,7 +93,7 @@ func _ready():
 		p1_clone.skin = GlobalSave.p1Skin
 	
 	p2 = player_objects[GlobalSave.p2Char].instantiate()
-	p2.ball = %ball
+	p2.balls = [%ball]
 	p2.camera = %Camera2D
 	if GlobalSave.p2IsBot:
 		p2.is_bot = true
@@ -113,7 +113,7 @@ func _ready():
 	var p2_clone
 	if "clones" == GlobalSave.stage:
 		p2_clone = player_objects[GlobalSave.p2Char].instantiate()
-		p2_clone.ball = %ball
+		p2_clone.balls = [%ball]
 		p2_clone.camera = %Camera2D
 		if GlobalSave.p2IsBot:
 			p2_clone.is_bot = true

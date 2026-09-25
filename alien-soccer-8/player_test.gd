@@ -29,7 +29,7 @@ var hitbox
 var sprite_scale = Vector2(1,1)
 var initialized = false
 
-var ball
+var balls = []
 var opponent = []
 var character
 var camera
@@ -82,6 +82,9 @@ func _physics_process(delta_milliseconds):
 						var offset = abs(player - 1.5)/(player - 1.5)
 						
 						var ball_offset
+						
+						var ball = balls[0]
+						
 						if ball.linear_velocity.length() == 0:
 							ball_offset = 0
 						else:
@@ -89,6 +92,9 @@ func _physics_process(delta_milliseconds):
 						input = ((ball.position + Vector2(offset * ball_offset, 0)) - position) + Vector2(0, -32 * self.spin_dir)
 					else:
 						var ball_offset
+						
+						var ball = balls[0]
+						
 						if ball.linear_velocity.length() == 0:
 							ball_offset = 0
 						else:
@@ -97,6 +103,9 @@ func _physics_process(delta_milliseconds):
 						input = ((ball.position + Vector2(offset * ball_offset, 0)) - position)
 					
 					if input.length() > 25:
+						
+						var ball = balls[0]
+						
 						if (player == 1 and GlobalSave.p1_bot_lv != 1):
 							if (position.x >= 50 or (position.x >= 150 and character == "spectre")) and ball.linear_velocity.length() > 0:
 								input.x = -input.length()/2
@@ -116,6 +125,9 @@ func _physics_process(delta_milliseconds):
 							input = input.normalized()
 					else:
 						input = Vector2(0,0)
+						
+						var ball = balls[0]
+						
 						if (player == 1):
 							if position.x >= 50 and ball.linear_velocity.length() > 0:
 								input.x = -1

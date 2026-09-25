@@ -54,7 +54,7 @@ func _ultimate():
 		ult_dur = ultimate_duration
 
 func bug_hit(body):
-	if body == ball:
+	if "ball_speed" in body :
 		scaled = true
 		scale_time = scale_time_max
 		
@@ -68,7 +68,7 @@ func bug_hit(body):
 		
 		ball_scale *= 0.9
 		
-		ball.set_ball_scale(ball_scale)
+		body.set_ball_scale(ball_scale)
 		
 		scale_mult += 0.1
 		
@@ -136,8 +136,8 @@ func _ability_cooldown(delta):
 		scale_mult = 1
 		
 		update_scale(original_scale)
-		
-		ball.set_ball_scale(1)
+		for ball in balls:
+			ball.set_ball_scale(1)
 	
 	
 

@@ -27,7 +27,7 @@ func _ability():
 		if player == 2:
 			lasso.scale.x *= -1
 		lasso.user = self
-		lasso.ball = ball
+		#lasso.balls = balls
 		add_child(lasso)
 
 func _ultimate():
@@ -42,7 +42,7 @@ func _ultimate():
 		var throw_vec = Vector2(offsetX, 0).normalized()
 		bomb.position = position + throw_vec * 50
 		bomb.linear_velocity = throw_vec * bomb_speed
-		bomb.ball = ball
+		bomb.balls = balls
 		bomb.user = self
 		add_sibling(bomb)
 		charge = 0

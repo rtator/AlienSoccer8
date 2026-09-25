@@ -68,7 +68,7 @@ func on_ready():
 
 
 func _on_body_entered(body):
-	if body == ball and ult_mode:
+	if "temp_speed" in body and ult_mode:
 		print("hit")
 		hitbox.scale = Vector2(1,1)
 		ult_mode = false
