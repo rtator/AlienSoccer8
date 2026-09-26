@@ -15,6 +15,7 @@ var score_fx_load = preload("res://scorefx.tscn")
 var is_ball = true
 
 @onready var camera = %Camera2D
+var camera_after_ready
 
 var speed_add = 10
 
@@ -25,6 +26,10 @@ var glue_modulate = Color(1.4, 0.6, 0.0)
 var glue_mult = 0.35
 
 var glue_user
+
+func _ready():
+	if camera_after_ready != null:
+		camera = camera_after_ready
 
 func _physics_process(delta):
 	linear_velocity = linear_velocity.normalized() * (ball_speed + temp_speed)

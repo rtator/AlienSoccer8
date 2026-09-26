@@ -1,7 +1,7 @@
 extends alien
 
-var slow_amount_base = 0.15	
-var slow_amount_default = 0.2
+var slow_amount_base = 0.2
+var slow_amount_default = 0.3
 var slow_amount = slow_amount_base
 
 var ball_in_area = false
@@ -117,6 +117,6 @@ func on_ready():
 	squish *= 2
 	stretch *= 2
 	
-	charge_max = 400
+	charge_max = 200
 	
 	update_move_speed(move_speed * 0.75, speed_damp * 1.0)

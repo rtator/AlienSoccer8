@@ -44,6 +44,9 @@ var skin
 var last_pos = Vector2(0,0)
 var last_scale = Vector2(0,0)
 
+var outside_speed_multed = false
+var outside_speed_mult = 1
+
 var online = false:
 	set(value):
 		online = value
@@ -246,3 +249,6 @@ func _ready():
 	sprite_scale = sprite.scale
 	initialized = true
 	update_scale(base_scale)
+	
+	if outside_speed_multed:
+		update_move_speed(move_speed * outside_speed_mult)

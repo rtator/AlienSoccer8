@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cs8jon4qf1t0t" path="res://othersiderBG.png" id="4_4wx5a"]
 [ext_resource type="Texture2D" uid="uid://blgwrs6swas8h" path="res://2Pas8BG.png" id="6_1gljs"]
 [ext_resource type="StyleBox" uid="uid://bhwb56kpdliu" path="res://buttonText.tres" id="6_8a7vt"]
+[ext_resource type="Texture2D" uid="uid://bbb0hsf6ukhr0" path="res://as8DoubleBall.png" id="7_gil6v"]
+[ext_resource type="Texture2D" uid="uid://dhfcpl5bi44iu" path="res://crackheads_map.png" id="8_g8yui"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qgyb7"]
 font_size = 20
@@ -100,6 +102,31 @@ grow_vertical = 0
 text = "(beta)"
 label_settings = SubResource("LabelSettings_qgyb7")
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=114543285]
+layout_mode = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="doubleBall" type="Button" parent="VBoxContainer/HBoxContainer2" unique_id=591603105]
+custom_minimum_size = Vector2(226, 187.5)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Double Balls"
+icon = ExtResource("7_gil6v")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="crackheads" type="Button" parent="VBoxContainer/HBoxContainer2" unique_id=1305199050]
+custom_minimum_size = Vector2(226, 187.5)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Crackheads"
+icon = ExtResource("8_g8yui")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
 [node name="Label" type="Label" parent="." unique_id=1972100503]
 layout_mode = 1
 anchors_preset = 5
@@ -132,4 +159,6 @@ text = "Back"
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/jungle" to="." method="_on_jungle_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/realSoccer" to="." method="_on_real_soccer_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/clones" to="." method="_on_clones_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/doubleBall" to="." method="_on_double_ball_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/crackheads" to="." method="_on_crackheads_pressed"]
 [connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]

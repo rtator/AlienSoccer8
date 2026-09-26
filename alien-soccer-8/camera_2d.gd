@@ -4,6 +4,7 @@ var shake_amount = 0
 var shake_fade = 0.8
 
 var zoomed_left = false
+var base_x_pos = 576
 
 var won = false
 
@@ -45,32 +46,32 @@ func _physics_process(delta):
 func zoom_left():
 	zoomed_left = true
 	Engine.time_scale = 0.1
-	zoom.x += 0.1
-	zoom.y += 0.1
-	position.x -= 1152 * 0.05
+	zoom.x = 1.1
+	zoom.y = 1.1
+	position.x = base_x_pos - (1152 * 0.05)
 
 func zoom_right():
 	zoomed_left = false
 	Engine.time_scale = 0.1
-	zoom.x += 0.1
-	zoom.y += 0.1
-	position.x += 1152 * 0.05
+	zoom.x = 1.1
+	zoom.y = 1.1
+	position.x = base_x_pos + 1152 * 0.05
 
 func zoom_left_won():
 	zoomed_left = true
 	Engine.time_scale = 0.1
-	zoom.x += 0.1
-	zoom.y += 0.1
-	position.x -= 1152 * 0.05
+	zoom.x = 1.1
+	zoom.y = 1.1
+	position.x = base_x_pos - 1152 * 0.05
 	
 	won = true
 
 func zoom_right_won():
 	zoomed_left = false
 	Engine.time_scale = 0.1
-	zoom.x += 0.1
-	zoom.y += 0.1
-	position.x += 1152 * 0.05
+	zoom.x = 1.1
+	zoom.y = 1.1
+	position.x = base_x_pos + 1152 * 0.05
 	
 	won = true
 

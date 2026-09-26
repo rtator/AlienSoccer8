@@ -7,7 +7,8 @@ var vfx_load = preload("res://cluster_explosion_particles.tscn")
 
 func _ready():
 	add_collision_exception_with(user)
-	add_collision_exception_with(user.ball)
+	for ball in user.balls:
+		add_collision_exception_with(ball)
 
 func _on_timer_timeout():
 	var vfx = vfx_load.instantiate()

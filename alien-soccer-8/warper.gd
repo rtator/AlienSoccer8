@@ -41,9 +41,13 @@ func _ability():
 
 func _ultimate():
 	if waypoint_out and charge >= charge_max:
-		var ball_i = randi_range(0, len(balls) - 1)
-		balls[ball_i].new_pos = waypoint.global_position
-		balls[ball_i].reseting = true
+		#var ball_i = randi_range(0, len(balls) - 1)
+		#balls[ball_i].new_pos = waypoint.global_position
+		#balls[ball_i].reseting = true
+		
+		for ball in balls:
+			ball.new_pos = waypoint.global_position
+			ball.reseting = true
 		
 		waypoint.queue_free()
 		waypoint_out = false

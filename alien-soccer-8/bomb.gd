@@ -6,7 +6,7 @@ var exploded = false
 
 var strength = 500
 
-var ball
+var balls
 var user
 
 var flash_length = 0.8

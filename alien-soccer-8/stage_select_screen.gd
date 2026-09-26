@@ -17,5 +17,11 @@ func _on_real_soccer_pressed():
 func _on_clones_pressed():
 	set_stage("clones")
 
+func _on_double_ball_pressed():
+	set_stage("doubleBall")
+
+func _on_crackheads_pressed():
+	set_stage("crackheads")
+
 func _on_back_button_pressed():
 	get_tree().change_scene_to_file("res://startScreen.tscn")

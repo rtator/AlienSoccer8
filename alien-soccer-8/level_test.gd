@@ -30,6 +30,8 @@ var backgrounds = {
 	"realSoccer": preload("res://othersiderBG.png"),
 	"jungle": preload("res://jungleBG.png"),
 	"clones": preload("res://2Pas8BG.png"),
+	"doubleBall": preload("res://as8DoubleBall.png"),
+	"crackheads": preload("res://crackheads_map.png"),
 }
 
 var map_obstacles = {
@@ -46,6 +48,11 @@ var pause_screen
 
 @onready var canvas_layer = %CanvasLayer
 
+var ball_load = preload("res://ball.tscn")
+
+var crackheads_speed_mult = 3
+var crackheads_ball_speed_mult = 2
+
 func _ready():
 	if backgrounds.has(GlobalSave.stage):
 		%BG.texture = backgrounds[GlobalSave.stage]
@@ -58,6 +65,12 @@ func _ready():
 	if GlobalSave.stage == "realSoccer":
 		%p1MiddleWall.set_collision_layer_value(4, false)
 		%p2MiddleWall.set_collision_layer_value(8, false)
+	
+	if GlobalSave.stage != "clones":
+		%p1Charge2.queue_free()
+		%p2Charge2.queue_free()
+		%p1Cooldown2.queue_free()
+		%p2Cooldown2.queue_free()
 	
 	p1 = player_objects[GlobalSave.p1Char].instantiate()
 	p1.balls = [%ball]
@@ -88,8 +101,8 @@ func _ready():
 		p1_clone.position = Vector2(288, 264)
 		
 		p1_clone.set_player(1)
-		p1_clone.charge_bar = %p1Charge
-		p1_clone.cooldown_bar = %p1Cooldown
+		p1_clone.charge_bar = %p1Charge2
+		p1_clone.cooldown_bar = %p1Cooldown2
 		p1_clone.skin = GlobalSave.p1Skin
 	
 	p2 = player_objects[GlobalSave.p2Char].instantiate()
@@ -119,8 +132,8 @@ func _ready():
 			p2_clone.is_bot = true
 		p2_clone.position = Vector2(864, 264)
 		p2_clone.set_player(2)
-		p2_clone.charge_bar = %p2Charge
-		p2_clone.cooldown_bar = %p2Cooldown
+		p2_clone.charge_bar = %p2Charge2
+		p2_clone.cooldown_bar = %p2Cooldown2
 		p2_clone.skin = GlobalSave.p2Skin
 	
 	
@@ -140,6 +153,31 @@ func _ready():
 		p2_clone.opponent = [p1, p1_clone]
 		
 		p2_clone.character = GlobalSave.p2Char
+	
+	if GlobalSave.stage == "doubleBall":
+		var y_offset = 124
+		var extra_ball = ball_load.instantiate()
+		
+		extra_ball.camera_after_ready = %Camera2D
+		
+		extra_ball.position = Vector2(576, 324 - y_offset)
+		%ball.position.y += y_offset
+		
+		p1.balls = [%ball, extra_ball]
+		p2.balls = [%ball, extra_ball]
+		
+		add_child(extra_ball)
+	
+	if GlobalSave.stage == "crackheads":
+		p1.outside_speed_multed = true
+		p1.outside_speed_mult = crackheads_speed_mult
+		
+		p2.outside_speed_multed = true
+		p2.outside_speed_mult = crackheads_speed_mult
+		
+		%ball.ball_base_speed *= crackheads_ball_speed_mult
+		%ball.max_ball_base_speed = %ball.ball_base_speed
+		%ball.ball_speed *= crackheads_ball_speed_mult
 	
 	add_child(p1)
 	add_child(p2)

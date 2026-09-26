@@ -195,6 +195,22 @@ layout_mode = 2
 max_value = 1.0
 script = ExtResource("6_n6hdu")
 
+[node name="p1Cooldown2" type="ProgressBar" parent="CanvasLayer/GridContainer" unique_id=2122909557]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+clip_contents = true
+layout_mode = 2
+max_value = 1.0
+script = ExtResource("6_n6hdu")
+
+[node name="p2Cooldown2" type="ProgressBar" parent="CanvasLayer/GridContainer" unique_id=139163142]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+clip_contents = true
+layout_mode = 2
+max_value = 1.0
+script = ExtResource("6_n6hdu")
+
 [node name="Label3" type="Label" parent="CanvasLayer/GridContainer" unique_id=725943658]
 layout_mode = 2
 text = "Ultimate Charge:"
@@ -213,6 +229,20 @@ layout_mode = 2
 script = ExtResource("7_km5ld")
 
 [node name="p2Charge" type="ProgressBar" parent="CanvasLayer/GridContainer" unique_id=704656003]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+clip_contents = true
+layout_mode = 2
+script = ExtResource("7_km5ld")
+
+[node name="p1Charge2" type="ProgressBar" parent="CanvasLayer/GridContainer" unique_id=836191968]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+clip_contents = true
+layout_mode = 2
+script = ExtResource("7_km5ld")
+
+[node name="p2Charge2" type="ProgressBar" parent="CanvasLayer/GridContainer" unique_id=1536063038]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 0)
 clip_contents = true

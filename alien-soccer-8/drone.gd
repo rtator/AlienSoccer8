@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var ball
+var balls
 
 var life = 3
 var dir = 1
@@ -22,7 +22,7 @@ func _physics_process(delta):
 		add_sibling(deadvfx)
 
 func _on_body_entered(body):
-	if body == ball:
+	if "ball_speed" in body:
 		life -= 1
 		print("life", life)
 	else:
