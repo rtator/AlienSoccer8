@@ -47,7 +47,8 @@ func _ability_cooldown(delta):
 	sprite.global_rotation = 0
 	if abs(spin_speed) <= 15:
 		spin_speed += (spin_mult * delta) * spin_dir
-		var speed_add = (spin_mult * delta * 2)
+		var speed_change_mult = move_speed / (base_move_speed + added_speed) 
+		var speed_add = (spin_mult * delta * 2) * speed_change_mult
 		update_move_speed(move_speed + speed_add)
 		added_speed += speed_add
 	else:
