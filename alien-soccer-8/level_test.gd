@@ -53,6 +53,9 @@ var ball_load = preload("res://ball.tscn")
 var crackheads_speed_mult = 3
 var crackheads_ball_speed_mult = 2
 
+var trying_to_pause = false
+var trying_to_unpause = false
+
 func _ready():
 	if backgrounds.has(GlobalSave.stage):
 		%BG.texture = backgrounds[GlobalSave.stage]
@@ -191,14 +194,29 @@ func _ready():
 	pause_screen.level = self
 	canvas_layer.add_child(pause_screen)
 
+#func _physics_process(delta):
+	#if trying_to_pause:
+		#trying_to_pause = false
+		#pause()
+	#elif trying_to_unpause:
+		#trying_to_unpause = false
+		#unpause()
+
 func unpause():
-	Engine.time_scale = 1
+	get_tree().paused = false
+	#Engine.time_scale = 1
 	paused = false
 	pause_screen.visible = false
 
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
+		#trying_to_pause = true
+		pause()
+
+func pause():
 		if not paused:
-			Engine.time_scale = 0
+			get_tree().paused = true
+			#Engine.time_scale = 0
 			paused = true
 			pause_screen.visible = true
+	

@@ -34,7 +34,7 @@ lock_rotation = true
 freeze = true
 freeze_mode = 1
 contact_monitor = true
-max_contacts_reported = 1
+max_contacts_reported = 10
 script = ExtResource("1_2prkr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1316176099]

@@ -6,12 +6,14 @@ var spin_mult = 0.02
 var spin_dir = 1
 
 var base_move_speed = 70 * 0.8
+var added_speed = 0
 
 var invis_timer = 0
 var invis_timer_max = 100
 var full_invis_max = 20
 var invising = false
 var invised_ball
+
 
 var ulting
 
@@ -45,10 +47,12 @@ func _ability_cooldown(delta):
 	sprite.global_rotation = 0
 	if abs(spin_speed) <= 15:
 		spin_speed += (spin_mult * delta) * spin_dir
-		print(move_speed + (spin_mult * delta * 2) - (spin_speed * 2))
-		update_move_speed(move_speed + (spin_mult * delta * 2))
+		var speed_add = (spin_mult * delta * 2)
+		update_move_speed(move_speed + speed_add)
+		added_speed += speed_add
 	else:
-		update_move_speed(48 + (spin_mult * delta * 2))
+		pass
+		#update_move_speed(48 + (spin_mult * delta * 2))
 	
 	if charge < charge_max and not ulting:
 		charge += delta
@@ -96,7 +100,9 @@ func _on_body_entered(body):
 	if "ball_speed" in body:
 		if ult_dur <= 0:
 			spin_speed = base_spin_speed * spin_dir
-			update_move_speed(base_move_speed)
+			var speed_change_mult = move_speed / (base_move_speed + added_speed) 
+			update_move_speed(move_speed - (added_speed * speed_change_mult))
+			added_speed = 0
 		else:
 			uninvis_balls()
 			invised_ball = body
@@ -109,7 +115,9 @@ func _on_area_2d_body_entered(body):
 			uninvis_balls()
 			invised_ball = body
 			spin_speed = base_spin_speed * spin_dir
-			update_move_speed(base_move_speed)
+			var speed_change_mult = move_speed / (base_move_speed + added_speed) 
+			update_move_speed(move_speed - (added_speed * speed_change_mult))
+			added_speed = 0
 			invising = true
 			invis_timer = invis_timer_max
 		else:

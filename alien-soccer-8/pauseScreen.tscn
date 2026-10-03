@@ -8,6 +8,7 @@ font_size = 100
 font_color = Color(1, 1, 1, 0.73333335)
 
 [node name="pauseScreen" type="Control" unique_id=211440756]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
