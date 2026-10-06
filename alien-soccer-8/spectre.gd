@@ -37,10 +37,11 @@ func _ultimate():
 		charge = 0
 
 func _ability_cooldown(delta):
+	
 	position.y = clamp(position.y, 32, 616)
-	if player == 1:
+	if player == 1 and GlobalSave.stage != "realSoccer":
 		position.x = clamp(position.x, 32, 544)
-	else:
+	elif GlobalSave.stage != "realSoccer":
 		position.x = clamp(position.x, 608, 1120)
 	
 	angular_velocity = spin_speed

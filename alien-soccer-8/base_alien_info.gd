@@ -114,4 +114,4 @@ func _on_breezer_pressed():
 	set_screen("breezer")
 
 func _on_back_button_pressed():
-	get_tree().change_scene_to_file("res://startScreen.tscn")
+	get_tree().change_scene_to_file("res://game_info.tscn")

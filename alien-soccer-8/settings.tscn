@@ -7,6 +7,43 @@
 font_size = 100
 font_color = Color(1, 0.6, 0, 1)
 
+[sub_resource type="Animation" id="Animation_nkug2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3ykye"]
+resource_name = "new_animation"
+length = 0.19999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -648), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gc0em"]
+_data = {
+&"RESET": SubResource("Animation_nkug2"),
+&"new_animation": SubResource("Animation_3ykye")
+}
+
 [node name="settings" type="Control" unique_id=668814356]
 layout_mode = 3
 anchors_preset = 15
@@ -72,6 +109,9 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 50
 text = "Back"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1883735166]
+libraries/ = SubResource("AnimationLibrary_gc0em")
 
 [connection signal="pressed" from="GridContainer/visualsButton" to="." method="_on_visuals_button_pressed"]
 [connection signal="pressed" from="GridContainer/keybindsButton" to="." method="_on_keybinds_button_2_pressed"]

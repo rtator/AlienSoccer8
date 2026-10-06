@@ -1,6 +1,8 @@
 extends Control
 
 
+
+
 func _on_button_pressed():
 	get_tree().change_scene_to_file("res://stage_select_screen.tscn")
 
@@ -39,3 +41,13 @@ func _ready():
 
 func _on_button_6_pressed():
 	get_tree().change_scene_to_file("res://as_64_level_select.tscn")
+
+
+func _on_play_button_pressed():
+	get_tree().change_scene_to_file("res://play_screen.tscn")
+
+func _on_settings_button_pressed():
+	get_tree().change_scene_to_file("res://settings.tscn")
+
+func _on_game_info_button_pressed():
+	get_tree().change_scene_to_file("res://game_info.tscn")

@@ -45,7 +45,7 @@ shape = SubResource("WorldBoundaryShape2D_a7iya")
 
 [node name="ball" parent="." unique_id=676700023 instance=ExtResource("2_4biwj")]
 unique_name_in_owner = true
-position = Vector2(787, 320)
+position = Vector2(1100, 316)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=208386027]
 unique_name_in_owner = true

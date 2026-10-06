@@ -1,0 +1,328 @@
+[gd_scene format=3 uid="uid://cmxxqpb2d65si"]
+
+[ext_resource type="Theme" uid="uid://cerrqasbkbfyc" path="res://menu_screen_theme.tres" id="1_r1p3m"]
+[ext_resource type="Script" uid="uid://brdfjokr330x5" path="res://game_modes.gd" id="2_75oq8"]
+[ext_resource type="Texture2D" uid="uid://diw0avg4llcv5" path="res://as8_sprites_png/wide_angled_button.png" id="3_8oi3r"]
+[ext_resource type="Texture2D" uid="uid://dtsnbyfra0bqv" path="res://angled_button.png" id="4_kfccq"]
+[ext_resource type="Texture2D" uid="uid://be0kyk5tptaoi" path="res://chainwall_long.png" id="5_w5i4d"]
+[ext_resource type="Texture2D" uid="uid://dts2qfyspf3tx" path="res://warden_lock.png" id="6_n0fb2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uda02"]
+font_size = 125
+outline_color = Color(1, 0, 0, 1)
+shadow_color = Color(1, 0.35686275, 0, 1)
+shadow_offset = Vector2(-5, 4)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qphin"]
+font_size = 75
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-3, 5)
+
+[sub_resource type="Animation" id="Animation_r1p3m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_75oq8"]
+resource_name = "new_animation"
+length = 0.19999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.5707964, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8oi3r"]
+_data = {
+&"RESET": SubResource("Animation_r1p3m"),
+&"new_animation": SubResource("Animation_75oq8")
+}
+
+[node name="game_modes" type="Control" unique_id=106860109]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme = ExtResource("1_r1p3m")
+script = ExtResource("2_75oq8")
+
+[node name="Label" type="Label" parent="." unique_id=387173909]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -334.0
+offset_right = 334.0
+offset_bottom = 150.0
+grow_horizontal = 2
+text = "Game Modes"
+label_settings = SubResource("LabelSettings_uda02")
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="." unique_id=506517831]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="backButton" type="Button" parent="Control" unique_id=1024194497]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -56.0
+offset_top = -79.0
+offset_right = 56.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Back"
+
+[node name="GridContainer2" type="GridContainer" parent="Control" unique_id=223325074]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -410.0
+offset_top = -210.0
+offset_right = 410.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="as64_button" type="TextureButton" parent="Control/GridContainer2" unique_id=120552744]
+self_modulate = Color(1, 0.35686275, 0, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(400, 420)
+layout_mode = 2
+texture_normal = ExtResource("3_8oi3r")
+texture_pressed = ExtResource("3_8oi3r")
+texture_hover = ExtResource("3_8oi3r")
+texture_disabled = ExtResource("3_8oi3r")
+texture_focused = ExtResource("3_8oi3r")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/GridContainer2/as64_button" unique_id=1608025074]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.5
+offset_top = -42.5
+offset_right = 68.5
+offset_bottom = 42.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Alien 
+Soccer 64"
+label_settings = SubResource("LabelSettings_qphin")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/GridContainer2" unique_id=209753777]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureButton4" type="TextureButton" parent="Control/GridContainer2/VBoxContainer" unique_id=2063101263]
+self_modulate = Color(0.6542321, 0.6542321, 0.654232, 1)
+clip_children = 2
+texture_filter = 1
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+texture_normal = ExtResource("4_kfccq")
+texture_pressed = ExtResource("4_kfccq")
+texture_hover = ExtResource("4_kfccq")
+texture_disabled = ExtResource("4_kfccq")
+texture_focused = ExtResource("4_kfccq")
+stretch_mode = 5
+flip_h = true
+
+[node name="TextureRect" type="TextureRect" parent="Control/GridContainer2/VBoxContainer/TextureButton4" unique_id=2029036723]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -288.0
+offset_right = 20.0
+offset_bottom = 288.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 2.0352712
+pivot_offset = Vector2(20, 288)
+texture = ExtResource("5_w5i4d")
+
+[node name="TextureRect3" type="TextureRect" parent="Control/GridContainer2/VBoxContainer/TextureButton4" unique_id=1262438191]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -288.0
+offset_right = 4.0
+offset_bottom = 288.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -2.035054
+pivot_offset = Vector2(20, 288)
+texture = ExtResource("5_w5i4d")
+
+[node name="TextureRect4" type="TextureRect" parent="Control/GridContainer2/VBoxContainer/TextureButton4" unique_id=126979727]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.0
+offset_top = -60.5
+offset_right = 29.0
+offset_bottom = 28.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_n0fb2")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="Control/GridContainer2/VBoxContainer/TextureButton4" unique_id=1781363319]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -319.99994
+offset_right = 20.0
+offset_bottom = 256.00006
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.8841808
+pivot_offset = Vector2(20, 288)
+texture = ExtResource("5_w5i4d")
+
+[node name="TextureButton5" type="TextureButton" parent="Control/GridContainer2/VBoxContainer" unique_id=1556399600]
+self_modulate = Color(0.6542321, 0.6542321, 0.654232, 1)
+clip_children = 2
+texture_filter = 1
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+texture_normal = ExtResource("4_kfccq")
+texture_pressed = ExtResource("4_kfccq")
+texture_hover = ExtResource("4_kfccq")
+texture_disabled = ExtResource("4_kfccq")
+texture_focused = ExtResource("4_kfccq")
+stretch_mode = 5
+flip_h = true
+flip_v = true
+
+[node name="TextureRect" type="TextureRect" parent="Control/GridContainer2/VBoxContainer/TextureButton5" unique_id=797798405]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -288.0
+offset_right = 20.0
+offset_bottom = 288.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 2.0352712
+pivot_offset = Vector2(20, 288)
+texture = ExtResource("5_w5i4d")
+
+[node name="TextureRect3" type="TextureRect" parent="Control/GridContainer2/VBoxContainer/TextureButton5" unique_id=138607351]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -288.0
+offset_right = 4.0
+offset_bottom = 288.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -2.035054
+pivot_offset = Vector2(20, 288)
+texture = ExtResource("5_w5i4d")
+
+[node name="TextureRect4" type="TextureRect" parent="Control/GridContainer2/VBoxContainer/TextureButton5" unique_id=1685687161]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.0
+offset_top = -60.5
+offset_right = 29.0
+offset_bottom = 28.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_n0fb2")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="Control/GridContainer2/VBoxContainer/TextureButton5" unique_id=1647092691]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -319.99994
+offset_right = 20.0
+offset_bottom = 256.00006
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.8841808
+pivot_offset = Vector2(20, 288)
+texture = ExtResource("5_w5i4d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1846128822]
+libraries/ = SubResource("AnimationLibrary_8oi3r")
+autoplay = &"new_animation"
+
+[connection signal="pressed" from="Control/backButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Control/GridContainer2/as64_button" to="." method="_on_as_64_button_pressed"]

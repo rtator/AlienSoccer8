@@ -68,11 +68,12 @@ color = Color(0.0562916, 0.0562916, 0.0562915, 1)
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1661885148]
 unique_name_in_owner = true
 layout_mode = 0
-offset_top = 2.0
 offset_right = 1152.0
-offset_bottom = 104.0
+offset_bottom = 106.0
 theme = SubResource("Theme_ahghl")
 vertical_scroll_mode = 3
+scroll_horizontal_by_default = true
+scroll_deadzone = 10000
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer" unique_id=1665614168]
 layout_mode = 2

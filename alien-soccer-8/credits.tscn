@@ -31,6 +31,14 @@ font_color = Color(0.83137256, 0.32941177, 1, 1)
 font_size = 20
 font_color = Color(0.83137256, 0.32941177, 1, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_4av4j"]
+font_size = 50
+font_color = Color(0.18431373, 0.6666667, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5em78"]
+font_size = 50
+font_color = Color(1, 0, 0.5568628, 1)
+
 [node name="Control" type="Control" unique_id=1632774212]
 layout_mode = 3
 anchors_preset = 15
@@ -163,8 +171,27 @@ grow_vertical = 0
 text = "    runnerup.  "
 label_settings = SubResource("LabelSettings_nq3bg")
 
+[node name="Label5" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer" unique_id=1908147113]
+layout_mode = 2
+text = "Community Aliens         "
+label_settings = SubResource("LabelSettings_4av4j")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label6" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer" unique_id=1458548093]
+layout_mode = 2
+text = "Holland: Concepted Wrangler and twins"
+label_settings = SubResource("LabelSettings_5em78")
+autowrap_mode = 2
+
+[node name="Label7" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer" unique_id=642094826]
+layout_mode = 2
+text = "Uday: Concepted Breezer"
+label_settings = SubResource("LabelSettings_5em78")
+autowrap_mode = 2
+
 [node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/VBoxContainer" unique_id=1765007891]
-custom_minimum_size = Vector2(0, 70)
+custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 
 [node name="backButton" type="Button" parent="." unique_id=1843774347]

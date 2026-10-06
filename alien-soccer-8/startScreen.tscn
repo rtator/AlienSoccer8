@@ -3,14 +3,90 @@
 [ext_resource type="Script" uid="uid://cuysh266m8ynd" path="res://start_screen.gd" id="1_3pj0e"]
 [ext_resource type="Theme" uid="uid://cerrqasbkbfyc" path="res://menu_screen_theme.tres" id="1_ev681"]
 [ext_resource type="StyleBox" uid="uid://bhwb56kpdliu" path="res://buttonText.tres" id="2_ev681"]
+[ext_resource type="Texture2D" uid="uid://dtsnbyfra0bqv" path="res://angled_button.png" id="4_upu3i"]
 [ext_resource type="PackedScene" uid="uid://mg8n0uslpsyb" path="res://screensaver.tscn" id="4_w8rx1"]
+[ext_resource type="Texture2D" uid="uid://be0kyk5tptaoi" path="res://chainwall_long.png" id="5_emvj2"]
 [ext_resource type="PackedScene" uid="uid://bnrwq16iqdiby" path="res://splash_text.tscn" id="5_gxmh3"]
+[ext_resource type="Texture2D" uid="uid://dts2qfyspf3tx" path="res://warden_lock.png" id="6_ys6x0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_w8rx1"]
 font_size = 100
 font_color = Color(0.9882353, 0.14901961, 1, 1)
 shadow_color = Color(0.25490198, 0.1882353, 0.34509805, 1)
 shadow_offset = Vector2(-4, 4)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qgyb7"]
+font_size = 70
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-3, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_33vph"]
+font_size = 70
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-3, 5)
+
+[sub_resource type="Animation" id="Animation_upu3i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_emvj2"]
+resource_name = "new_animation"
+length = 0.19999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.5707963267948966, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.19999999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.5707963267948966, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ys6x0"]
+_data = {
+&"RESET": SubResource("Animation_upu3i"),
+&"new_animation": SubResource("Animation_emvj2")
+}
 
 [node name="Control" type="Control" unique_id=1559331455]
 layout_mode = 3
@@ -49,6 +125,7 @@ text = "Alien Soccer 8"
 label_settings = SubResource("LabelSettings_w8rx1")
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control" unique_id=333353119]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -93,6 +170,208 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 17
 text = "Alien Soccer 64"
 
+[node name="Control" type="Control" parent="CanvasLayer/Control" unique_id=1213870163]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer2" type="GridContainer" parent="CanvasLayer/Control/Control" unique_id=612153191]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -410.0
+offset_top = -210.0
+offset_right = 410.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="play_button" type="TextureButton" parent="CanvasLayer/Control/Control/GridContainer2" unique_id=817290674]
+self_modulate = Color(1, 0, 0, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+texture_normal = ExtResource("4_upu3i")
+texture_pressed = ExtResource("4_upu3i")
+texture_hover = ExtResource("4_upu3i")
+texture_disabled = ExtResource("4_upu3i")
+texture_focused = ExtResource("4_upu3i")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Control/GridContainer2/play_button" unique_id=324686953]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.5
+offset_top = -23.5
+offset_right = 68.5
+offset_bottom = 61.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play"
+label_settings = SubResource("LabelSettings_qgyb7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="settings_button" type="TextureButton" parent="CanvasLayer/Control/Control/GridContainer2" unique_id=1010135230]
+self_modulate = Color(0.36862746, 0.4, 1, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+texture_normal = ExtResource("4_upu3i")
+texture_pressed = ExtResource("4_upu3i")
+texture_hover = ExtResource("4_upu3i")
+texture_disabled = ExtResource("4_upu3i")
+texture_focused = ExtResource("4_upu3i")
+stretch_mode = 5
+flip_h = true
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Control/GridContainer2/settings_button" unique_id=670578699]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.5
+offset_top = -18.5
+offset_right = 158.5
+offset_bottom = 66.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Settings"
+label_settings = SubResource("LabelSettings_33vph")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="game_info_button" type="TextureButton" parent="CanvasLayer/Control/Control/GridContainer2" unique_id=127352306]
+self_modulate = Color(0, 1, 0, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+texture_normal = ExtResource("4_upu3i")
+texture_pressed = ExtResource("4_upu3i")
+texture_hover = ExtResource("4_upu3i")
+texture_disabled = ExtResource("4_upu3i")
+texture_focused = ExtResource("4_upu3i")
+stretch_mode = 5
+flip_v = true
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Control/GridContainer2/game_info_button" unique_id=686692929]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.5
+offset_top = -58.5
+offset_right = 158.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game Info"
+label_settings = SubResource("LabelSettings_33vph")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton4" type="TextureButton" parent="CanvasLayer/Control/Control/GridContainer2" unique_id=1139593130]
+self_modulate = Color(0.6542321, 0.6542321, 0.654232, 1)
+clip_children = 2
+texture_filter = 1
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+texture_normal = ExtResource("4_upu3i")
+texture_pressed = ExtResource("4_upu3i")
+texture_hover = ExtResource("4_upu3i")
+texture_disabled = ExtResource("4_upu3i")
+texture_focused = ExtResource("4_upu3i")
+stretch_mode = 5
+flip_h = true
+flip_v = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/Control/GridContainer2/TextureButton4" unique_id=698791311]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -288.0
+offset_right = 20.0
+offset_bottom = 288.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 2.0352712
+pivot_offset = Vector2(20, 288)
+texture = ExtResource("5_emvj2")
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Control/Control/GridContainer2/TextureButton4" unique_id=905645286]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -288.0
+offset_right = 4.0
+offset_bottom = 288.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -2.035054
+pivot_offset = Vector2(20, 288)
+texture = ExtResource("5_emvj2")
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/Control/Control/GridContainer2/TextureButton4" unique_id=763611209]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.0
+offset_top = -60.5
+offset_right = 29.0
+offset_bottom = 28.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_ys6x0")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/Control/GridContainer2/TextureButton4" unique_id=930992374]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -319.99994
+offset_right = 20.0
+offset_bottom = 256.00006
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.8841808
+pivot_offset = Vector2(20, 288)
+texture = ExtResource("5_emvj2")
+
 [node name="Button4" type="Button" parent="CanvasLayer/Control" unique_id=202351719]
 layout_mode = 0
 offset_left = 1976.0
@@ -112,9 +391,16 @@ offset_top = 127.0
 offset_right = 238.99997
 offset_bottom = 127.0
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1741893028]
+libraries/ = SubResource("AnimationLibrary_ys6x0")
+autoplay = &"new_animation"
+
 [connection signal="pressed" from="CanvasLayer/Control/GridContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/GridContainer/Button5" to="." method="_on_button_5_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/GridContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/GridContainer/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/GridContainer/Button4" to="." method="_on_button_4_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/GridContainer/Button6" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Control/GridContainer2/play_button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Control/GridContainer2/settings_button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Control/GridContainer2/game_info_button" to="." method="_on_game_info_button_pressed"]
