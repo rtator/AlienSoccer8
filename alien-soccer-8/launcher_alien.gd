@@ -65,7 +65,7 @@ func big_shoot():
 
 func _ability_cooldown(delta):
 	if charge < charge_max and not big_shotting and not charging:
-		charge += delta
+		charge += delta * charge_mult
 	
 	
 	if big_shotting:
@@ -96,7 +96,7 @@ func _ability_cooldown(delta):
 		cooldown = 200
 	
 	if cooldown > 0:
-		cooldown -= 1 * delta
+		cooldown -= cooldown_mult * delta
 		print(cooldown)
 
 func on_ready():

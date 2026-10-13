@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://dilmnh1bt8isi"]
+
+[ext_resource type="Script" uid="uid://c3avuo608whcg" path="res://pve/scenes/inverted_statue.gd" id="1_4otsv"]
+[ext_resource type="Texture2D" uid="uid://bw3mo3xduyaym" path="res://pve/assets/inverted_statue.png" id="1_dlw0o"]
+[ext_resource type="Texture2D" uid="uid://dsq7xwy4btyum" path="res://pve/assets/heart_icon.png" id="3_ydbra"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qgyb7"]
+radius = 87.005745
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4otsv"]
+radius = 88.0
+
+[node name="inverted_statue" type="StaticBody2D" unique_id=1503969959]
+collision_layer = 19
+collision_mask = 19
+script = ExtResource("1_4otsv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1919346808]
+shape = SubResource("CircleShape2D_qgyb7")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=648932059]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=2138001620]
+shape = SubResource("CircleShape2D_4otsv")
+
+[node name="InvertedStatue" type="Sprite2D" parent="." unique_id=1595021936]
+scale = Vector2(0.5565422, 0.5565422)
+texture = ExtResource("1_dlw0o")
+
+[node name="flash_timer" type="Timer" parent="." unique_id=555444564]
+unique_name_in_owner = true
+wait_time = 0.5
+autostart = true
+
+[node name="Control" type="Control" parent="." unique_id=366351232]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -140.0
+offset_right = 90.0
+offset_bottom = -85.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=460034937]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="heart1" type="TextureRect" parent="Control/HBoxContainer" unique_id=571824419]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_ydbra")
+expand_mode = 3
+
+[node name="heart2" type="TextureRect" parent="Control/HBoxContainer" unique_id=1249560289]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_ydbra")
+expand_mode = 3
+
+[node name="heart3" type="TextureRect" parent="Control/HBoxContainer" unique_id=2043043695]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_ydbra")
+expand_mode = 3
+
+[node name="heart4" type="TextureRect" parent="Control/HBoxContainer" unique_id=1714301644]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_ydbra")
+expand_mode = 3
+
+[node name="heart5" type="TextureRect" parent="Control/HBoxContainer" unique_id=1649675150]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_ydbra")
+expand_mode = 3
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="flash_timer" to="." method="_on_flash_timer_timeout"]

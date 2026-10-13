@@ -1,16 +1,16 @@
 extends alien
 
-var base_spin_speed = 4
+var base_spin_speed = 4.0
 var spin_speed = base_spin_speed
 var spin_mult = 0.02
 var spin_dir = 1
 
-var base_move_speed = 70 * 0.8
-var added_speed = 0
+var base_move_speed = 70.0 * 0.8
+var added_speed = 0.0
 
-var invis_timer = 0
-var invis_timer_max = 100
-var full_invis_max = 20
+var invis_timer = 0.0
+var invis_timer_max = 100.0
+var full_invis_max = 20.0
 var invising = false
 var invised_ball
 
@@ -57,7 +57,7 @@ func _ability_cooldown(delta):
 		#update_move_speed(48 + (spin_mult * delta * 2))
 	
 	if charge < charge_max and not ulting:
-		charge += delta
+		charge += delta * charge_mult
 	
 	if ult_dur > 0:
 		ult_dur -= 1 * delta
@@ -70,7 +70,7 @@ func _ability_cooldown(delta):
 	
 	
 	if cooldown > 0:
-		cooldown -= 1 * delta
+		cooldown -= cooldown_mult * delta
 	
 	
 	if invis_timer > (invis_timer_max/2) - (full_invis_max/2):

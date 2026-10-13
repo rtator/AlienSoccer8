@@ -40,7 +40,7 @@ func _ultimate():
 
 func _ability_cooldown(delta):
 	if charge < charge_max and not grown:
-		charge += delta
+		charge += delta * charge_mult
 	
 	if duration > 1:
 		duration -= 1
@@ -61,7 +61,7 @@ func _ability_cooldown(delta):
 		grown = false
 	
 	if cooldown > 0:
-		cooldown -= 1 * delta
+		cooldown -= cooldown_mult * delta
 		print(cooldown)
 
 func on_ready():

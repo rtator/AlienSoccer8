@@ -62,7 +62,7 @@ func _ability_cooldown(delta):
 		blast.rotation = 0
 	
 	if cooldown > 0:
-		cooldown -= delta
+		cooldown -= delta * cooldown_mult
 	
 	if ult_dur > 0:
 		ult_dur -= delta
@@ -73,7 +73,7 @@ func _ability_cooldown(delta):
 		reset_skin()
 	
 	if charge < charge_max and not ulting:
-		charge += delta
+		charge += delta * charge_mult
 	
 	if together:
 		hitbox.position += (Vector2(0, 16) - hitbox.position).normalized() * sep_speed * delta

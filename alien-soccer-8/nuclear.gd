@@ -79,7 +79,7 @@ func hit_opp_cluster(body,bomb_pos):
 
 func _ability_cooldown(delta):
 	if battery_timer > 0 and batteries_out < batteries_out_max:
-		battery_timer -= delta
+		battery_timer -= delta * cooldown_mult
 	elif batteries_out < batteries_out_max:
 		spawn_battery()
 	

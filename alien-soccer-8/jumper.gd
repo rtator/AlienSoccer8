@@ -39,7 +39,7 @@ func _ultimate():
 func _ability_cooldown(delta):
 	gravity_scale = move_speed/6.2
 	if charge < charge_max and not bluing:
-		charge += delta
+		charge += delta * charge_mult
 	
 	if ground_pounding and linear_velocity.y < 40:
 		camera.shake(shake_strength)
@@ -61,7 +61,7 @@ func _ability_cooldown(delta):
 		cooldown = 100
 	
 	if cooldown > 0:
-		cooldown -= 1 * delta
+		cooldown -= cooldown_mult * delta
 	
 	if jump_cd > 0:
 		jump_cd -= 1 * delta

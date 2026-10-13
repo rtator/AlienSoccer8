@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://pbupro2qq25a"]
+
+[ext_resource type="Script" uid="uid://dnj2n0njdv50q" path="res://pve/scenes/pve_player_switcher.gd" id="1_k7vv8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qgyb7"]
+size = Vector2(576, 648)
+
+[node name="pve_player_switcher" type="Node2D" unique_id=1002402333]
+script = ExtResource("1_k7vv8")
+
+[node name="player2_side" type="Area2D" parent="." unique_id=1738496546]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player2_side" unique_id=1519256331]
+position = Vector2(288, 324)
+shape = SubResource("RectangleShape2D_qgyb7")
+
+[node name="player1_side" type="Area2D" parent="." unique_id=1713917253]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player1_side" unique_id=1583399734]
+position = Vector2(864, 324)
+shape = SubResource("RectangleShape2D_qgyb7")
+
+[connection signal="body_exited" from="player2_side" to="." method="_on_player_2_side_body_exited"]
+[connection signal="body_exited" from="player1_side" to="." method="_on_player_1_side_body_exited"]

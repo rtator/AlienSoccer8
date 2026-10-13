@@ -95,6 +95,27 @@ offset_bottom = 324.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="onePlayer" type="Button" parent="Control2" unique_id=846840619]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 0.3019608, 0.29411766, 1)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 86.0
+offset_top = -68.0
+offset_right = 249.0
+offset_bottom = -1.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_0motc")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0motc")
+theme_override_styles/hover = SubResource("StyleBoxTexture_0motc")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_0motc")
+theme_override_styles/focus = SubResource("StyleBoxTexture_0motc")
+text = "Single Player"
+
 [node name="p1Bot" type="Button" parent="Control2" unique_id=1265207272]
 unique_name_in_owner = true
 modulate = Color(1, 0.3019608, 0.29411766, 1)
@@ -243,21 +264,28 @@ text = "Move with IJKL. Select with O."
 label_settings = SubResource("LabelSettings_qgyb7")
 autowrap_mode = 2
 
-[node name="Label4" type="Label" parent="Control/p2Rect" unique_id=287682580]
+[node name="bot_prompter" type="Control" parent="Control/p2Rect" unique_id=1089698479]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label4" type="Label" parent="Control/p2Rect/bot_prompter" unique_id=287682580]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -44.0
+offset_left = 196.0
 offset_top = 89.0
-offset_right = 99.0
+offset_right = 339.0
 offset_bottom = 109.0
 grow_horizontal = 0
 text = "Click to Play a Bot!"
 label_settings = SubResource("LabelSettings_qgyb7")
 autowrap_mode = 2
 
-[node name="BentArrow" type="Sprite2D" parent="Control/p2Rect" unique_id=217096172]
+[node name="BentArrow" type="Sprite2D" parent="Control/p2Rect/bot_prompter" unique_id=217096172]
 texture_filter = 1
 position = Vector2(274, 175)
 scale = Vector2(0.44642857, 0.44642857)
@@ -634,6 +662,7 @@ theme_override_font_sizes/font_size = 20
 theme_override_styles/hover_pressed = ExtResource("2_tj70t")
 text = "Back"
 
+[connection signal="pressed" from="Control2/onePlayer" to="." method="_on_one_player_pressed"]
 [connection signal="pressed" from="Control2/p1Bot" to="." method="_on_p_1_bot_pressed"]
 [connection signal="pressed" from="Control2/p2Bot" to="." method="_on_p_2_bot_pressed"]
 [connection signal="pressed" from="Control/GridContainer/basic1" to="." method="_on_basic_1_pressed"]

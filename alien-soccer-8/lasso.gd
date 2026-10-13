@@ -6,7 +6,7 @@ var user
 var ball_grabbed = false
 
 func _on_body_entered(body):
-	if "ball_speed" in body and not ball_grabbed:
+	if "ball_speed" in body and not ball_grabbed and not "is_cannon_ball" in body:
 		ball = body
 		add_child(body)
 		ball_grabbed = true

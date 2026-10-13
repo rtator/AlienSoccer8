@@ -10,6 +10,7 @@ class_name alien
 var stunned = false
 
 var player = 1
+var control_player = player
 
 var last_input = Vector2(-1, 0)
 var input
@@ -39,7 +40,7 @@ var speed_changes = []
 var is_bot = false
 var bot_offset = 50
 
-var skin 
+var skin = 0
 
 var last_pos = Vector2(0,0)
 var last_scale = Vector2(0,0)
@@ -51,6 +52,11 @@ var online = false:
 	set(value):
 		online = value
 		set_online()
+
+var swap_player = false
+
+var cooldown_mult = 1
+var charge_mult = 1
 
 func set_online():
 	if online:
@@ -75,7 +81,7 @@ func _physics_process(delta_milliseconds):
 		
 		if not stunned:
 			if not is_bot:
-				if player == 1:
+				if control_player == 1:
 					input = Input.get_vector("p1_left", "p1_right","p1_up","p1_down")
 				else:
 					input = Input.get_vector("p2_left", "p2_right","p2_up","p2_down")
@@ -215,18 +221,21 @@ func _ability_cooldown(delta):
 func _unhandled_input(event):
 	if not is_bot and is_multiplayer_authority():
 		if Engine.time_scale > 0:
-			if event.is_action_pressed("p1_ability") and player == 1:
+			if event.is_action_pressed("p1_ability") and control_player == 1:
 				_ability()
-			elif event.is_action_pressed("p2_ability") and player == 2:
+			elif event.is_action_pressed("p2_ability") and control_player == 2:
 				_ability()
 			
-			if event.is_action_pressed("p1_ult") and player == 1:
+			if event.is_action_pressed("p1_ult") and control_player == 1:
 				_ultimate()
-			elif event.is_action_pressed("p2_ult") and player == 2:
+			elif event.is_action_pressed("p2_ult") and control_player == 2:
 				_ultimate()
 	
-func set_player(playerNumb):
+func set_player(playerNumb, set_control := false):
 	player = playerNumb
+	if set_control:
+		control_player = playerNumb
+	
 	if player == 1:
 		set_collision_mask_value(8, false)
 		set_collision_mask_value(4, true)
@@ -238,6 +247,7 @@ func on_ready():
 	pass
 
 func _ready():
+	
 	on_ready()
 	
 	physics_material_override.friction = 0
@@ -249,6 +259,13 @@ func _ready():
 	sprite_scale = sprite.scale
 	initialized = true
 	update_scale(base_scale)
+	if not swap_player:
+		control_player = player
+	else:
+		if player == 1:
+			control_player = 2
+		else:
+			control_player = 1
 	
 	if outside_speed_multed:
 		update_move_speed(move_speed * outside_speed_mult)

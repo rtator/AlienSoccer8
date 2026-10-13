@@ -14,7 +14,8 @@ var score_fx_load = preload("res://scorefx.tscn")
 
 var is_ball = true
 
-@onready var camera = %Camera2D
+#@onready var camera = %Camera2D
+var camera
 var camera_after_ready
 
 var speed_add = 10
@@ -32,6 +33,9 @@ func _ready():
 		camera = camera_after_ready
 
 func _physics_process(delta):
+	if camera_after_ready != null:
+		camera = camera_after_ready
+	
 	linear_velocity = linear_velocity.normalized() * (ball_speed + temp_speed)
 	ball_speed += delta
 	if reseting:
@@ -80,7 +84,8 @@ func effect_spawn(score = false):
 			hit_fx.emitting = true
 			add_sibling(hit_fx)
 		
-		camera.shake(GlobalSave.screenShake)
+		if camera != null:
+			camera.shake(GlobalSave.screenShake)
 
 func _on_body_entered(body):
 	if linear_velocity.length():
@@ -114,3 +119,21 @@ func _on_timer_timeout():
 
 func _on_glue_timer_timeout():
 	end_glue()
+
+func disable_collision():
+	visible = false
+	set_collision_layer_value(1,false)
+	set_collision_layer_value(2,false)
+	set_collision_layer_value(3,false)
+	set_collision_mask_value(1,false)
+	set_collision_mask_value(2,false)
+	set_collision_mask_value(3,false)
+
+func enable_collision():
+	visible = true
+	set_collision_layer_value(1,true)
+	set_collision_layer_value(2,true)
+	set_collision_layer_value(3,true)
+	set_collision_mask_value(1,true)
+	set_collision_mask_value(2,true)
+	set_collision_mask_value(3,true)

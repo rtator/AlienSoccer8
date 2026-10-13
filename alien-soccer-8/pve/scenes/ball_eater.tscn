@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://blxd5g4yhdlgb"]
+
+[ext_resource type="Script" uid="uid://6tnm7ev5104d" path="res://pve/scenes/ball_eater.gd" id="1_faulp"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qgyb7"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_326uc"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dusal"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8vv53"]
+normal = Vector2(-1, 0)
+
+[node name="ball_eater" type="Area2D" unique_id=1652452197]
+script = ExtResource("1_faulp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1445798736]
+position = Vector2(-40, -40)
+shape = SubResource("WorldBoundaryShape2D_qgyb7")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="." unique_id=47886750]
+position = Vector2(-40, -40)
+shape = SubResource("WorldBoundaryShape2D_326uc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1774053801]
+position = Vector2(1192, 688)
+shape = SubResource("WorldBoundaryShape2D_dusal")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=1638480954]
+position = Vector2(1192, 688)
+shape = SubResource("WorldBoundaryShape2D_8vv53")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1427611468]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=932267478]
+position = Vector2(-40, -40)
+shape = SubResource("WorldBoundaryShape2D_qgyb7")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=971496255]
+position = Vector2(-40, -40)
+shape = SubResource("WorldBoundaryShape2D_326uc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=2009301792]
+position = Vector2(1192, 688)
+shape = SubResource("WorldBoundaryShape2D_dusal")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1628869396]
+position = Vector2(1192, 688)
+shape = SubResource("WorldBoundaryShape2D_8vv53")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

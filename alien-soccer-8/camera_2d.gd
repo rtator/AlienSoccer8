@@ -4,6 +4,7 @@ var shake_amount = 0
 var shake_fade = 0.8
 
 var zoomed_left = false
+var zoomed_center = false
 var base_x_pos = 576
 
 var won = false
@@ -25,6 +26,11 @@ func _physics_process(delta):
 				zoom.x -= 0.001
 				zoom.y -= 0.001
 				position.x += 1152*0.0005
+				if not won:
+					Engine.time_scale += 0.01
+			elif zoomed_center:
+				zoom.x -= 0.001
+				zoom.y -= 0.001
 				if not won:
 					Engine.time_scale += 0.01
 			else:
@@ -56,6 +62,15 @@ func zoom_right():
 	zoom.x = 1.1
 	zoom.y = 1.1
 	position.x = base_x_pos + 1152 * 0.05
+
+func zoom_center_won():
+	zoomed_center = true
+	zoomed_left = false
+	Engine.time_scale = 0.1
+	zoom.x = 1.1
+	zoom.y = 1.1
+	
+	won = true
 
 func zoom_left_won():
 	zoomed_left = true

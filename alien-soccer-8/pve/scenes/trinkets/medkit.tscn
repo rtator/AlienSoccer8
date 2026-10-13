@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://c2nkub15b0g0l"]
+
+[ext_resource type="Script" uid="uid://b3odefkbac2oq" path="res://pve/scenes/trinkets/medkit.gd" id="1_3hgq2"]
+[ext_resource type="Texture2D" uid="uid://pv1xqd0r4nlo" path="res://pve/assets/trinkets/medkit.png" id="2_lvivp"]
+[ext_resource type="LabelSettings" uid="uid://behho5mlyn3mw" path="res://pve/scenes/trinkets/common_trinket.tres" id="3_1k35t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0w1j7"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_64j8e"]
+radius = 200.0
+
+[node name="medkit" type="Node2D" unique_id=1389320459]
+script = ExtResource("1_3hgq2")
+metadata/_custom_type_script = "uid://bjry2noygcyf4"
+
+[node name="grab" type="Area2D" parent="." unique_id=775703611]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grab" unique_id=1335198187]
+shape = SubResource("CircleShape2D_0w1j7")
+
+[node name="info" type="Area2D" parent="." unique_id=1255454407]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="info" unique_id=248200359]
+shape = SubResource("CircleShape2D_64j8e")
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=787824759]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(0, -1.9999998)
+scale = Vector2(3.7142856, 3.714285)
+texture = ExtResource("2_lvivp")
+
+[node name="Control" type="Control" parent="." unique_id=1082284408]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -32.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control" unique_id=1674212741]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -56.0
+offset_top = -84.0
+offset_right = 56.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer" unique_id=1987369909]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="Label" type="Label" parent="Control/PanelContainer/MarginContainer" unique_id=944841396]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Medkit:
+Heals 1 health to the 
+statue. Does nothing if 
+you are at max health."
+label_settings = ExtResource("3_1k35t")

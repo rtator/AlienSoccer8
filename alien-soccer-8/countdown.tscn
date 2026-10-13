@@ -9,6 +9,7 @@ outline_size = 25
 outline_color = Color(1, 0.33333334, 0.53333336, 1)
 
 [node name="countdown" type="Control" unique_id=1711931207]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,6 +21,7 @@ script = ExtResource("2_scgq4")
 
 [node name="Label" type="Label" parent="." unique_id=1049045354]
 unique_name_in_owner = true
+process_mode = 3
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

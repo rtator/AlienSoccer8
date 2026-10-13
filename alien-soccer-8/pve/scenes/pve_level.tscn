@@ -1,0 +1,205 @@
+[gd_scene format=3 uid="uid://iatgfa8jirt3"]
+
+[ext_resource type="Script" uid="uid://df3bhkt5j1jjq" path="res://pve_level.gd" id="1_nmrxa"]
+[ext_resource type="PackedScene" uid="uid://dilmnh1bt8isi" path="res://pve/scenes/inverted_statue.tscn" id="2_vjsa0"]
+[ext_resource type="PackedScene" uid="uid://bmumh3hy5f7ey" path="res://level_camera.tscn" id="3_omrpd"]
+[ext_resource type="Theme" uid="uid://cerrqasbkbfyc" path="res://menu_screen_theme.tres" id="4_b3dlm"]
+[ext_resource type="Script" uid="uid://cjmgxivawdsf4" path="res://cooldown.gd" id="5_hgbxj"]
+[ext_resource type="Script" uid="uid://d1i3xv63534pq" path="res://charge.gd" id="6_lc2ep"]
+[ext_resource type="Script" uid="uid://bbwa35txob68" path="res://pve/scenes/time_left.gd" id="7_b3dlm"]
+[ext_resource type="Texture2D" uid="uid://cwxmd71ouvs8q" path="res://as8BG.png" id="7_vjsa0"]
+[ext_resource type="PackedScene" uid="uid://pbupro2qq25a" path="res://pve/scenes/pve_player_switcher.tscn" id="8_omrpd"]
+[ext_resource type="PackedScene" uid="uid://qxvert3ui0m" path="res://countdown.tscn" id="9_luc4e"]
+[ext_resource type="PackedScene" uid="uid://d37ehvb448m5j" path="res://pve/scenes/shop_screen.tscn" id="10_hgbxj"]
+[ext_resource type="PackedScene" uid="uid://blxd5g4yhdlgb" path="res://pve/scenes/ball_eater.tscn" id="11_lc2ep"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qgyb7"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vjsa0"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_omrpd"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b3dlm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qgyb7"]
+font_size = 100
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(5, 5)
+
+[node name="pve_level" type="Node2D" unique_id=1546524120]
+script = ExtResource("1_nmrxa")
+
+[node name="pve_player_switcher" parent="." unique_id=1002402333 instance=ExtResource("8_omrpd")]
+
+[node name="inverted_statue" parent="." unique_id=1503969959 instance=ExtResource("2_vjsa0")]
+unique_name_in_owner = true
+position = Vector2(576, 324)
+
+[node name="game_border" type="StaticBody2D" parent="." unique_id=1912002934]
+unique_name_in_owner = true
+collision_layer = 137
+collision_mask = 137
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="game_border" unique_id=639956001]
+shape = SubResource("WorldBoundaryShape2D_qgyb7")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="game_border" unique_id=1918449133]
+shape = SubResource("WorldBoundaryShape2D_vjsa0")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="game_border" unique_id=729397750]
+position = Vector2(1152, 648)
+shape = SubResource("WorldBoundaryShape2D_omrpd")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="game_border" unique_id=1042157774]
+position = Vector2(1152, 648)
+shape = SubResource("WorldBoundaryShape2D_b3dlm")
+
+[node name="Camera2D" parent="." unique_id=853370740 instance=ExtResource("3_omrpd")]
+unique_name_in_owner = true
+position = Vector2(576, 324)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1963830070]
+unique_name_in_owner = true
+layer = 100
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer" unique_id=708294302]
+unique_name_in_owner = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -515.0
+offset_top = -88.0
+offset_right = 515.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("4_b3dlm")
+theme_override_constants/h_separation = 30
+theme_override_constants/v_separation = 0
+columns = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer" unique_id=1873899654]
+layout_mode = 2
+text = "Cooldown:"
+horizontal_alignment = 1
+
+[node name="p2CooldownLabel" type="Label" parent="CanvasLayer/GridContainer" unique_id=1188207911]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Cooldown:"
+horizontal_alignment = 1
+
+[node name="p1Cooldown" type="ProgressBar" parent="CanvasLayer/GridContainer" unique_id=1170154708]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+clip_contents = true
+layout_mode = 2
+max_value = 1.0
+script = ExtResource("5_hgbxj")
+
+[node name="p2Cooldown" type="ProgressBar" parent="CanvasLayer/GridContainer" unique_id=1939119227]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+clip_contents = true
+layout_mode = 2
+max_value = 1.0
+script = ExtResource("5_hgbxj")
+
+[node name="Label3" type="Label" parent="CanvasLayer/GridContainer" unique_id=913189412]
+layout_mode = 2
+text = "Ultimate Charge:"
+horizontal_alignment = 1
+
+[node name="p2UltLabel" type="Label" parent="CanvasLayer/GridContainer" unique_id=83098119]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Ultimate Charge:"
+horizontal_alignment = 1
+
+[node name="p1Charge" type="ProgressBar" parent="CanvasLayer/GridContainer" unique_id=53880612]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+clip_contents = true
+layout_mode = 2
+script = ExtResource("6_lc2ep")
+
+[node name="p2Charge" type="ProgressBar" parent="CanvasLayer/GridContainer" unique_id=2040796752]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+clip_contents = true
+layout_mode = 2
+script = ExtResource("6_lc2ep")
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=2115158062]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="time_left" type="Label" parent="CanvasLayer/Control" unique_id=1528498068]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -99.5
+offset_right = 99.5
+offset_bottom = 137.0
+grow_horizontal = 2
+text = "1:00"
+label_settings = SubResource("LabelSettings_qgyb7")
+script = ExtResource("7_b3dlm")
+
+[node name="time_left_timer" type="Timer" parent="CanvasLayer/Control/time_left" unique_id=1300039819]
+unique_name_in_owner = true
+wait_time = 30.0
+one_shot = true
+autostart = true
+
+[node name="new_wave_timer" type="Timer" parent="CanvasLayer/Control/time_left" unique_id=1929871470]
+unique_name_in_owner = true
+wait_time = 15.0
+autostart = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=378146820]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="countdown" parent="CanvasLayer" unique_id=1711931207 instance=ExtResource("9_luc4e")]
+
+[node name="BG" type="TextureRect" parent="." unique_id=1850640931]
+unique_name_in_owner = true
+z_index = -1000
+z_as_relative = false
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_vjsa0")
+
+[node name="shop_screen" parent="." unique_id=480608975 instance=ExtResource("10_hgbxj")]
+unique_name_in_owner = true
+
+[node name="ball_eater" parent="." unique_id=1652452197 instance=ExtResource("11_lc2ep")]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="CanvasLayer/Control/time_left/time_left_timer" to="." method="_on_time_left_timer_timeout"]
+[connection signal="timeout" from="CanvasLayer/Control/time_left/time_left_timer" to="CanvasLayer/Control/time_left" method="_on_time_left_timer_timeout"]
+[connection signal="timeout" from="CanvasLayer/Control/time_left/new_wave_timer" to="CanvasLayer/Control/time_left" method="_on_new_wave_timer_timeout"]

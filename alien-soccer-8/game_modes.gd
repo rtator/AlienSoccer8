@@ -7,3 +7,7 @@ func _on_back_button_pressed():
 
 func _on_as_64_button_pressed():
 	get_tree().change_scene_to_file("res://as_64_level_select.tscn")
+
+func _on_pve_button_pressed():
+	PveSave.is_pve = true
+	get_tree().change_scene_to_file("res://newAlienSelect.tscn")

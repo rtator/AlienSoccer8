@@ -125,13 +125,13 @@ func _ability_cooldown(delta):
 	hit_opps = hit_opps.filter(func(hit): return not hit[4])
 	
 	if cooldown > 0:
-		cooldown -= 1 * delta
+		cooldown -= cooldown_mult * delta
 	
 	if duration > 0:
 		duration -= 1 * delta
 	
 	if charge <= charge_max and not wall_out:
-		charge += delta
+		charge += delta * charge_mult
 
 func on_ready():
 	for opp in opponent:

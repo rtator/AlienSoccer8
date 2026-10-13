@@ -114,10 +114,10 @@ func _ability_cooldown(delta):
 	
 	
 	if cooldown > 0:
-		cooldown -= delta
+		cooldown -= delta * cooldown_mult
 	
 	if charge <= charge_max and ult_dur <= 0:
-		charge += delta
+		charge += delta * charge_mult
 	
 	if ult_dur > 0:
 		ult_dur -= delta

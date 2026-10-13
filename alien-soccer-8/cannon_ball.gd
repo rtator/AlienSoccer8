@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+var is_cannon_ball = true
+
 var ball_speed = 400
 var ball
 
@@ -10,8 +12,8 @@ var ult = false
 var duration = 400
 
 func _ready():
-	for ball in user.balls:
-		add_collision_exception_with(ball)
+	for balls in user.balls:
+		add_collision_exception_with(balls)
 	
 	if ult:
 		duration = 500

@@ -55,10 +55,10 @@ func _ultimate():
 
 func _ability_cooldown(delta):
 	if charge < charge_max:
-		charge += delta
+		charge += delta * charge_mult
 	
 	if cooldown > 0 and not sped_up:
-		cooldown -= 1 * delta
+		cooldown -= cooldown_mult * delta
 	
 	if teleporting:
 		print(global_position)

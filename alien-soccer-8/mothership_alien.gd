@@ -8,7 +8,7 @@ var drone_load = preload("res://drone.tscn")
 
 func _ability():
 	if cooldown <= 0 and touching_ore:
-		charge += 8
+		charge += 8 * charge_mult
 		cooldown = 20
 
 func _ultimate():
@@ -27,7 +27,7 @@ func _ability_cooldown(delta):
 		#print("pressed")
 	
 	if cooldown > 0 and balls[0].linear_velocity.length() > 0 :
-		cooldown -= 1 * delta
+		cooldown -= cooldown_mult * delta 
 	
 	if duration > 0:
 		duration -= 1 * delta

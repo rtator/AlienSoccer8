@@ -8,8 +8,8 @@ var damp_mult = 1.5
 var dash_vec = Vector2(0,0)
 var dash_speed = 1500
 
-var ball_hit
-var clock_ball_speed = [200]
+var ball_hit = []
+var clock_ball_speed = []
 
 var ball_slow = 2.5
 var all_slow = 3.0
@@ -27,8 +27,8 @@ func hit_ball(ball):
 		if skin != 0:
 			%AnimatedSprite2D.animation = "slowed_" + str(skin)
 		
-		ball_hit = ball
-		clock_ball_speed = [ball.ball_speed]
+		ball_hit.append(ball)
+		clock_ball_speed.append(ball.ball_speed)
 		ball.ball_speed /= ball_slow
 		ball_slowed = true
 		duration = 100
@@ -53,7 +53,7 @@ func _ultimate():
 
 func _ability_cooldown(delta):
 	if charge < charge_max and not all_slowed:
-		charge += delta
+		charge += delta * charge_mult
 	
 	if duration > 0:
 		duration -= delta
@@ -62,9 +62,15 @@ func _ability_cooldown(delta):
 		if skin != 0:
 			%AnimatedSprite2D.animation = "default_" + str(skin)
 		ball_slowed = false
-		ball_hit.ball_speed = clock_ball_speed[0]
-		ball_hit.speed_add = 10
-		cooldown = 400
+		for i in range(len(ball_hit)):
+			if len(clock_ball_speed) > i:
+				ball_hit[i].ball_speed = clock_ball_speed[i]
+			else:
+				ball_hit[i].ball_speed *= ball_slow
+			cooldown = 400
+		
+		clock_ball_speed.clear()
+		
 		%clock_aoe.firing = false
 	
 	if balls[0].linear_velocity.length() == 0:
@@ -78,16 +84,22 @@ func _ability_cooldown(delta):
 		if skin != 0:
 			%AnimatedSprite2D.animation = "default_" + str(skin)
 		
-		for ball_i in range(clock_ball_speed):
-			balls[ball_i].ball_speed = clock_ball_speed[ball_i]
+		for ball_i in range(len(balls)):
+			if len(clock_ball_speed) > ball_i:
+				balls[ball_i].ball_speed = clock_ball_speed[ball_i]
+			else:
+				balls[ball_i].ball_speed = balls[ball_i].ball_base_speed
+			balls[ball_i].speed_add *= all_slow
 			all_slowed = false
+		
+		clock_ball_speed.clear()
 	
 	if cooldown > 0:
-		cooldown -= 1 * delta
+		cooldown -= cooldown_mult * delta
 
 func on_ready():
 	flash = flash_load.instantiate()
-	flash.z_index = max(opponent[0].z_index, z_index) + 1
+	
 	add_sibling(flash)
 	
 	%clock_aoe.user = self

@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://bv3my5nsdec4a"]
+
+[ext_resource type="Script" uid="uid://bo6hwydrk8q38" path="res://pve/scenes/othersider.gd" id="1_o7os1"]
+[ext_resource type="Texture2D" uid="uid://cnffcfbfjdgm7" path="res://pve/assets/othersider_b.png" id="2_hk6yd"]
+[ext_resource type="Texture2D" uid="uid://bioo6s1jedxuo" path="res://hollow_circle.png" id="3_yqv5k"]
+[ext_resource type="Texture2D" uid="uid://cl4twax2q2bgp" path="res://grey_tile.png" id="4_x8idn"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bf5g0"]
+friction = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qgyb7"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vt7g2"]
+radius = 90.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xn6ol"]
+texture = ExtResource("4_x8idn")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+modulate_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qj3gn"]
+texture = ExtResource("4_x8idn")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+modulate_color = Color(0, 2.2333794, 0, 1)
+
+[node name="othersider" type="RigidBody2D" unique_id=1736972650]
+collision_layer = 16
+collision_mask = 16
+physics_material_override = SubResource("PhysicsMaterial_bf5g0")
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 10
+script = ExtResource("1_o7os1")
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=1955494128]
+unique_name_in_owner = true
+texture_filter = 1
+scale = Vector2(0.21333332, 0.21333335)
+texture = ExtResource("2_hk6yd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=919830994]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_qgyb7")
+
+[node name="hit_area" type="Area2D" parent="." unique_id=801430129]
+unique_name_in_owner = true
+
+[node name="HollowCircle" type="Sprite2D" parent="hit_area" unique_id=2053781626]
+self_modulate = Color(1, 1, 1, 0.31764707)
+texture_filter = 1
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("3_yqv5k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hit_area" unique_id=240496106]
+shape = SubResource("CircleShape2D_vt7g2")
+
+[node name="health_bar" type="ProgressBar" parent="." unique_id=1524967112]
+unique_name_in_owner = true
+texture_filter = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -41.0
+offset_top = -67.0
+offset_right = 41.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxTexture_xn6ol")
+theme_override_styles/fill = SubResource("StyleBoxTexture_qj3gn")
+max_value = 2.0
+value = 2.0
+show_percentage = false
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="hit_area" to="." method="_on_hit_area_body_entered"]
+[connection signal="body_exited" from="hit_area" to="." method="_on_hit_area_body_exited"]

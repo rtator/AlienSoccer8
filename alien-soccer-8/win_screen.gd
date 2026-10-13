@@ -10,6 +10,11 @@ func _ready():
 	if GlobalSave.winner == 2:
 		text.text = "PLAYER 2"
 		text.label_settings.font_color = Color.CORNFLOWER_BLUE
+	if GlobalSave.playing_pve:
+		text.text = "YOU"
+		%Label2.text = "LOSE"
+		text.label_settings.font_color = Color.RED
+		GlobalSave.playing_pve = false
 
 func _physics_process(delta):
 	%ColorRect.color.a -= 0.01
@@ -17,4 +22,7 @@ func _physics_process(delta):
 		%ColorRect.visible = false
 
 func _on_button_pressed():
-	get_tree().change_scene_to_file("res://startScreen.tscn")
+	if PveSave.is_pve:
+		get_tree().change_scene_to_file("res://game_modes.tscn")
+	else:
+		get_tree().change_scene_to_file("res://stage_select_screen.tscn")

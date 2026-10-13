@@ -39,7 +39,7 @@ func _ultimate():
 
 func _ability_cooldown(delta):
 	if cooldown > 0 and not bursting:
-		cooldown -= delta
+		cooldown -= delta * cooldown_mult
 	
 	if duration > 0:
 		duration -= delta
@@ -61,7 +61,7 @@ func _ability_cooldown(delta):
 		slow_ball_ult()
 	
 	if charge < charge_max and ball_in_area and balls[0].linear_velocity.length() > 0 and not blizzarding:
-		charge += delta
+		charge += delta * charge_mult
 	
 	if ball_in_area and not blizzarding:
 		slow_ball()

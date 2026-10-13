@@ -75,6 +75,8 @@ func _ready():
 		%p1Cooldown2.queue_free()
 		%p2Cooldown2.queue_free()
 	
+	%ball.camera_after_ready = %Camera2D
+	
 	p1 = player_objects[GlobalSave.p1Char].instantiate()
 	p1.balls = [%ball]
 	p1.camera = %Camera2D

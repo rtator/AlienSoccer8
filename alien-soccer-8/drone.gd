@@ -10,7 +10,7 @@ var death_load = preload("res://drone_die.tscn")
 func _ready():
 	linear_velocity.y = 300
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	linear_velocity.x = 0
 	linear_velocity = linear_velocity.normalized() * 300
 	

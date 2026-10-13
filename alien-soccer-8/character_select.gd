@@ -84,6 +84,13 @@ var bot_mod = Color(0.855, 4.476, 0.855)
 var row_size = 7
 
 func _ready():
+	if PveSave.is_pve:
+		pve_changes()
+	else:
+		un_pve_change()
+	
+	GlobalSave.one_player = false 
+	
 	started = true
 	GlobalSave.p1Char = "basic"
 	GlobalSave.p2Char = "basic"
@@ -100,8 +107,21 @@ func _ready():
 	
 	update_texture()
 
+func pve_changes():
+	%onePlayer.visible = true
+	%p1Bot.visible = false
+	%p2Bot.visible = false
+	%bot_prompter.visible = false
+
+func un_pve_change():
+	%onePlayer.visible = false
+	%p1Bot.visible = true
+	if not GlobalSave.one_player:
+		%p2Bot.visible = true
+		%bot_prompter.visible = true
+
 func _process(delta):
-	if p1Selected and p2Selected:
+	if p1Selected and (p2Selected or GlobalSave.one_player):
 		if Input.is_action_just_pressed("start"):
 			
 			var char = str(GlobalSave.p1Char)
@@ -114,7 +134,10 @@ func _process(delta):
 			if not FileAccess.file_exists(skin_path2):
 				GlobalSave.p2Skin = 0
 			
-			get_tree().change_scene_to_file("res://level.tscn")
+			if PveSave.is_pve:
+				get_tree().change_scene_to_file("res://pve/scenes/pve_level.tscn")
+			else:
+				get_tree().change_scene_to_file("res://level.tscn")
 		if not banner_out:
 			banner = banner_loaded.instantiate()
 			add_child(banner)
@@ -207,11 +230,12 @@ func _unhandled_input(event):
 		elif p2_selected_button < 0:
 			p2_selected_button = len(alien_buttons) - 1
 		
-		if p1_selected_button == p2_selected_button:
+		if p1_selected_button == p2_selected_button and not GlobalSave.one_player:
 			alien_buttons[p1_selected_button].add_theme_stylebox_override("normal", bothStyle)
 		else:
 			alien_buttons[p1_selected_button].add_theme_stylebox_override("normal", p1Style)
-			alien_buttons[p2_selected_button].add_theme_stylebox_override("normal", p2Style)
+			if not  GlobalSave.one_player:
+				alien_buttons[p2_selected_button].add_theme_stylebox_override("normal", p2Style)
 		
 		if event.is_action("p1_skin_right"):
 			GlobalSave.p1Skin += 1
@@ -279,4 +303,31 @@ func _on_p_2_bot_pressed():
 		%p2Bot.modulate = bot_mod
 
 func _on_back_button_pressed():
-	get_tree().change_scene_to_file("res://stage_select_screen.tscn")
+	if PveSave.is_pve:
+		get_tree().change_scene_to_file("res://game_modes.tscn")
+	else:
+		get_tree().change_scene_to_file("res://stage_select_screen.tscn")
+
+func _on_one_player_pressed():
+	if GlobalSave.one_player:
+		GlobalSave.one_player = false
+	else:
+		GlobalSave.one_player = true
+	
+	update_one_p()
+
+func update_one_p():
+	alien_buttons[p2_selected_button].add_theme_stylebox_override("normal", baseStyle)
+	
+	if p1_selected_button == p2_selected_button and not GlobalSave.one_player:
+		alien_buttons[p1_selected_button].add_theme_stylebox_override("normal", bothStyle)
+	else:
+		alien_buttons[p1_selected_button].add_theme_stylebox_override("normal", p1Style)
+		if not GlobalSave.one_player:
+			alien_buttons[p2_selected_button].add_theme_stylebox_override("normal", p2Style)
+	
+	#if PveSave.is_pve:
+		if GlobalSave.one_player:
+			%p2Rect.visible = false
+		else:
+			%p2Rect.visible = true

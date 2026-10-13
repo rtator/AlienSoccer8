@@ -45,8 +45,8 @@ func fire(ult = false, target = Vector2(0,0)):
 	%particles_2.restart()
 	camera.shake(20)
 
-func fire_ult(position):
-	opp_pos = position
+func fire_ult(pos):
+	opp_pos = pos
 	fire(true, opp_pos)
 	%Timer.start()
 

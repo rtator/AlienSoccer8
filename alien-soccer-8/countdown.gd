@@ -13,10 +13,10 @@ func _process(delta):
 		if num > 0:
 			%Label.text = str(num)
 		elif num == 0:
-			Engine.time_scale = 1
+			get_tree().paused = false
 			%Label.text = "GO!"
 		else:
 			queue_free()
 
 func _ready():
-	Engine.time_scale = 0
+	get_tree().paused = true

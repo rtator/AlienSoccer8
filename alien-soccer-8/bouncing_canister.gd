@@ -104,7 +104,7 @@ func die():
 	
 	dead = true
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	#if bounces < bounces_max + 1:
 		bounces += 1
 		if len(areas) > 0:

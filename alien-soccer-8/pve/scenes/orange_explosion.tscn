@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://ope5b6mil42s"]
+
+[ext_resource type="Script" uid="uid://bxuj75ymg6s4g" path="res://pve/scenes/orange_explosion.gd" id="1_u1ojv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qgyb7"]
+radius = 90.0
+
+[sub_resource type="Gradient" id="Gradient_bwtmk"]
+colors = PackedColorArray(1, 0.32941177, 0, 1, 1, 0.5803922, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_s5ppe"]
+gradient = SubResource("Gradient_bwtmk")
+
+[sub_resource type="Curve" id="Curve_6ppcr"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 8.17121), 0.0, 0.0, 0, 0, Vector2(0.110759, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_bx3so"]
+curve = SubResource("Curve_6ppcr")
+
+[sub_resource type="Curve" id="Curve_u5tjx"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 1.261194, 0, 1, Vector2(0.79289937, 2), 0.0, 0.0, 0, 0, Vector2(0.8, 0), -281.66467, 0.0, 1, 0, Vector2(0.8, 0), nan, 0.0, 1, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_e2dhu"]
+curve = SubResource("Curve_u5tjx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uwprx"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(5, 5, 5)
+emission_shape = 1
+emission_sphere_radius = 20.0
+gravity = Vector3(0, 0, 0)
+damping_min = 50.0
+damping_max = 60.0
+damping_curve = SubResource("CurveTexture_bx3so")
+scale_min = 6.0
+scale_max = 8.0
+scale_curve = SubResource("CurveTexture_e2dhu")
+color_initial_ramp = SubResource("GradientTexture1D_s5ppe")
+
+[node name="orange_explosion" type="Area2D" unique_id=1912811609]
+script = ExtResource("1_u1ojv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1497376549]
+shape = SubResource("CircleShape2D_qgyb7")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=331526235]
+unique_name_in_owner = true
+emitting = false
+amount = 500
+lifetime = 0.2
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_uwprx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="GPUParticles2D" to="." method="_on_gpu_particles_2d_finished"]

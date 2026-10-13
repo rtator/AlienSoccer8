@@ -6,11 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://c1gl0hvam08pm" path="res://ball.tscn" id="2_vonw3"]
 [ext_resource type="Script" uid="uid://6ddf1jx7j5bu" path="res://p_1_wall.gd" id="3_0b4ue"]
 [ext_resource type="Script" uid="uid://bbduc43ljf86y" path="res://p_2_wall.gd" id="4_f2txt"]
-[ext_resource type="Script" uid="uid://cv2anvuqggdhc" path="res://camera_2d.gd" id="6_1ainy"]
 [ext_resource type="Script" uid="uid://cjmgxivawdsf4" path="res://cooldown.gd" id="6_n6hdu"]
 [ext_resource type="Script" uid="uid://d1i3xv63534pq" path="res://charge.gd" id="7_km5ld"]
 [ext_resource type="FontFile" uid="uid://cd01nxashwd12" path="res://Tiny5/Tiny5-Regular.ttf" id="9_8cye3"]
 [ext_resource type="PackedScene" uid="uid://qxvert3ui0m" path="res://countdown.tscn" id="10_2orkt"]
+[ext_resource type="PackedScene" uid="uid://bmumh3hy5f7ey" path="res://level_camera.tscn" id="11_2orkt"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_oi3di"]
 normal = Vector2(0, 1)
@@ -272,7 +272,6 @@ label_settings = SubResource("LabelSettings_qgyb7")
 
 [node name="countdown" parent="CanvasLayer" unique_id=1711931207 instance=ExtResource("10_2orkt")]
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=633352477]
+[node name="Camera2D" parent="." unique_id=853370740 instance=ExtResource("11_2orkt")]
 unique_name_in_owner = true
 position = Vector2(576, 324)
-script = ExtResource("6_1ainy")

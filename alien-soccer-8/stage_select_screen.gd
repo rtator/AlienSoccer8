@@ -1,5 +1,7 @@
 extends Control
 
+func _ready():
+	PveSave.is_pve = false
 
 func set_stage(stage : String):
 	GlobalSave.stage = stage
@@ -24,4 +26,4 @@ func _on_crackheads_pressed():
 	set_stage("crackheads")
 
 func _on_back_button_pressed():
-	get_tree().change_scene_to_file("res://startScreen.tscn")
+	get_tree().change_scene_to_file("res://play_screen.tscn")

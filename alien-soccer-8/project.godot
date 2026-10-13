@@ -25,6 +25,7 @@ GlobalSave="*res://Global_Save.tscn"
 Network="res://network.gd"
 Signaling="res://Signaling.gd"
 WebrtcManager="*res://webrtcManager.gd"
+PveSave="*uid://d0k7ts8jbl8u2"
 
 [display]
 
@@ -44,7 +45,8 @@ enabled=PackedStringArray("res://addons/tube-2dfc5c1ef8432af121eee775b5cd4ca2edc
 folder_colors={
 "res://3d/": "orange",
 "res://3d_assets/": "blue",
-"res://as8_sprites_png/": "red"
+"res://as8_sprites_png/": "red",
+"res://pve/": "pink"
 }
 
 [input]

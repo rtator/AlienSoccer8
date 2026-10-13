@@ -38,7 +38,7 @@ func _ultimate():
 
 func _ability_cooldown(delta):
 	if cooldown > 0 and not block_amount >= max_block_amount:
-		cooldown -= delta
+		cooldown -= delta * cooldown_mult
 	
 	if ult_dur > 0:
 		ult_dur -= delta
@@ -49,7 +49,7 @@ func _ability_cooldown(delta):
 			overlay.visible = false
 	
 	if charge < charge_max and not opp_slipping:
-		charge += delta
+		charge += delta * charge_mult
 
 func on_ready():
 	for opp in opponent:

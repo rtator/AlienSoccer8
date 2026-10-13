@@ -89,13 +89,13 @@ func _ability_cooldown(delta):
 	#print(%AnimatedSprite2D.global_scale)
 	#print(base_scale)
 	if charge < charge_max and not ult_bomb_out:
-		charge += delta
+		charge += delta * charge_mult
 	
 	if ult_dur > 0:
 		ult_dur -= 1 * delta
 	
 	if cooldown > 0:
-		cooldown -= 1 * delta
+		cooldown -= cooldown_mult * delta
 		print(cooldown)
 
 func on_ready():

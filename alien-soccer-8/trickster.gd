@@ -74,10 +74,10 @@ func _ultimate():
 
 func _ability_cooldown(delta):
 	if charge < charge_max:
-		charge += delta
+		charge += delta * charge_mult
 	
 	if cooldown > 0:
-		cooldown -= 1 * delta
+		cooldown -= cooldown_mult * delta
 	
 	if slip_timer >= 0:
 		slip_timer -= 1

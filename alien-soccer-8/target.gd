@@ -33,20 +33,21 @@ func _ultimate():
 	if charge >= charge_max && not ulting:
 		ulting = true
 		charge = 0
-		goal.ult()
+		if goal != null:
+			goal.ult()
 		camera.shake(7.5)
 
 func _ability_cooldown(delta):
 	if charge < charge_max and not ulting:
-		charge += delta
+		charge += delta * charge_mult
 	
-	if goal.ult_ended:
+	if goal != null and goal.ult_ended:
 		ulting = false
 		goal.ult_ended = false
 	
 	if cooldown > 0:
 		shooting = false
-		cooldown -= delta
+		cooldown -= cooldown_mult * delta
 	
 	if sped_up and speed_timer > 0:
 		speed_timer -= delta
@@ -56,14 +57,15 @@ func _ability_cooldown(delta):
 		print("slowed")
 
 func on_ready():
-	goal = goal_loaded.instantiate()
-	goal.score_board = score_board
-	goal.camera = camera
-	goal.user = self
-	if player == 1:
-		goal.position.x = 1152
-	goal.player = player
-	add_sibling(goal)
+	if not PveSave.is_pve:
+		goal = goal_loaded.instantiate()
+		goal.score_board = score_board
+		goal.camera = camera
+		goal.user = self
+		if player == 1:
+			goal.position.x = 1152
+		goal.player = player
+		add_sibling(goal)
 	
 	if skin != 0:
 		%AnimatedSprite2D.animation = "default_" + str(skin)

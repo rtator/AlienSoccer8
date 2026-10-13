@@ -3,6 +3,7 @@
 [ext_resource type="Theme" uid="uid://cerrqasbkbfyc" path="res://menu_screen_theme.tres" id="1_6mk6g"]
 [ext_resource type="Script" uid="uid://qff37n8blaya" path="res://play_screen.gd" id="2_6mk6g"]
 [ext_resource type="Texture2D" uid="uid://diw0avg4llcv5" path="res://as8_sprites_png/wide_angled_button.png" id="3_10wqt"]
+[ext_resource type="Texture2D" uid="uid://cgks7n1nc4tb6" path="res://diagonal_arrow.png" id="4_d1lsq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_emvj2"]
 font_size = 125
@@ -39,7 +40,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_p7wd7"]
 resource_name = "flip_in"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -58,6 +59,9 @@ _data = {
 &"RESET": SubResource("Animation_enq17"),
 &"flip_in": SubResource("Animation_p7wd7")
 }
+
+[sub_resource type="LabelSettings" id="LabelSettings_qgyb7"]
+font_size = 20
 
 [node name="Control" type="Control" unique_id=1559331455]
 layout_mode = 3
@@ -198,6 +202,47 @@ text = "Back"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=452734897]
 libraries/ = SubResource("AnimationLibrary_8sy23")
 autoplay = &"flip_in"
+
+[node name="DiagonalArrow" type="Sprite2D" parent="." unique_id=895226812]
+self_modulate = Color(1, 0, 0, 1)
+texture_filter = 1
+position = Vector2(1052, 92)
+scale = Vector2(4, 4)
+texture = ExtResource("4_d1lsq")
+
+[node name="Control" type="Control" parent="DiagonalArrow" unique_id=2066300556]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+
+[node name="Label" type="Label" parent="DiagonalArrow/Control" unique_id=1496562676]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -115.25
+offset_top = -22.0
+offset_right = 60.75
+offset_bottom = 6.0
+grow_horizontal = 0
+grow_vertical = 0
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.25, 0.25)
+text = "New mode added!"
+label_settings = SubResource("LabelSettings_qgyb7")
 
 [connection signal="pressed" from="Control/Control/GridContainer2/play_button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Control/Control/GridContainer2/VBoxContainer/game_modes_button" to="." method="_on_game_modes_button_pressed"]

@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://mn6daef4ittf"]
+
+[ext_resource type="Script" uid="uid://bjry2noygcyf4" path="res://pve/scenes/trinkets/base_trinket.gd" id="1_igcuc"]
+
+[node name="base_trinket" type="Node2D" unique_id=477689117]
+script = ExtResource("1_igcuc")
+
+[node name="Label" type="Label" parent="." unique_id=391850655]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Instant Trinkets:
+X \"Medkit\"
+X Heals 1 health to the statue. Does nothing if you are at max health.
+\"Flashbang\"
+Explodes a stunning grenade that stops all NPC aliens from moving and using abilities for a moment. Does not affect the balls or Othersiders.
+\"Energy Drink\"
+Instantly fills up ability meters for all player aliens. 
+\"Syringe\"
+Stops all player aliens from moving for 1 second and resets ability meters to fully heal the statue's health.
+
+Protective Trinkets:
+X	\"Barricade\"
+X	Places a slow and small wall that slowly circles around the statue. This wall disappears if it is hit by a ball or the Othersider, it will not stop the         X	Othersider but makes it slower temporarily.
+\"Speed Limit\"
+Creates a REALLY small zone around the statue that slows down balls and Othersider slightly.
+\"Detonator\"
+If a ball or Othersider hits the statue, explodes and knocks everything back including the players (although players are only slightly launched). The statue still takes damage.
+
+Buffing Trinkets:
+X  \"Battery\"
+X   Player abilities charge quicker.
+X   \"Running Shoes\"
+X   Players move faster.
+\"Lucky Clover\"
+Players get slightly slowed whenever they hit a ball, but it has a 5% chance to disappear.
+
+Debuffing Trinkets:
+\"Glue\"
+NPC aliens and balls move slower.
+\"Warden Mini\"
+NPC aliens have slower ability charges.
+
+Amplifying Trinkets:
+\"Ability Mayhem\"
+Cooldown-modifying trinkets are increased in effect by 50%.
+Not sure if we should include this category tbh
+
+Specialized Trinkets:
+\"Fridge Tactics\"
+Freezer can place 1 extra ice cube.
+\"Cowboy Straw\"
+Wrangler now has an extra lasso.
+\"Speed Demon\"
+Speedy has 1.5x speed.
+\"Back to Basic\"
+Basic gets 1.1x in everything: size, speed, ability size, ability cooldown (for this it would be 0.9x).
+
+Curses:
+\"Black Hole\"
+Lose one random trinket.
+\"Scissors\"
+Choose two trinkets to remove.
+\"Ultrasider\"
+Othersider gets faster and bigger.
+\"Ballnado\"
+5 extra balls spawn.
+\"Ball and Chain\"
+Getting hit by a ball will lock your abilities for a very short duration.
+"

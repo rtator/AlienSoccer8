@@ -27,10 +27,10 @@ func _ultimate():
 
 func _ability_cooldown(delta):
 	if charge < charge_max and not ult_balls_out:
-		charge += delta
+		charge += delta * charge_mult
 	
 	if cooldown > 0:
-		cooldown -= 1 * delta
+		cooldown -= cooldown_mult * delta
 	
 	if slow_timer > 0:
 		slow_timer -= delta

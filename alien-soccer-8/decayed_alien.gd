@@ -46,7 +46,7 @@ func _ability_cooldown(delta):
 	sprite.frame = stage
 	
 	if cooldown > 0 and not eating:
-		cooldown -= delta
+		cooldown -= delta * cooldown_mult
 	
 	if ult_dur > 0:
 		ult_dur -= delta
@@ -56,7 +56,7 @@ func _ability_cooldown(delta):
 		modulate = Color(1,1,1)
 	
 	if charge <= charge_max and not rushing:
-		charge += delta
+		charge += delta * charge_mult
 
 func check_stage():
 	var old_stage = stage
