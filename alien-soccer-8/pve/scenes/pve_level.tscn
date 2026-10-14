@@ -40,8 +40,8 @@ position = Vector2(576, 324)
 
 [node name="game_border" type="StaticBody2D" parent="." unique_id=1912002934]
 unique_name_in_owner = true
-collision_layer = 137
-collision_mask = 137
+collision_layer = 139
+collision_mask = 139
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="game_border" unique_id=639956001]
 shape = SubResource("WorldBoundaryShape2D_qgyb7")
@@ -164,7 +164,7 @@ autostart = true
 
 [node name="new_wave_timer" type="Timer" parent="CanvasLayer/Control/time_left" unique_id=1929871470]
 unique_name_in_owner = true
-wait_time = 15.0
+wait_time = 10.001
 autostart = true
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=378146820]

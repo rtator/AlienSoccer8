@@ -9,7 +9,7 @@ var info_box : Area2D
 var info_text  := "I'm the default debug text: if you're seeing me, something is probably wrong"
 var control_info_box : Control
 
-var sprite : Sprite2D
+var sprite
 
 var disabled = false
 

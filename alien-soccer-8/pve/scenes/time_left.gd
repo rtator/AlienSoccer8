@@ -23,9 +23,9 @@ func _physics_process(delta):
 func update_time():
 	time_left = timer.time_left
 	var minutes = floor(time_left/60)
-	var seconds_rounded = floor(fmod(time_left, 60))
+	var seconds_rounded = ceil(fmod(time_left, 60))
 	var seconds = fmod(time_left, 60)
-	var milliseconds = floor(seconds * 100) - floor(seconds_rounded * 100)
+	var milliseconds = ceil(seconds * 100) - ceil(seconds_rounded * 100)
 	
 	if milliseconds < 10:
 		milliseconds = "0" + str(milliseconds)

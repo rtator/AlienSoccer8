@@ -34,7 +34,7 @@ func _ability_cooldown(delta):
 
 func on_ready():
 	ore = ore_load.instantiate()
-	if player == 1:
+	if (player == 1 and not swap_player) or (player == 2 and swap_player):
 		ore.position = Vector2(288, 324)
 	else:
 		ore.position = Vector2(864, 324)

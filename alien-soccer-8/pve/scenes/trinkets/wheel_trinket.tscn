@@ -1,0 +1,110 @@
+[gd_scene format=3 uid="uid://bqehqvru1cjgg"]
+
+[ext_resource type="Script" uid="uid://drfv84a2y021q" path="res://pve/scenes/trinkets/wheel_trinket.gd" id="1_31ppp"]
+[ext_resource type="Texture2D" uid="uid://bf7qogbbmku2v" path="res://pve/assets/trinkets/wheel.png" id="2_t4mcm"]
+[ext_resource type="LabelSettings" uid="uid://behho5mlyn3mw" path="res://pve/scenes/trinkets/common_trinket.tres" id="3_7uhpf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qgyb7"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xb5g4"]
+radius = 200.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnoe6"]
+atlas = ExtResource("2_t4mcm")
+region = Rect2(0, 0, 15, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfu76"]
+atlas = ExtResource("2_t4mcm")
+region = Rect2(15, 0, 15, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7brrb"]
+atlas = ExtResource("2_t4mcm")
+region = Rect2(0, 10, 15, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5tskc"]
+atlas = ExtResource("2_t4mcm")
+region = Rect2(15, 10, 15, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qgyb7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnoe6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfu76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7brrb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5tskc")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="wheel_trinket" type="Node2D" unique_id=1389320459]
+script = ExtResource("1_31ppp")
+metadata/_custom_type_script = "uid://bjry2noygcyf4"
+
+[node name="grab" type="Area2D" parent="." unique_id=775703611]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grab" unique_id=1335198187]
+shape = SubResource("CircleShape2D_qgyb7")
+
+[node name="info" type="Area2D" parent="." unique_id=1255454407]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="info" unique_id=248200359]
+shape = SubResource("CircleShape2D_xb5g4")
+
+[node name="sprite" type="AnimatedSprite2D" parent="." unique_id=577466589]
+unique_name_in_owner = true
+texture_filter = 1
+scale = Vector2(5.8, 5.8)
+sprite_frames = SubResource("SpriteFrames_qgyb7")
+autoplay = "default"
+frame_progress = 0.77089244
+
+[node name="Control" type="Control" parent="." unique_id=1082284408]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -32.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control" unique_id=1674212741]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -56.0
+offset_top = -84.0
+offset_right = 56.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer" unique_id=1987369909]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="Label" type="Label" parent="Control/PanelContainer/MarginContainer" unique_id=944841396]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Wheel:
+Player's rotation
+is unlocked "
+label_settings = ExtResource("3_7uhpf")

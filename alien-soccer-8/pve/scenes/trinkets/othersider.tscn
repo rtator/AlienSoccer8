@@ -12,7 +12,7 @@ friction = 0.0
 radius = 32.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vt7g2"]
-radius = 90.0
+radius = 140.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xn6ol"]
 texture = ExtResource("4_x8idn")
@@ -55,7 +55,7 @@ unique_name_in_owner = true
 [node name="HollowCircle" type="Sprite2D" parent="hit_area" unique_id=2053781626]
 self_modulate = Color(1, 1, 1, 0.31764707)
 texture_filter = 1
-scale = Vector2(1.8, 1.8)
+scale = Vector2(2.8, 2.8)
 texture = ExtResource("3_yqv5k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hit_area" unique_id=240496106]

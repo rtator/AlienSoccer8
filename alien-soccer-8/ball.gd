@@ -37,7 +37,8 @@ func _physics_process(delta):
 		camera = camera_after_ready
 	
 	linear_velocity = linear_velocity.normalized() * (ball_speed + temp_speed)
-	ball_speed += delta
+	if speed_add != 0:
+		ball_speed += delta
 	if reseting:
 		print(%AnimatedSprite2D.global_position)
 		position = new_pos

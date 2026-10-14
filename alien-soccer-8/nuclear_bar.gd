@@ -15,7 +15,7 @@ var bar
 var icon
 
 func _ready():
-	if user.player == 1:
+	if (user.player == 1 and not user.swap_player) or (user.player == 2 and user.swap_player):
 		icon = p1
 		bar = bar1
 	else:

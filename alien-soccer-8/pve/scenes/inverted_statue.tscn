@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://dsq7xwy4btyum" path="res://pve/assets/heart_icon.png" id="3_ydbra"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qgyb7"]
-radius = 87.005745
+radius = 65.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4otsv"]
-radius = 88.0
+radius = 66.0
 
 [node name="inverted_statue" type="StaticBody2D" unique_id=1503969959]
 collision_layer = 19
@@ -24,7 +24,7 @@ shape = SubResource("CircleShape2D_qgyb7")
 shape = SubResource("CircleShape2D_4otsv")
 
 [node name="InvertedStatue" type="Sprite2D" parent="." unique_id=1595021936]
-scale = Vector2(0.5565422, 0.5565422)
+scale = Vector2(0.425, 0.425)
 texture = ExtResource("1_dlw0o")
 
 [node name="flash_timer" type="Timer" parent="." unique_id=555444564]
@@ -40,9 +40,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -90.0
-offset_top = -140.0
+offset_top = -122.0
 offset_right = 90.0
-offset_bottom = -85.0
+offset_bottom = -67.0
 grow_horizontal = 2
 grow_vertical = 2
 

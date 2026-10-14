@@ -310,8 +310,12 @@ func _on_back_button_pressed():
 
 func _on_one_player_pressed():
 	if GlobalSave.one_player:
+		%onePlayer.modulate = Color("ff4d4b")
+		%onePlayer.text = "Single Player"
 		GlobalSave.one_player = false
 	else:
+		%onePlayer.modulate = bot_mod
+		%onePlayer.text = "Two Player"
 		GlobalSave.one_player = true
 	
 	update_one_p()
@@ -327,7 +331,7 @@ func update_one_p():
 			alien_buttons[p2_selected_button].add_theme_stylebox_override("normal", p2Style)
 	
 	#if PveSave.is_pve:
-		if GlobalSave.one_player:
-			%p2Rect.visible = false
-		else:
-			%p2Rect.visible = true
+	if GlobalSave.one_player:
+		%p2Rect.visible = false
+	else:
+		%p2Rect.visible = true

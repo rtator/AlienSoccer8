@@ -34,7 +34,7 @@ func hit_ball(ball):
 		duration = 100
 
 func _ultimate():
-	if ult_dur <= 0 and charge >= charge_max and not all_slowed and not ball_slowed:
+	if ult_dur <= 0 and charge >= charge_max and not all_slowed and not ball_slowed and not %clock_aoe.firing:
 		sprite.animation = "slowed"
 		if skin != 0:
 			%AnimatedSprite2D.animation = "slowed_" + str(skin)

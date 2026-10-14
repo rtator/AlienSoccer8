@@ -6,7 +6,7 @@ var is_othersider = true
 
 
 @export_category("physics")
-@export var move_speed = 15
+@export var move_speed = 10
 @export var speed_damp = 10
 @export var squish = 80
 @export var stretch = 60
@@ -33,7 +33,7 @@ var othersider_types = {
 	"red": {
 		"on_ready": func():
 			damage += 1
-			move_speed -= 5,
+			move_speed -= 2.5,
 		"sprite": preload("res://pve/assets/othersider_r.png"),
 	},
 	"orange": {
@@ -48,13 +48,13 @@ var othersider_types = {
 	},
 	"yellow": {
 		"on_ready": func():
-			move_speed += 7
+			move_speed += 5
 			health_bar.max_value -= 1,
 		"sprite": preload("res://pve/assets/othersider_y.png"),
 		},
 	"green": {
 		"on_ready": func():
-			move_speed -= 5
+			move_speed -= 2.5
 			health_bar.max_value += 0.5
 			health_bar.value += 0.5,
 		"sprite": preload("res://pve/assets/othersider_g.png"),

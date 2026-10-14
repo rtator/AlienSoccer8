@@ -67,7 +67,7 @@ func _ability_cooldown(delta):
 func on_ready():
 	arrows = arrows_load.instantiate()
 	arrows.user = self
-	if player == 1:
+	if (player == 1 and not swap_player) or (player == 2 and swap_player):
 		arrows.position = Vector2(308, 520)
 	else:
 		arrows.position = Vector2(834, 520)

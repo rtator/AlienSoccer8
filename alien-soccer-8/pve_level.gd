@@ -143,6 +143,8 @@ func spawn_balls():
 			var ball = ball_load.instantiate()
 			ball.speed_add = 0
 			ball.ball_speed *= base_ball_speed_mult
+			#ball.max_ball_base_speed = 0#ball.ball_speed
+			#ball.ball_base_speed = 0#ball.ball_speed
 			ball.camera = %Camera2D
 			ball.position.y = 324
 			ball.position.x = ball_x
@@ -191,7 +193,7 @@ func spawn_othersiders(amount : int = 1):
 	for i in range(amount):
 		var rand_x = (randi_range(0,1) * 2) - 1
 		var x = othersider_x * rand_x
-		var y = randf_range(0,648)
+		var y = randf_range(-324,324)
 		
 		var pos = Vector2(x,y).normalized() * othersider_x
 		pos = pos + Vector2(576, 324) 
@@ -218,30 +220,33 @@ func statue_die():
 func spawn_wave():
 	camera.shake(100)
 	
-	var ball = ball_load.instantiate()
-	ball.speed_add = 0
-	ball.ball_speed = balls[0].ball_speed
-	ball.camera = %Camera2D
-	ball.position.y = 324
-	ball.position.x = 576 + (base_ball_x * ball_dir)
-	var rand_vec = Vector2(randf_range(-1, 1), randf_range(-1, 1))
-	ball.linear_velocity = rand_vec
-	add_child(ball)
-	balls.append(ball)
-	
-	p1.balls = balls
+	#var ball = ball_load.instantiate()
+	#ball.speed_add = 0
+	#ball.ball_speed = balls[0].ball_speed
+	#ball.camera = %Camera2D
+	#ball.position.y = 324
+	#ball.position.x = 576 + (base_ball_x * ball_dir)
+	#var rand_vec = Vector2(randf_range(-1, 1), randf_range(-1, 1))
+	#ball.linear_velocity = rand_vec
+	#add_child(ball)
+	#balls.append(ball)
+	#
+	#p1.balls = balls
+	#if not GlobalSave.one_player:
+		#p2.balls = balls
+	#
+	#ball_dir *= -1
 	if not GlobalSave.one_player:
-		p2.balls = balls
-	
-	ball_dir *= -1
-	
-	spawn_othersiders()
+		spawn_othersiders(2)
+	else:
+		spawn_othersiders(1)
 
 func ball_eaten(ball):
 	if round_ending:
+		ball.linear_velocity = Vector2(0,0)
+		ball.disable_collision()
+		
 		eaten_balls += 1
-		print("eat number: ", eaten_balls, "ball_number: ", len(balls))
-		print("balls: ", balls)
 		if eaten_balls >= len(balls):
 			end_round()
 
@@ -257,22 +262,44 @@ func end_round():
 func restart_round():
 	PveSave.round += 1
 	
+	for ball in balls:
+		ball.linear_velocity = Vector2(randf_range(-1,1), randf_range(-1,1))
+		ball.enable_collision()
+	
+	
+	var new_ball = ball_load.instantiate()
+	new_ball.speed_add = 0
+	new_ball.ball_speed = balls[0].ball_speed
+	#new_ball.max_ball_base_speed = balls[0].ball_speed
+	#new_ball.ball_base_speed = balls[0].ball_speed
+	new_ball.camera = %Camera2D
+	new_ball.position.y = 324
+	new_ball.position.x = 576 + (base_ball_x * ball_dir)
+	var rand_vec = Vector2(randf_range(-1, 1), randf_range(-1, 1))
+	new_ball.linear_velocity = rand_vec
+	add_child(new_ball)
+	balls.append(new_ball)
+	
+	p1.balls = balls
+	if not GlobalSave.one_player:
+		p2.balls = balls
+	
+	ball_dir *= -1
+	
 	for trinket in PveSave.trinkets:
 		if "on_start" in trinket:
 			trinket.on_start.call()
 	
 	border.set_collision_layer_value(1, true)
 	border.set_collision_mask_value(1, true)
+	border.set_collision_layer_value(2, true)
+	border.set_collision_mask_value(2, true)
 	
 	round_ending = false
 	round_over = false
 	round_time_label.restart()
 	
 	eaten_balls = 0
-	
-	for ball in balls:
-		ball.linear_velocity = Vector2(randf_range(-1,1), randf_range(-1,1))
-		ball.enable_collision()
 	
 	if not GlobalSave.one_player:
 		spawn_othersiders(1)
@@ -282,9 +309,11 @@ func _on_time_left_timer_timeout():
 	
 	border.set_collision_layer_value(1, false)
 	border.set_collision_mask_value(1, false)
+	border.set_collision_layer_value(2, false)
+	border.set_collision_mask_value(2, false)
 #endregion
 
-# proccess
+# process
 #region New Code Region
 func _physics_process(delta):
 	if GlobalSave.one_player:
