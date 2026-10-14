@@ -68,7 +68,7 @@ func _ability_cooldown(delta):
 	
 	var ball = balls[0]
 	
-	if (not ground_pounding and jump_cd <= 0 and ((Input.is_action_just_pressed("p1_up") and player == 1) or (Input.is_action_just_pressed("p2_up") and player == 2))) or (is_bot and ball.position.y < position.y and not ground_pounding and jump_cd <= 0):
+	if (not ground_pounding and jump_cd <= 0 and ((Input.is_action_just_pressed("p1_up") and ((player == 1 and not swap_player) or (player == 2 and swap_player))) or ((Input.is_action_just_pressed("p2_up") and ((player == 2 and not swap_player) or (player == 1 and swap_player)))))) or (is_bot and ball.position.y < position.y and not ground_pounding and jump_cd <= 0):
 		linear_velocity.y = -move_speed * 42
 		jump_cd = 7
 	
