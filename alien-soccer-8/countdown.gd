@@ -4,8 +4,16 @@ var slow_speed = 0.02
 
 var num = 3
 
+var init = false
+
 func _process(delta):
-	modulate.a -= slow_speed
+	delta = 1.0 + (1/3) * delta
+	
+	if init:
+		init = false
+		get_tree().paused = true
+	
+	modulate.a -= slow_speed * delta
 	
 	if modulate.a <= 0:
 		modulate.a = 1
@@ -19,4 +27,5 @@ func _process(delta):
 			queue_free()
 
 func _ready():
-	get_tree().paused = true
+	init = true
+	#get_tree().paused = true

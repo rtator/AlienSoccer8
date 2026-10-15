@@ -26,12 +26,12 @@ func hit_ball(ball):
 		sprite.animation = "slowed"
 		if skin != 0:
 			%AnimatedSprite2D.animation = "slowed_" + str(skin)
-		
-		ball_hit.append(ball)
-		clock_ball_speed.append(ball.ball_speed)
-		ball.ball_speed /= ball_slow
-		ball_slowed = true
-		duration = 100
+		if not ball_hit.has(ball):
+			ball_hit.append(ball)
+			clock_ball_speed.append(ball.ball_speed)
+			ball.ball_speed /= ball_slow
+			ball_slowed = true
+			duration = 100
 
 func _ultimate():
 	if ult_dur <= 0 and charge >= charge_max and not all_slowed and not ball_slowed and not %clock_aoe.firing:
@@ -69,6 +69,7 @@ func _ability_cooldown(delta):
 				ball_hit[i].ball_speed *= ball_slow
 			cooldown = 400
 		
+		ball_hit.clear()
 		clock_ball_speed.clear()
 		
 		%clock_aoe.firing = false

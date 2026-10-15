@@ -138,21 +138,6 @@ offset_top = 88.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="backButton" type="Button" parent="Control" unique_id=1024194497]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -56.0
-offset_top = -79.0
-offset_right = 56.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 30
-text = "Back"
-
 [node name="GridContainer2" type="GridContainer" parent="Control" unique_id=223325074]
 layout_mode = 1
 anchors_preset = 8
@@ -303,10 +288,25 @@ texture = ExtResource("6_n0fb2")
 expand_mode = 4
 stretch_mode = 4
 
+[node name="backButton" type="Button" parent="Control" unique_id=1024194497]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -56.0
+offset_top = -79.0
+offset_right = 56.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Back"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1846128822]
 libraries/ = SubResource("AnimationLibrary_8oi3r")
 autoplay = &"new_animation"
 
-[connection signal="pressed" from="Control/backButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="Control/GridContainer2/pve_button" to="." method="_on_pve_button_pressed"]
 [connection signal="pressed" from="Control/GridContainer2/VBoxContainer/as64_button" to="." method="_on_as_64_button_pressed"]
+[connection signal="pressed" from="Control/backButton" to="." method="_on_back_button_pressed"]

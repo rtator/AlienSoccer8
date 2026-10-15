@@ -17,6 +17,9 @@ var invised_ball
 
 var ulting
 
+
+var scythe_pos = Vector2(0,-58)
+
 func _ability():
 	if cooldown <= 0:
 		hitbox.scale.x *= -1
@@ -37,6 +40,11 @@ func _ultimate():
 		charge = 0
 
 func _ability_cooldown(delta):
+	var scythe_scale = Vector2(0.4, 0.4)
+	%Scythe.scale = scythe_scale / base_scale
+	%Area2D.scale = Vector2(1,1) / base_scale
+	
+	hitbox.position = scythe_pos * base_scale
 	
 	position.y = clamp(position.y, 32, 616)
 	if player == 1 and GlobalSave.stage != "realSoccer":

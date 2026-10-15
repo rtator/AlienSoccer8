@@ -143,8 +143,8 @@ func spawn_balls():
 			var ball = ball_load.instantiate()
 			ball.speed_add = 0
 			ball.ball_speed *= base_ball_speed_mult
-			#ball.max_ball_base_speed = 0#ball.ball_speed
-			#ball.ball_base_speed = 0#ball.ball_speed
+			ball.max_ball_base_speed = 0#ball.ball_speed
+			ball.ball_base_speed = 0#ball.ball_speed
 			ball.camera = %Camera2D
 			ball.position.y = 324
 			ball.position.x = ball_x
@@ -270,8 +270,8 @@ func restart_round():
 	var new_ball = ball_load.instantiate()
 	new_ball.speed_add = 0
 	new_ball.ball_speed = balls[0].ball_speed
-	#new_ball.max_ball_base_speed = balls[0].ball_speed
-	#new_ball.ball_base_speed = balls[0].ball_speed
+	new_ball.max_ball_base_speed = 0#balls[0].ball_speed
+	new_ball.ball_base_speed = 0#balls[0].ball_speed
 	new_ball.camera = %Camera2D
 	new_ball.position.y = 324
 	new_ball.position.x = 576 + (base_ball_x * ball_dir)
@@ -290,10 +290,8 @@ func restart_round():
 		if "on_start" in trinket:
 			trinket.on_start.call()
 	
-	border.set_collision_layer_value(1, true)
-	border.set_collision_mask_value(1, true)
-	border.set_collision_layer_value(2, true)
-	border.set_collision_mask_value(2, true)
+	for ball in balls:
+		border.remove_collision_exception_with(ball)
 	
 	round_ending = false
 	round_over = false
@@ -306,16 +304,16 @@ func restart_round():
 
 func _on_time_left_timer_timeout():
 	round_ending = true
-	
-	border.set_collision_layer_value(1, false)
-	border.set_collision_mask_value(1, false)
-	border.set_collision_layer_value(2, false)
-	border.set_collision_mask_value(2, false)
+	for ball in balls:
+		border.add_collision_exception_with(ball)
 #endregion
 
 # process
 #region New Code Region
 func _physics_process(delta):
+	#for ball in balls:
+		#print("ballspeed: ", ball.ball_speed)
+	
 	if GlobalSave.one_player:
 		%inverted_statue.modulate.a = 0.8
 #endregion

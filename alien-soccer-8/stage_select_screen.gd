@@ -25,5 +25,8 @@ func _on_double_ball_pressed():
 func _on_crackheads_pressed():
 	set_stage("crackheads")
 
+func _on_giants_pressed():
+	set_stage("giants")
+
 func _on_back_button_pressed():
 	get_tree().change_scene_to_file("res://play_screen.tscn")

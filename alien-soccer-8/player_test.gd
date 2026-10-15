@@ -1,6 +1,8 @@
 extends RigidBody2D
 class_name alien
 
+var has_been_initialized = false
+
 @export_category("physics")
 @export var move_speed = 70
 @export var speed_damp = 10
@@ -23,7 +25,12 @@ var charge_bar
 var cooldown_bar
 var charge_max = 1000
 
-@export var base_scale = 1
+@export var base_scale = 1.0
+var outside_scale_add = 0.0:
+	set(new_scale):
+		outside_scale_add = new_scale
+		update_scale()
+var beginning_scale : float
 
 var sprite
 var hitbox
@@ -202,12 +209,13 @@ func change_speed_mults(delta):
 	
 	speed_changes = speed_changes.filter(remove_change)
 
-func update_scale(new_scale):
-	print(new_scale)
-	base_scale = new_scale
-	if character != "spectre":
+func update_scale(new_scale = base_scale):
+	if has_been_initialized:
+		print(new_scale)
+		base_scale = outside_scale_add + new_scale
+		#if character != "spectre":
 		hitbox.scale = Vector2(base_scale, base_scale) 
-	#sprite_scale = Vector2(base_scale, base_scale)
+		#sprite_scale = Vector2(base_scale, base_scale)
 
 func _ability():
 	print("ability")
@@ -249,6 +257,7 @@ func on_ready():
 func _ready():
 	
 	on_ready()
+	has_been_initialized = true
 	
 	physics_material_override.friction = 0
 	
@@ -259,6 +268,7 @@ func _ready():
 	sprite_scale = sprite.scale
 	initialized = true
 	update_scale(base_scale)
+	beginning_scale = base_scale
 	if not swap_player:
 		control_player = player
 	else:

@@ -22,6 +22,7 @@ var common_trinkets = {
 	"rollerskates": preload("res://pve/scenes/trinkets/rollerskates_trinket.tscn"),
 	"batteries": preload("res://pve/scenes/trinkets/batteries_trinket.tscn"),
 	"wheel": preload("res://pve/scenes/trinkets/wheel_trinket.tscn"),
+	"red_juice": preload("res://pve/scenes/trinkets/red_juice_trinket.tscn"),
 }
 var uncommon_trinkets = {
 	"barricade": preload("res://pve/scenes/trinkets/barricade_trinket.tscn"),

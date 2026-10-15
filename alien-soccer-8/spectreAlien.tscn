@@ -85,6 +85,7 @@ scale = Vector2(1.15, 1.15)
 shape = SubResource("CapsuleShape2D_6rgvc")
 
 [node name="Scythe" type="Sprite2D" parent="CollisionShape2D" unique_id=387589101]
+unique_name_in_owner = true
 texture_filter = 1
 position = Vector2(0, -2)
 rotation = -0.785398
@@ -92,6 +93,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("6_0qn74")
 
 [node name="Area2D" type="Area2D" parent="CollisionShape2D" unique_id=154110630]
+unique_name_in_owner = true
 position = Vector2(-16, -7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/Area2D" unique_id=1890626589]

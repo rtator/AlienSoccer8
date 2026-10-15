@@ -32,6 +32,7 @@ var backgrounds = {
 	"clones": preload("res://2Pas8BG.png"),
 	"doubleBall": preload("res://as8DoubleBall.png"),
 	"crackheads": preload("res://crackheads_map.png"),
+	"giants": preload("res://giantAs8BG.png"),
 }
 
 var map_obstacles = {
@@ -96,6 +97,9 @@ func _ready():
 		%p2Wall.collision_mask = 0
 		p1.score_board = %p1Score
 	
+	if GlobalSave.stage == "giants":
+		p1.outside_scale_add = 1
+	
 	var p1_clone
 	if "clones" == GlobalSave.stage:
 		p1_clone = player_objects[GlobalSave.p1Char].instantiate()
@@ -127,6 +131,9 @@ func _ready():
 		%p1Wall.collision_layer = 0
 		%p1Wall.collision_mask = 0
 		p2.score_board = %p2Score
+	
+	if GlobalSave.stage == "giants":
+		p2.outside_scale_add = 1
 	
 	var p2_clone
 	if "clones" == GlobalSave.stage:

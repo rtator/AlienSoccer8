@@ -1,7 +1,10 @@
 extends alien
 
 var together = true
-var sep_dist = 70
+var sep_dist = 72
+var close_dist = 18
+var base_sep_dist = 70
+var base_close_dist = 16
 var sep_speed = 10
 
 @onready var hitbox2 = %CollisionShape2D2
@@ -24,7 +27,6 @@ func _ability():
 
 func _ultimate():
 	if not ulting and ult_dur <= 0 and charge >= charge_max:
-		
 		if not together:
 			ulting = true
 			%twins_barrier.monitoring = true
@@ -57,6 +59,8 @@ func reset_skin():
 			%AnimatedSprite2D3.animation = "default_" + str(skin)
 
 func _ability_cooldown(delta):
+	hitbox2.scale = Vector2(base_scale, base_scale) 
+	
 	if blast != null and blast.alpha > 0:
 		#blast.position = Vector2(0,0)
 		blast.rotation = 0
@@ -75,14 +79,17 @@ func _ability_cooldown(delta):
 	if charge < charge_max and not ulting:
 		charge += delta * charge_mult
 	
+	sep_dist = base_sep_dist * base_scale
+	close_dist = base_close_dist * base_scale
+	
 	if together:
-		hitbox.position += (Vector2(0, 16) - hitbox.position).normalized() * sep_speed * delta
-		if hitbox.position.y - 16 <= 10:
-			hitbox.position = Vector2(0,16)
+		hitbox.position += (Vector2(0, close_dist) - hitbox.position).normalized() * sep_speed * delta
+		if hitbox.position.y - close_dist <= 10:
+			hitbox.position = Vector2(0,close_dist)
 		
-		hitbox2.position += (Vector2(0, -16) - hitbox2.position).normalized() * sep_speed * delta
-		if hitbox2.position.y + 16 >= -10:
-			hitbox2.position = Vector2(0,-16)
+		hitbox2.position += (Vector2(0, -close_dist) - hitbox2.position).normalized() * sep_speed * delta
+		if hitbox2.position.y + close_dist >= -10:
+			hitbox2.position = Vector2(0,-close_dist)
 	else:
 		hitbox.position += (Vector2(0, sep_dist) - hitbox.position).normalized() * sep_speed * delta
 		if hitbox.position.y - sep_dist >= -10:
@@ -91,9 +98,10 @@ func _ability_cooldown(delta):
 		if hitbox2.position.y + sep_dist <= 10:
 			hitbox2.position = Vector2(0, -sep_dist)
 	
-	twin_sprite1.position = hitbox.position
-	twin_sprite2.position = hitbox2.position
-	
+	twin_sprite1.position = (hitbox.position/base_scale)
+	twin_sprite2.position = (hitbox2.position/base_scale) 
+	#twin_sprite1.position.y -= (base_scale * 2) 
+	#twin_sprite2.position.y += (base_scale * 2) 
 
 func on_ready():
 	%twins_barrier.user = self
