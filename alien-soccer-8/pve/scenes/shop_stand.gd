@@ -28,16 +28,16 @@ var alienTextures = {
 }
 
 var flavour_text_options = [
-	"Hi! I'm [alien].",
-	"Heres a little something to help you on your way.",
-	"Feel free to take your time!",
-	"Welcome to '[alien] & Co.'! Feel free to peruse our wares.",
-	"Thank you [p1] and [p2] for protecting us from those terrible othersiders! Here, take a free power-up.",
-	"What a magnificent statue you have here! Wouldn't want it to break, now would you?",
+	"I've got 3 trinkets for you [p2], so choose wisely!",
+	"Here's something to help you on your journey.",
+	"Feel free to take your time! There's no rush.",
+	"Welcome to the Shop [p1], take a gander.",
+	"Thanks for protecting us from those Othersiders, [p1] and [p2]. I can help, take a trinket!",
+	"Make sure this statue doesn't break, yeah? It could cause absolute havoc...",
 	"Oh, [p1]! Nice seeing you, it's been a while.",
-	"Oh, [p2]! Nice seeing you, it's been a while.",
-	"Whoah, real pro soccer players! [p1], can I have your autograph pleeeease?",
-	"I lost my home to the othersiders, but I have enought to help you guys fight. Take one of these!",
+	"Oh, [p2]! Nice seeing you, it's been a moment.",
+	"You won't let Othersider win, right? Keep the Inverted statue safe.",
+	"My crew got taken by the othersiders, but I have enough to help you guys fight. Take one of these!",
 ]
 
 var texture_array = []

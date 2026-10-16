@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://y3g46r3hvkfc"]
+
+[ext_resource type="Script" uid="uid://cnwsbwucf7gng" path="res://coin_trinket.gd" id="1_vhl42"]
+[ext_resource type="Texture2D" uid="uid://dxttohyujy3wa" path="res://pve/assets/flipping_coin.png" id="2_syett"]
+[ext_resource type="LabelSettings" uid="uid://behho5mlyn3mw" path="res://pve/scenes/trinkets/common_trinket.tres" id="3_atqin"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0w1j7"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_64j8e"]
+radius = 200.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5myn"]
+atlas = ExtResource("2_syett")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hc22u"]
+atlas = ExtResource("2_syett")
+region = Rect2(0, 12, 12, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qgyb7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5myn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hc22u")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="coin_trinket" type="Node2D" unique_id=1389320459]
+script = ExtResource("1_vhl42")
+metadata/_custom_type_script = "uid://bjry2noygcyf4"
+
+[node name="grab" type="Area2D" parent="." unique_id=775703611]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grab" unique_id=1335198187]
+shape = SubResource("CircleShape2D_0w1j7")
+
+[node name="info" type="Area2D" parent="." unique_id=1255454407]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="info" unique_id=248200359]
+shape = SubResource("CircleShape2D_64j8e")
+
+[node name="sprite" type="AnimatedSprite2D" parent="." unique_id=1598324422]
+unique_name_in_owner = true
+texture_filter = 1
+scale = Vector2(5.3333335, 5.3333335)
+sprite_frames = SubResource("SpriteFrames_qgyb7")
+autoplay = "default"
+frame_progress = 0.026430292
+
+[node name="Control" type="Control" parent="." unique_id=1082284408]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -32.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control" unique_id=1674212741]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -56.0
+offset_top = -84.0
+offset_right = 56.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer" unique_id=1987369909]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="Label" type="Label" parent="Control/PanelContainer/MarginContainer" unique_id=944841396]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Coin:
+Flips a coin. Heads
+heals two health, tails
+deals one damage"
+label_settings = ExtResource("3_atqin")

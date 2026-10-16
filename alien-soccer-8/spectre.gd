@@ -47,13 +47,18 @@ func _ability_cooldown(delta):
 	hitbox.position = scythe_pos * base_scale
 	
 	position.y = clamp(position.y, 32, 616)
-	if player == 1 and GlobalSave.stage != "realSoccer":
+	if player == 1 and (GlobalSave.stage != "realSoccer" and not PveSave.is_pve):
 		position.x = clamp(position.x, 32, 544)
-	elif GlobalSave.stage != "realSoccer":
+	elif GlobalSave.stage != "realSoccer" and not PveSave.is_pve:
 		position.x = clamp(position.x, 608, 1120)
 	
 	angular_velocity = spin_speed
-	sprite.global_rotation = 0
+	var has_wheel
+	for trinket in PveSave.trinkets:
+		if trinket.name == "wheel":
+			has_wheel = true
+	if not has_wheel:
+		sprite.global_rotation = 0
 	if abs(spin_speed) <= 15:
 		spin_speed += (spin_mult * delta) * spin_dir
 		var speed_change_mult = move_speed / (base_move_speed + added_speed) 

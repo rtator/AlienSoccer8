@@ -11,4 +11,5 @@ func on_ready():
 	sprite = %sprite
 
 func on_grab():
+	PveSave.trinkets.append({"name": trinket_name})
 	PveSave.statue.health = min(PveSave.statue.health + 1, PveSave.statue.max_health)

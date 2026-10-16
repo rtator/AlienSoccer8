@@ -14,6 +14,7 @@ func on_ready():
 	sprite = %sprite
 
 func on_grab():
+	PveSave.trinkets.append({"name": trinket_name})
 	PveSave.p1.update_move_speed(PveSave.p1.move_speed * player_move_mult, PveSave.p1.speed_damp * player_friction_mult)
 	if PveSave.p2 != null:
 		PveSave.p2.update_move_speed(PveSave.p2.move_speed * player_move_mult, PveSave.p2.speed_damp * player_friction_mult)

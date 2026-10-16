@@ -13,6 +13,7 @@ func on_ready():
 	sprite = %sprite
 
 func on_grab():
+	PveSave.trinkets.append({"name": trinket_name})
 	PveSave.p1.cooldown_mult *= 1.2
 	PveSave.p1.charge_mult *= 1.2
 	if PveSave.p2 != null:

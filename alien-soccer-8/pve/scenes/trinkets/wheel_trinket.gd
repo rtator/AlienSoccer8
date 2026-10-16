@@ -13,6 +13,7 @@ func on_ready():
 	sprite = %sprite
 
 func on_grab():
+	PveSave.trinkets.append({"name": trinket_name})
 	PveSave.p1.set_deferred("lock_rotation",false)
 	PveSave.p1.physics_material_override.friction = 1
 	if PveSave.p2 != null:

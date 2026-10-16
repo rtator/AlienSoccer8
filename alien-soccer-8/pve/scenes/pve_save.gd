@@ -1,6 +1,6 @@
 extends Node
 
-var round = 0
+var wave = 0
 
 var is_pve = false
 
@@ -23,6 +23,7 @@ var common_trinkets = {
 	"batteries": preload("res://pve/scenes/trinkets/batteries_trinket.tscn"),
 	"wheel": preload("res://pve/scenes/trinkets/wheel_trinket.tscn"),
 	"red_juice": preload("res://pve/scenes/trinkets/red_juice_trinket.tscn"),
+	"coin": preload("res://pve/scenes/trinkets/coin_trinket.tscn"),
 }
 var uncommon_trinkets = {
 	"barricade": preload("res://pve/scenes/trinkets/barricade_trinket.tscn"),

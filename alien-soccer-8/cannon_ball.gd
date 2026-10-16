@@ -54,7 +54,9 @@ func _on_body_entered(body):
 			
 			if not user.opp_slowed and not user.ult_slowed:
 				body.add_speed_mult(slow_amount, slow_timer_add, 1, "pirate")
-				body.get_node("pirate_arrow").visible = true
+				if body.has_node("pirate_arrow"):
+					body.get_node("pirate_arrow").visible = true
+				
 				if ult:
 					user.ult_slowed = true
 				else:

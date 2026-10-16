@@ -64,7 +64,7 @@ var othersiders = []
 func _ready():
 	PveSave.trinkets = []
 	
-	PveSave.round = 0
+	PveSave.wave = 0
 	
 	if GlobalSave.one_player:
 		%inverted_statue.set_collision_layer_value(1, false)
@@ -260,7 +260,7 @@ func end_round():
 	round_time_label.visible = false
 
 func restart_round():
-	PveSave.round += 1
+	PveSave.wave += 1
 	
 	for ball in balls:
 		ball.linear_velocity = Vector2(randf_range(-1,1), randf_range(-1,1))

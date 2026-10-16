@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://bbwa35txob68" path="res://pve/scenes/time_left.gd" id="7_b3dlm"]
 [ext_resource type="Texture2D" uid="uid://cwxmd71ouvs8q" path="res://as8BG.png" id="7_vjsa0"]
 [ext_resource type="PackedScene" uid="uid://pbupro2qq25a" path="res://pve/scenes/pve_player_switcher.tscn" id="8_omrpd"]
+[ext_resource type="Script" uid="uid://c244e6b810nnt" path="res://pve/scenes/wave_counter.gd" id="9_6stsp"]
 [ext_resource type="PackedScene" uid="uid://qxvert3ui0m" path="res://countdown.tscn" id="9_luc4e"]
 [ext_resource type="PackedScene" uid="uid://d37ehvb448m5j" path="res://pve/scenes/shop_screen.tscn" id="10_hgbxj"]
 [ext_resource type="PackedScene" uid="uid://blxd5g4yhdlgb" path="res://pve/scenes/ball_eater.tscn" id="11_lc2ep"]
@@ -26,6 +27,11 @@ normal = Vector2(-1, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_qgyb7"]
 font_size = 100
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_w6fl8"]
+font_size = 50
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(5, 5)
 
@@ -166,6 +172,14 @@ autostart = true
 unique_name_in_owner = true
 wait_time = 10.001
 autostart = true
+
+[node name="wave_counter" type="Label" parent="CanvasLayer/Control" unique_id=1812225721]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Wave "
+label_settings = SubResource("LabelSettings_w6fl8")
+script = ExtResource("9_6stsp")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=378146820]
 unique_name_in_owner = true

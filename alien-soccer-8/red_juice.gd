@@ -13,6 +13,7 @@ func on_ready():
 	sprite = %sprite
 
 func on_grab():
+	PveSave.trinkets.append({"name": trinket_name})
 	PveSave.p1.outside_scale_add += player_scale_add
 	if PveSave.p2 != null:
 		PveSave.p2.outside_scale_add += player_scale_add

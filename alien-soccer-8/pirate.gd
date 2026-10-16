@@ -16,12 +16,18 @@ var down_arrows = []
 
 func _ability():
 	if not balls_out and not ult_balls_out and cooldown <= 0:
-		cannons.fire(false, opponent[randi_range(0, len(opponent) - 1)].position)
+		if len(opponent) > 0:
+			cannons.fire(false, opponent[randi_range(0, len(opponent) - 1)].position)
+		else:
+			cannons.fire(false, Vector2(randf_range(0, 1152), randf_range(0, 648)))
 		balls_out = true 
 
 func _ultimate():
 	if not balls_out and not ult_balls_out and charge >= charge_max:
-		cannons.fire_ult(opponent[randi_range(0, len(opponent) - 1)].position)
+		if len(opponent) > 0:
+			cannons.fire_ult(opponent[randi_range(0, len(opponent) - 1)].position)
+		else:
+			cannons.fire_ult(Vector2(randf_range(0, 1152), randf_range(0, 648)))
 		ult_balls_out = true
 		charge = 0
 

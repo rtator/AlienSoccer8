@@ -11,9 +11,12 @@ func _ready():
 		text.text = "PLAYER 2"
 		text.label_settings.font_color = Color.CORNFLOWER_BLUE
 	if GlobalSave.playing_pve:
+		$VBoxContainer.position.y = 130
 		text.text = "YOU"
 		%Label2.text = "LOSE"
 		text.label_settings.font_color = Color.RED
+		%wave_counter.visible = true
+		%wave_counter.text = "You Reached:\n Wave " + str(PveSave.wave)
 		GlobalSave.playing_pve = false
 
 func _physics_process(delta):
