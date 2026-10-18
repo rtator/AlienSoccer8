@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://ccaw7gtnpq1w6"]
+
+[ext_resource type="PackedScene" uid="uid://cxs85ffsk7nuo" path="res://explorerAlien.tscn" id="1_rwgdb"]
+[ext_resource type="PackedScene" uid="uid://c1gl0hvam08pm" path="res://ball.tscn" id="2_obfqr"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_obfqr"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yhil0"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_23efq"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pm270"]
+
+[node name="explorer_test" type="Node2D" unique_id=1326332922]
+
+[node name="game_border" type="StaticBody2D" parent="." unique_id=415632640]
+unique_name_in_owner = true
+collision_layer = 139
+collision_mask = 139
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="game_border" unique_id=1590989275]
+shape = SubResource("WorldBoundaryShape2D_obfqr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="game_border" unique_id=995221540]
+shape = SubResource("WorldBoundaryShape2D_yhil0")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="game_border" unique_id=426906366]
+position = Vector2(1152, 648)
+shape = SubResource("WorldBoundaryShape2D_23efq")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="game_border" unique_id=1461875623]
+position = Vector2(1152, 648)
+shape = SubResource("WorldBoundaryShape2D_pm270")
+
+[node name="explorerAlien" parent="." unique_id=1652628796 instance=ExtResource("1_rwgdb")]
+
+[node name="ball" parent="." unique_id=676700023 instance=ExtResource("2_obfqr")]
+position = Vector2(574, 286)

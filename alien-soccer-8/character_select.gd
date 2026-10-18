@@ -25,6 +25,7 @@ const alienTextures = {
 	"nuclear": preload("res://as8_sprites_png/nuclear.png"),
 	"breezer": preload("res://as8_sprites_png/breezer.png"),
 	"decayed": preload("res://as8_sprites_png/decayed.png"),
+	"explorer": preload("res://as8_sprites_png/explorer.png"),
 }
 
 var alien_names = alienTextures.keys()
@@ -55,6 +56,7 @@ var p2_selected_button = 0
 	%nuclear,
 	%breezer,
 	%decayed,
+	%explorer,
 ]
 
 var started = false

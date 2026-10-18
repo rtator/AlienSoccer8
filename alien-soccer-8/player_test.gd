@@ -76,9 +76,7 @@ func _physics_process(delta_milliseconds):
 		position = last_pos
 	else:
 		last_pos = position
-	print("scale: ", scale)
 	if is_nan(scale.x):
-		print("fixed scale: ", last_scale)
 		scale = last_scale
 	else:
 		last_scale = scale

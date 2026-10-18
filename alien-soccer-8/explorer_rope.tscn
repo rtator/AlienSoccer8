@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cyu87mi56fijv"]
+
+[ext_resource type="Texture2D" uid="uid://bde87jjqoh7h7" path="res://as8_sprites_png/rope_tile.png" id="1_vjcw0"]
+[ext_resource type="Script" uid="uid://djlxtdrhuc4y8" path="res://explorer_rope.gd" id="2_dme7n"]
+
+[node name="explorer_rope" type="Line2D" unique_id=189190587]
+show_behind_parent = true
+texture_filter = 1
+texture_repeat = 2
+points = PackedVector2Array(0, 0, 0, 0)
+texture = ExtResource("1_vjcw0")
+texture_mode = 1
+joint_mode = 2
+script = ExtResource("2_dme7n")

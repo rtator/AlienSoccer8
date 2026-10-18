@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cohdxulkumx2q"]
+
+[ext_resource type="Script" uid="uid://bm5o1kcpcwyth" path="res://hook_shot.gd" id="1_jt0nu"]
+[ext_resource type="Texture2D" uid="uid://bpuwgcrycgmvf" path="res://as8_sprites_png/hook_shot.png" id="2_0f0aq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vt7g2"]
+radius = 21.0
+
+[node name="hook_shot" type="Area2D" unique_id=569108767]
+script = ExtResource("1_jt0nu")
+
+[node name="HookShot" type="Sprite2D" parent="." unique_id=2041387817]
+texture_filter = 1
+position = Vector2(17, 0)
+rotation = 0.7853982
+scale = Vector2(1.83, 1.83)
+texture = ExtResource("2_0f0aq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1009246720]
+position = Vector2(17, 0)
+shape = SubResource("CircleShape2D_vt7g2")
+
+[node name="Timer" type="Timer" parent="." unique_id=771562268]
+wait_time = 3.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

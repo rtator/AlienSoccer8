@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://cxs85ffsk7nuo"]
 
 [ext_resource type="Script" uid="uid://cle3tqdw4ji7k" path="res://explorer.gd" id="1_4p8j7"]
-[ext_resource type="Texture2D" uid="uid://cgyean3pcltia" path="res://explorer.png" id="2_ileb6"]
+[ext_resource type="Texture2D" uid="uid://cne2o1whcxa76" path="res://as8_sprites_png/explorer.png" id="2_4p8j7"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vjcw0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qgyb7"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_ileb6")
+"texture": ExtResource("2_4p8j7")
 }],
 "loop": 1,
 "name": &"default",
@@ -18,15 +20,29 @@ animations = [{
 radius = 32.0
 
 [node name="explorerAlien" type="RigidBody2D" unique_id=1652628796]
+physics_material_override = SubResource("PhysicsMaterial_vjcw0")
+gravity_scale = 0.0
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 5
 script = ExtResource("1_4p8j7")
 metadata/_custom_type_script = "uid://e41xdpe4oqa2"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1976326010]
 unique_name_in_owner = true
 texture_filter = 1
-scale = Vector2(0.25108224, 0.25108227)
+scale = Vector2(0.3111111, 0.31111115)
 sprite_frames = SubResource("SpriteFrames_qgyb7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1599749329]
 unique_name_in_owner = true
 shape = SubResource("CircleShape2D_qgyb7")
+
+[node name="Timer" type="Timer" parent="." unique_id=1093300041]
+unique_name_in_owner = true
+wait_time = 0.3
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
