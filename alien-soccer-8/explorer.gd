@@ -18,7 +18,7 @@ var max_cooldown = 150
 var bodies_in =  0
 
 func _ability():
-	if cooldown <= 0 and duration <= 0 and not hook_out:
+	if cooldown <= 0 and duration <= 0 and not hook_out_ult and not hook_out:
 		update_move_speed(move_speed * hook_move_mult)
 		
 		spawn_hook()
@@ -43,7 +43,7 @@ func spawn_hook(ult = false):
 	rope.active = true
 
 func _ultimate():
-	#if charge >= charge_max and not hook_out_ult:
+	if charge >= charge_max and not hook_out_ult and not hook_out:
 		update_move_speed(move_speed * hook_move_mult)
 		
 		spawn_hook(true)
