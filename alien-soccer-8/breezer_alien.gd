@@ -1,7 +1,7 @@
 extends alien
 
-var slow_amount_base = 0.2
-var slow_amount_default = 0.3
+var slow_amount_base = 0.3
+var slow_amount_default = 0.4
 var slow_amount = slow_amount_base
 
 var ball_in_area = false
@@ -17,8 +17,8 @@ var max_cooldown = 200
 var blizzard_vfx_load = preload("res://breezer_blizzard.tscn")
 var blizzard_vfx 
 var blizzarding = false
-var ult_slow = 0.25
-var ult_speed = 0.15
+var ult_slow = 0.3
+var ult_speed = 0.3
 
 func _ability():
 	if cooldown <= 0 and duration <= 0 and not bursting:
@@ -117,6 +117,6 @@ func on_ready():
 	squish *= 2
 	stretch *= 2
 	
-	charge_max = 200
+	charge_max = 100
 	
 	update_move_speed(move_speed * 0.75, speed_damp * 1.0)
