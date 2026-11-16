@@ -15,11 +15,11 @@ func _ability():
 			roll = randf_range(0,3)
 		
 		if roll > 3:
-			update_scale(base_scale * 2)
+			update_scale((base_scale * 2) - outside_scale_add)
 		elif roll > 2:
 			update_move_speed(move_speed * 1.5)
 		elif roll > 1:
-			update_scale(base_scale / 2)
+			update_scale((base_scale / 2) - outside_scale_add)
 		else:
 			update_move_speed(move_speed / 1.5)
 		
@@ -74,11 +74,11 @@ func _ability_cooldown(delta):
 				var roll = item[0]
 				
 				if roll > 3:
-					update_scale(base_scale / 2)
+					update_scale((base_scale / 2) - outside_scale_add)
 				elif roll > 2:
 					update_move_speed(move_speed / 1.5)
 				elif roll > 1:
-					update_scale(base_scale * 2)
+					update_scale((base_scale * 2) - outside_scale_add)
 				else:
 					update_move_speed(move_speed * 1.5)
 				
